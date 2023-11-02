@@ -1,0 +1,72 @@
+{% if timer_end_date != blank %} 
+  <span class="timer_heading_new">{{ title }}</span>
+  <span class="text timer-pp2"> 
+    <span class="timer-block js-timer-days-pp2"></span> 
+    <span class="timer-block js-timer-hours-pp2"></span> 
+    <span class="timer-block js-timer-minutes-pp2"></span> 
+    <span class="timer-block js-timer-seconds-pp2"></span> 
+  </span>
+  
+  <script type="text/javascript"> 
+     function splitAndWrap_pp2(str,bef,aft){
+         str= str.toString().split('').join(aft+bef);
+         return  str  ?  bef+str+aft:''  ;
+     }
+    
+      var second = 1000, 
+       minute = second * 60, 
+       hour = minute * 60, 
+       day = hour * 24; 
+       var countDown_pp2 = new Date('{{- timer_end_date -}}').getTime(), 
+       x = setInterval(function() { 
+         var now = new Date().getTime(), distance_pp2 = countDown_pp2 - now; 
+         if(distance_pp2 > 0)
+         {
+           var day_display_pp2 = Math.floor(distance_pp2 / (day));
+           var hour_display_pp2 = Math.floor((distance_pp2 % (day)) / (hour));
+           var minute_display_pp2 = Math.floor((distance_pp2 % (hour)) / (minute));
+           var second_display_pp2 = Math.floor((distance_pp2 % (minute)) / second);
+
+           if(day_display_pp2 > 0 && day_display_pp2 < 10)
+           {
+             document.querySelector('.js-timer-days-pp2').innerHTML = "<span class=timer_num_new>0</span>"+`${splitAndWrap_pp2(day_display_pp2,'<span class=timer_num_new>','</span>')}` + "<span class='colon_new'>:</span>";
+           }
+           else if(day_display_pp2 > 10)
+           {
+             document.querySelector('.js-timer-days-pp2').innerHTML = `${splitAndWrap_pp2(day_display_pp2,'<span class=timer_num_new>','</span>')}` + "<span class='colon_new'>:</span>";
+           }
+          
+           if(hour_display_pp2 > 9)
+           {
+             document.querySelector('.js-timer-hours-pp2').innerHTML = `${splitAndWrap_pp2(hour_display_pp2,'<span class=timer_num_new>','</span>')}` + "<span class='colon_new'>:</span>";
+           } 
+           else
+           {
+             document.querySelector('.js-timer-hours-pp2').innerHTML = "<span class=timer_num_new>0</span>"+`${splitAndWrap_pp2(hour_display_pp2,'<span class=timer_num_new>','</span>')}` + "<span class='colon_new'>:</span>";
+           }
+          
+           if(minute_display_pp2 > 9)
+           {
+             document.querySelector('.js-timer-minutes-pp2').innerHTML = `${splitAndWrap_pp2(minute_display_pp2,'<span class=timer_num_new>','</span>')}` + "<span class='colon_new'>:</span>";
+           }
+           else
+           {
+             document.querySelector('.js-timer-minutes-pp2').innerHTML = "<span class=timer_num_new>0</span>"+`${splitAndWrap_pp2(minute_display_pp2,'<span class=timer_num_new>','</span>')}` + "<span class='colon_new'>:</span>";
+           }
+
+           if(second_display_pp2 > 9)
+           {
+             document.querySelector('.js-timer-seconds-pp2').innerHTML = `${splitAndWrap_pp2(second_display_pp2,'<span class=timer_num_new>','</span>')}`;
+           }
+           else
+           {
+             document.querySelector('.js-timer-seconds-pp2').innerHTML = "<span class=timer_num_new>0</span>"+`${splitAndWrap_pp2(second_display_pp2,'<span class=timer_num_new>','</span>')}`;
+           }
+         }
+         else
+         {
+           document.querySelector('.Page_time_text_with_image_innerleft_timer_new').style.display="none";
+         }
+     }, second) 
+  </script> 
+{% endif %}

@@ -1,0 +1,195 @@
+<script defer="defer">
+
+  // Run scripts on DOMContentLoaded to avoid affecting site load time
+  window.addEventListener('DOMContentLoaded', function(){
+
+    // Checks if Extend lives in the window and the active currency is USD before showing Extend offers
+    if (window.Extend && window.ExtendShopify && window.Shopify.currency.active === "USD") {
+
+      if (document.querySelector('.extend-offer')) return;
+
+      /************************/
+      /* Initial Variables */
+      /************************/
+      //Runs integration for each form, necessary on home page to handle 2 PDP on one page
+      var productForms = document.querySelectorAll('form[action="/cart/add"]'); // Change this to the product form element
+
+      /************************/
+      /* initProductOffer */
+      /************************/
+      // Initializes product offers and handles ATC button functionality for the main PDP ATC
+      function initProductOffer(productForm, index) {
+
+        var addToCartButton = productForm.querySelector('button[name="add"]'); // Change this to the Add-To-Cart element
+        var extendOffer = document.createElement('div');
+
+        extendOffer.id = 'extend-offer-' + index;
+        extendOffer.className = 'extend-offer';
+        addToCartButton.parentElement.insertBefore(extendOffer, addToCartButton)
+
+        // Fail safes
+        if(!productForm || !addToCartButton || !extendOffer) return;
+
+        // Check if product is an extend warranty, if so disable the atc
+        function isExtend() {
+          if(meta.product && meta.product.vendor == "Extend"){
+            addToCartButton.disabled = true;
+          }
+        }
+
+        // Checks if product is an Extend warranty and if so disables 
+        isExtend();
+
+        var variantId;
+
+        // Listens for changes to the productForm and sets the activeProduct for extend via variantID
+        productForm.addEventListener('change', function () {
+          variantId = productForm.id.value
+          if (variantId) {
+            Extend.setActiveProduct(extendOffer, variantId);
+            isExtend();
+          } else {
+            Extend.setActiveProduct(extendOffer, 1);
+            isExtend();
+          }
+        });
+
+
+        /***********************************/
+        /* Begin Buy Now */
+        /***********************************/
+        // Await buy now button render
+        window.addEventListener('load', function(){
+          window.setTimeout(function() {
+
+            var buyItNowDiv = productForm.querySelector('.shopify-payment-button__more-options').parentElement;
+
+            if (!buyItNowDiv) return;
+
+            // Creates function to handle Buy It Now button user clicks
+            function handleBuyItNow(e) {
+              e.stopPropagation();
+              var buyItNowButton = buyItNowDiv.querySelector('.shopify-payment-button__more-options');
+
+              var quantityEl = productForm.querySelector('[name="quantity"]');
+              var quantity = quantityEl && quantityEl.value;
+
+              //Directs user to check out on successful add to cart
+              function addToCartSuccess() {
+                window.location.href = "/checkout";
+              }
+
+              // Continues with standard Buy It Now flow on unsuccessful add to cart
+              function addToCartFail() {
+
+                buyItNowDiv.removeEventListener('click', handleBuyItNow, true);
+                buyItNowButton.click();
+
+              }
+
+              // Creates function to add items to the cart
+              function addItem(form_id) {
+
+                $.ajax({
+                  type: 'POST', 
+                  url: '/cart/add.js',
+                  dataType: 'json', 
+                  data: $('#'+form_id).serialize(),
+                  success: addToCartSuccess,
+                  error: addToCartFail
+                });
+
+              }
+
+              /********************/
+              /* Start Utility Function */
+              /********************/
+
+              function isHidden(el) {
+                var style = window.getComputedStyle(el);
+                return (style.display === 'none');
+              }
+
+              /******************/
+              /* End Utility Function */
+              /******************/
+
+              if (buyItNowButton && !isHidden(buyItNowButton)) {
+                ExtendShopify.handleAddToCart("#extend-offer-" + index, {
+
+                  quantity: quantity,
+                  modal: false,
+                  done: function () {
+
+                    // Select the form where the add to cart button is in.
+                    addItem(productForm.getAttribute('id'));
+
+                  },
+                });
+              } else {
+                buyItNowDiv.removeEventListener('click', handleBuyItNow, true);
+                e.target.click();
+              }
+            }
+
+            // Checks if Buy It Now div exists before adding event listener
+            if (buyItNowDiv){ 
+              buyItNowDiv.addEventListener('click', handleBuyItNow, true);
+            }
+
+          }, 2500)
+        })
+        /******************/
+        /* End Buy Now */
+        /******************/
+
+        // Grabs the variantId from the productForm and renders the initial offers for it
+        variantId = productForm.id.value
+        Extend.buttons.render(extendOffer, {referenceId: variantId })
+
+        //click simulation handling add to cart
+        function handleAddToCart(e) {
+          e.preventDefault();
+          e.stopImmediatePropagation();
+
+          var quantityEl = productForm.querySelector('[name="quantity"]');
+          var quantity = quantityEl && quantityEl.value;
+          ExtendShopify.handleAddToCart(extendOffer, {
+            quantity: quantity,
+            modal: false,
+            done: function () {
+              // Trigger Analytics
+              if (Extend.analytics) window.Extend.productAnalytics(variantId, quantity);
+              // remove default click listener
+              addToCartButton.removeEventListener('click', handleAddToCart, true);
+              //click atc button
+              addToCartButton.click();
+              // add default click listener back
+              addToCartButton.addEventListener('click', handleAddToCart, true);
+            },
+          });
+        }
+
+        //run handleCaddtoCart when we click ATC, capturing event
+        addToCartButton.addEventListener('click', handleAddToCart, true);
+
+      }
+
+      // Initial product offer render
+      productForms.forEach(function(each, index) {
+        initProductOffer(each, index);
+      })
+
+    }
+
+  })
+
+</script>
+
+<style>
+
+  .extend-offer {
+    margin: -25px 0 5px 0;
+  }
+
+</style>

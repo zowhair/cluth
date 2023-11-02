@@ -1,0 +1,131 @@
+{%- assign swatch_file_extension = 'png' -%}
+
+<div class="variant-wrapper small--text-center js" data-type="button">
+  <label class="variant__label{% if option.name == 'Default' or option.name == 'Title' %} hidden-label{% endif %}{% unless variant_labels %} hidden-label{% endunless %}"
+    for="ProductSelect-{{ section_id }}-{{ product.id }}-option-{{ forloop.index0 }}">
+   {{ option.name }} :
+    {%- if option.name == 'Color' -%}
+      <span class="variant__label-info">
+        <span
+          data-color-new-label
+          data-color-label-index="{{ forloop.index0 }}"
+          data-option-index="{{ color_option_index }}">
+          {{ option.selected_value }}
+        </span>
+      </span>
+    {%- endif -%}
+    {%- if option.name == 'Your Device’s Port' -%}
+      <span class="variant__label-info">
+        <span
+          data-device-label
+          data-color-label-index="{{ forloop.index0 }}"
+          data-option-index="{{ color_option_index }}"
+          data-panel-index="{{posIndex}}"
+          popup_id = "{{ option.selected_value | handleize }}-{{posIndex}}"
+        >
+          {{ option.selected_value }}
+        </span>
+        <span class="device_question_new" js-popup-modal-btn>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g clip-path="url(#clip0_1_1140)">
+            <path d="M8 0C3.58867 0 0 3.58867 0 8C0 12.4113 3.58867 16 8 16C12.4113 16 16 12.4113 16 8C16 3.58867 12.4113 0 8 0ZM7.66667 12.6667C7.11467 12.6667 6.66667 12.2187 6.66667 11.6667C6.66667 11.1147 7.11467 10.6667 7.66667 10.6667C8.21867 10.6667 8.66667 11.1147 8.66667 11.6667C8.66667 12.2187 8.21867 12.6667 7.66667 12.6667ZM10.5407 6.75133C10.3347 7.08133 9.94333 7.452 9.366 7.864C8.432 8.55467 8.45733 8.708 8.45733 9.33333H6.81933C6.81933 8.84467 6.80867 8.46933 7.07267 8.01267C7.24133 7.72 7.55067 7.40867 8 7.07933C8.53933 6.694 9.06333 6.32267 9.06333 5.676C9.06333 5.07 8.54467 4.854 7.93867 4.854C7.32067 4.854 6.616 5.056 5.82467 5.46L5.15067 4.10667C6.58867 3.30067 8.858 2.936 10.0987 3.946C11.0093 4.688 11.0147 5.99267 10.5407 6.75133Z" fill="white"/>
+            </g>
+            <defs>
+            <clipPath id="clip0_1_1140">
+            <rect width="16" height="16" fill="white"/>
+            </clipPath>
+            </defs>
+          </svg>
+        </span>
+      </span>
+    {%- endif -%}
+  </label>
+  {%- assign option_index = forloop.index -%}
+  <fieldset class="variant-input-wrap {{ option.name | handleize }}"
+    name="{{ option.name }}"
+    data-index="option{{ option_index }}"
+    data-handle="{{ option.name | handleize }}"
+    id="ProductSelect-{{ section_id }}-{{ product.id }}-option-{{ forloop.index0 }}-{{posIndex}}"
+    data-input-position-index="{{ posIndex }}"
+  >
+    <legend class="hide">{{ option.name }}</legend>
+
+    {%- for value in option.values -%}
+      {%- assign product_available = true -%}
+      {%- if product.options.size == 1 -%}
+        {%- assign product_available = product.variants[forloop.index0].available -%}
+      {%- endif -%}
+      {%- unless product_available == false -%}
+        <div
+          class="variant-input"
+          data-index="option{{ option_index }}"
+          data-value="{{ value | escape }}">
+          <input type="radio"
+            form="{{ form_id }}"
+            {% if option.selected_value == value and product_available %} checked="checked" {% endif %}
+            value="{{ value | escape }}"
+            data-index="option{{ option_index }}"
+            name="{{ section_id }}-{{ product.id }}-option-{{ option.name | handleize }}-{{ posIndex }}"
+            {% if is_color %} js-bundle-product-select-1 {% else %} js-bundle-product-select-2 {% endif%}
+            {% if is_color %}data-color-swatch{% endif %}
+            class="variant__input-{{ section_id }}{% unless product_available %} disabled{% endunless %}"
+            {% if is_color %} data-color-name="{{ value | escape }}"{% endif %}
+            {% if is_color %} data-color-index="{{ color_option_index }}"{% endif %}
+            id="ProductSelect-{{ section_id }}-{{ product.id }}-option-{{ option.name | handleize }}-{{ value | url_encode }}-{{ posIndex }}" data-input-position-index="{{ posIndex }}">
+            
+          {%- if is_color -%}
+            {%- liquid
+              assign color_file_name = value | handle | append: '.' | append: swatch_file_extension
+              assign color_image = color_file_name | file_img_url: '50x50' | prepend: 'https:' | split: '?' | first
+              assign color_swatch_fallback = value | split: ' ' | last | handle
+  
+              for image in product.variants[forloop.index0].metafields.custom.image_variant.value
+                if forloop.first
+                  assign imageVariant = image 
+                endif
+              endfor
+  
+            -%}
+            <label
+              data-image="{{ imageVariant.id }}"
+              for="ProductSelect-{{ section_id }}-{{ product.id }}-option-{{ option.name | handleize }}-{{ value | url_encode }}-{{posIndex}}"
+              class="color-swatch color-swatch--{{ value | handle }}{% unless product_available %} disabled{% endunless %}"
+              style="background-color: {{ product.variants[forloop.index0].metafields.custom.color_swatch }}; background-image: url({{ imageVariant | img_url: 'master' }}); background-size:40px; 
+                {% comment %}
+                  {% if images[color_file_name] != blank %}  background-image: url({{ color_image }});{% endif %}
+                {% endcomment %}
+              "
+            >
+              {{ value | escape }}
+            </label>
+          {%- else -%}
+  
+            {%- liquid
+              for image in product.variants[forloop.index0].metafields.custom.image_variant.value
+              if forloop.first
+                assign imageVariant = image 
+              endif
+            endfor
+            -%}
+
+            <label data-image="{{ imageVariant.id }}" for="ProductSelect-{{ section_id }}-{{ product.id }}-option-{{ option.name | handleize }}-{{ value | url_encode }}-{{posIndex}}" class="other_label_new {% unless product_available %} disabled{% endunless %}">{{ value | escape }}</label>
+            <div class="small_popup_new {{ value | handleize  }}-{{posIndex}}_popup">
+              <div class="small_popup_close_new">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M11 4L4 11" stroke="#0C0C0C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M4 4L11 11" stroke="#0C0C0C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div class="small_popup_title_new">
+                {{ value }}
+              </div>
+              <div class="small_popup_desc_new">
+                {{ product.variants[forloop.index0].metafields.custom.variant_popup_message | metafield_tag }}
+              </div>
+            </div>
+          {%- endif -%}
+        </div>
+      {%- endunless -%}
+    {%- endfor -%}
+  </fieldset>
+</div>

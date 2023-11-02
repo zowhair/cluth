@@ -1,0 +1,658 @@
+{{ 'component-main-collection.min.css' | asset_url | stylesheet_tag: preload: true }}
+
+{% comment %}
+  This sections requires the same `paginate_by` variable value as
+  the other sections for the ajax loading to work.
+  If you change the number below, it must also be changed in:
+  - sections/collection-template
+  - sections/featured-collection-slider
+  - snippets/page-block-featured-collection-slider
+{% endcomment %}
+{%- liquid
+  assign paginate_by = 24
+  assign per_row_desktop = 3
+  assign per_row_mobile = 1
+  assign mobile_flush = false
+
+  for block in section.blocks
+    case block.type
+    when 'product_grid'
+      assign per_row_desktop = block.settings.per_row_desktop
+      assign per_row_mobile = block.settings.per_row_mobile
+      if per_row_mobile == '2-flush'
+        assign mobile_flush = true
+      endif
+    endcase
+  endfor
+
+  case per_row_desktop
+    when 2
+      assign grid_large_width = 'medium-up--one-half'
+    when 3
+      assign grid_large_width = 'medium-up--one-third'
+    when 4
+      assign grid_large_width = 'medium-up--one-quarter'
+  endcase
+
+  assign grid_small_width = 'grid-product--padded'
+
+  if per_row_mobile contains '2'
+    assign per_row_mobile = 2
+    assign grid_small_width = 'small--one-half'
+  endif
+-%}
+
+{%- capture grid_item_width -%}{{ grid_small_width }} {{ grid_large_width}}{%- endcapture -%}
+
+{% paginate collection.products by paginate_by %}
+
+<div
+  id="CollectionSection"
+  data-section-id="{{ section.id }}"
+  data-section-type="collection-template"
+  data-product-sliders-mobile="{% if per_row_mobile == '1' %}true{% else %}false{% endif %}">
+
+  <div class="page-width">
+    {%- for block in section.blocks -%}
+      {%- case block.type -%}
+      {%- when 'collection_description' -%}
+        {%- if collection.description != blank -%}
+          <div class="rte text-center">
+            {{ collection.description }}
+          </div>
+        {%- endif -%}
+      {%- when 'product_grid' -%}
+        
+        {% assign counter_variants = 0 %}
+        
+        {%- for pro in collection.products -%}
+          {% assign counter_variants = counter_variants | plus: pro.variants.size %}
+        {% endfor %}
+
+        <div class="filters-collection__head">
+          <img src="{{ 'filter-icon.png' | asset_url }}" alt="filer">
+          <h4>Filter by</h4>
+          <h5>Clutch {{ counter_variants }} Items</h5>
+        </div>
+
+        <div id="CollectionAjaxContent" class="body-collection">
+          
+          {% render "filter-collection", tags: section.settings.filter_tags, products: collection.products %}
+
+          <div
+            class="grid grid--uniform grid--scattered-large-{{ per_row_desktop }} grid--scattered-small-{{ per_row_mobile }}{% if mobile_flush %} small--grid--flush{% endif %}"
+            data-collection-container>
+
+            {%- for product in collection.products -%}
+              {% if product.options.first == "Color" and product.options.size == 1 %}
+                {% for variant in product.variants %}
+                  {% if forloop.first %}
+                    {%- assign productClass = grid_item_width | append: ' original-selected-product' -%}
+                  {% else %}
+                    {%- assign productClass = grid_item_width -%}
+                  {% endif %}
+                  {%- render 'product-grid-item'
+                    product: product,
+                    grid_item_width: productClass,
+                    selected_variant_obj: variant
+                  -%}
+                {% endfor %}
+              {% elsif product.options.first == "Denominations" and product.options.size == 1 %}
+                {% for variant in product.variants %}
+                  {% if forloop.first %}
+                    {%- assign productClass = grid_item_width | append: ' original-selected-product' -%}
+                  {% else %}
+                    {%- assign productClass = grid_item_width -%}
+                  {% endif %}
+                  {%- render 'product-grid-item'
+                    product: product,
+                    grid_item_width: productClass,
+                    selected_variant_obj: variant
+                  -%}
+                {% endfor %}
+              {% else %}
+                {%- render 'product-grid-item'
+                  product: product,
+                  grid_item_width: grid_item_width
+                -%}
+              {% endif %}
+            {%- else -%}
+              <div class="grid__item">
+                <p>{{ 'collections.general.no_matches' | t }}</p>
+              </div>
+            {%- endfor -%}
+ 
+            {% if collection.metafields.card.info_card %}
+              {% for block in section.blocks %}
+                {% case block.type %}
+                  {% when 'info_card' %}
+                      {% case block.settings.style_card %}
+                        {% when 'one' %}
+
+                          {% if block.settings.style_card_one == 'style_one' %}
+                            {% assign type_style_card_one = 'icon__center-down' %}
+                          {% elsif block.settings.style_card_one == 'style_two'  %}
+                            {% assign type_style_card_one = 'icon__top-right' %}
+                          {% endif %}
+
+                        <div
+                          id="element-card--{{forloop.index0}}" 
+                          class="name_card element-card grid__item grid-product {{ grid_item_width }}{% if settings.product_hover_details %} grid-product__hover-details{% endif %}">
+                          <div 
+                            class="grid-product__content card card--one {{ type_style_card_one }}" 
+                            style="background-image: url('{{ block.settings.bg_one | img_url: '1024x' }}');">
+                            <div class="card-body">
+                              {{ block.settings.icon_one | img_url: '100' | img_tag | replace: '<img', '<img class="card__icon"'  }}
+                              <span class="card__text">{{ block.settings.text_one }}</span>
+                            </div>
+                          </div>
+                        </div>
+
+                        {% when 'two' %}
+
+                        <div id="element-card--{{forloop.index0}}" class="name_card element-card grid__item grid-product {{ grid_item_width }}{% if settings.product_hover_details %} grid-product__hover-details{% endif %}">
+                          <div class="grid-product__content card card--two desktop" style="background-image: url('{{ block.settings.bg_two_desk | img_url: '1024x' }}');">
+                          </div>
+                          <div class="grid-product__content card card--two mobile" style="background-image: url('{{ block.settings.bg_two_mobile | img_url: '1024x' }}');">
+                          </div>
+                        </div>
+
+                        {% when 'three' %}
+
+                        <div id="element-card--{{forloop.index0}}" class="name_card element-card grid__item grid-product {{ grid_item_width }}{% if settings.product_hover_details %} grid-product__hover-details{% endif %}">
+                          <div class="grid-product__content card card--three" style="background-image: url('{{ block.settings.bg_three | img_url: '1024x' }}');">
+                            <div class="card-body">
+                              <div class="card-body__rating" >
+                                {{ block.settings.rating | img_url: '120x24' | img_tag }}
+                                <span class="card-body__rating-count">2,500+ Reviews</span>
+                              </div>
+                              <div class="card-body__content">
+                                {% if block.settings.title_three != blank %}
+                                  <span class="card-body__title">{{ block.settings.title_three }}</span>
+                                {% endif %}
+                                <span class="card-body__text">{{ block.settings.text_three }}</span>
+                              </div>
+                              <div class="card-body__footer">
+                                <span class="card-body__author">{{ block.settings.name_client }}</span>
+                                <span class="card-body__verified">
+                                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M8.6 14.6L15.65 7.55L14.25 6.15L8.6 11.8L5.75 8.95L4.35 10.35L8.6 14.6ZM10 20C8.61667 20 7.31667 19.7373 6.1 19.212C4.88333 18.6873 3.825 17.975 2.925 17.075C2.025 16.175 1.31267 15.1167 0.788 13.9C0.262667 12.6833 0 11.3833 0 10C0 8.61667 0.262667 7.31667 0.788 6.1C1.31267 4.88333 2.025 3.825 2.925 2.925C3.825 2.025 4.88333 1.31233 6.1 0.787C7.31667 0.262333 8.61667 0 10 0C11.3833 0 12.6833 0.262333 13.9 0.787C15.1167 1.31233 16.175 2.025 17.075 2.925C17.975 3.825 18.6873 4.88333 19.212 6.1C19.7373 7.31667 20 8.61667 20 10C20 11.3833 19.7373 12.6833 19.212 13.9C18.6873 15.1167 17.975 16.175 17.075 17.075C16.175 17.975 15.1167 18.6873 13.9 19.212C12.6833 19.7373 11.3833 20 10 20Z" fill="#F9C305"/>
+                                  </svg>
+                                  Verified Buyer
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        {% when 'four' %}
+
+                        <div id="element-card--{{forloop.index0}}" class="name_card element-card grid__item grid-product {{ grid_item_width }}{% if settings.product_hover_details %} grid-product__hover-details{% endif %}">
+                          <div class="grid-product__content card card--four" style="background-image: url('{{ block.settings.bg_four | img_url: '1024x' }}');">
+                            <div class="card-body">
+                              {{ block.settings.icon_four_top | img_url: '59x41' | img_tag | replace: '<img', '<img class="card-body__icon"' }}
+                              <span class="card-body__text">{{ block.settings.text_four }}</span>
+                              {{ block.settings.icon_four_down | img_url: '100x100' | img_tag | replace: '<img', '<img class="card-body__company"' }}
+                            </div>
+                          </div>
+                        </div>
+                          
+                      {% endcase %}
+                {% endcase %}
+              {% endfor %}
+            {% endif %}
+          </div>
+
+          {%- if paginate.pages > 1 -%}
+            {%- render 'pagination', paginate: paginate -%}
+          {%- endif -%}
+        </div>
+      {%- endcase -%}
+    {%- endfor -%}
+  </div>
+</div>
+
+{% endpaginate %}
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "CollectionPage",
+    {% if collection.description != blank %}
+      "description": {{ collection.description | strip_html | json }},
+    {% endif %}
+    {% if page_image %}
+      {% assign image_size = page_image.width | append: 'x' %}
+      "image": {
+        "@type": "ImageObject",
+        "height": {{ page_image.height | json }},
+        "url": {{ page_image | img_url: image_size | prepend: "https:" | json }},
+        "width": {{ page_image.width | json }}
+      },
+    {% endif %}
+    "name": {{ collection.title | json }}
+  }
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+
+  const rebouldingCard = () => {
+    const gridItem = document.querySelector('.grid__item.grid-product:nth-child(6)');
+
+    if(gridItem) {
+      const height = gridItem.offsetHeight;
+      const cards = document.querySelectorAll('.element-card');
+      cards.forEach(card => {
+        if(window.innerWidth <= 769){
+          card.style.height = `${height + 20}px`;
+        } else {
+          card.style.height = `${height}px`;
+        }
+      });
+    }
+  } 
+
+  rebouldingCard()
+  addEventListener("resize", rebouldingCard);
+
+  if(document.querySelectorAll('.ajax-addtocart')){
+    document.querySelectorAll('.ajax-addtocart').forEach(element=>{
+      element.addEventListener('click', evt=>{
+
+        let category = evt.target.getAttribute('data-category');
+
+        let data_product = {
+          "id": evt.target.getAttribute('data-variant-id'),
+          "quantity": 1
+        }
+        fetch('/cart/add.js', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'dataType': 'json'
+          },
+          body: JSON.stringify(data_product),
+        })
+        .then(response => response.json())
+        .then(data => {
+
+          const product = [
+            {
+              id: data.sku,
+              name: data.product_title,
+              brand: data.vendor,
+              variant: data.untranslated_variant_title,
+              price: `${data.price / 100}`,
+              quantity: `${data.quantity}`,
+              category: `${category}`,
+              product_id: `${data.product_id}`,
+              variant_id: `${data.id}`,
+              image: data.image,
+              list: location.pathname
+            }
+          ]
+
+          window.ElevarPushToDataLayer({
+            event: "dl_add_to_cart",
+            ecommerce: {
+              currencyCode: "USD",
+              add: {
+                actionField: {
+                  list: location.pathname // this should be the collection page URL that user clicked product from
+                },
+                products: product // See the products array below
+              }
+            }
+          });
+
+          CartDrawerSite.updateCartDrawer();
+          CartDrawerSite.openCartDrawer();
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+        });
+      })
+    })
+  }
+  
+  if(document.querySelectorAll('.variant-selector-atc')){
+    document.querySelectorAll('.variant-selector-atc').forEach(element=>{
+      element.addEventListener('change', evt=>{
+        evt.target.nextElementSibling.setAttribute('data-variant-id', evt.target.value);
+      })
+    })
+  } 
+})
+
+var observer = new MutationObserver(function(mutations) {
+    if (document.querySelector('.rebuy-cart')) {
+        console.log("Exist, lets do something");
+        observer.disconnect(); 
+        const elements = document.querySelectorAll('.rebuy-cart');
+
+        elements.forEach(element => {
+          // Create a new MutationObserver
+          const observer = new MutationObserver(function(mutationsList, observer) {
+            for (let mutation of mutationsList) {
+              if (mutation.attributeName === 'class' && !element.classList.contains('is-visible')) {
+                console.log('Class removed:', mutation.oldValue);
+                rep.show();
+              }
+            }
+          });
+        
+          // Observe changes to the element's attributes
+          observer.observe(element, { attributes: true, attributeOldValue: true });
+        });
+        
+    }
+});
+
+// Start observing
+observer.observe(document.body, { //document.body is node target to observe
+    childList: true, //This is a must have for the observer with subtree
+    subtree: true //Set to true if changes must also be observed in descendants.
+});  
+  
+</script>
+
+
+<script>
+  if (!/^\/collections\/clutch-chargers\/?$/.test(window.location.pathname)) {
+    const modalUpdate = document.querySelector('.body-collection');
+    if (modalUpdate) {
+      modalUpdate.classList.add('remove-all');
+    }
+  }
+
+</script>
+
+<style>
+
+{% for block in section.blocks %}
+  {% case block.type %}
+    {% when 'info_card' %}
+      {% case block.settings.style_card %}
+        {% when 'one' %}
+          #CollectionAjaxContent.body-collection #element-card--{{forloop.index0}} {
+            grid-column: {{ block.settings.position_vertical_desk }};
+            grid-row: {{ block.settings.position_horizontal_desk }};
+          }
+          @media only screen and (max-width:769px){
+            #CollectionAjaxContent.body-collection #element-card--{{forloop.index0}} {
+              grid-column: {{ block.settings.position_vertical_mobile }};
+              grid-row: {{ block.settings.position_horizontal_mobile }}; 
+            }
+          }
+        {% when 'two' %}
+          #CollectionAjaxContent.body-collection #element-card--{{forloop.index0}} {
+            grid-column: {{ block.settings.position_vertical_desk }};
+            grid-row: {{ block.settings.position_horizontal_desk }};
+          }
+          @media only screen and (max-width:769px){
+            #CollectionAjaxContent.body-collection #element-card--{{forloop.index0}} {
+              grid-column: {{ block.settings.position_vertical_mobile }};
+              grid-row: {{ block.settings.position_horizontal_mobile }}; 
+            }
+          }
+        {% when 'three' %}
+          #CollectionAjaxContent.body-collection #element-card--{{forloop.index0}} {
+            grid-column: {{ block.settings.position_vertical_desk }};
+            grid-row: {{ block.settings.position_horizontal_desk }};
+          }
+          @media only screen and (max-width:769px){
+            #CollectionAjaxContent.body-collection #element-card--{{forloop.index0}} {
+              grid-column: {{ block.settings.position_vertical_mobile }};
+              grid-row: {{ block.settings.position_horizontal_mobile }}; 
+            }
+          }
+        {% when 'four' %}
+          #CollectionAjaxContent.body-collection #element-card--{{forloop.index0}} {
+            grid-column: {{ block.settings.position_vertical_desk }};
+            grid-row: {{ block.settings.position_horizontal_desk }};
+          }
+          @media only screen and (max-width:769px){
+            #CollectionAjaxContent.body-collection #element-card--{{forloop.index0}} {
+              grid-column: {{ block.settings.position_vertical_mobile }};
+              grid-row: {{ block.settings.position_horizontal_mobile }}; 
+            }
+          }
+      {% endcase %}
+  {% endcase %}
+{% endfor %}
+#CollectionAjaxContent .grid--uniform {
+  display: grid;
+  grid-template-columns: repeat({{ per_row_mobile }}, 1fr);
+  row-gap: 20px;
+}
+@media only screen and (min-width:769px){
+  #CollectionAjaxContent .grid--uniform {
+    grid-template-columns: repeat({{ per_row_desktop }}, 1fr);
+    row-gap: 40px;
+  }
+}
+</style>
+
+{% schema %}
+  {
+    "name": "Product grid",
+    "settings": [
+      {
+        "id": "filter_tags",
+        "type": "textarea",
+        "label": "Tags to show",
+        "info": "Please, put each label in this way: iPhone:iPhone-Chargers also, remember that you must know how they are registered in each product, make sure that they are the same."
+      }
+    ],
+    "blocks": [
+      {
+        "type": "collection_description",
+        "name": "Collection description",
+        "limit": 1
+      },
+      {
+        "type": "product_grid",
+        "name": "Products",
+        "limit": 1,
+        "settings": [
+          {
+            "type": "range",
+            "id": "per_row_desktop",
+            "label": "Desktop products per row",
+            "default": 3,
+            "min": 2,
+            "max": 4,
+            "step": 1
+          },
+          {
+            "type": "select",
+            "id": "per_row_mobile",
+            "label": "Mobile products per row",
+            "default": "1",
+            "options": [
+              {
+                "value": "1",
+                "label": "1"
+              },
+              {
+                "value": "2",
+                "label": "2, spaced"
+              },
+              {
+                "value": "2-flush",
+                "label": "2, flush"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "info_card",
+        "name": "Info Card on Collection",
+        "limit": 4,
+        "settings": [
+          {
+            "type": "header",
+            "content": "Position Card"
+          },
+          {
+            "type": "paragraph",
+            "content": "Think of the product grid and select the starting and ending border number where you want to add the card, e.g. position 1 will be 1 / 2."
+          },
+          {
+            "type": "text",
+            "id": "position_vertical_desk",
+            "label": "Position Column Desktop",
+            "default": "3 / 4"
+          },
+          {
+            "type": "text",
+            "id": "position_horizontal_desk",
+            "label": "Position Row Desktop",
+            "default": "2 / 3"
+          },
+          {
+            "type": "text",
+            "id": "position_vertical_mobile",
+            "label": "Position Column Mobile",
+            "default": "2 / 3"
+          },
+          {
+            "type": "text",
+            "id": "position_horizontal_mobile",
+            "label": "Position Row Mobile",
+            "default": "2 / 3"
+          },
+          {
+            "type": "select",
+            "id": "style_card",
+            "label": "Style Card",
+            "options": [
+              {
+                "value": "one",
+                "label": "Style Icon-Text"
+              },
+              {
+                "value": "two",
+                "label": "Style Image"
+              },
+              {
+                "value": "three",
+                "label": "Style Rating-Title-Text-Author"
+              },
+              {
+                "value": "four",
+                "label": "Style Icon-Text-Icon"
+              }
+            ],
+            "default": "one"
+          },
+          {
+            "type": "header",
+            "content": "Style Icon-Text"
+          },
+          {
+            "type": "select",
+            "id": "style_card_one",
+            "label": "Style Card",
+            "options": [
+              {
+                "value": "style_one",
+                "label": "Icon Center Down"
+              },
+              {
+                "value": "style_two",
+                "label": "Icon Top rigth"
+              }
+            ],
+            "default": "style_one"
+          },
+          {
+            "type": "image_picker",
+            "id": "bg_one",
+            "label": "Background Card"
+          },
+          {
+            "type": "image_picker",
+            "id": "icon_one",
+            "label": "Icon"
+          },
+          {
+            "type": "richtext",
+            "id": "text_one",
+            "label": "Text Card"
+          },
+          {
+            "type": "header",
+            "content": "Style Image"
+          },
+          {
+            "type": "image_picker",
+            "id": "bg_two_desk",
+            "label": "Background Card in desktop"
+          },
+          {
+            "type": "image_picker",
+            "id": "bg_two_mobile",
+            "label": "Background Card in mobile"
+          },
+          {
+            "type": "header",
+            "content": "Style Rating-Title-Text-Author"
+          },
+          {
+            "type": "image_picker",
+            "id": "bg_three",
+            "label": "Background Card"
+          },
+          {
+            "type": "image_picker",
+            "id": "rating",
+            "label": "Image Rating"
+          },
+          {
+            "type": "text",
+            "id": "title_three",
+            "label": "Title comment"
+          },
+          {
+            "type": "richtext",
+            "id": "text_three",
+            "label": "Comment's Client"
+          },
+          {
+            "type": "text",
+            "id": "name_client",
+            "label": "Name's Client",
+            "default": "Beatrice N."
+          },
+          {
+            "type": "header",
+            "content": "Style Style Icon-Text-Icon"
+          },
+          {
+            "type": "image_picker",
+            "id": "bg_four",
+            "label": "Background Card"
+          },
+          {
+            "type": "image_picker",
+            "id": "icon_four_top",
+            "label": "First Icon"
+          },
+          {
+            "type": "richtext",
+            "id": "text_four",
+            "label": "Comment"
+          },
+          {
+            "type": "image_picker",
+            "id": "icon_four_down",
+            "label": "Second Icon "
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

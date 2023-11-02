@@ -1,0 +1,146 @@
+{% form 'product', product, id: form_id, class: 'product-single__form small--text-center' %}
+  <input type="hidden" name="data-product-id" value="{{ product.id }}">
+
+  {%- liquid
+    assign enable_dynamic_buttons = false
+    if show_dynamic_checkout and template != 'product.preorder'
+      assign enable_dynamic_buttons = true
+    endif
+  -%}
+
+  {%- if enable_dynamic_buttons -%}
+    <div class="payment-buttons">
+  {%- endif -%}
+
+    {%- liquid
+      assign default_text = 'products.product.add_to_cart' | t
+      assign button_text = 'products.product.add_to_cart' | t
+      if template == 'product.preorder'
+        assign default_text = 'products.product.preorder' | t
+        assign button_text = 'products.product.preorder' | t
+      endif
+      unless current_variant.available
+        assign button_text = 'products.product.sold_out' | t
+      endunless
+    -%}
+
+      <div class="covered_qty_addtocart">
+  <div class="product-block covered_qty_new" {{ block.shopify_attributes }}>
+        <div class="product__quantity product_custom_qty">
+  <div id="minus-btn" class="icons minus-btn"><i class="far fa-minus" aria-hidden="true"></i></div>
+  <input name="quantity" value="1" min="1" id="quantity-input" type="number" value="1" form="{{ form_id }}">
+  <div id="plus-btn" class="icons plus-btn"><i class="far fa-plus" aria-hidden="true"></i></div>
+</div>
+    </div>
+    <button
+      {% if product.empty? %}type="button"{% else %}type="submit"{% endif %}
+      name="add"
+      data-add-to-cart
+      class="btn btn--full add-to-cart{% if enable_dynamic_buttons and product.selling_plan_groups == empty %} btn--tertiary{% endif %}"
+      {% unless current_variant.available %} disabled="disabled"{% endunless %}>
+      <span data-add-to-cart-text data-default-text="{{ default_text }}">
+        {{ button_text }}
+      </span>
+    </button>
+    </div>
+    {%- if enable_dynamic_buttons -%}
+      {{ form | payment_button }}
+    {%- endif -%}
+
+  {%- if enable_dynamic_buttons -%}
+    </div>
+  {%- endif -%}
+
+  <div class="shopify-payment-terms product__policies">{{ form | payment_terms }}</div>
+
+  <select name="id" id="ProductSelect-{{ section_id }}" class="product-single__variants no-js" data-product-select>
+    {%- for variant in product.variants -%}
+      {%- if variant.available -%}
+        <option value="{{ variant.id }}"{% if variant == product.selected_or_first_available_variant %}
+          selected="selected"{% endif %}>
+          {{ variant.title }} - {{ variant.price | money_with_currency }}
+        </option>
+      {%- else -%}
+        <option disabled="disabled">
+          {{ variant.title }} - {{ 'products.product.sold_out' | t }}
+        </option>
+      {%- endif -%}
+    {%- endfor -%}
+  </select>
+
+  {%- unless product.empty? -%}
+    <textarea class="hide" aria-hidden="true" aria-label="Product JSON" data-variant-json>
+      {{ product.variants | json }}
+    </textarea>
+    {%- if product.options.size > 1 -%}
+      <textarea class="hide" aria-hidden="true" aria-label="Variant JSON" data-current-variant-json>
+        {{ current_variant | json }}
+      </textarea>
+    {%- endif -%}
+  {%- endunless -%}
+
+{% endform %}
+
+<!-- Extend -- Load product integration script -->
+{% render 'extend-product-integration' %}
+<!-- Extend -- End Extend code -->
+
+<script>
+
+var observer = new MutationObserver(function(mutations) {
+   if (document.querySelector("#deliverr-zip-location-modal > label > select")) {
+
+
+      document.querySelector(".css-1andrx3.deliverr-zip-deliver-to[aria-expanded='false']").addEventListener("click", function(){
+          const element = document.querySelector("#deliverr-zip-location-modal > label > select");
+          var options = element.options;
+          for (var i = 0; i < options.length; i++) {
+            if (options[i].textContent.includes("Outside") && options[i].tagName.toLowerCase() == 'option') {
+               // options[i].classList.add("hide");
+               // options[i].setAttribute('disabled', true);
+ 
+                var spanElem = document.createElement('div');
+                spanElem.innerHTML = options[i].innerHTML;
+                options[i].parentNode.replaceChild(spanElem, options[i]);
+ 
+            }
+      
+          }          
+      });
+
+/*     
+    // if (document.querySelector(".deliverr-zip-location-field")) {
+
+        console.log("Exist, lets do something");
+        observer.disconnect(); 
+        const element = document.querySelector("#deliverr-zip-location-modal > label > select");
+ 
+
+          // Create a new MutationObserver
+              var options = element.options;
+              for (var i = 0; i < options.length; i++) {
+                if (options[i].textContent.includes("Outside")) {
+                    options[i].classList.add("hide");
+                    options[i].setAttribute('disabled', true);
+
+                    var spanElem = document.createElement('div');
+                    spanElem.innerHTML = options[i].innerHTML;
+                    options[i].parentNode.replaceChild(spanElem, options[i]);
+
+                }
+
+              }        
+*/        
+    }
+});
+
+// Start observing
+observer.observe(document.body, { //document.body is node target to observe
+    childList: true, //This is a must have for the observer with subtree
+    subtree: true //Set to true if changes must also be observed in descendants.
+}); 
+  
+
+
+  
+</script>

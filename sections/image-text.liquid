@@ -1,0 +1,59 @@
+{% unless section.settings.image == blank %}
+  {% liquid
+    assign imageUrl = section.settings.image | image_url
+    assign imageMobileUrl = section.settings.image_mobile | image_url
+    assign title = section.settings.title
+    assign body = section.settings.body
+  %}
+  <div class="image-text">
+    <figure class="image-text__cover">
+      <img class="image-text__image image-text__image--desktop" src="{{ imageUrl }}" alt="Cover" width="auto" height="auto" loading="lazy" />
+      <img class="image-text__image image-text__image--mobile" src="{{ imageMobileUrl }}" alt="Cover" width="auto" height="auto" loading="lazy" />
+    </figure>
+    <div class="image-text__content">
+      <div class="page-width">
+        {% unless title == blank %}
+          <h2>{{ title }}</h2>
+        {% endunless %}
+        {% unless body == blank %}
+          <div class="image-text__body">{{ body }}</div>
+        {% endunless %}
+      </div>
+    </div>
+  </div>
+{% endunless %}
+
+{% schema %}
+{
+  "name": "Image text",
+  "class": "image-text__section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Background image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mobile",
+      "label": "Background image mobile"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Text"
+    },
+    {
+      "type": "richtext",
+      "id": "body",
+      "label": "Description"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Image text"
+    }
+  ]
+}
+{% endschema %}

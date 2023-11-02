@@ -1,0 +1,147 @@
+{%- if section.settings.main_heading_text != blank or section.settings.main_mobile_image != blank or section.settings.main_desktop_image != blank or section.blocks.size > 0 -%}
+  <div class="Page_image_with_accordion_main_new {{ section.settings.customClass }}" style="background: {{ section.settings.main_back_color }};">
+    <div class="page-width">
+      <div class="Page_image_with_accordion_inner_new">
+        {%- if section.settings.main_mobile_image != blank -%}
+          <div class="Page_image_with_accordion_mainmobile_new">
+            <div class="Page_image_with_accordion_innermobile_new">
+              {%- assign img_url = section.settings.main_mobile_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+              <img class="mobile_image_new lazyload"
+                data-src="{{ img_url }}"
+                data-widths="[180, 360, 540, 750, 900, 1080, 1296, 1512, 1728, 1944, 2048]"
+                data-aspectratio="{{ section.settings.main_mobile_image.aspect_ratio }}"
+                data-sizes="auto"
+                alt="{{ section.settings.main_mobile_image.alt }}">
+            </div>
+          </div>
+        {%- endif -%}
+        {%- if section.settings.main_heading_text != blank -%}
+          <div class="common_title_new Page_image_with_accordion_title_new">
+            <h2>{{ section.settings.main_heading_text }}</h2>
+          </div>
+        {%- endif -%}
+        <div class="Page_image_with_accordion_mainleftright_new">
+          <div class="Page_image_with_accordion_innerleftright_new">
+            {%- if section.settings.main_desktop_image != blank -%}
+              <div class="Page_image_with_accordion_mainleft_new">
+                <div class="Page_image_with_accordion_innerleft_new">
+                  {%- assign img_url = section.settings.main_desktop_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+                  <img class="desktop_image_new lazyload"
+                    data-src="{{ img_url }}"
+                    data-widths="[180, 360, 540, 750, 900, 1080, 1296, 1512, 1728, 1944, 2048]"
+                    data-aspectratio="{{ section.settings.main_desktop_image.aspect_ratio }}"
+                    data-sizes="auto"
+                    alt="{{ section.settings.main_desktop_image.alt }}">
+                </div>
+              </div>
+            {%- endif -%}
+            {%- if section.blocks.size > 0 -%}
+              <div class="Page_image_with_accordion_mainright_new">
+                <div class="Page_image_with_accordion_innerright_new">
+                  <div class="accordion">
+                    <ul class="list-unstyled">                      
+                      {%- for block in section.blocks -%}
+                      	{%- if block.settings.inner_question_text != blank and block.settings.inner_answer_text != blank -%}
+                          <li{% if forloop.first %} class="open"{% endif %}>
+                            {%- if block.settings.inner_question_text != blank -%}
+                              <div class="question">
+                                {%- if block.settings.inner_question_text != blank -%}
+                                  <h2>{{ block.settings.inner_question_text }}</h2>
+                                {%- endif -%}
+                                <span class="glyphicon glyphicon-chevron-down">
+                                  <img src="{{ 'ep_arrow-up.svg' | asset_url }}" alt="Icons" />
+                                </span>
+                              </div>
+                            {%- endif -%}
+                            {%- if block.settings.inner_answer_text != blank -%}
+                              <div class="answer"{% if forloop.first %} style="display:block;"{% endif %}>
+                                {{ block.settings.inner_answer_text }}
+                              </div>
+                            {%- endif -%}
+                          </li>
+                      	{%- endif -%}
+                      {%- endfor -%}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            {%- endif -%}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{%- endif -%}
+
+{% schema %}
+  {
+    "name": "Page Image With Accordion",
+    "class": "Page_image_with_accordion_new",
+    "settings": [
+      {
+        "type": "text",
+        "id": "customClass",
+        "label": "Add Custom Class",
+        "info": "Page_bfcm_image_with_accordion_new"
+      },
+      {
+        "type": "color",
+        "id": "main_back_color",
+        "label": "Add Main Background Color",
+        "default": "#141414"
+      },
+      {
+        "type": "textarea",
+        "id": "main_heading_text",
+        "label": "Add Main Heading Text",
+        "default": "Frequently asked questions"
+      },
+      {
+        "type": "image_picker",
+        "id": "main_desktop_image",
+        "label": "Add Main Desktop Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "main_mobile_image",
+        "label": "Add Main Mobile Image"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "information",
+        "name": "Information",
+        "settings": [
+          {
+            "type": "text",
+            "id": "inner_question_text",
+            "label": "Add Inner Question Text",
+            "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit?"
+          },
+          {
+            "type": "richtext",
+            "id": "inner_answer_text",
+            "label": "Add Inner Answer Text",
+            "default": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Page Image With Accordion",
+        "blocks": [
+          {
+            "type": "information"
+          },
+          {
+            "type": "information"
+          },
+          {
+            "type": "information"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

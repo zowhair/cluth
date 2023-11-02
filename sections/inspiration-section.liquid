@@ -1,0 +1,169 @@
+{{ 'inspiration.min.css' | asset_url | stylesheet_tag: preload: true }}
+
+<div class="inspiration__container">
+    <div class="inspiration-header">
+        <div class="inspiration-header__title">
+            {{ section.settings.title }}
+        </div>
+        <p class="inspiration-header__description">
+            {{ section.settings.description }}
+        </p>
+    </div>
+    <div class="inspiration-body">
+        <div class="images-wrapper">
+            {%- for block in section.blocks -%}
+                <div class="inspiration__image image-{%- cycle '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12' -%} {% if forloop.index > 7 %} hidden{% endif %}{% if forloop.index == 7 %} view-more{% endif %}" {% if forloop.index > 7 %}data-hidden="true"{% endif %}>
+                    {% if forloop.index == 2 %}
+                        <svg class="rain" width="52" height="128" viewBox="0 0 52 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M18.007 35.1426L-3.3046e-06 70.2851H12.2775C19.0074 70.2851 24.7369 70.5554 24.9188 71.006C25.1916 71.3664 25.0097 73.8895 24.4641 76.5928C20.8263 96.2365 15.7334 127.504 16.0062 127.865C16.2791 128.045 16.6428 128.045 16.8247 127.865C17.4613 127.144 51.9797 58.3006 51.9797 57.6698C51.9797 57.3094 47.2911 57.6698 41.5616 57.6698C35.8321 57.6698 30.9211 57.3094 30.5573 56.7687C30.1026 56.0479 35.4683 11.1735 37.0144 2.88349C37.3782 1.35163 37.1963 0 36.8325 0C36.3778 0 27.9199 15.8592 18.007 35.1426Z" fill="#4DACE1"/>
+                        </svg>  
+                    {% endif %}
+                    {%- render 'image-element',
+                        img: block.settings.image,
+                        img_width: 946,
+                        loading: true,
+                        classes: ''
+                      -%}
+
+                      {% if forloop.index == 7 %}
+                        <span class="view-more-button">
+                            View More
+                        </span>
+                      {% endif %}
+
+                </div>
+            {%- endfor -%}
+        </div>
+        <span class="view-less hidden">View less</span>
+    </div>
+</div>
+
+<style>
+    #shopify-section-{{ section.id }} {
+        background-color: {{ section.settings.bg-color }};
+    }
+</style>
+
+<script>
+    /*
+    const inspiration = () => {
+
+        const viewLessF = () => {
+            inspirationHiddenViewLess.forEach(element => {
+                element.classList.add('hidden');
+            });
+        }
+    
+        const viewMore = document.querySelector('.inspiration .view-more .view-more-button'),
+              viewLess = document.querySelector('.inspiration .view-less'),
+              inspirationHiddenViewLess = document.querySelectorAll('[data-hidden="true"]'),
+              inspirationHidden = document.querySelectorAll('.inspiration .inspiration__image.hidden');
+    
+              viewMore.addEventListener('click', () =>{
+                document.querySelector('.inspiration .image-7').classList.remove('view-more');
+                inspirationHidden.forEach(element => {
+                    element.classList.remove('hidden');
+                });
+                viewLess.classList.remove('hidden');
+              });
+    
+              viewLess.addEventListener('click', () =>{
+                viewLessF();
+                viewLess.classList.add('hidden');
+                document.querySelector('.inspiration .image-7').classList.add('view-more');
+              })
+        
+    }
+    */
+
+    const scrollAnchor = () => {
+      
+        const element = document.querySelector('.shopify-app-block'),
+            offset = element.getBoundingClientRect().top + window.pageYOffset;
+      
+        window.scrollTo({ top: offset - 180, behavior: 'smooth' });
+
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+
+        //inspiration()
+        
+        const btnAffiliates = document.querySelectorAll('.scrollTo');
+
+        btnAffiliates.forEach(element => {
+            element.addEventListener('click', (e) => {
+                e.preventDefault();
+            
+                scrollAnchor();
+            });
+        });
+
+    });
+
+</script>
+
+{% schema %}
+    {
+        "name": "Inspiration",
+        "class": "inspiration",
+        "settings": [
+            {
+              "id": "title",
+              "type": "richtext",
+              "label": "Text",
+              "default": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>"
+            },
+            {
+                "type": "textarea",
+                "id": "description",
+                "label": "Description"
+            },
+            {
+                "type": "header",
+                "content": "Colors"
+            },
+            {
+                "type": "color",
+                "id": "text-color",
+                "label": "Heading color"
+            },
+            {
+                "type": "color",
+                "id": "text-highlight-color",
+                "label": "Highlight color"
+            },
+            {
+                "type": "color",
+                "id": "description-color",
+                "label": "Description color"
+            },
+            {
+                "type": "color",
+                "id": "bg-color",
+                "label": "Background color"
+            }
+        ],
+        "blocks": [
+            {
+                "type": "image",
+                "name": "Image inspiration",
+                "settings": [
+                    {
+                        "type": "image_picker",
+                        "id": "image",
+                        "label": "Image"
+                    }
+                ]
+            }
+        ],
+        "presets": [
+            {
+                "name": "inspiration"
+            }
+        ]
+    }
+{% endschema %}
+
+
+

@@ -1,0 +1,286 @@
+{
+  "sections": {
+    "styles": {
+      "type": "styles-global-affiliate",
+      "settings": {
+      }
+    },
+    "912a0f7f-ddfe-463b-9113-0910fc1bde4a": {
+      "type": "hero-3rd-party",
+      "settings": {
+        "title": "Join the Cash Club & Earn <svg width=\"65\" height=\"110\" viewbox=\"0 0 65 110\" fill=\"none\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\">\n<path d=\"M26.3636 61.5783V81.5919C25.2074 81.0788 24.3045 80.4074 23.6054 79.6102C22.3326 78.0821 21.5496 76.1186 21.3564 73.5817L21.1805 71.2715H18.8636H5H2.5V73.7715C2.5 80.7077 4.96409 86.47 9.94895 90.8117C14.3218 94.6204 19.8374 96.9515 26.3636 97.9139V105V107.5H28.8636H36.25H38.75V105V97.9103C43.0787 97.243 46.9518 95.8459 50.322 93.6747C54.2643 91.1833 57.304 88.0568 59.3487 84.2778C61.4439 80.545 62.5 76.5324 62.5 72.279C62.5 66.9012 61.3347 62.3509 58.6898 58.934C56.2462 55.7032 53.2141 53.315 49.6065 51.8347C46.6745 50.5672 43.0459 49.3865 38.75 48.2817V29.2042C39.4928 29.691 40.136 30.2702 40.6913 30.9381L40.7074 30.9575L40.7238 30.9765C41.9818 32.4291 42.6756 34.0477 42.8523 35.8928L43.0689 38.1544H45.3409H59.2045H61.9219L61.6959 35.4465C61.1224 28.5762 58.5887 22.963 53.9423 18.8681C49.932 15.206 44.8196 12.9825 38.75 12.0817V5V2.5H36.25H28.8636H26.3636V5V12.092C19.7871 13.097 14.2441 15.6468 9.86963 19.8344C4.94981 24.4664 2.5 30.3793 2.5 37.3766C2.5 42.7664 3.67037 47.3416 6.30059 50.8237L6.31293 50.84L6.32554 50.8562C8.83843 54.0721 11.8938 56.4859 15.4839 58.0404L15.5073 58.0506L15.531 58.0603C18.4435 59.2513 22.0622 60.422 26.3636 61.5783ZM42.3519 67.6457L42.3901 67.6826L42.4298 67.7179C43.6801 68.8296 44.4318 70.4585 44.4318 72.9678C44.4318 75.4586 43.6815 77.5106 42.2032 79.2505C41.3035 80.2636 40.1694 81.0743 38.75 81.6526V65.2453C40.2735 65.9729 41.4598 66.7819 42.3519 67.6457ZM26.3636 44.6478C24.8131 43.9175 23.5808 43.1013 22.6304 42.2223C21.4207 41.0413 20.6818 39.309 20.6818 36.6877C20.6818 33.8205 21.4708 31.8161 22.817 30.392C23.7658 29.4387 24.9323 28.697 26.3636 28.1972V44.6478Z\" stroke=\"#1EA2F8\" stroke-opacity=\"0.4\" stroke-width=\"5\"><\/path>\n<ellipse cx=\"24\" cy=\"36.5\" rx=\"3\" ry=\"6.5\" fill=\"#0C0D0E\"><\/ellipse>\n<ellipse cx=\"24\" cy=\"36.5\" rx=\"3\" ry=\"6.5\" fill=\"#0C0D0E\"><\/ellipse>\n<ellipse cx=\"41.5\" cy=\"73.5\" rx=\"2.5\" ry=\"6.5\" fill=\"#0C0D0E\"><\/ellipse>\n<ellipse cx=\"41.5\" cy=\"73.5\" rx=\"2.5\" ry=\"6.5\" fill=\"#0C0D0E\"><\/ellipse>\n<path d=\"M26.8636 82.3311C25.3088 81.7683 24.1181 80.955 23.2252 79.935C21.8738 78.3146 21.0578 76.2464 20.8579 73.6197L20.7172 71.7715H18.8636H5H3V73.7715C3 80.5757 5.41066 86.1959 10.2773 90.4347C14.6591 94.2511 20.2254 96.5686 26.8636 97.4801V105V107H28.8636H36.25H38.25V105V97.4789C42.6919 96.8479 46.6403 95.4523 50.0533 93.2531C53.9342 90.8008 56.9114 87.7333 58.9107 84.0367C60.9657 80.3768 62 76.4472 62 72.279C62 66.9666 60.8481 62.538 58.2929 59.238C55.8986 56.0716 52.9351 53.7401 49.4126 52.2956C46.4264 51.0043 42.697 49.799 38.25 48.67V28.3288C39.3658 28.9208 40.3007 29.6863 41.0757 30.6185L41.0886 30.6339L41.1018 30.6492C42.4264 32.1786 43.1632 33.8945 43.35 35.8451L43.5233 37.6544H45.3409H59.2045H61.3784L61.1976 35.4881C60.6328 28.7213 58.1437 23.2356 53.6083 19.2402C49.5918 15.5711 44.4309 13.3627 38.25 12.5153V5V3H36.25H28.8636H26.8636V5V12.5238C20.1847 13.4698 14.5964 16.0011 10.2139 20.1971C5.39924 24.7292 3 30.5082 3 37.3766C3 42.6987 4.15599 47.1549 6.69956 50.5223L6.70944 50.5354L6.71952 50.5483C9.18438 53.7027 12.1742 56.0625 15.6826 57.5816L15.7013 57.5897L15.7202 57.5975C18.6901 58.812 22.4114 60.0092 26.8636 61.1945V82.3311ZM42.6997 67.2865L42.7302 67.316L42.762 67.3443C44.1411 68.5704 44.9318 70.348 44.9318 72.9678C44.9318 75.5727 44.1423 77.7423 42.581 79.5781C41.4806 80.8187 40.0578 81.762 38.25 82.3714V64.4688C40.1575 65.2945 41.6234 66.2443 42.6997 67.2865ZM26.8636 45.4206C24.9365 44.5942 23.4253 43.6398 22.2861 42.5849C20.955 41.2882 20.1818 39.4129 20.1818 36.6877C20.1818 33.72 21.0026 31.581 22.4581 30.0438C23.6121 28.8829 25.0616 28.0277 26.8636 27.515V45.4206Z\" fill=\"#1EA2F8\" stroke=\"#0C0D0E\" stroke-width=\"4\"><\/path>\n<\/svg>",
+        "description": "<p>Give <strong>10%<\/strong> off, Get <strong>20%<\/strong> cash commission<\/p>",
+        "url": "",
+        "label": "JOIN CLUB",
+        "type_background": "color",
+        "color": "#000000"
+      }
+    },
+    "e99457db-ba40-4d9b-a19c-d36be1566f2f": {
+      "type": "rich-text-affiliate",
+      "blocks": {
+        "template--14515870203990__e99457db-ba40-4d9b-a19c-d36be1566f2f-1682723452cd3ef8ae-0": {
+          "type": "heading",
+          "settings": {
+            "title": "<p>That’s right...<br\/>you can earn Cash<\/p>",
+            "heading-color": "#ffffff",
+            "highlight-color": "#1ea2f8"
+          }
+        },
+        "template--14515870203990__e99457db-ba40-4d9b-a19c-d36be1566f2f-1682723452cd3ef8ae-1": {
+          "type": "text",
+          "settings": {
+            "enlarge_text": false,
+            "text": "<p>As a Clutch Club Affiliate, you will receive a custom <strong>10% OFF<\/strong> <br\/>coupon code that you can share with friends, family, or whoever.<\/p>",
+            "text-color": "#ffffff",
+            "text-highlight-color": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "template--14515870203990__e99457db-ba40-4d9b-a19c-d36be1566f2f-1682723452cd3ef8ae-0",
+        "template--14515870203990__e99457db-ba40-4d9b-a19c-d36be1566f2f-1682723452cd3ef8ae-1"
+      ],
+      "settings": {
+        "align_text": "center",
+        "narrow_column": true,
+        "alt": false,
+        "separator": false,
+        "separator-position": "top",
+        "margin-top": 100,
+        "margin-bottom": 100,
+        "padding-top": 50,
+        "padding-bottom": 60,
+        "margin-top-m": 0,
+        "margin-bottom-m": 0,
+        "padding-top-m": 64,
+        "padding-bottom-m": 24
+      }
+    },
+    "99e3a259-9078-4fb0-ba61-670aef962273": {
+      "type": "referred",
+      "blocks": {
+        "218e386f-0142-4551-90eb-c8754c181783": {
+          "type": "referred",
+          "settings": {
+            "friends": "10",
+            "earn": "100"
+          }
+        },
+        "f8a8e3bc-cd8c-4190-9c4e-153842134669": {
+          "type": "referred",
+          "settings": {
+            "friends": "20",
+            "earn": "200"
+          }
+        },
+        "5aac0448-cf9f-4267-adbb-c24f68224dbc": {
+          "type": "referred",
+          "settings": {
+            "friends": "30",
+            "earn": "300"
+          }
+        }
+      },
+      "block_order": [
+        "218e386f-0142-4551-90eb-c8754c181783",
+        "f8a8e3bc-cd8c-4190-9c4e-153842134669",
+        "5aac0448-cf9f-4267-adbb-c24f68224dbc"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/Clutch-Pro-2_1.png",
+        "title": "<p>With each referred sale,<br\/>you will earn<strong> 20% commission in CASH!<\/strong><\/p>",
+        "description": "Step 1: Sign up to become an affiliate in the form below.<br>\nStep 2: Login into your Snowball account, and get your coupon code to share with anyone and everyone.<br>\nStep 3: Sit back and watch the money rack in 😎💸",
+        "text-color": "#ffffff",
+        "text-highlight-color": "#1ea2f8",
+        "bg-color": "#191b1c",
+        "margin-top": 0,
+        "margin-bottom": 100,
+        "padding-top": 0,
+        "padding-bottom": 100,
+        "separator": false,
+        "separator-position": "bottom",
+        "margin-top-m": 0,
+        "margin-bottom-m": 80,
+        "padding-top-m": 0,
+        "padding-bottom-m": 0
+      }
+    },
+    "16836954150afcb29c": {
+      "type": "apps",
+      "blocks": {
+        "8bc93cc2-33c0-4aba-9112-9dde13185ad7": {
+          "type": "shopify:\/\/apps\/snowball-affiliate-marketing\/blocks\/affiliate-sign-up\/6e5feda3-ec24-4171-ae41-64028b660bc7",
+          "settings": {
+            "form_id": "a064b5ff-5e4f-4905-b86e-ca4e999515ba"
+          }
+        }
+      },
+      "block_order": [
+        "8bc93cc2-33c0-4aba-9112-9dde13185ad7"
+      ],
+      "settings": {
+        "full_width": false,
+        "space_around": true
+      }
+    },
+    "32624f7e-a24f-4310-9c5f-93cfd9234c9d": {
+      "type": "rich-text-affiliate",
+      "blocks": {
+        "template--14515870203990__32624f7e-a24f-4310-9c5f-93cfd9234c9d-1683149263e14f3e0c-0": {
+          "type": "heading",
+          "settings": {
+            "title": "<p>Why are we giving<br\/>away cash?<\/p>",
+            "heading-color": "#ffffff",
+            "highlight-color": "#1ea2f8"
+          }
+        },
+        "template--14515870203990__32624f7e-a24f-4310-9c5f-93cfd9234c9d-1683149263e14f3e0c-1": {
+          "type": "text",
+          "settings": {
+            "enlarge_text": false,
+            "text": "<p>We want to reward you, our best customer, for your hard work of spreading the message.<\/p>",
+            "text-color": "#b6b6b6",
+            "text-highlight-color": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--14515870203990__32624f7e-a24f-4310-9c5f-93cfd9234c9d-1683149263e14f3e0c-0",
+        "template--14515870203990__32624f7e-a24f-4310-9c5f-93cfd9234c9d-1683149263e14f3e0c-1"
+      ],
+      "settings": {
+        "align_text": "center",
+        "narrow_column": true,
+        "alt": true,
+        "separator": true,
+        "separator-position": "top",
+        "margin-top": 80,
+        "margin-bottom": 0,
+        "padding-top": 100,
+        "padding-bottom": 100,
+        "margin-top-m": 0,
+        "margin-bottom-m": 0,
+        "padding-top-m": 64,
+        "padding-bottom-m": 51
+      }
+    },
+    "440aa221-260d-47bf-a1d1-2e04934008ea": {
+      "type": "text-and-image-affiliate",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/Clutch-Pro-111_1.png",
+        "image_width": 700,
+        "subtitle": "",
+        "title": "",
+        "text": "<p>We’ve seen a lot of you sharing the Clutch love on your socials, so as a thank you, we wanted you to get something in return! Nothing is as important as our customers, rewarding our most loyal ones is the least we could do.<\/p>\n\n<p>You can continue sharing all things Clutch, but now you are able to also offer 10% off to your friends and family via a customized link or discount code AND for every referred sale, you will earn 50% commission cash! It’s a win-win!<\/p>",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "primary",
+        "align_text": "left",
+        "layout": "left",
+        "text-color": "#b6b6b6",
+        "text-highlight-color": "#1ea2f8",
+        "bg-color": "#000000",
+        "margin-top": 0,
+        "margin-bottom": 0,
+        "padding-top": 20,
+        "padding-bottom": 20
+      }
+    },
+    "5e27e280-5982-4270-9578-df306dd3286c": {
+      "type": "call-to-action-affiliates",
+      "settings": {
+        "cta_label": "JOIN CLUB",
+        "cta_url": "#",
+        "bg-btn": "bg-cta-white",
+        "bg-color": "#000000",
+        "margin-top": 0,
+        "margin-bottom": 0,
+        "padding-top": 0,
+        "padding-bottom": 0
+      }
+    },
+    "e7247449-fc48-49a4-97cb-422e1d1c5e65": {
+      "type": "inspiration-section",
+      "blocks": {
+        "38e5c8a5-fada-44ca-b7b0-aa8a8bc00368": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Clutch-Pro-17_1.png"
+          }
+        },
+        "ac0c218e-6c16-46bc-b557-edb4e636b070": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Clutch-Pro-160_1.png"
+          }
+        },
+        "b474238d-92b0-419e-9353-56621d109926": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Hero-Primetime_1.png"
+          }
+        },
+        "729ead9b-db27-4132-9fb6-09aeef84bfc2": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Clutch-Pro-10_1.png"
+          }
+        },
+        "fc3c4e39-db39-4c4a-b2b4-db5a2a261ae7": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Clutch-Pro-81_1.png"
+          }
+        },
+        "94d9b490-a8fd-44db-b99e-1c47a6193a6b": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Clutch-Pro-149_1.png"
+          }
+        }
+      },
+      "block_order": [
+        "38e5c8a5-fada-44ca-b7b0-aa8a8bc00368",
+        "ac0c218e-6c16-46bc-b557-edb4e636b070",
+        "b474238d-92b0-419e-9353-56621d109926",
+        "729ead9b-db27-4132-9fb6-09aeef84bfc2",
+        "fc3c4e39-db39-4c4a-b2b4-db5a2a261ae7",
+        "94d9b490-a8fd-44db-b99e-1c47a6193a6b"
+      ],
+      "settings": {
+        "title": "<p>Inspiration <br\/>For Your Content<\/p>",
+        "description": "Feel free to share the code in whatever you’re most comfortable with. Some of our affiliates make tik tok videos, Instagram stories or reels, and even YouTube videos.<br><br>\nWe also encourage you to post photos on your instagram feed or facebook. You can save these images and simply add your referral code for your friends and family to use when shopping for Clutch.",
+        "text-color": "#ffffff",
+        "text-highlight-color": "#1ea2f8",
+        "description-color": "#b6b6b6",
+        "bg-color": "#000000"
+      }
+    },
+    "26bf0c62-9f8e-422a-be7c-671f3cf69182": {
+      "type": "call-to-action-affiliates",
+      "settings": {
+        "cta_label": "JOIN CLUB",
+        "cta_url": "#",
+        "bg-btn": "bg-cta-white",
+        "bg-color": "#000000",
+        "margin-top": 0,
+        "margin-bottom": 0,
+        "padding-top": 0,
+        "padding-bottom": 100
+      }
+    }
+  },
+  "order": [
+    "styles",
+    "912a0f7f-ddfe-463b-9113-0910fc1bde4a",
+    "e99457db-ba40-4d9b-a19c-d36be1566f2f",
+    "99e3a259-9078-4fb0-ba61-670aef962273",
+    "16836954150afcb29c",
+    "32624f7e-a24f-4310-9c5f-93cfd9234c9d",
+    "440aa221-260d-47bf-a1d1-2e04934008ea",
+    "5e27e280-5982-4270-9578-df306dd3286c",
+    "e7247449-fc48-49a4-97cb-422e1d1c5e65",
+    "26bf0c62-9f8e-422a-be7c-671f3cf69182"
+  ]
+}

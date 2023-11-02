@@ -1,0 +1,42 @@
+<div id="SearchModal" class="modal">
+  <div class="modal__inner">
+    <div class="modal__centered page-width text-center">
+      <div class="modal__centered-content">
+        <svg xmlns="http://www.w3.org/2000/svg" width="173" height="48" viewBox="0 0 173 48" fill="none">
+          <g clip-path="url(#clip0_3964_1007)">
+            <path d="M28.6561 45.1022C25.8863 47.0399 22.3019 48.0058 17.9086 48.0058C13.1488 48.0058 9.15118 46.3591 5.91006 43.0656C2.66312 39.7663 1.04547 35.4778 1.04547 30.2C1.04547 24.9223 2.66312 20.5407 5.91006 17.2181C9.15118 13.8955 13.1546 12.2371 17.9086 12.2371C22.2495 12.2371 25.8281 13.2322 28.6561 15.2164V17.8058C25.6768 15.6644 22.2786 14.588 18.4614 14.588C14.2253 14.588 10.699 16.0136 7.87103 18.8648C5.04887 21.7161 3.63488 25.4925 3.63488 30.2C3.63488 34.9075 5.04887 38.5909 7.87103 41.4188C10.6932 44.2468 14.2253 45.655 18.4614 45.655C22.3833 45.655 25.7816 44.6076 28.6561 42.5186V45.108V45.1022Z" fill="#EBEBEB"/>
+            <path d="M39.3978 47.0632H36.8083V0H39.3978V47.0632Z" fill="#EBEBEB"/>
+            <path d="M49.5168 13.1798H52.1062V32.6265C52.1062 37.334 52.9557 40.6682 54.6549 42.6292C56.354 44.5901 58.8503 45.5677 62.1438 45.5677C65.4373 45.5677 68.3933 44.2876 71.163 41.7272C73.9328 39.1669 75.3177 36.2109 75.3177 32.8651V13.1798H77.9071V47.0632H75.5563V38.8294C74.4042 41.4945 72.5072 43.694 69.8713 45.4164C67.2295 47.1446 64.5004 48.0058 61.6724 48.0058C53.5667 48.0058 49.5168 42.9841 49.5168 32.9465V13.1798Z" fill="#EBEBEB"/>
+            <path d="M102.381 15.4492H94.8517V47.0574H92.2623V15.4492H84.7327V13.174H92.2623V3.92194H94.8517V13.1798H102.381V15.455V15.4492Z" fill="#EBEBEB"/>
+            <path d="M134.775 45.1022C132.005 47.0399 128.421 48.0058 124.028 48.0058C119.268 48.0058 115.27 46.3591 112.029 43.0656C108.788 39.7721 107.164 35.4836 107.164 30.2C107.164 24.9165 108.782 20.5407 112.029 17.2181C115.27 13.8955 119.274 12.2371 124.028 12.2371C128.369 12.2371 131.947 13.2322 134.775 15.2164V17.8058C131.796 15.6644 128.398 14.588 124.58 14.588C120.344 14.588 116.818 16.0136 113.99 18.8648C111.168 21.7161 109.754 25.4925 109.754 30.2C109.754 34.9075 111.168 38.5909 113.99 41.4188C116.812 44.2468 120.344 45.655 124.58 45.655C128.502 45.655 131.901 44.6076 134.775 42.5186V45.108V45.1022Z" fill="#EBEBEB"/>
+            <path d="M171.405 47.0632H168.816V27.6106C168.816 22.9031 167.966 19.5689 166.267 17.608C164.568 15.647 162.072 14.6694 158.778 14.6694C155.485 14.6694 152.529 15.9496 149.759 18.5099C146.989 21.0702 145.604 24.0262 145.604 27.372V47.0573H143.015V0H145.604V21.0993C146.756 18.4866 148.624 16.3511 151.213 14.7043C153.803 13.0576 156.48 12.2313 159.255 12.2313C167.361 12.2313 171.411 17.253 171.411 27.2906V47.0573L171.405 47.0632Z" fill="#EBEBEB"/>
+          </g>
+          <defs>
+            <clipPath id="clip0_3964_1007">
+              <rect width="172" height="48" fill="white" transform="translate(0.5)"/>
+            </clipPath>
+          </defs>
+        </svg>
+        <form action="{{ routes.search_url }}" method="get" class="search-modal__wrapper" role="search">
+          <input type="hidden" name="type" value="{{ settings.search_type }}">
+          <input type="hidden" name="options[prefix]" value="last">
+          <input type="search" name="q"
+            value="{{ search.terms | escape }}"
+            placeholder="{{ 'general.search.placeholder' | t }}"
+            id="SearchModalInput"
+            class="search-modal__input"
+            aria-label="{{ 'general.search.placeholder' | t }}">
+          <button type="submit" class="text-link search-modal__submit">
+            <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-search" viewBox="0 0 64 64"><path d="M47.16 28.58A18.58 18.58 0 1 1 28.58 10a18.58 18.58 0 0 1 18.58 18.58zM54 54L41.94 42"/></svg>
+            <span class="icon__fallback-text">{{ 'general.search.submit' | t }}</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <button type="button" class="btn btn--tertiary btn--circle modal__close js-modal-close text-link">
+    <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-close" viewBox="0 0 64 64"><path d="M19 17.61l27.12 27.13m0-27.12L19 44.74"/></svg>
+    <span class="icon__fallback-text">{{ 'general.accessibility.close_modal' | t }}</span>
+  </button>
+</div>

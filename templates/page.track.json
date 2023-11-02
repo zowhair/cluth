@@ -1,0 +1,121 @@
+{
+  "sections": {
+    "1677174276dbbf4ed1": {
+      "type": "apps",
+      "blocks": {
+        "8c361872-289c-4f6c-99f0-4fa4255cd38c": {
+          "type": "shopify:\/\/apps\/wonderment\/blocks\/wonderBlock\/89d63369-6ee7-4097-ac41-8229c6f90001",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "8c361872-289c-4f6c-99f0-4fa4255cd38c"
+      ],
+      "settings": {
+        "full_width": false,
+        "space_around": true
+      }
+    },
+    "products": {
+      "type": "wonderment-featured-collection",
+      "disabled": true,
+      "settings": {
+        "per_row": 3,
+        "show_arrows": true,
+        "show_product_title": true,
+        "show_product_price": true,
+        "show_product_label": true,
+        "text_size": 100,
+        "heading_color": "#121212",
+        "text_color": "#121212",
+        "background_color": "linear-gradient(360deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, 1) 100%)",
+        "base_width": 95,
+        "max_width": "",
+        "inner_padding": 40,
+        "outer_margin": 0,
+        "custom_css": "",
+        "mobile_custom_css": "",
+        "override_theme_font": false,
+        "heading_font": "serif",
+        "main_font": "sans-serif"
+      }
+    },
+    "rebuy": {
+      "type": "wonderment-rebuy",
+      "disabled": true,
+      "settings": {
+        "rebuy-widget-id": ""
+      }
+    },
+    "fairing": {
+      "type": "wonderment-fairing",
+      "disabled": true,
+      "settings": {
+        "fairing-key": "",
+        "fairing-padding": 25
+      }
+    },
+    "26728a34-1dff-4a80-9ee1-6fc1c1da3b52": {
+      "type": "wonderment-loop",
+      "settings": {
+        "button_text": "Start A Return",
+        "button_color": "#ffffff",
+        "button_background_color": "#5e5a5a",
+        "button_size": "small",
+        "is_rounded_button": false,
+        "button_class": ""
+      }
+    },
+    "c8c78f39-dd4f-4553-a0e9-8e3020e47add": {
+      "type": "faq",
+      "blocks": {
+        "template--14494081286230__c8c78f39-dd4f-4553-a0e9-8e3020e47add-1677174301268f390f-0": {
+          "type": "question",
+          "settings": {
+            "title": "How small is Clutch Charger?",
+            "text": "<p>Clutch Pro measures W 3.86 x H 2.64 x T 0.32 and weighs 3.7 ounces.<br\/><br\/>Clutch V3 measures W 3.5\" x H 2.5\" x T 0.20\" and weighs 2 ounces.<br\/><br\/>Clutch Max measures W 6.5\"x H 3.86\" x T 0.30\" and weighs 8 ounces.<\/p>"
+          }
+        },
+        "template--14494081286230__c8c78f39-dd4f-4553-a0e9-8e3020e47add-1677174301268f390f-1": {
+          "type": "question",
+          "settings": {
+            "title": "How much battery will Clutch Charger get me?",
+            "text": "<p>Clutch Pro has a capacity of 5,000 mAh, Clutch V3 has a capacity of 3,300 mAh while Clutch Max has a capacity of 10,000 mAh. Depending on the device you charge, they can get you a full charge or more.<\/p><p>When not in use Clutch will also hold its charge for several weeks before discharging.<\/p>"
+          }
+        },
+        "9cdb4ef5-eaae-437f-baff-7d692d613cf5": {
+          "type": "question",
+          "settings": {
+            "title": "Is Clutch Charger rechargeable?",
+            "text": "<p>Yes, absolutely! Clutch Charger is completely rechargeable.<\/p>"
+          }
+        },
+        "20791743-ae34-4c7c-9a45-933bdc848a91": {
+          "type": "question",
+          "settings": {
+            "title": "Is the charging cord attached?",
+            "text": "<p>Yes the cord comes attached so you will never have to worry about bringing extra accessories with you.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "template--14494081286230__c8c78f39-dd4f-4553-a0e9-8e3020e47add-1677174301268f390f-0",
+        "template--14494081286230__c8c78f39-dd4f-4553-a0e9-8e3020e47add-1677174301268f390f-1",
+        "9cdb4ef5-eaae-437f-baff-7d692d613cf5",
+        "20791743-ae34-4c7c-9a45-933bdc848a91"
+      ],
+      "settings": {
+        "title": "FAQs"
+      }
+    }
+  },
+  "order": [
+    "1677174276dbbf4ed1",
+    "products",
+    "rebuy",
+    "fairing",
+    "26728a34-1dff-4a80-9ee1-6fc1c1da3b52",
+    "c8c78f39-dd4f-4553-a0e9-8e3020e47add"
+  ]
+}

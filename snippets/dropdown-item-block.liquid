@@ -1,0 +1,6 @@
+<div class="block-item-submenu">
+    {% unless block.settings.url == blank %}
+        {% assign image_url =  block.settings.url | img_url %}
+        <img src="{{ image_url }}" alt="{{ block.settings.url.alt }}" />
+    {% endunless %}
+</div>

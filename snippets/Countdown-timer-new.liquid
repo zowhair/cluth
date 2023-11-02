@@ -1,0 +1,72 @@
+{% if end_date != blank %} 
+  <span class="timer_heading_new">{{ title }}</span>
+  <span class="text timer"> 
+    <span class="timer-block js-timer-days"></span> 
+    <span class="timer-block js-timer-hours"></span> 
+    <span class="timer-block js-timer-minutes"></span> 
+    <span class="timer-block js-timer-seconds"></span> 
+  </span>
+  
+  <script type="text/javascript"> 
+      function splitAndWrap(str,bef,aft){
+        str= str.toString().split('').join(aft+bef);
+        return  str  ?  bef+str+aft:''  ;
+      }
+    
+      var second = 1000, 
+       minute = second * 60, 
+       hour = minute * 60, 
+       day = hour * 24; 
+       var countDown = new Date('{{- end_date -}}').getTime(), 
+       x = setInterval(function() { 
+         var now = new Date().getTime(), distance = countDown - now; 
+         if(distance > 0)
+         {
+           var day_display = Math.floor(distance / (day));
+           var hour_display = Math.floor((distance % (day)) / (hour));
+           var minute_display = Math.floor((distance % (hour)) / (minute));
+           var second_display = Math.floor((distance % (minute)) / second);
+
+           if(day_display > 0 && day_display < 10)
+           {
+             document.querySelector('.js-timer-days').innerHTML = "<span class=timer_num_new>0</span>"+`${splitAndWrap(day_display,'<span class=timer_num_new>','</span>')}` + "<span class='colon_new'>:</span>";
+           }
+           else if(day_display > 10)
+           {
+             document.querySelector('.js-timer-days').innerHTML = `${splitAndWrap(day_display,'<span class=timer_num_new>','</span>')}` + "<span class='colon_new'>:</span>";
+           }
+          
+           if(hour_display > 9)
+           {
+             document.querySelector('.js-timer-hours').innerHTML = `${splitAndWrap(hour_display,'<span class=timer_num_new>','</span>')}` + "<span class='colon_new'>:</span>";
+           } 
+           else
+           {
+             document.querySelector('.js-timer-hours').innerHTML = "<span class=timer_num_new>0</span>"+`${splitAndWrap(hour_display,'<span class=timer_num_new>','</span>')}` + "<span class='colon_new'>:</span>";
+           }
+          
+           if(minute_display > 9)
+           {
+             document.querySelector('.js-timer-minutes').innerHTML = `${splitAndWrap(minute_display,'<span class=timer_num_new>','</span>')}` + "<span class='colon_new'>:</span>";
+           }
+           else
+           {
+             document.querySelector('.js-timer-minutes').innerHTML = "<span class=timer_num_new>0</span>"+`${splitAndWrap(minute_display,'<span class=timer_num_new>','</span>')}` + "<span class='colon_new'>:</span>";
+           }
+
+           if(second_display > 9)
+           {
+             document.querySelector('.js-timer-seconds').innerHTML = `${splitAndWrap(second_display,'<span class=timer_num_new>','</span>')}`;
+           }
+           else
+           {
+             document.querySelector('.js-timer-seconds').innerHTML = "<span class=timer_num_new>0</span>"+`${splitAndWrap(second_display,'<span class=timer_num_new>','</span>')}`;
+           }
+         }
+         else
+         {
+           document.querySelector('.Page_featured_product_timer_new').style.display="none";
+         }
+     }, second) 
+  </script> 
+{% endif %}

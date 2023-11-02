@@ -1,0 +1,192 @@
+<div data-visible="{% if product.title contains 'Clutch® V2' %}false{% else %}true{% endif %}" class="comparation-table__container">
+  {% if section.blocks.size > 0 %}
+  
+    {{ 'comparation-table.min.js' | asset_url | script_tag }}
+  
+    <div class="page-width page-width--mobile-small {% if section.settings.space_bottom %}margin-30{% endif %}">
+      <div class="comparation-table">
+        <div class="comparation-table__head">
+          {% unless section.settings.title == blank %}
+            <h3>{{ section.settings.title }}</h3>
+          {% endunless %}
+          {% unless section.settings.subtitle == blank %}
+            <h4>{{ section.settings.subtitle }}</h4>
+          {% endunless %}
+        </div>
+        <div class="comparation-table__table text-center">
+
+          {%- if section.settings.imageTable != blank -%}
+            <img class="desktop" src="{{ section.settings.imageTable | image_url: width: 1013 }}" srcset="{{ section.settings.imageTable | image_url: width: 1013 }} 1x, {{ section.settings.imageTable | image_url: width: 1013 }} 2x" width="1013" height="auto" loading="eager" alt="Comparation table">
+            <img class="mobile" src="{{ section.settings.imageTableMobile | image_url: width: 364 }}" srcset="{{ section.settings.imageTableMobile | image_url: width: 364 }} 1x, {{ section.settings.imageTableMobile | image_url: width: 728 }} 2x" width="1013" height="auto" loading="eager" alt="Comparation table">
+          {% else %}
+          {% for row in section.blocks %}
+            {% if forloop.first == true %}
+              <!--PARA DESKTOP-->
+              <div class="tr desktop {% if forloop.first == true %}comparation-table__heading{% endif %}">
+                {% assign row_split = row.settings.content | split: ' | ' %}
+                {% for col in row_split %}
+                  {%- liquid
+                    assign col_split = col | split: '~'
+                    assign type = col_split | first
+                    assign content_color = col_split | last | split: '\'
+                    assign content = content_color | first
+                    assign color = content_color | last
+                  -%}
+                  <div class="th {% if content == "blank" %}blank{% endif %}">
+                    {% render 'comparation-module-item', col: content, type: type %}
+                  </div>
+                {% endfor %}
+              </div>
+              <!--PARA MOBILE-->
+              <div class="tr mobile {% if forloop.first == true %}comparation-table__heading{% endif %}">
+                {% assign row_split = row.settings.content_mobile | split: ' | ' %}
+                {% for col in row_split %}
+                  {%- liquid
+                    assign col_split = col | split: '~'
+                    assign type = col_split | first
+                    assign content_color = col_split | last | split: '\'
+                    assign content = content_color | first
+                    assign color = content_color | last
+                  -%}
+                  <div class="th {% if content == "blank" %}blank{% endif %}">
+                    {% render 'comparation-module-item', col: content, type: type %}
+                  </div>
+                {% endfor %}
+              </div>
+            {% else %}
+              <!--PARA DESKTOP-->
+              <div class="tr desktop">
+                {% assign row_split = row.settings.content | split: ' | ' %}
+                {% for col in row_split %}
+                  {%- liquid
+                    assign col_split = col | split: '~'
+                    assign type = col_split | first
+                    assign content_color = col_split | last | split: '\'
+                    assign content = content_color | first
+                    assign color = content_color | last
+                  -%}
+                  <div data-content="{{ content | strip_html }}" style="background: {{ color }}" class="td {% if col == "blank" %}blank{% endif %}">
+                    {% render 'comparation-module-item', col: content, type: type %}
+                  </div>
+                {% endfor %}
+              </div>
+              <!--PARA MOBILE-->
+              <div data-content="{{ content | strip_html }}" class="tr mobile {% if forloop.first == true %}comparation-table__heading{% endif %}">
+                {% assign row_split = row.settings.content_mobile | split: ' | ' %}
+                {% for col in row_split %}
+                  {%- liquid
+                    assign col_split = col | split: '~'
+                    assign type = col_split | first
+                    assign content_color = col_split | last | split: '\'
+                    assign content = content_color | first
+                    assign color = content_color | last
+                  -%}
+                  <div style="background: {{ color }}" class="td {% if content == "blank" %}blank{% endif %}">
+                    {% render 'comparation-module-item', col: content, type: type %}
+                  </div>
+                {% endfor %}
+              </div>
+            {% endif %}
+          {% endfor %}
+          {%- endif -%}
+
+        </div>
+      </div>
+    </div>
+  {% endif %}
+  
+  {% if section.settings.show_button %}
+    <div style="margin-bottom: 30px" class="cta cta--center">
+      <a class="cta__btn cta__btn--primary" href="/collections/clutch-chargers">
+        Shop now
+      </a>
+    </div>
+  {% endif %}
+  
+  {% render "image-responsive",
+    imagen_desktop: section.settings.banner_desktop,
+    imagen_mobile: section.settings.banner_movil
+  %}
+</div>
+
+
+
+{% schema %}
+{
+  "name": "Comparation module",
+  "settings": [
+    {
+      "id": "title",
+      "type": "text",
+      "label": "Title",
+      "default": "Us vs. Them"
+    },
+    {
+      "id": "subtitle",
+      "type": "text",
+      "label": "Sub Title",
+      "default": "Compact and Convenient: Clutch Chargers are the obvious choice for on-the-go use"
+    },
+    {
+      "id": "space_bottom",
+      "type": "checkbox",
+      "label": "Space bottom",
+      "default": false
+    },
+    {
+      "id": "show_button",
+      "type": "checkbox",
+      "label": "Show CTA",
+      "default": false
+    },
+    {
+      "id": "banner_desktop",
+      "type": "image_picker",
+      "label": "Banner desktop",
+      "info": "If you need watch this banner please upload"
+    },
+    {
+      "id": "banner_movil",
+      "type": "image_picker",
+      "label": "Banner Movil",
+      "info": "If you need watch this banner please upload"
+    },
+    {
+      "type": "image_picker",
+      "id": "imageTable",
+      "label": "Image table",
+      "info": "If you do not want to use an HTML table"
+    },
+    {
+      "type": "image_picker",
+      "id": "imageTableMobile",
+      "label": "Image table mobile",
+      "info": "If you do not want to use an HTML table"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Row",
+      "type": "row",
+      "settings": [
+        {
+          "id": "content",
+          "type": "text",
+          "label": "Content"
+        },
+        {
+          "id": "content_mobile",
+          "type": "text",
+          "label": "Content_mobile"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Comparation module"
+    }
+  ]
+}
+{% endschema %}
+

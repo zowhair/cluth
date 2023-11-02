@@ -1,0 +1,33 @@
+{% liquid
+  assign imagen = block.settings.image
+  assign title  = block.settings.title
+  assign author = block.settings.author
+  assign stars = block.settings.starts
+  assign aspect_ratio = block.settings.aspect_ratio
+  assign author_initials = ""
+  assign author_split = author | split: " "
+  assign comments = block.settings.comment
+
+  if author_split.size > 1
+    assign authorFirstLetter = author_split | first | slice: 0
+    assign authorSecondLetter = author_split | last | slice: 0
+    assign author_initials = authorFirstLetter | append: authorSecondLetter
+  else
+    assign authorFirstLetter = author_split | first | slice: 0
+    assign authorSecondLetter = author_split | first | slice: -1
+    assign author_initials = authorFirstLetter | append: authorSecondLetter
+  endif
+%}
+<article class="review-judgeme-card {{ class }}">
+  {% unless imagen == blank %}
+    <figure class="review-judgeme-card__image review-judgeme-card__image--{{ aspect_ratio }}">
+      <img src="{{ imagen | image_url }}" alt="{{ title }}" width="{{ imagen.width }}" height="{{ imagen.height }}" height="" loading="lazy" />
+    </figure>
+  {% endunless %}
+  <div class="review-judgeme-card__content">
+    <div class="review-judgeme-card__author-avatar"><span>{{ author_initials }}</span></div>
+    <div class="review-judgeme-card__author-name"><span>{{ author }}</span></div>
+    <div class="review-judgeme-card__comment">{{ comments }}</div>
+    <div class="review-judgeme-card__stars" style="--rating: {{ stars }};"></div>
+  </div>
+</article>

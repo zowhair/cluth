@@ -1,0 +1,430 @@
+{
+  "sections": {
+    "336e8faa-97e2-483f-83e3-cbe902056994": {
+      "type": "banner_lp_pro",
+      "blocks": {
+        "c0051c49-ecb3-4dc6-b8db-e0ee7c6c94a1": {
+          "type": "item",
+          "settings": {
+            "title_icon_id": "reviews",
+            "subtitle_icon_id": "5 stars (4000+ reviews)",
+            "icon_id": "<svg width=\"20\" height=\"20\" viewbox=\"0 0 20 20\" fill=\"none\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\">\n<path d=\"M10 0L12.598 6.42414L19.5106 6.90983L14.2037 11.3659L15.8779 18.0902L10 14.42L4.12215 18.0902L5.79633 11.3659L0.489435 6.90983L7.40199 6.42414L10 0Z\" fill=\"#1EA2F8\"><\/path>\n<\/svg>",
+            "subtitle_second_icon_id": "",
+            "second_icon_id": ""
+          }
+        },
+        "241ee523-0ed1-44bd-9611-742e94a9711d": {
+          "type": "item",
+          "settings": {
+            "title_icon_id": "Powerful",
+            "subtitle_icon_id": "5000 mAh",
+            "icon_id": "<svg width=\"24\" height=\"24\" viewbox=\"0 0 24 24\" fill=\"none\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\">\n<path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M3 6.5C2.17157 6.5 1.5 7.17157 1.5 8V16C1.5 16.8284 2.17157 17.5 3 17.5H17C17.8284 17.5 18.5 16.8284 18.5 16V8C18.5 7.17157 17.8284 6.5 17 6.5H3ZM0.5 8C0.5 6.61929 1.61929 5.5 3 5.5H17C18.3807 5.5 19.5 6.61929 19.5 8V16C19.5 17.3807 18.3807 18.5 17 18.5H3C1.61929 18.5 0.5 17.3807 0.5 16V8Z\" fill=\"#1EA2F8\"><\/path>\n<path d=\"M10.4397 11.5476C10.6144 10.2009 10.7852 8.88365 10.9561 7.56643C10.9295 7.5582 10.9033 7.54997 10.8767 7.54175C10.0602 9.16771 9.24379 10.7941 8.41281 12.4501H10.1445C9.91167 13.792 9.68372 15.1083 9.45528 16.4245C9.48384 16.4327 9.51191 16.4415 9.54046 16.4497C10.3516 14.8324 11.1632 13.2157 12 11.5476H10.4392H10.4397Z\" fill=\"#1EA2F8\"><\/path>\n<path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M23 10.5C23.2761 10.5 23.5 10.7239 23.5 11V13C23.5 13.2761 23.2761 13.5 23 13.5C22.7239 13.5 22.5 13.2761 22.5 13V11C22.5 10.7239 22.7239 10.5 23 10.5Z\" fill=\"#1EA2F8\"><\/path>\n<\/svg>",
+            "subtitle_second_icon_id": "",
+            "second_icon_id": ""
+          }
+        },
+        "4b3e1ffa-c9bc-44ae-b636-82f3077233e3": {
+          "type": "item",
+          "settings": {
+            "title_icon_id": "Compatibility",
+            "subtitle_icon_id": "iPhone and",
+            "icon_id": "<svg width=\"24\" height=\"24\" viewbox=\"0 0 24 24\" fill=\"none\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\">\n<path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M14.4749 6.59749C14.9967 5.92389 15.3923 4.97183 15.2492 4C14.3964 4.05927 13.3995 4.60493 12.8178 5.31616C12.2876 5.9606 11.8518 6.91926 12.022 7.84969C12.9544 7.87886 13.9166 7.32002 14.4749 6.59749ZM19.0833 15.7391C18.7102 16.5707 18.5307 16.9423 18.05 17.679C17.3795 18.7073 16.4341 19.9877 15.2614 19.9971C14.2206 20.0084 13.9522 19.315 12.5392 19.3235C11.1261 19.331 10.8316 20.0102 9.78888 19.9999C8.61714 19.9895 7.72126 18.8343 7.05076 17.806C5.17485 14.9328 4.97753 11.5601 6.13431 9.76606C6.95724 8.49224 8.25523 7.74713 9.47467 7.74713C10.7156 7.74713 11.4965 8.43203 12.5242 8.43203C13.5211 8.43203 14.128 7.74526 15.5634 7.74526C16.6501 7.74526 17.8013 8.34077 18.6204 9.36811C15.9347 10.8489 16.3695 14.707 19.0833 15.7391Z\" fill=\"#1EA2F8\"><\/path>\n<\/svg>",
+            "subtitle_second_icon_id": "Android",
+            "second_icon_id": "<svg width=\"24\" height=\"24\" viewbox=\"0 0 24 24\" fill=\"none\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\">\n<path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M13.909 7.2003C13.6451 7.2003 13.4315 6.9924 13.4315 6.73558C13.4315 6.47876 13.6451 6.27179 13.909 6.27179C14.1729 6.27179 14.3865 6.47876 14.3865 6.73558C14.3865 6.9924 14.1729 7.2003 13.909 7.2003ZM10.091 7.2003C9.82712 7.2003 9.61351 6.9924 9.61351 6.73558C9.61351 6.47876 9.82712 6.27179 10.091 6.27179C10.3549 6.27179 10.5685 6.47876 10.5685 6.73558C10.5685 6.9924 10.3549 7.2003 10.091 7.2003ZM14.1912 5.33952L14.3691 5.07801L14.5469 4.82023L14.9432 4.24075C14.9925 4.16925 14.9722 4.07328 14.8988 4.02625C14.8263 3.97827 14.7267 3.99802 14.6794 4.06952L14.0743 4.95099L13.8926 5.21629C13.3175 4.99898 12.6766 4.87763 12 4.87763C11.3244 4.87763 10.6825 4.99898 10.1074 5.21629L9.92668 4.95099L9.74786 4.69041L9.32256 4.06952C9.27326 3.99802 9.17468 3.97921 9.10122 4.02625C9.02872 4.07328 9.00842 4.16925 9.05675 4.24075L9.45305 4.82023L9.6309 5.07801L9.80972 5.33952C8.45941 5.95194 7.54598 7.11187 7.54598 8.43925H16.454C16.454 7.11187 15.5406 5.95194 14.1912 5.33952ZM7.61461 9.05827H7.54598V15.8711C7.54598 16.412 7.99738 16.8523 8.55413 16.8523H9.281C9.25586 16.9341 9.24234 17.0197 9.24234 17.1101V19.0715C9.24234 19.5842 9.67053 20 10.1973 20C10.7241 20 11.1523 19.5842 11.1523 19.0715V17.1101C11.1523 17.0197 11.1378 16.9341 11.1136 16.8523H12.8864C12.8622 16.9341 12.8487 17.0197 12.8487 17.1101V19.0715C12.8487 19.5842 13.2759 20 13.8027 20C14.3304 20 14.7586 19.5842 14.7586 19.0715V17.1101C14.7586 17.0197 14.7441 16.9341 14.719 16.8523H15.4468C16.0036 16.8523 16.454 16.412 16.454 15.8711V9.05827H7.61461ZM5.95499 9.05827C5.42723 9.05827 5 9.47408 5 9.98678V13.9614C5 14.4741 5.42723 14.8899 5.95499 14.8899C6.48177 14.8899 6.90901 14.4741 6.90901 13.9614V9.98678C6.90901 9.47408 6.48177 9.05827 5.95499 9.05827ZM18.046 9.05827C17.5182 9.05827 17.091 9.47408 17.091 9.98678V13.9614C17.091 14.4741 17.5182 14.8899 18.046 14.8899C18.5728 14.8899 19 14.4741 19 13.9614V9.98678C19 9.47408 18.5728 9.05827 18.046 9.05827Z\" fill=\"#1EA2F8\"><\/path>\n<\/svg>"
+          }
+        }
+      },
+      "block_order": [
+        "c0051c49-ecb3-4dc6-b8db-e0ee7c6c94a1",
+        "241ee523-0ed1-44bd-9611-742e94a9711d",
+        "4b3e1ffa-c9bc-44ae-b636-82f3077233e3"
+      ],
+      "settings": {
+        "image_desktop": "shopify:\/\/shop_images\/Hero_Image_2.png",
+        "image_mobile": "shopify:\/\/shop_images\/Hero_Image_3.png",
+        "title_id": "Buy One, Get One 50% OFF with code: BOGO50",
+        "button_url_id": "#product_buy",
+        "button_text_id": "Shop BOGO Sale",
+        "shipping_text_id": "Free US Shipping"
+      }
+    },
+    "b8a72d0a-62c5-433c-af07-3d26eb34dd5d": {
+      "type": "brands_carrousel_lp",
+      "blocks": {
+        "416ad260-ab45-4fc0-9cff-f617033647a8": {
+          "type": "Brand",
+          "settings": {
+            "brand_id": "shopify:\/\/shop_images\/Group_27_7.png",
+            "text_id": "Clutch is the perfect portable charger for anyone on the go."
+          }
+        },
+        "80076c86-f788-4f68-a4cd-0f54b69e0d45": {
+          "type": "Brand",
+          "settings": {
+            "brand_id": "shopify:\/\/shop_images\/Group_27_4.png",
+            "text_id": "Small enough to slip into your wallet or purse"
+          }
+        },
+        "42fac62c-ca9e-4368-b505-08b7c21ebec0": {
+          "type": "Brand",
+          "settings": {
+            "brand_id": "shopify:\/\/shop_images\/Group_27_3.png",
+            "text_id": "It's literally the smallest most powerful power bank that I have ever seen."
+          }
+        },
+        "fd5f7dd5-e162-4f83-8910-cd8b75038a4a": {
+          "type": "Brand",
+          "settings": {
+            "brand_id": "shopify:\/\/shop_images\/Group_27_1.png",
+            "text_id": "Perfect for traveling light"
+          }
+        },
+        "0038b123-4aee-4a2d-967e-2bdbbcf5ca10": {
+          "type": "Brand",
+          "disabled": true,
+          "settings": {
+            "brand_id": "shopify:\/\/shop_images\/Group_27.png",
+            "text_id": ""
+          }
+        },
+        "58792dbd-ba1d-458f-82b6-11cd094e608b": {
+          "type": "Brand",
+          "settings": {
+            "brand_id": "shopify:\/\/shop_images\/Group_27_6.png",
+            "text_id": "It's the size of just a few credit cards"
+          }
+        },
+        "17daa7a1-2a8c-4d00-a620-7bc66e54cba2": {
+          "type": "Brand",
+          "settings": {
+            "brand_id": "shopify:\/\/shop_images\/Group_27_2.png",
+            "text_id": "No more heavy, bulky batteries. Clutch is sleek and compact."
+          }
+        }
+      },
+      "block_order": [
+        "416ad260-ab45-4fc0-9cff-f617033647a8",
+        "80076c86-f788-4f68-a4cd-0f54b69e0d45",
+        "42fac62c-ca9e-4368-b505-08b7c21ebec0",
+        "fd5f7dd5-e162-4f83-8910-cd8b75038a4a",
+        "0038b123-4aee-4a2d-967e-2bdbbcf5ca10",
+        "58792dbd-ba1d-458f-82b6-11cd094e608b",
+        "17daa7a1-2a8c-4d00-a620-7bc66e54cba2"
+      ],
+      "settings": {
+        "title_id": ""
+      }
+    },
+    "ef77853a-0f13-41af-b518-6b1c0f031ba7": {
+      "type": "image_with_text_lp",
+      "blocks": {
+        "fadb291e-ee6a-4ea5-a0c8-d87eef81ed6a": {
+          "type": "blocks",
+          "settings": {
+            "image_id": "shopify:\/\/shop_images\/magnetic.png",
+            "title_id": "Magnetic",
+            "text_id": "Experience the convenience of effortless charging while you're on the move",
+            "btn_text_id": "Shop Clutch",
+            "url_id": "#product_buy",
+            "position_image_id": "left"
+          }
+        },
+        "231aceb7-7e98-40ac-8fa1-43ddf1b96a89": {
+          "type": "blocks",
+          "settings": {
+            "image_id": "shopify:\/\/shop_images\/bult-in-cable.png",
+            "title_id": "Built-In Cable",
+            "text_id": "Bid farewell to the hassle of leaving your portable charger cable behind",
+            "btn_text_id": "Shop Clutch",
+            "url_id": "#product_buy",
+            "position_image_id": "right"
+          }
+        },
+        "17492b1d-3725-47fa-9895-17f32af2e39a": {
+          "type": "blocks",
+          "settings": {
+            "image_id": "shopify:\/\/shop_images\/Clutch-Pro-102.jpg",
+            "title_id": "Slim and Sleek",
+            "text_id": "Slide it seamlessly into your purse, wallet, or pocket",
+            "btn_text_id": "Shop Clutch",
+            "url_id": "#product_buy",
+            "position_image_id": "left"
+          }
+        }
+      },
+      "block_order": [
+        "fadb291e-ee6a-4ea5-a0c8-d87eef81ed6a",
+        "231aceb7-7e98-40ac-8fa1-43ddf1b96a89",
+        "17492b1d-3725-47fa-9895-17f32af2e39a"
+      ],
+      "settings": {
+        "title_id": "Clutch chargers are the obvious choice for on-the-go use"
+      }
+    },
+    "24d7e964-af75-4a4e-b161-71c636763ced": {
+      "type": "tab-hover-text",
+      "blocks": {
+        "ed9e09d0-b99d-4ba8-8d67-538e92891945": {
+          "type": "Tab",
+          "settings": {
+            "image_id": "shopify:\/\/shop_images\/Img_1.png",
+            "title_id": "Strong Aluminum Case",
+            "text_id": "Built to last with durable yet lightweight metal"
+          }
+        },
+        "bb1f0d2d-8ea7-4f83-87ed-a9a3044130c1": {
+          "type": "Tab",
+          "settings": {
+            "image_id": "shopify:\/\/shop_images\/LED_Battery_Level_Indicators.png",
+            "title_id": "LED Battery Level Indicators",
+            "text_id": "Know how much charge your Clutch has left at all times"
+          }
+        },
+        "60131d98-2efb-4b9b-87f5-0dae5b991f1a": {
+          "type": "Tab",
+          "settings": {
+            "image_id": "shopify:\/\/shop_images\/Magnetic_Built-in_Cable.png",
+            "title_id": "Magnetic & Built-in Cable",
+            "text_id": "Attaches to iPhone 12 or newer models, or to MagSafe cases. No more untangling or needing extra cords"
+          }
+        },
+        "e7b60fbc-804b-4f92-898a-8db56e9020f5": {
+          "type": "Tab",
+          "settings": {
+            "image_id": "shopify:\/\/shop_images\/Minimal_Light_Design.png",
+            "title_id": "Minimal & Light Design",
+            "text_id": "Perfect for on the go, for gifts and traveling (yes it’s airplane safe!)"
+          }
+        }
+      },
+      "block_order": [
+        "ed9e09d0-b99d-4ba8-8d67-538e92891945",
+        "bb1f0d2d-8ea7-4f83-87ed-a9a3044130c1",
+        "60131d98-2efb-4b9b-87f5-0dae5b991f1a",
+        "e7b60fbc-804b-4f92-898a-8db56e9020f5"
+      ],
+      "settings": {
+        "title_id": "Meet your new daily essential",
+        "sub_title_id": "With 5000 mAh, Clutch Pro is 50% more power than our previous version"
+      }
+    },
+    "2236a9f1-10cc-4aa1-98ca-d05eaf99a6c8": {
+      "type": "cards_product_lp",
+      "blocks": {
+        "f15e6ef4-4fe4-4118-9f0d-3fb1602bba55": {
+          "type": "Product",
+          "settings": {
+            "products_id": "clutch-pro-iphone",
+            "select_id": "iphone"
+          }
+        },
+        "4112a1ee-f97e-41a2-ae59-9f61257767c2": {
+          "type": "Product",
+          "settings": {
+            "products_id": "clutch-pro-usbc",
+            "select_id": "android"
+          }
+        }
+      },
+      "block_order": [
+        "f15e6ef4-4fe4-4118-9f0d-3fb1602bba55",
+        "4112a1ee-f97e-41a2-ae59-9f61257767c2"
+      ],
+      "settings": {
+        "title_id": "Shop 50% OFF 2nd Clutch with code: BOGO50",
+        "css_class": ""
+      }
+    },
+    "00201617-e337-4bab-a433-88b62203a695": {
+      "type": "us_vs_them_lp",
+      "blocks": {
+        "857b5174-3359-4367-b573-48d8077d2c1a": {
+          "type": "Table",
+          "settings": {
+            "table_id": "shopify:\/\/shop_images\/Frame_153_1.png",
+            "text_table_id": "Built-in cable"
+          }
+        },
+        "f6442095-46e6-4d76-a024-9cacc8e0e644": {
+          "type": "Table",
+          "settings": {
+            "table_id": "shopify:\/\/shop_images\/Frame_155_3.png",
+            "text_table_id": "Minimal &  Sleek Design"
+          }
+        },
+        "bb691f28-7137-4827-9f9d-d90f82d620bf": {
+          "type": "Table",
+          "settings": {
+            "table_id": "shopify:\/\/shop_images\/Frame_155_4.png",
+            "text_table_id": "Colors"
+          }
+        },
+        "798be532-e61f-4a0c-b322-34685b4aeab4": {
+          "type": "Table",
+          "settings": {
+            "table_id": "shopify:\/\/shop_images\/Frame_155_5.png",
+            "text_table_id": "Weight"
+          }
+        },
+        "190f1c5b-8c46-4de7-86a7-45e2b0c5aab2": {
+          "type": "Table",
+          "settings": {
+            "table_id": "shopify:\/\/shop_images\/Frame_155_6.png",
+            "text_table_id": "Pocket & Wallet-Friendly Size"
+          }
+        },
+        "507c34bf-33d6-4156-9537-659353df07ee": {
+          "type": "Table",
+          "settings": {
+            "table_id": "shopify:\/\/shop_images\/Frame_155_7.png",
+            "text_table_id": "Price"
+          }
+        }
+      },
+      "block_order": [
+        "857b5174-3359-4367-b573-48d8077d2c1a",
+        "f6442095-46e6-4d76-a024-9cacc8e0e644",
+        "bb691f28-7137-4827-9f9d-d90f82d620bf",
+        "798be532-e61f-4a0c-b322-34685b4aeab4",
+        "190f1c5b-8c46-4de7-86a7-45e2b0c5aab2",
+        "507c34bf-33d6-4156-9537-659353df07ee"
+      ],
+      "settings": {
+        "title_id": "We're better...",
+        "sub_title_id": "than the other chargers you're thinking of",
+        "image_id": "shopify:\/\/shop_images\/Table_cde462a4-7367-4a14-9b54-30d81507823e.png",
+        "button_text_id": "Shop BOGO Sale",
+        "button_url_id": "#product_buy",
+        "css_class": ""
+      }
+    },
+    "beff955f-5c14-43a5-9510-2b10d2cb67f3": {
+      "type": "section-videos_lp",
+      "blocks": {
+        "12560852-08eb-4e2f-aa15-4ca5e17ab0e1": {
+          "type": "video",
+          "settings": {
+            "video_url": "https:\/\/vimeo.com\/794624765",
+            "author": "Halle Berry",
+            "message": "“Sleek and minimal”"
+          }
+        },
+        "9b838897-7956-4a5b-9310-c354ab07027e": {
+          "type": "video",
+          "settings": {
+            "video_url": "https:\/\/vimeo.com\/838455991?share=copy",
+            "author": "Callie Chisholm",
+            "message": "“Cord wraps around clutch”"
+          }
+        },
+        "d9c08be5-aa1b-4be3-bf88-f67403712b04": {
+          "type": "video",
+          "settings": {
+            "video_url": "https:\/\/vimeo.com\/794623657",
+            "author": "Alexandra Fasulo",
+            "message": "“Thin enough to fit in credit card slot”"
+          }
+        }
+      },
+      "block_order": [
+        "12560852-08eb-4e2f-aa15-4ca5e17ab0e1",
+        "9b838897-7956-4a5b-9310-c354ab07027e",
+        "d9c08be5-aa1b-4be3-bf88-f67403712b04"
+      ],
+      "settings": {
+        "title": "Comes In Clutch For Any Emergency",
+        "description": "If this is what they said about our previous version, they'd love Clutch Pro",
+        "button_id": "#product_buy"
+      }
+    },
+    "38b6d4d8-f9bd-4629-b109-b117cee2075f": {
+      "type": "reviews_lp",
+      "blocks": {
+        "4a22ffa6-eeba-47a7-b14f-d8c3061d250c": {
+          "type": "rview",
+          "settings": {
+            "review": "A nice surprise Lightweight and wonderful. Much nicer than my previous battery.",
+            "author": "Cathi"
+          }
+        },
+        "488b1c1f-1093-4b09-833f-44e2962253ac": {
+          "type": "rview",
+          "settings": {
+            "review": "Great customer service Works great, shipped quickly. Customer service was great!",
+            "author": "Tammi"
+          }
+        },
+        "c43f7f3b-0222-4517-819f-516e900d454c": {
+          "type": "rview",
+          "settings": {
+            "review": "Great deal Love getting money back on purchases I need. Especially like Clutch, which is something I gift to friends and family all year long.",
+            "author": "Jennifer"
+          }
+        },
+        "833b3ea0-5d6c-43aa-a637-32fedf53fa6f": {
+          "type": "rview",
+          "settings": {
+            "review": "Great This charger is very compact and works great. So happy I made the purchase. This is a great gift for anyone",
+            "author": "Tawanda"
+          }
+        },
+        "caf24db4-d19a-4366-bc48-9b6c1d077f67": {
+          "type": "rview",
+          "settings": {
+            "review": "Outstanding I ordered the Clutch that has both iPhone and Android cords. My daughter and I have different phones so this worked great for us. It charged so fast!",
+            "author": "Debbie"
+          }
+        },
+        "ee9174ce-e82e-42b3-84c1-69d6a8dfa6ad": {
+          "type": "rview",
+          "settings": {
+            "review": "Wallet charger Fits perfectly in your wallet and I love the built in charger feature. No other wires needed!",
+            "author": "Suzanne"
+          }
+        }
+      },
+      "block_order": [
+        "4a22ffa6-eeba-47a7-b14f-d8c3061d250c",
+        "488b1c1f-1093-4b09-833f-44e2962253ac",
+        "c43f7f3b-0222-4517-819f-516e900d454c",
+        "833b3ea0-5d6c-43aa-a637-32fedf53fa6f",
+        "caf24db4-d19a-4366-bc48-9b6c1d077f67",
+        "ee9174ce-e82e-42b3-84c1-69d6a8dfa6ad"
+      ],
+      "settings": {
+        "title": "Our Customers Think We’re Clutch!"
+      }
+    },
+    "422932ad-2b74-449d-a325-4ff26651ef0d": {
+      "type": "image_with_button_lp",
+      "settings": {
+        "image_id": "shopify:\/\/shop_images\/Untitled-1_1.png",
+        "title_id": "Get a Clutch or 2 ;)",
+        "text_id": "The perfect gift idea?",
+        "btn_text_id": "Shop BOGO50",
+        "url_id": "#product_buy"
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "show_video": true,
+        "d_video_url": "",
+        "video_url": ""
+      }
+    }
+  },
+  "order": [
+    "336e8faa-97e2-483f-83e3-cbe902056994",
+    "b8a72d0a-62c5-433c-af07-3d26eb34dd5d",
+    "ef77853a-0f13-41af-b518-6b1c0f031ba7",
+    "24d7e964-af75-4a4e-b161-71c636763ced",
+    "2236a9f1-10cc-4aa1-98ca-d05eaf99a6c8",
+    "00201617-e337-4bab-a433-88b62203a695",
+    "beff955f-5c14-43a5-9510-2b10d2cb67f3",
+    "38b6d4d8-f9bd-4629-b109-b117cee2075f",
+    "422932ad-2b74-449d-a325-4ff26651ef0d",
+    "main"
+  ]
+}

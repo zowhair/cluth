@@ -1,0 +1,188 @@
+{%- if section.settings.inner_infos_text != blank or section.blocks.size > 0 or section.settings.inner_desktop_image != blank or section.settings.inner_mobile_image != blank -%}
+  <div class="Page_image_step_list_text_main_new Page_image_step_list_text_main_new_{{ section.id }}" style="background: {{ section.settings.main_back_color }};">
+    <div class="page-width">
+      <div class="Page_image_step_list_text_inner_new">
+        {%- if section.settings.inner_infos_text != blank -%}
+          <div class="Page_image_step_list_text_infos_new">
+            {{ section.settings.inner_infos_text }}
+          </div>
+        {%- endif -%}
+        {%- if section.blocks.size > 0 or section.settings.inner_desktop_image != blank or section.settings.inner_mobile_image != blank -%}
+          <div class="Page_image_step_list_text_mainleftright_new">
+            <div class="Page_image_step_list_text_innerleftright_new">
+              {%- if section.settings.inner_desktop_image != blank or section.settings.inner_mobile_image != blank -%}
+                <div class="Page_image_step_list_text_leftside_new">
+                  <style>
+                    {% if section.settings.main_desktop_image != blank %}
+                      .Page_image_step_list_text_main_new_{{ section.id }} .Page_image_step_list_text_leftside_new:before{
+                        content:'';
+                        background:url({{ section.settings.main_desktop_image | img_url:'master' }}) no-repeat top left;
+                        width: 842px;
+                        height: 583px;
+                        display: block;
+                        left: -340px;
+                        top: -250px;
+                        position: absolute;
+                      }
+                      {% if section.settings.main_mobile_image != blank %}
+                        @media(min-width:0px) and (max-width:768px){
+                          .Page_image_step_list_text_main_new_{{ section.id }} .Page_image_step_list_text_leftside_new:before{ display:none;}
+                          .Page_image_step_list_text_main_new_{{ section.id }}{
+                            background:{{ section.settings.main_back_color }} url({{ section.settings.main_mobile_image | img_url:'master' }}) no-repeat top center !important; 
+                          }
+                        }
+                      {% endif %}
+                    {% endif %}
+                  </style>
+                  <div class="Page_image_step_list_text_leftside_image_new">
+                    {%- if section.settings.inner_desktop_image != blank -%}
+                      {%- assign img_url = section.settings.inner_desktop_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+                      <img class="desktop_image_new lazyload"
+                        data-src="{{ img_url }}"
+                        data-widths="[180, 360, 540, 750, 900, 1080, 1296, 1512, 1728, 1944, 2048]"
+                        data-aspectratio="{{ section.settings.inner_desktop_image.aspect_ratio }}"
+                        data-sizes="auto"
+                        alt="{{ section.settings.inner_desktop_image.alt }}">
+                    {%- endif -%}
+                    {%- if section.settings.inner_mobile_image != blank -%}
+                      {%- assign img_url = section.settings.inner_mobile_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+                      <img class="mobile_image_new lazyload"
+                        data-src="{{ img_url }}"
+                        data-widths="[180, 360, 540, 750, 900, 1080, 1296, 1512, 1728, 1944, 2048]"
+                        data-aspectratio="{{ section.settings.inner_mobile_image.aspect_ratio }}"
+                        data-sizes="auto"
+                        alt="{{ section.settings.inner_mobile_image.alt }}">
+                    {%- endif -%}
+                  </div>
+                </div>
+              {%- endif -%}
+              {%- if section.settings.inner_heading_text != blank or section.blocks.size > 0 -%}
+                <div class="Page_image_step_list_text_rightside_new">
+                  <div class="Page_image_step_list_text_rightside_texts_new">
+                    {%- if section.settings.inner_heading_text != blank -%}
+                      <div class="Page_image_step_list_text_rightside_texts_infos_new">
+                        {{ section.settings.inner_heading_text }}
+                      </div>
+                    {%- endif -%}
+                    {%- if section.blocks.size > 0 -%}
+                      <div class="Page_image_step_list_text_rightside_texts_mainloop_new">
+                        <div class="Page_image_step_list_text_rightside_texts_innerloop_new">
+                          {%- for block in section.blocks -%}
+                            {%- if block.settings.title != blank or block.settings.inner_infos_list_text != blank -%}
+                              <div class="Page_image_step_list_text_rightside_texts_innerloop_mainbox_new">
+                                <div class="Page_image_step_list_text_rightside_texts_innerloop_innerbox_new">
+                                  {%- if block.settings.title != blank -%}
+                                    <div class="Page_image_step_list_text_rightside_texts_innerloop_innerbox_title_new">
+                                      <div class="Page_image_step_list_text_rightside_texts_innerloop_innerbox_titleicon_new">
+                                        <svg width="19" height="20" viewBox="0 0 19 20" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_285_3156)"><path d="M10.0148 9.47C10.4004 6.5975 10.7775 3.78796 11.1545 0.978421C11.0957 0.960875 11.0381 0.943328 10.9793 0.925781C9.17746 4.39384 7.37559 7.86293 5.54169 11.395H9.3633C8.84955 14.2572 8.34648 17.0646 7.84235 19.8721C7.90536 19.8897 7.96731 19.9082 8.03033 19.9258C9.82045 16.4763 11.6116 13.0279 13.4584 9.47H10.0138H10.0148Z" fill="#34B0F7"/></g><defs><clipPath id="clip0_285_3156"><rect width="19" height="19" fill="white" transform="translate(0 0.925781)"/></clipPath></defs></svg>
+                                      </div>
+                                      <div class="Page_image_step_list_text_rightside_texts_innerloop_innerbox_titletext_new">
+                                        {{ block.settings.title }}
+                                      </div>  
+                                    </div>
+                                  {%- endif -%}
+                                  {%- if block.settings.inner_infos_list_text != blank -%}
+                                    <div class="Page_image_step_list_text_rightside_texts_innerloop_innerbox_infos_new">
+                                      {{ block.settings.inner_infos_list_text }}
+                                    </div>
+                                  {%- endif -%}
+                                </div>
+                              </div>
+                            {%- endif -%}
+                          {%- endfor -%}
+                        </div>
+                      </div>
+                    {%- endif -%}
+                  </div>
+                </div>
+              {%- endif -%}
+            </div>
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+{%- endif -%}
+
+{% schema %}
+  {
+    "name": "Page Image Step List Text",
+    "class": "Page_image_step_list_text_new",
+    "settings": [
+      {
+        "type": "color",
+        "id": "main_back_color",
+        "label": "Add Main Background Color",
+        "default": "#141414"
+      },
+      {
+        "type": "image_picker",
+        "id": "main_desktop_image",
+        "label": "Add Main Desktop Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "main_mobile_image",
+        "label": "Add Main Mobile Image"
+      },
+      {
+        "type": "richtext",
+        "id": "inner_infos_text",
+        "label": "Add Inner Information Text",
+        "default": "<p>Whether you’re coming home at the end of a long day, in a new place, or need to get in touch with a loved one, we often rely on our phones for safety.</p>"
+      },
+      {
+        "type": "textarea",
+        "id": "inner_heading_text",
+        "label": "Add Inner Heading Text",
+        "default": "Here are 3 ways Clutch can keep you safe:"
+      },
+      {
+        "type": "image_picker",
+        "id": "inner_desktop_image",
+        "label": "Add Inner Desktop Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "inner_mobile_image",
+        "label": "Add Inner Mobile Image"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "information",
+        "name": "Information",
+        "settings": [
+          {
+            "type": "textarea",
+            "id": "title",
+            "label": "Add Inner Heading List Text",
+            "default": "Lorem ipsum dolor sit amet."
+          },
+          {
+            "type": "richtext",
+            "id": "inner_infos_list_text",
+            "label": "Add Inner Information List Text",
+            "default": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Page Image Step List Text",
+        "blocks": [
+          {
+            "type": "information"
+          },
+          {
+            "type": "information"
+          },
+          {
+            "type": "information"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

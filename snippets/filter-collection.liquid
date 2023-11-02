@@ -1,0 +1,55 @@
+{%- liquid
+  assign menuTags = tags | newline_to_br | split: '<br />'
+  assign url = request.path | split: "/collections/clutch-chargers/"
+  assign tags = url | last | strip
+-%}
+
+<sidebar class="filters-collection" data-visible="false">
+
+  <div class="filters-collection__head-mobile">
+    <h4>Filter by</h4>
+    <button type="button" class="filters-collection__close">
+      <img src="{{ 'icon-close-filter.svg' | asset_url }}" />
+    </button>
+  </div>
+
+  <div class="filters-collection__body">
+    {% for tag in menuTags %}
+      {% assign splitTag = tag | split: ':' %}
+      {% assign label = splitTag | first %}
+      {% assign value = splitTag | last | strip %}
+      <div class="filters-collection__item">
+        <label for="{{ "collection_" | append: value }}">
+          <input
+            class="filters-collection__check"
+            type="radio"
+            name="collection"
+            id="{{ "collection_" | append: value }}"
+            {% if tags == value %}
+            checked
+            value=""
+            {% else %}
+            value="{{ value }}"
+            {% endif %}
+          />
+          {{ label }}
+        </label>
+      </div>
+       
+    {% endfor %}
+    <div class="filters-collection__item">
+      <label for="{{ "collection_" | append: "all" }}">
+        <input
+          class="filters-collection__check"
+          type="radio"
+          name="collection"
+          value=""
+          id="{{ "collection_" | append: "all" }}"
+          {% if tags == '/collections/clutch-chargers' %}checked{% endif %}
+        />
+        All
+      </label>
+    </div>
+  </div>
+  
+</sidebar>

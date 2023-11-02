@@ -1,0 +1,78 @@
+<div class="modal-sidecart-variant-overlay" data-toggle="false">
+    <div class="modal-sidecart-variant">
+        <div class="moda-body">
+            <pre>
+            </pre>
+            {% for block in blocks %}
+                {% if block.settings.showModal == true %}
+                    
+                    {% assign productItem_one = all_products[block.settings.product] %}
+                
+                    <div class="product-into-modal">
+                        {% unless productItem_one == blank and productItem_two == blank %}
+                            <select>
+                                <option value="">Select</option>    
+                                <option value="{{ productItem_one.id }}">Android</option>    
+                                <option value="{{ productItem_two.id }}">iPhone</option>    
+                            </select>
+                            {%- for option in productItem_one.options_with_values -%}
+                                <select
+                                    form=""
+                                    class="variant__input-{{ section_id }}"
+                                    id="SingleOptionSelector"
+                                    data-index="option{{ forloop.index }}"
+                                    data-variant-input>
+                                    {%- for value in option.values -%}
+                                    {%- liquid
+                                        assign variant_label_state = true
+                                        if productItem_one.options.size == 1
+                                        unless productItem_one.variants[forloop.index0].available
+                                            assign variant_label_state = false
+                                        endunless
+                                        endif
+                                    -%}
+                                    <option
+                                        value="{{ value | escape }}"
+                                        name="{{ option.name }}"
+                                        class="variant-input"
+                                        data-index="option{{ forloop.index }}">
+                                        {{ value }}
+                                    </option>
+                                    {%- endfor -%}
+                                </select>
+                            {% endfor %}
+                        {% endunless %}
+                    </div>
+                
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<style>
+    .modal-sidecart-variant-overlay {
+        display: none;
+        position: fixed;
+        background: rgba(0,0,0, 0.5);
+        width: 100%;
+        height: 100vh;
+        justify-content: center;
+        align-items: center;
+        z-index: 6;
+        left: 0;
+        top: 0;
+    }
+    
+    .modal-sidecart-variant-overlay .modal-sidecart-variant {
+        width: 100%;
+        max-width: 400px;
+        box-shadow: 0 0 10px rgba(0,0,0,.5);
+        background: #fff;
+        padding: 10px 30px;
+    }
+    
+    .modal-sidecart-variant-overlay[data-toggle="true"] {
+        display: flex;
+    }
+</style>

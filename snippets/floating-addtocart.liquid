@@ -1,0 +1,232 @@
+<div class="mobile-floating">
+    <img
+       class="image-floating"
+      id="dynamic-image"
+      srcset="{{ product.selected_or_first_available_variant.image | default: product.featured_image | image_url: width: '64x' }} 1x, {{ product.selected_or_first_available_variant.image | default: product.featured_image | image_url: width: '128x' }} 2x"
+      alt="image for {{ product.title }}"
+    />
+
+  <div class="title-floating">
+    <h2>
+      {{ product.title }}
+    </h2>
+  </div>
+
+  <div class="variant-container {% if product.has_only_default_variant or product.options.first != "Color" %} hide{% endif %}">
+    {%- for variant in product.variants -%}
+      <div>
+        <input
+          class="getVariantId hide"
+          type="radio"
+          id="variant_{{ variant.id }}"
+          name="fav_language"
+          value="{{ variant.id }}"
+          {%- assign position_color = "option" | append: variant.product.options_by_name["Color"].position -%}
+          data-color-select= "{{ variant[position_color] | escape }}"
+          data-image-srcset= "{{ variant.image.src | image_url: width: '64x' }} 1x, {{ variant.image.src | image_url: width: '128x' }} 2x"
+          {% unless variant.available %} disabled {% endunless %}
+          {% if variant.id == product.selected_or_first_available_variant.id %} checked {% endif %}
+        />
+        <label
+          class="color_{{ variant.title | handleize }}"
+          style="background-color: {{ variant.title }};"
+          for="variant_{{ variant.id }}">
+        </label>
+      </div>
+    {%- endfor -%}
+  </div>
+  <div>
+    <button class="add-floating">Add To Cart</button>
+  </div>
+</div>
+
+<script>
+  let getVariantsName = document.querySelectorAll("[data-color-name]")
+  let valueVariant = document.querySelectorAll(".getVariantId");
+  let addToCartButton = document.querySelector(".add-floating");
+  let colorName;
+  let colorSelected;
+  let variantImage;
+  let targetVariantId;
+  valueVariant.forEach((checkbox) => {
+    checkbox.addEventListener("change", (event) => {
+      if (event.target.checked) {
+        colorSelected = event.target.dataset.colorSelect;
+        variantImage = event.target.dataset.imageSrcset;
+        targetVariantId = event.target.value;
+        document.getElementById("dynamic-image").setAttribute("srcset", variantImage);
+      
+        getVariantsName.forEach(e => {
+        colorName = e.dataset.colorName;
+          if(colorName === colorSelected){
+            e.click();
+          }
+        })
+      }
+    });
+  });
+
+  addToCartButton.addEventListener("click", function () {
+    let formData = {
+      items: [
+        {
+          id: document.querySelector(".getVariantId:checked").value,
+          quantity: 1,
+        },
+      ],
+    };
+
+    fetch("/cart/add.js", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        dataType: "json",
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        CartDrawerSite.updateCartDrawer();
+        CartDrawerSite.openCartDrawer();
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  });
+
+  document.addEventListener("DOMContentLoaded", function() {
+    document.querySelector('form[action="/cart/add"] [data-product-select]').addEventListener('change', evt=>{
+      let current_value = document.querySelector('form[action="/cart/add"] [data-product-select]').value;
+      if(current_value != document.querySelector('.mobile-floating .variant-container .getVariantId').value){
+        document.querySelector(`.variant-container .getVariantId[value="${current_value}"]`).checked = true;
+      }
+    })
+  });
+</script>
+
+<style>
+.mobile-floating {
+  display: none;
+}
+@media screen and (max-width: 768px) {
+  .mobile-floating {
+    box-sizing: border-box;
+    position: fixed;
+    z-index: 999;
+    bottom: 0;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    border-top: 1px solid;
+    width: 100%;
+    height: 84px;
+    padding: 8px 10px 8px 3px;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 250ms ease-in;
+  }
+  .mobile-floating.appear {
+    opacity: 1;
+  }
+  .image-floating {
+    width: 64px;
+    height: 48px;
+    position: relative;
+    object-fit: cover;
+    object-position: center;
+    margin-right: 4px;
+  }
+  .title-floating {
+    margin-right: 14px;
+  }
+  .title-floating h2 {
+    font-size: 15px;
+    color: #000000;
+    max-width: 135px;
+    font-weight: 500;
+    font-family: 'Open Sans';
+    font-style: normal;
+    line-height: 16px;
+    letter-spacing: 0.035em;
+    margin: 1px;
+  }
+  .variant-container {
+    display: flex;
+    flex-flow: row;
+    gap: 5px;
+    margin-right: 14px;
+  }
+  .variant-container.hide + div {
+    margin-left: 30px;
+  }
+  .variant-container label {
+    width: 16px;
+    background-color: Black;
+    height: 16px;
+    position: relative;
+    border-radius: 50px;
+    border: 1px solid #ADADAD;
+    margin-bottom: 0;
+  }
+  .variant-container .getVariantId:checked + label:not(.color_white) {
+    border-color: transparent;
+  }
+  .variant-container .getVariantId:checked + label:after {
+    content: "";
+    width: 21px;
+    height: 21px;
+    position: absolute;
+    border: 1px solid #000;
+    border-radius: 50px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .variant-container .getVariantId:disabled + label:before {
+    content: "";
+    background-color: #b6b6b6;
+    width: 1.5px;
+    height: 15px;
+    position: absolute;
+    top: 0px;
+    left: 6px;
+    transform: rotate(45deg);
+  }
+  .add-floating {
+    background: black;
+    color: #FFFFFF;
+    font-weight: 500;
+    font-size: 12px;
+    border-radius: 2.5px;
+    padding: 6px 8px;
+    font-family: 'Open Sans';
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  /* MOVE CHAT BUTTON ON PDPS */
+  #chat-button{
+    right: 5px !important;
+    transition: all 1s ease 0s;
+  }
+}
+</style>
+
+<script>
+  window.addEventListener('scroll',() => {
+    const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+    const scrolled = window.scrollY;
+    if ( scrolled >= document.querySelector('.add-to-cart').offsetTop){
+      document.querySelector('.mobile-floating').classList.add('appear');
+      if(document.getElementById("chat-button")){
+        document.getElementById("chat-button").style.bottom = `${document.querySelector('.mobile-floating').offsetHeight}px` ;
+      }
+    }
+    else {
+      document.querySelector('.mobile-floating').classList.remove('appear');
+      if(document.getElementById("chat-button")){
+        document.getElementById("chat-button").style.bottom = "0px";
+      }
+    }
+   })
+</script>

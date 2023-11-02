@@ -1,0 +1,222 @@
+{%- if section.blocks.size > 0 or section.settings.main_heading_text != blank or section.settings.main_button_link != blank -%}
+  <div class="Page_testimonials_slider_main_new {{ section.settings.customClass }} Page_testimonials_slider_main_new_{{ section.id }}" style="background: {{ section.settings.main_back_color }}{% if section.settings.main_desktop_image != blank %} url({{ section.settings.main_desktop_image | img_url:'master' }}) no-repeat center center;{% endif %}">
+    <style>
+      {% if section.settings.main_mobile_image != blank %}
+        @media(min-width:0px) and (max-width:768px){
+          .Page_testimonials_slider_main_new_{{ section.id }}{
+            background:{{ section.settings.main_back_color }} url({{ section.settings.main_mobile_image | img_url:'master' }}) no-repeat center center !important; !important;
+          }
+        }
+      {% endif %}
+    </style>
+    <div class="page-width">
+      <div class="Page_testimonials_slider_inner_new">
+        {%- if section.settings.main_heading_text != blank -%}
+          <div class="common_title_new Page_testimonials_slider_title_new">
+            <h2>
+              {% if section.settings.main_heading_text_link != blank %}
+                <a href="{{ section.settings.main_heading_text_link }}">
+              {% endif %}
+                {{ section.settings.main_heading_text }}
+              {% if section.settings.main_heading_text_link != blank %}
+                </a>
+              {% endif %}
+            </h2>
+          </div>
+        {%- endif -%}
+        {%- if section.blocks.size > 0 -%}
+          <div class="Page_testimonials_slider_mainloop_new">
+            <div class="Page_testimonials_slider_innerloop_new">
+              <div class="swiper swiper-container Page_testimonials_slider">
+                <div class="swiper-wrapper">
+                  {%- for block in section.blocks -%}
+                    {%- if block.settings.inner_review_info_text != blank or block.settings.inner_star_icon_image != blank or block.settings.inner_author_icon_image != blank or block.settings.title != blank or block.settings.inner_author_detail_text != blank -%}
+                      <div class="swiper-slide Page_testimonials_slider_innerloop_mainbox_new">
+                        <div class="Page_testimonials_slider_innerloop_innerbox_new" style="background: {{ block.settings.inner_back_color }};">
+                          {%- if block.settings.inner_review_info_text != blank -%}
+                            <div class="Page_testimonials_slider_innerloop_innerbox_1_new">
+                              {{ block.settings.inner_review_info_text }}
+                            </div>
+                          {%- endif -%}
+                          <div>
+                            {%- if block.settings.inner_star_icon_image != blank -%}
+                              <div class="Page_testimonials_slider_innerloop_innerbox_2_new">
+                                {%- assign img_url = block.settings.inner_star_icon_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+                                <img class="Icon_star_image_new lazyload"
+                                  data-src="{{ img_url }}"
+                                  data-widths="[180, 360, 540, 750, 900, 1080, 1296, 1512, 1728, 1944, 2048]"
+                                  data-aspectratio="{{ block.settings.inner_star_icon_image.aspect_ratio }}"
+                                  data-sizes="auto"
+                                  alt="{{ block.settings.inner_star_icon_image.alt }}">
+                              </div>
+                            {%- endif -%}
+                            {%- if block.settings.inner_author_icon_image != blank or block.settings.title != blank or block.settings.inner_author_detail_text != blank -%}
+                              <div class="Page_testimonials_slider_innerloop_innerbox_3_new">
+                                <div class="Page_testimonials_slider_innerloop_innerbox_3_leftrightboth_new">
+                                  {%- if block.settings.inner_author_icon_image != blank or block.settings.title != blank -%}
+                                    <div class="Page_testimonials_slider_innerloop_innerbox_3_leftside_new">
+                                      {%- if block.settings.inner_author_icon_image != blank -%}
+                                        <div class="Page_testimonials_slider_innerloop_innerbox_3_leftside_image_new">
+                                          <div class="Page_testimonials_slider_innerloop_innerbox_3_leftside_image_inner_new">
+                                            {{ block.settings.inner_author_icon_image }}
+                                          </div>
+                                        </div>
+                                      {%- endif -%}
+                                      {%- if block.settings.title != blank -%}
+                                        <div class="Page_testimonials_slider_innerloop_innerbox_3_leftside_title_new">
+                                          {{ block.settings.title }}
+                                        </div>
+                                      {%- endif -%}
+                                    </div>
+                                  {%- endif -%}
+                                  {%- if block.settings.inner_author_detail_text != blank -%}
+                                    <div class="Page_testimonials_slider_innerloop_innerbox_3_rightside_new">
+                                      {{ block.settings.inner_author_detail_text }}
+                                    </div>
+                                  {%- endif -%}
+                                </div>
+                              </div>
+                            {%- endif -%}
+                          </div>
+                        </div>
+                      </div>
+                    {%- endif -%}
+                  {%- endfor -%}
+                </div>
+                <div class="custom_swipe_new">
+                  <div class="swiper-button-prev">
+                    <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M10 3.5L5.5 8L10 12.5" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </div>
+                  <div class="swiper-pagination"></div>
+                  <div class="swiper-button-next">
+                    <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M7 3.5L11.5 8L7 12.5" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        {%- endif -%}
+        {%- if section.settings.main_button_text != blank and section.settings.main_button_link != blank -%}
+          <div class="Page_testimonials_slider_button_new">
+            <a href="{{ section.settings.main_button_link }}" class="btn btn_new">
+              {{ section.settings.main_button_text }}
+            </a>
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+{%- endif -%}
+
+{% schema %}
+  {
+    "name": "Page Testimonials Slider",
+    "class": "Page_testimonials_slider_new",
+    "settings": [
+      {
+        "type": "text",
+        "id": "customClass",
+        "label": "Add Custom Class",
+        "info": "Page_bfcm_testimonials_slider_new"
+      },
+      {
+        "type": "color",
+        "id": "main_back_color",
+        "label": "Add Main Background Color",
+        "default": "#141414"
+      },
+      {
+        "type": "image_picker",
+        "id": "main_desktop_image",
+        "label": "Add Main Desktop Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "main_mobile_image",
+        "label": "Add Main Mobile Image"
+      },
+      {
+        "type": "textarea",
+        "id": "main_heading_text",
+        "label": "Add Main Heading Text",
+        "default": "Hear why Clutch is leading the charge for safety"
+      },
+      {
+        "type": "url",
+        "id": "main_heading_text_link",
+        "label": "Add Main Heading Text Url"
+      },
+      {
+        "type": "text",
+        "id": "main_button_text",
+        "label": "Add Main Button Text",
+        "info": "EX: shop & save 30% now"
+      },
+      {
+        "type": "text",
+        "id": "main_button_link",
+        "label": "Add Main Button Link",
+        "info": "EX: #shop"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "information",
+        "name": "Information",
+        "settings": [
+          {
+            "type": "color",
+            "id": "inner_back_color",
+            "label": "Add Inner Background Color",
+            "default": "#222222"
+          },
+          {
+            "type": "richtext",
+            "id": "inner_review_info_text",
+            "label": "Add Inner Review Information Text",
+            "default": "<p>Still debating leaving your charger at home? Now you  won’t have to.</p>"
+          },
+          {
+            "type": "image_picker",
+            "id": "inner_star_icon_image",
+            "label": "Add Inner Star Icon Image"
+          },
+          {
+            "type": "text",
+            "id": "inner_author_icon_image",
+            "label": "Add Inner Author Icon Text"
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Add Inner Author Name Text",
+            "default": "Margaret E."
+          },
+          {
+            "type": "text",
+            "id": "inner_author_detail_text",
+            "label": "Add Inner Author Detail Text",
+            "default": "Verified"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Page Testimonials Slider",
+        "blocks": [
+          {
+            "type": "information"
+          },
+          {
+            "type": "information"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

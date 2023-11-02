@@ -1,0 +1,81 @@
+{{ 'instafeed.min.css' | asset_url | stylesheet_tag }}
+
+<div class="page-width instagram-grid__container">
+  {% unless section.settings.title == blank %}
+    
+    <h3 class="instafeed__title">
+      <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M24.3672 22.5839C24.916 18.3533 25.4527 14.2154 25.9894 10.0775C25.9058 10.0516 25.8237 10.0258 25.74 9.99994C23.1752 15.1077 20.6104 20.217 18 25.419H23.4398C22.7085 29.6344 21.9924 33.7693 21.2748 37.9042C21.3645 37.93 21.4527 37.9574 21.5424 37.9832C24.0905 32.9028 26.6401 27.8239 29.2688 22.5839H24.3657H24.3672Z" fill="#4DACE1"/>
+      </svg>
+      {{ section.settings.title }}
+    </h3>
+  {% endunless %}
+
+  {% unless section.settings.subtitle == blank %}
+    <div class="instafeed__description">{{ section.settings.subtitle }}</div>
+  {% endunless %}
+
+  {% unless section.settings.username == blank %}
+    <a class="instafeed__link" href="https://www.instagram.com/{{ section.settings.username | remove: "@" }}">
+      {{ section.settings.username }}
+    </a>
+  {% endunless %}
+
+  <instafeed-component>
+    <div id="insta-feed"></div>
+  </instafeed-component>
+
+  {% unless section.settings.cta_text == blank and section.settings.cta_link %}
+    <div class="instafeed__center">
+      <div class="btn--instagram">
+        <a  class="btn btn--tertiary" href="{{ section.settings.cta_link }}">
+          {{ section.settings.cta_text }}
+        </a>
+      </div>
+    </div>
+  {% endunless %}
+</div>
+
+{{ 'instagram-grid-v2.min.js' | asset_url | script_tag }}
+
+{% schema %}
+{
+  "name": "Instagram showcase v2",
+  "class": "new-home ab-homepage instafeed-v2",
+  "settings": [
+    {
+      "id": "title",
+      "type": "text",
+      "label": "Title",
+      "default": "Get Inspired on Instagram"
+    },
+    {
+      "id": "subtitle",
+      "type": "richtext",
+      "label": "Sub Title"
+    },
+    {
+      "id": "username",
+      "type": "text",
+      "label": "Title",
+      "default": "@clutchcharger"
+    },
+    {
+      "id": "cta_text",
+      "type": "text",
+      "label": "CTA Text",
+      "default": "Shop Now"
+    },
+    {
+      "id": "cta_link",
+      "type": "url",
+      "label": "CTA Url"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Instagram showcase v2"
+    }
+  ]
+}
+{% endschema %}

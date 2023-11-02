@@ -1,0 +1,264 @@
+{%- if section.blocks.size > 0 or section.settings.main_heading_text != blank or section.settings.main_button_link != blank -%}
+  <div class="Page_question_answer_list_main_new {{ section.settings.customClass }}" style="background: {{ section.settings.main_back_color }};">
+    <div class="page-width">
+      <div class="Page_question_answer_list_inner_new">
+        {%- if section.settings.main_heading_text != blank -%}
+          <div class="common_title_new Page_question_answer_list_title_new">
+            <h2>{{ section.settings.main_heading_text }}</h2>
+          </div>
+        {%- endif -%}
+        {%- if section.blocks.size > 0 -%}
+          <div class="Page_question_answer_list_mainloop_new">
+            <div class="Page_question_answer_list_innerloop_new">
+              <div class="swiper swiper-container Page_uestion_answer_slider">
+                <div class="swiper-wrapper">
+                  {%- for block in section.blocks -%}
+                    <div class="swiper-slide Page_question_answer_list_innerloop_mainbox_new" {{ block.shopify_attributes }}>
+                      <div class="Page_question_answer_list_innerloop_innerbox_new">
+                        {%- case block.type -%}
+                          {%- when 'text-with-button' -%}
+                            {%- if block.settings.heading_text_box_1 != blank or block.settings.title_box_1_text_1 != blank or block.settings.info_box_1_text_1 != blank or block.settings.title_box_1_text_2 != blank or block.settings.info_box_1_text_2 != blank -%}
+                              <div class="Page_question_answer_list_innerloop_innerbox_1_new">
+                                {%- if block.settings.heading_text_box_1 != blank -%}
+                                  <div class="Page_question_answer_list_innerloop_innerbox_1_title_new">
+                                    <h3>{{ block.settings.heading_text_box_1 }}</h3>
+                                  </div>
+                                {%- endif -%}
+                                {%- if block.settings.title_box_1_text_1 != blank or block.settings.info_box_1_text_1 != blank -%}
+                                  <div class="Page_question_answer_list_innerloop_innerbox_1_detail_new">
+                                    {%- if block.settings.title_box_1_text_1 != blank -%}
+                                      <div class="Page_question_answer_list_innerloop_innerbox_1_detail_infos_new">
+                                        {{ block.settings.title_box_1_text_1 }}
+                                      </div>
+                                    {%- endif -%}
+                                    {%- if block.settings.info_box_1_text_1 != blank -%}
+                                      <div class="Page_question_answer_list_innerloop_innerbox_1_detail_lists_new">
+                                        {{ block.settings.info_box_1_text_1 }}
+                                      </div>
+                                    {%- endif -%}
+                                  </div>
+                                {%- endif -%}
+                                {%- if block.settings.title_box_1_text_2 != blank or block.settings.info_box_1_text_2 != blank -%}
+                                  <div class="Page_question_answer_list_innerloop_innerbox_1_detail_new">
+                                    {%- if block.settings.title_box_1_text_2 != blank -%}
+                                      <div class="Page_question_answer_list_innerloop_innerbox_1_detail_infos_new">
+                                        {{ block.settings.title_box_1_text_2 }}
+                                      </div>
+                                    {%- endif -%}
+                                    {%- if block.settings.info_box_1_text_2 != blank -%}
+                                      <div class="Page_question_answer_list_innerloop_innerbox_1_detail_lists_new">
+                                        {{ block.settings.info_box_1_text_2 }}
+                                      </div>
+                                    {%- endif -%}
+                                  </div>
+                                {%- endif -%}
+                              </div>
+                            {%- endif -%}
+                          {%- when 'text-with-image' -%}
+                            {%- if block.settings.heading_text_box_2 != blank or block.settings.info_text_box_2 != blank or block.settings.main_video_url != blank or block.settings.main_desktop_image != blank or block.settings.main_mobile_image != blank -%}
+                              <div class="Page_question_answer_list_innerloop_innerbox_2_new">
+                                {%- if block.settings.heading_text_box_2 != blank -%}
+                                  <div class="Page_question_answer_list_innerloop_innerbox_2_title_new">
+                                    <h3>{{ block.settings.heading_text_box_2 }}</h3>
+                                  </div>
+                                {%- endif -%}
+                                {%- if block.settings.info_text_box_2 != blank -%}
+                                  <div class="Page_question_answer_list_innerloop_innerbox_2_infos_new">
+                                    {{ block.settings.info_text_box_2 }}
+                                  </div>
+                                {%- endif -%}
+                                {%- if block.settings.main_video_url != blank or block.settings.main_desktop_image != blank or block.settings.main_mobile_image != blank -%}
+                                  <div class="Page_question_answer_list_innerloop_innerbox_2_detail_new">
+                                    <div class="Page_question_answer_list_innerloop_innerbox_2_detail_videoimageboth_new">
+                                      {%- if block.settings.main_video_url != blank -%}
+                                        <div class="Page_question_answer_list_innerloop_innerbox_2_detail_videoimage_new">
+                                          {{ block.settings.main_video_url | video_tag: controls: false, autoplay: true, loop: true }}
+                                        </div>
+                                      {% else %}  
+                                        {%- if block.settings.main_desktop_image != blank and block.settings.main_mobile_image != blank -%}
+                                          <div class="Page_question_answer_list_innerloop_innerbox_2_detail_videoimage_new">
+                                            {%- if block.settings.main_desktop_image != blank -%}
+                                              {%- assign img_url = block.settings.main_desktop_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+                                              <img class="desktop_image_new lazyload"
+                                                data-src="{{ img_url }}"
+                                                data-widths="[180, 360, 540, 750, 900, 1080, 1296, 1512, 1728, 1944, 2048]"
+                                                data-aspectratio="{{ block.settings.main_desktop_image.aspect_ratio }}"
+                                                data-sizes="auto"
+                                                alt="{{ block.settings.main_desktop_image.alt }}">
+                                            {%- endif -%}
+                                            {%- if block.settings.main_mobile_image != blank -%}
+                                              {%- assign img_url = block.settings.main_mobile_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+                                              <img class="mobile_image_new lazyload"
+                                                data-src="{{ img_url }}"
+                                                data-widths="[180, 360, 540, 750, 900, 1080, 1296, 1512, 1728, 1944, 2048]"
+                                                data-aspectratio="{{ block.settings.main_mobile_image.aspect_ratio }}"
+                                                data-sizes="auto"
+                                                alt="{{ block.settings.main_mobile_image.alt }}">
+                                            {%- endif -%}
+                                          </div>
+                                        {%- endif -%}
+                                      {%- endif -%}
+                                    </div>
+                                  </div>
+                                {%- endif -%}
+                              </div>
+                            {%- endif -%}
+                        {%- endcase -%}
+                      </div>
+                    </div>  
+                  {%- endfor -%}  
+                </div>
+                <div class="custom_swipe_new">
+                  <div class="swiper-button-prev">
+                    <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M10 3.5L5.5 8L10 12.5" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </div>
+                  <div class="swiper-pagination"></div>
+                  <div class="swiper-button-next">
+                    <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M7 3.5L11.5 8L7 12.5" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        {%- endif -%}  
+        {%- if section.settings.main_button_text != blank and section.settings.main_button_link != blank -%}
+          <div class="Page_question_answer_list_mainbutton_new">
+            <a href="{{ section.settings.main_button_link }}" class="btn btn_new">
+              {{ section.settings.main_button_text }}
+            </a>
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+{%- endif -%}  
+
+{% schema %}
+  {
+    "name": "Page Question Answer List",
+    "class": "Page_question_answer_list_new",
+    "settings": [
+      {
+        "type": "text",
+        "id": "customClass",
+        "label": "Add Custom Class",
+        "info": "EX: Page_travel_question_answer_list_new"
+      },
+      {
+        "type": "color",
+        "id": "main_back_color",
+        "label": "Add Main Background Color",
+        "default": "#141414"
+      },
+      {
+        "type": "textarea",
+        "id": "main_heading_text",
+        "label": "Add Main Heading Text",
+        "default": "Got questions? <br/>We’ve got answers."
+      },
+      {
+        "type": "text",
+        "id": "main_button_text",
+        "label": "Add Main Button Text",
+        "default": "Shop Now"
+      },
+      {
+        "type": "text",
+        "id": "main_button_link",
+        "label": "Add Main Button Link",
+        "default": "#shop"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "text-with-button",
+        "name": "Text With Button",
+        "settings": [
+          {
+            "type": "richtext",
+            "id": "heading_text_box_1",
+            "label": "Add Heading Text Box-1",
+            "default": "<p>Which Clutch is right for my device?</p>"
+          },
+          {
+            "type": "textarea",
+            "id": "title_box_1_text_1",
+            "label": "Add Title Box-1 Text-1",
+            "default": "Clutch Pro <span>Lightning</span>"
+          },
+          {
+            "type": "richtext",
+            "id": "info_box_1_text_1",
+            "label": "Add Information Box-1 Text-1",
+            "default": "<ul><li>iPhone 14s (and older)</li><li>Airpods (1st &amp; 2nd gen)</li></ul>"
+          },
+          {
+            "type": "textarea",
+            "id": "title_box_1_text_2",
+            "label": "Add Title Box-1 Text-2",
+            "default": "Clutch Pro <span>USB-C</span>"
+          },
+          {
+            "type": "richtext",
+            "id": "info_box_1_text_2",
+            "label": "Add Information Box-1 Text-2",
+            "default": "<ul><li>iPhone 15s</li><li>Android Devices</li></ul>"
+          }
+        ]
+      },
+      {
+        "type": "text-with-image",
+        "name": "Text With Image",
+        "settings": [
+          {
+            "type": "richtext",
+            "id": "heading_text_box_2",
+            "label": "Add Heading Text Box-2",
+            "default": "<p>Does it magnetically stick to the back of my phone?</p>"
+          },
+          {
+            "type": "richtext",
+            "id": "info_text_box_2",
+            "label": "Add Information Text Box-2",
+            "default": "<p>All Clutch Pro devices magnetize to iPhone 12s (or newer) and all magnetic cases. Don’t have a magnetic-friendly device? No worries, we’re throwing in a FREE magnetic ring with every order.</p>"
+          },
+          {
+            "type": "video",
+            "id": "main_video_url",
+            "label": "Add Main MP4 Video"
+          },
+          {
+            "type": "image_picker",
+            "id": "main_desktop_image",
+            "label": "Add Main Desktop Image"
+          },
+          {
+            "type": "image_picker",
+            "id": "main_mobile_image",
+            "label": "Add Main Mobile Image"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Page Question Answer List",
+        "blocks": [
+          {
+            "type": "text-with-button"
+          },
+          {
+            "type": "text-with-image"
+          },
+          {
+            "type": "text-with-image"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

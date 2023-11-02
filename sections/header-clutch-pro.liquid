@@ -1,0 +1,76 @@
+{{ 'component-header_clutchpro.css' | asset_url | stylesheet_tag: preload: true }}
+
+{%- liquid
+    assign data = section.settings
+    assign logo = data.logo
+    assign url = data.url_cta
+    assign label = data.label_cta
+    assign anchor-link = data.anchor-link
+-%}
+
+<div class="container-header">
+    <div class="content-left">
+        <a href="{{ routes.root_url }}">
+            <img src="{{ logo | image_url: width: 90 }}"
+                 srcset="{{ logo | image_url: width: 90 }} 1x, {{ logo | image_url: width: 180 }} 2x"
+                 width="90"
+                 height="auto"
+                 loading="lazy"
+                 alt="Logo clutch"
+                >
+        </a>
+    </div>
+    <div class="content-right">
+        <button class="openCart">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M12 27.3333C11.6318 27.3333 11.3333 27.6318 11.3333 28C11.3333 28.3682 11.6318 28.6667 12 28.6667C12.3682 28.6667 12.6667 28.3682 12.6667 28C12.6667 27.6318 12.3682 27.3333 12 27.3333ZM10 28C10 26.8954 10.8954 26 12 26C13.1046 26 14 26.8954 14 28C14 29.1046 13.1046 30 12 30C10.8954 30 10 29.1046 10 28Z" fill="#ffffff"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M26.6667 27.3333C26.2985 27.3333 26 27.6318 26 28C26 28.3682 26.2985 28.6667 26.6667 28.6667C27.0348 28.6667 27.3333 28.3682 27.3333 28C27.3333 27.6318 27.0348 27.3333 26.6667 27.3333ZM24.6667 28C24.6667 26.8954 25.5621 26 26.6667 26C27.7712 26 28.6667 26.8954 28.6667 28C28.6667 29.1046 27.7712 30 26.6667 30C25.5621 30 24.6667 29.1046 24.6667 28Z" fill="#ffffff"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M0.666656 1.33317C0.666656 0.964981 0.965133 0.666504 1.33332 0.666504H6.66666C6.98441 0.666504 7.258 0.890761 7.32036 1.20233L8.54744 7.33317H30.6667C30.8653 7.33317 31.0537 7.42179 31.1803 7.57487C31.307 7.72796 31.3587 7.92956 31.3215 8.12472L29.1882 19.3114L29.1872 19.3164C29.0348 20.0837 28.6174 20.773 28.008 21.2635C27.4003 21.7527 26.6404 22.0132 25.8606 21.9998H12.9127C12.1329 22.0132 11.373 21.7527 10.7653 21.2635C10.1561 20.7731 9.7387 20.084 9.5862 19.3169C9.58617 19.3167 9.58624 19.3171 9.5862 19.3169L7.35489 8.16868C7.3485 8.14419 7.34346 8.11914 7.33987 8.09363L6.1202 1.99984H1.33332C0.965133 1.99984 0.666656 1.70136 0.666656 1.33317ZM8.81431 8.6665L10.8937 19.0557C10.9851 19.5161 11.2358 19.9306 11.6014 20.2249C11.9671 20.5193 12.4246 20.6756 12.8939 20.6666L12.9067 20.6664L25.8794 20.6665C26.3487 20.6755 26.8062 20.5193 27.1719 20.2249C27.5369 19.9311 27.7872 19.5184 27.879 19.0589C27.8791 19.0581 27.8793 19.0574 27.8794 19.0566L29.8608 8.6665H8.81431Z" fill="#ffffff"/>
+            </svg>
+            <span class="cart-link__bubble-num">
+                {{ cart.item_count }}
+            </span> 
+        </button>
+        <a href="{{ url }}" class="btn {% if anchor-link %}anchor-link{% endif %}">{{ label }}</a>
+    </div>
+</div>
+
+{% schema %}
+    {
+        "name": "Header clutch pro",
+        "class": "header-clutch-pro",
+        "settings": [
+            {
+                "type": "image_picker",
+                "id": "logo",
+                "label": "Logo header"
+            },
+            {
+                "type": "url",
+                "id": "url_cta",
+                "label": "URL CTA"
+            },
+            {
+                "type": "text",
+                "id": "label_cta",
+                "label": "Label CTA",
+                "default": "Shop Clutch Pro"
+            },
+            {
+                "type": "checkbox",
+                "id": "anchor-link",
+                "label": "Anchor link",
+                "default": true
+            }
+        ]
+    }
+{% endschema %}
+
+
+
+
+
+
+
+
+

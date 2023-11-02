@@ -1,0 +1,60 @@
+{% if section.settings.show_video %}
+  <div class="{% if section.settings.video_url == blank %} desktop-video-hero on_desktop{% endif %}"">
+    <video
+        id="Mp4Video-{{ section.id }}"
+        class="video-div"
+        data-type="mp4"
+        src="{{ section.settings.video_url }}"
+        loop muted playsinline autoplay>
+    </video>
+  </div>
+  <div class="{% if section.settings.m_video_url == blank %} desktop-video-hero on_mobile{% endif %}"">
+    <video
+        id="Mp4Video-{{ section.id }}"
+        class="video-div"
+        data-type="mp4"
+        src="{{ section.settings.video_url }}"
+        loop muted playsinline autoplay>
+    </video>
+  </div>  
+{% endif %}
+
+{% schema %}
+  {
+    "name": "faq_video",
+    "settings": [
+           {
+              "type": "checkbox",
+              "id": "show_video",
+              "label": "Show Video",
+              "default": true
+          },
+         {
+              "type": "header",
+              "content": "Desktop Video Link"
+          },
+          {
+            "type": "url",
+            "id": "video_url",
+            "label": "Video link",
+            "info": "Links to videos will be opened in a video player"
+          },
+         {
+              "type": "header",
+              "content": "Mobile Video Link"
+          },
+          {
+            "type": "url",
+            "id": "m_video_url",
+            "label": "Video link",
+            "info": "Links to videos will be opened in a video player"
+          }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

@@ -1,0 +1,35 @@
+{% unless imagen_desktop == blank %}
+<div class="image-responsive">
+  {% liquid
+    assign img_desk = imagen_desktop | image_url
+    assign img_desk_alt = imagen_desktop.alt
+    assign img_desk_width = imagen_desktop.width
+    assign img_desk_height = imagen_desktop.height
+    
+    unless imagen_mobile == blank
+      assign img_mob = imagen_mobile | image_url
+      assign img_mob_alt = imagen_desktop.alt
+      assign img_mob_width = imagen_desktop.width
+      assign img_mob_height = imagen_desktop.height
+    endunless
+  %}
+
+  <img
+    data-device="desktop"
+    src="{{ img_desk }}"
+    loading="lazy"
+    width="{{ img_desk_width }}"
+    height="{{ img_desk_height }}"
+    alt="{{ img_desk_alt }}" />
+  
+    {% unless imagen_mobile == blank %}
+      <img
+        data-device="mobile"
+        src="{{ img_mob }}"
+        loading="lazy"
+        width="{{ img_mob_width }}"
+        height="{{ img_mob_height }}"
+        alt="{{ img_mob_alt }}" />
+    {% endunless %}
+</div>
+{% endunless %}

@@ -1,0 +1,149 @@
+<div class="page-width page-content">
+  <div class="grid">
+
+
+      <header class="section-header">
+        <h1 class="section-header__title">
+          {{ page.title }}
+        </h1>
+      </header>
+      {% if section.settings.show_video %}
+      <div>  
+        <div class="video_wrap desktop_video-hero {% if section.settings.d_video_url == blank %} no_video {% endif %}">
+          <video
+              id="Mp4Video_faq_desktop"
+              class="video-div"
+              data-type="mp4"
+              src="{{ section.settings.d_video_url }}"
+              controls loop playsinline >
+          </video>
+        </div>
+        <div class="video_wrap mobile_video-hero {% if section.settings.video_url == blank %} no_video {% endif %}">
+          <video
+              id="Mp4Video_faq"
+              class="video-div"
+              data-type="mp4"
+              src="{{ section.settings.video_url }}"
+              controls loop playsinline >
+          </video>
+        </div>
+        
+<!--         <div class="ait-video-content">         
+            <div class="ait-video-btn">
+              <a href="#" class="ait-video-button action_button">
+                <img src="{{ 'play.png' | asset_url }}" width="16" class="play-btn">
+                <img src="{{ 'pause.png' | asset_url }}" width="16" class="pause-btn">            
+              </a>
+            </div>
+        </div> -->
+      </div>  
+      {% endif %}
+    <div class="grid__item medium-up--three-quarters medium-up--push-one-eighth">  
+      <div class="rte rte--nomargin">
+        {{ page.content }}
+      </div>
+
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "faq_video",
+    "settings": [
+           {
+              "type": "checkbox",
+              "id": "show_video",
+              "label": "Show Video",
+              "default": true
+          },
+         {
+              "type": "header",
+              "content": "Desktop Video Link"
+          },
+          {
+            "type": "url",
+            "id": "d_video_url",
+            "label": "Video link",
+            "info": "Links to videos will be opened in a video player"
+          },
+         {
+              "type": "header",
+              "content": "Mobile Video Link"
+          },
+          {
+            "type": "url",
+            "id": "video_url",
+            "label": "Video link",
+            "info": "Links to videos will be opened in a video player"
+          }      
+    ]
+  }
+{% endschema %}
+
+<style>
+.ait-video-btn {
+    display: flex;
+}
+
+.ait-video-btn a.action_button {
+    min-width: 220px;
+    background-color: #fff;
+    color: #000;
+    font-size: 18px;
+}
+
+.ait-video-btn a.ait-video-button {
+    min-width: auto;
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    width: auto;
+    max-width: fit-content;
+    margin-left: 15px;
+    border-radius: 100%;
+}
+
+.ait-video-btn a.ait-video-button img.pause-btn {
+    display: none;
+}
+
+.ait-video-btn a.ait-video-button{
+  	min-width: auto;
+    display: flex;
+    align-items: center;
+    padding: 15px 15px;
+    width: auto;
+    max-width: fit-content;
+    margin-left: 15px;
+  	border-radius:100%;
+}
+.ait-video-btn {
+    display: flex;
+}
+.ait-video-btn a.ait-video-button img.pause-btn {
+    display: none;
+}
+.ait-video-btn a.ait-video-button.active img.play-btn {
+    display: none;
+}
+.ait-video-btn a.ait-video-button.active img.pause-btn {
+    display: block;
+}
+</style>
+
+<script>
+  //   if( $(document).find('.ait-video-button').length ){
+  //   $(document).find('.ait-video-button').on('click',function(e){
+  //     	e.preventDefault();
+      
+  //      if( $(this).hasClass('active') ){
+  //      	$(this).removeClass('active');
+  //    	$(this).closest('.ait-video-section').find('video').get(0).pause();        	
+  //      }else{
+  //      	$(this).addClass('active');
+  //    	$(this).closest('.ait-video-section').find('video').get(0).play();      	
+  //      }
+  //   });
+  // }
+</script>

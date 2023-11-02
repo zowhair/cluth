@@ -1,0 +1,125 @@
+{{ 'component-banner-lp.css' | asset_url | stylesheet_tag: preload: true }}
+
+{%- liquid
+    assign bannerDesktop = section.settings.image_desktop
+    assign bannerMobile = section.settings.image_mobile
+  -%}
+
+
+<section class="banner_lp_pro__container">
+    <p class="corner_banner">Introducing <span>Clutch® PRO</span></p>
+     <h1>{{ section.settings.title_id }}</h1>
+     <div class="items_block__container">
+        {% for block in section.blocks %}
+        <div class="items_block item_block__{{ forloop.index }}">
+            <h4>{{ block.settings.title_icon_id }}</h4>
+            <div class="item_container_text_icon"> 
+                <div class="item item_container_{{ forloop.index }}">
+                    {{ block.settings.icon_id }}
+                    <p>{{ block.settings.subtitle_icon_id }}</p>
+                </div>
+                {% if block.settings.subtitle_second_icon_id != blank %}
+                    <div class="item item_container_{{ forloop.index }}">
+                        {{ block.settings.second_icon_id }}
+                        <p>{{ block.settings.subtitle_second_icon_id }}</p>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+     </div>
+     <a class="anchor-link" href="{{ section.settings.button_url_id }}">{{ section.settings.button_text_id }}</a>
+
+     {% if section.settings.shipping_text_id != blank %}
+        <div class="banner_lp_text_shipping"><img src="{{ 'truck_1.svg' | asset_url }}" alt=""> <span>{{ section.settings.shipping_text_id }}</span></div>
+     {% endif %}
+     
+</section>
+<style>
+    .banner_lp_pro__container{
+        background-image: url("{{ bannerDesktop | img_url: 'master' }}");
+    }
+    @media screen and (max-width: 768px){
+        .banner_lp_pro__container{
+            background-image: url("{{ bannerMobile | img_url: 'master' }}");
+        }   
+    }
+</style>
+
+
+{% schema %}
+{
+  "name": "Banner lp",
+  "settings": [
+    {
+      "id": "image_desktop",
+      "type": "image_picker",
+      "label": "Background image desktop"
+    },
+    {
+        "id": "image_mobile",
+        "type": "image_picker",
+        "label": "Background image mobile"
+    },
+    {
+        "type": "text",
+        "id": "title_id",
+        "label": "Title"
+    },
+    {
+        "type": "url",
+        "id": "button_url_id",
+        "label": "Button url"
+    },
+    {
+        "type": "text",
+        "id": "button_text_id",
+        "label": "Button text"
+    },
+    {
+        "type": "text",
+        "id": "shipping_text_id",
+        "label": "Shipping text"
+    }
+  ],
+  "max_blocks": 3,
+  "blocks": [
+    {
+      "name": "Item",
+      "type": "item",
+      "settings": [
+        {
+          "id": "title_icon_id",
+          "type": "text",
+          "label": "Title icon"
+        },
+        {
+            "id": "subtitle_icon_id",
+            "type": "text",
+            "label": "Sub-title icon"
+        },
+        {
+            "type": "textarea",
+            "id": "icon_id",
+            "label": "Icon SVG"
+        },
+        {
+            "id": "subtitle_second_icon_id",
+            "type": "text",
+            "label": "Sub-title icon"
+        },
+        {
+            "type": "textarea",
+            "id": "second_icon_id",
+            "label": "Second icon SVG"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Banner Landing Page"
+    }
+  ]
+}
+{% endschema %}

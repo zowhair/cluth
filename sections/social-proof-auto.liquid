@@ -1,0 +1,88 @@
+{{ 'component.social-prof-auto.min.css' | asset_url | stylesheet_tag: preload: true }}
+
+{%- liquid
+    assign title = section.settings.title
+    assign description = section.settings.description
+-%}
+
+<div class="social-proof-auto__container">
+    <div class="social-proof-auto__header">
+        <h2 class="social-proof-auto__title">{{ title }}</h2>
+        <div class="social-proof-auto__description">
+            {{ description }}
+        </div>
+    </div>
+    <div class="social-proof-auto__body">
+        <div class="social-proof-auto__slider-social swiper">
+            <div class="swiper-wrapper">
+                {%- for block in section.blocks -%}
+                    <div class="swiper-slide">
+                        <img src="{{ block.settings.img | image_url: width: 240 }}"
+                             srcset="{{ block.settings.img | image_url: width: 240 }} 1x, {{ block.settings.img | image_url: width: 480 }} 2x"
+                             width="240"
+                             height="auto"
+                             loading="lazy"    
+                             alt="{{ block.settings.img.alt }}">
+                    </div>
+                {%- endfor -%}
+            </div>
+                
+        </div>
+    </div>
+</div>
+
+<script>
+var swiper = new Swiper("#shopify-section-{{ section.id }} .social-proof-auto__slider-social", {
+    loop: true,
+    spaceBetween: 16,
+    slidesPerView: 1.5,
+    autoplay: {
+        delay: 0,
+        disableOnInteraction: true
+    },
+    speed: 7000,
+    breakpoints: {
+        768: {
+            spaceBetween: 16,
+            slidesPerView: 7
+        }
+    }
+});
+
+</script>
+
+{% schema %}
+    {
+        "name": "Social proof auto",
+        "class": "social-proof-auto",
+        "settings": [
+            {
+                "type": "text",
+                "id": "title",
+                "label": "Title section"
+            }
+        ],
+        "blocks": [
+            {
+                "type": "image",
+                "name": "Social image",
+                "settings": [
+                    {
+                        "type": "image_picker",
+                        "id": "img",
+                        "label": "Image"
+                    }
+                ]
+            }
+        ],
+        "presets": [
+            {
+            "name": "Social proof auto"
+            }
+        ]
+    }
+{% endschema %}
+
+
+
+

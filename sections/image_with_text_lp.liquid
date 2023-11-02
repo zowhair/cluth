@@ -1,0 +1,89 @@
+{{ 'component-image_text_lp.css' | asset_url | stylesheet_tag: preload: true }}
+
+{%- liquid
+    assign title = section.settings.title_id
+-%}
+
+<section class="image_text_lp__container">
+    <h2>{{ title }}</h2>
+    <div class="block_container">
+        {% for block in section.blocks %}
+        <div class="block_image_text {% if block.settings.position_image_id == 'right' %}image_right{% endif %}">
+            <img class="image_section_text" src="{{ block.settings.image_id | img_url: '592x' }}" alt="{{ image.alt}}">
+            <div class="text_block__container">
+                <h5>{{ block.settings.title_id }}</h5>
+                <p>{{ block.settings.text_id }}</p>
+                <a href="{{ block.settings.url_id }}">{{ block.settings.btn_text_id }} {% include 'arrow_circle' %}</a>
+            </div>
+        </div> 
+        {% endfor %}
+    </div>
+
+</section>
+
+{% schema %}
+{
+  "name": "Image-text landing",
+  "class": "image_text_landing",
+  "settings": [
+    {
+        "type": "text",
+        "id": "title_id",
+        "label": "Title"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "block",
+      "type": "blocks",
+      "settings": [
+       {
+        "type": "image_picker",
+        "id": "image_id",
+        "label": "Brand image"
+       },
+       {
+        "type": "text",
+        "id": "title_id",
+        "label": "Title"
+       },
+       {
+        "type": "text",
+        "id": "text_id",
+        "label": "Text"
+       },
+       {
+        "type": "text",
+        "id": "btn_text_id",
+        "label": "Button Text"
+       },
+       {
+        "type": "url",
+        "id": "url_id",
+        "label": "Button url"
+       },
+       {
+        "type": "select",
+        "id": "position_image_id",
+        "label": "Image position",
+        "options": [
+            {
+                "value": "left",
+                "label": "Left"
+            },
+            {
+                "value": "right",
+                "label": "Right"
+            }
+        ]
+       }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Image-text Landing Pro"
+    }
+  ]
+}
+{% endschema %}

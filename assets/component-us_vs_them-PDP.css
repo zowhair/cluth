@@ -1,0 +1,27 @@
+.us_them_landing {
+    --primary-clutch-white: #fff;
+    --surface-label-dark: #141414;
+    --primary-black: #141414;
+    --primary-blue: #4DACE1;
+    background: var(--primary-black);
+    padding-top: 60px;
+}
+
+.us_vs_them__container .container-featured-images {
+    display: grid;
+    grid-template-columns: repeat(var(--columns), 1fr);
+    gap: 32px;
+}
+.us_vs_them__container .container-featured-images img {
+    width: 100%;
+    height: auto;
+}
+
+@media (max-width: 768px) {
+    .us_them_landing {
+        padding-top: 15px;
+    }
+    .us_vs_them__container .container-featured-images {
+        grid-template-columns: 1fr;
+    }
+}

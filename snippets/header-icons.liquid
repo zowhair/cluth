@@ -1,0 +1,60 @@
+<div class="site-nav site-nav--icons">
+  <div class="site-nav__icons">
+      <a class="site-nav__link site-nav__link--icon small--hide item-account" href="{{ routes.account_url }}">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 32 32" fill="none">
+          <path d="M26.6667 28V25.3333C26.6667 23.9188 26.1048 22.5623 25.1046 21.5621C24.1044 20.5619 22.7478 20 21.3333 20H10.6667C9.25217 20 7.89562 20.5619 6.89543 21.5621C5.89523 22.5623 5.33333 23.9188 5.33333 25.3333V28" stroke="#F0F0F0" stroke-width="2.77777" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M16 14.6667C18.9455 14.6667 21.3333 12.2789 21.3333 9.33333C21.3333 6.38781 18.9455 4 16 4C13.0545 4 10.6667 6.38781 10.6667 9.33333C10.6667 12.2789 13.0545 14.6667 16 14.6667Z" stroke="#F0F0F0" stroke-width="2.77777" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="icon__fallback-text">
+          {%- if customer -%}
+            {{ 'layout.customer.account' | t }}
+          {%- else -%}
+            {{ 'layout.customer.log_in' | t }}
+          {%- endif -%}
+        </span>
+      </a>
+
+    {%- if section.settings.header_search_enable -%}
+      <a href="{{ routes.search_url }}" class="site-nav__link site-nav__link--icon js-modal-open-search-modal js-no-transition{% if menu_alignment == 'center' or menu_alignment == 'center-split' %} medium-up--hide{% endif %}">
+        <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-search" viewBox="0 0 64 64"><path d="M47.16 28.58A18.58 18.58 0 1 1 28.58 10a18.58 18.58 0 0 1 18.58 18.58zM54 54L41.94 42"/></svg>
+        <span class="icon__fallback-text">{{ 'general.search.title' | t }}</span>
+      </a>
+    {%- endif -%}
+
+    {%- if menu_alignment == 'left' 
+       or menu_alignment == 'left-center'
+       or menu_alignment == 'right' -%}
+      <button
+        type="button"
+        class="site-nav__link site-nav__link--icon js-toggle-slide-nav{% if menu_alignment == 'left' or menu_alignment == 'left-center' or menu_alignment == 'right' %} medium-up--hide{% endif %}{% if mobile_menu_style == 'thumb' %} hide{% endif %}">
+        <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-hamburger" viewBox="0 0 64 64"><path d="M7 15h51M7 32h43M7 49h51"/></svg>
+        <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-close" viewBox="0 0 64 64"><path d="M19 17.61l27.12 27.13m0-27.12L19 44.74"/></svg>
+        <span class="icon__fallback-text">{{ 'general.drawers.navigation' | t }}</span>
+      </button>
+    {%- endif -%}
+
+    {%- unless settings.cart_type == 'sticky' -%}
+      <button class="site-nav__link site-nav__link--icon openCart site-nav__link--cart" aria-controls="CartDrawer" data-icon="{{ settings.cart_icon }}">
+        <span class="cart-link">
+          {%- if settings.cart_icon == 'cart' -%}
+            <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-cart" viewBox="0 0 64 64"><path d="M14 17.44h46.79l-7.94 25.61H20.96l-9.65-35.1H3"/><circle cx="27" cy="53" r="2"/><circle cx="47" cy="53" r="2"/></svg>
+          {%- else -%}
+            <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-bag" viewBox="0 0 64 64"><g fill="none" stroke="#000" stroke-width="2"><path d="M25 26c0-15.79 3.57-20 8-20s8 4.21 8 20"/><path d="M14.74 18h36.51l3.59 36.73h-43.7z"/></g></svg>
+          {%- endif -%}
+          <span class="icon__fallback-text">{{ 'layout.cart.title' | t }}</span>
+          <span class="cart-link__bubble{% if cart.item_count > 0 %} cart-link__bubble--visible{% endif %}">
+            <span class="cart-link__bubble-num" aria-hidden="true">
+              {{ cart.item_count }}
+            </span>
+          </span>
+        </span>
+      </button>
+    {%- endunless -%}
+  </div>
+</div>
+
+<style>
+  .js-drawer-open-cart.disabled {
+    pointer-events: none;
+  }
+</style>

@@ -1,0 +1,136 @@
+{
+  "sections": {
+    "collection-header": {
+      "type": "collection-header",
+      "blocks": {
+        "ce1b2ca2-433f-4762-b216-e02fac77763b": {
+          "type": "promotional_banner",
+          "settings": {
+            "banner": "shopify:\/\/shop_images\/Banner_-_Desktop_plp.png",
+            "banner_mobile": "shopify:\/\/shop_images\/Banner_-_Mobile_plp.png",
+            "url": "",
+            "collection": "clutch-chargers"
+          }
+        },
+        "fcb9ce53-8ae6-44f3-9191-67a64184d957": {
+          "type": "promotional_banner",
+          "settings": {
+            "banner": "shopify:\/\/shop_images\/Banner_-_Desktop_plp.png",
+            "banner_mobile": "shopify:\/\/shop_images\/Banner_-_Mobile_plp.png",
+            "url": "",
+            "collection": "best-sellers"
+          }
+        },
+        "0445d858-0587-4a62-97d4-df52ee64d2a6": {
+          "type": "promotional_banner",
+          "settings": {
+            "banner": "shopify:\/\/shop_images\/Banner_-_Desktop_plp.png",
+            "banner_mobile": "shopify:\/\/shop_images\/Banner_-_Mobile_plp.png",
+            "url": "",
+            "collection": "all"
+          }
+        }
+      },
+      "block_order": [
+        "ce1b2ca2-433f-4762-b216-e02fac77763b",
+        "fcb9ce53-8ae6-44f3-9191-67a64184d957",
+        "0445d858-0587-4a62-97d4-df52ee64d2a6"
+      ],
+      "settings": {
+        "collection_image_enable": false,
+        "description_enable": false
+      }
+    },
+    "collection-filters": {
+      "type": "collection-filters",
+      "disabled": true,
+      "settings": {
+        "enable_color_swatches": false,
+        "collection_sort_enable": false
+      }
+    },
+    "main-collection": {
+      "type": "main-collection",
+      "blocks": {
+        "product_grid": {
+          "type": "product_grid",
+          "settings": {
+            "per_row_desktop": 3,
+            "per_row_mobile": "2"
+          }
+        },
+        "9aca4b0c-3c21-4066-87f8-1225ed5f7226": {
+          "type": "info_card",
+          "settings": {
+            "position_vertical_desk": "3 \/ 4",
+            "position_horizontal_desk": "2 \/ 3",
+            "position_vertical_mobile": "2 \/ 3",
+            "position_horizontal_mobile": "2 \/ 3",
+            "style_card": "two",
+            "style_card_one": "style_two",
+            "bg_one": "shopify:\/\/shop_images\/Cards_Magetic_v1_2x_c3aedd87-8252-4bf7-8334-9d95639bae34.png",
+            "text_one": "",
+            "bg_two_desk": "shopify:\/\/shop_images\/Cards_Magetic_v1_2x_c3aedd87-8252-4bf7-8334-9d95639bae34.png",
+            "bg_two_mobile": "shopify:\/\/shop_images\/Frame_10.png",
+            "title_three": "",
+            "text_three": "",
+            "name_client": "Beatrice N.",
+            "text_four": ""
+          }
+        },
+        "306803a3-f2bc-430b-b989-9b0fb88e6c31": {
+          "type": "info_card",
+          "settings": {
+            "position_vertical_desk": "3 \/ 4",
+            "position_horizontal_desk": "4 \/ 5",
+            "position_vertical_mobile": "2 \/ 3",
+            "position_horizontal_mobile": "5 \/ 6",
+            "style_card": "two",
+            "style_card_one": "style_one",
+            "bg_one": "shopify:\/\/shop_images\/BG_Image_6.png",
+            "icon_one": "shopify:\/\/shop_images\/Capa_1_2.png",
+            "text_one": "",
+            "bg_two_desk": "shopify:\/\/shop_images\/Cards_Thinnest_v2_2x_d8f457b2-6cdc-4970-8114-4ffbc773aaef.png",
+            "bg_two_mobile": "shopify:\/\/shop_images\/Frame_8.png",
+            "title_three": "",
+            "text_three": "",
+            "name_client": "Beatrice N.",
+            "text_four": ""
+          }
+        },
+        "f1c8f8fa-46c4-4f0a-9456-b16f13788dba": {
+          "type": "info_card",
+          "settings": {
+            "position_vertical_desk": "3 \/ 4",
+            "position_horizontal_desk": "7 \/ 6",
+            "position_vertical_mobile": "2 \/ 3",
+            "position_horizontal_mobile": "9 \/ 8",
+            "style_card": "two",
+            "style_card_one": "style_one",
+            "text_one": "",
+            "bg_two_desk": "shopify:\/\/shop_images\/Cards_cable_v2_2x_91e297da-c20d-4bde-b1b6-7f8248a8acfa.png",
+            "bg_two_mobile": "shopify:\/\/shop_images\/Frame_9.png",
+            "title_three": "",
+            "text_three": "",
+            "name_client": "Beatrice N.",
+            "text_four": ""
+          }
+        }
+      },
+      "block_order": [
+        "product_grid",
+        "9aca4b0c-3c21-4066-87f8-1225ed5f7226",
+        "306803a3-f2bc-430b-b989-9b0fb88e6c31",
+        "f1c8f8fa-46c4-4f0a-9456-b16f13788dba"
+      ],
+      "settings": {
+        "filter_tags": "iPhone 14 or older:iPhone-14-or-older-Chargers\niPhone 15 and Android:iPhone-15-and-Android-Chargers\nTablet:Max-Chargers\nGift Card:Gift-Card\nMerch:Merch"
+      }
+    }
+  },
+  "order": [
+    "collection-header",
+    "collection-filters",
+    "main-collection"
+  ]
+}

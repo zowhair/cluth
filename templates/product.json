@@ -1,0 +1,546 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "price": {
+          "type": "price",
+          "settings": {
+          }
+        },
+        "0c7a6863-298f-4b94-9c2c-493a2510024f": {
+          "type": "text",
+          "settings": {
+            "text": ""
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "variant_labels": true,
+            "picker_type": "button",
+            "color_swatches": true
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "surface_pickup_enable": true
+          }
+        },
+        "sales_point": {
+          "type": "sales_point",
+          "settings": {
+            "icon": "truck",
+            "text": "Free Shipping in the USA"
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {
+            "is_tab": false
+          }
+        },
+        "share": {
+          "type": "share",
+          "settings": {
+          }
+        },
+        "tab": {
+          "type": "tab",
+          "settings": {
+            "title": "Tech Specs",
+            "content": "{{product.metafields.tech-specs.tech-specs}}",
+            "page": ""
+          }
+        },
+        "85f45c8e-a4fe-41f5-92da-8ea130b8f973": {
+          "type": "tab",
+          "settings": {
+            "title": "Compatible Devices",
+            "content": "{{product.metafields.compatible-devices.compatible-devices}}",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "price",
+        "0c7a6863-298f-4b94-9c2c-493a2510024f",
+        "variant_picker",
+        "buy_buttons",
+        "sales_point",
+        "description",
+        "share",
+        "tab",
+        "85f45c8e-a4fe-41f5-92da-8ea130b8f973"
+      ],
+      "settings": {
+        "product_image_size": "large",
+        "product_image_type": "stacked",
+        "product_zoom_enable": true,
+        "enable_video_looping": true,
+        "product_video_style": "muted",
+        "sku_enable": false
+      }
+    },
+    "sub": {
+      "type": "product-full-width",
+      "disabled": true,
+      "settings": {
+        "max_width": true
+      }
+    },
+    "244001ba-8e09-4632-8376-1795daaa2d4a": {
+      "type": "logo-list-1",
+      "blocks": {
+        "template--14272335413334__244001ba-8e09-4632-8376-1795daaa2d4a-166515727980aa7a78-0": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Mashable_Logo_1_1faf1b4c-8539-4659-9f3c-f09b1fa8e0ac.png",
+            "link": ""
+          }
+        },
+        "template--14272335413334__244001ba-8e09-4632-8376-1795daaa2d4a-166515727980aa7a78-1": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/HSN.png",
+            "link": ""
+          }
+        },
+        "template--14272335413334__244001ba-8e09-4632-8376-1795daaa2d4a-166515727980aa7a78-2": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Entrepreneur.png",
+            "link": ""
+          }
+        },
+        "template--14272335413334__244001ba-8e09-4632-8376-1795daaa2d4a-166515727980aa7a78-3": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/GMA.png",
+            "link": ""
+          }
+        },
+        "b074c796-0382-48b4-82fb-87551e0dcc53": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Menshealth.png",
+            "link": ""
+          }
+        },
+        "eec27516-fc7e-4f04-89b7-1db869e634e4": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/BusinessInsider.png",
+            "link": ""
+          }
+        },
+        "819dedff-ad1c-46d7-a329-399bcc53687f": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/PCmag.png",
+            "link": ""
+          }
+        },
+        "c0a16d00-bdfd-4eee-bbc0-1c57ef2759b1": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/TheNewYorkTimes.png",
+            "link": ""
+          }
+        },
+        "723bab5a-3d66-41a5-9cfb-432a59854303": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Mashable_Logo_1_1faf1b4c-8539-4659-9f3c-f09b1fa8e0ac.png",
+            "link": ""
+          }
+        },
+        "f06f48f7-b686-4424-8a69-70578bd82d76": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/HSN.png",
+            "link": ""
+          }
+        },
+        "b96878c0-ffac-473b-ab61-5331291364d0": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Entrepreneur.png",
+            "link": ""
+          }
+        },
+        "1338e985-adc2-4a10-8b14-a4a201eb7203": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/GMA.png",
+            "link": ""
+          }
+        },
+        "70eb5e53-571e-4f2b-9b75-b0a609f2aee3": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Menshealth.png",
+            "link": ""
+          }
+        },
+        "6390a654-f365-4173-a051-40ac5a295853": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/BusinessInsider.png",
+            "link": ""
+          }
+        },
+        "34c9cd5f-2e7a-42bd-af48-d7620f41d608": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/PCmag.png",
+            "link": ""
+          }
+        },
+        "e435efbd-9af4-42fc-9dc4-13b271103f4c": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/TheNewYorkTimes.png",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--14272335413334__244001ba-8e09-4632-8376-1795daaa2d4a-166515727980aa7a78-0",
+        "template--14272335413334__244001ba-8e09-4632-8376-1795daaa2d4a-166515727980aa7a78-1",
+        "template--14272335413334__244001ba-8e09-4632-8376-1795daaa2d4a-166515727980aa7a78-2",
+        "template--14272335413334__244001ba-8e09-4632-8376-1795daaa2d4a-166515727980aa7a78-3",
+        "b074c796-0382-48b4-82fb-87551e0dcc53",
+        "eec27516-fc7e-4f04-89b7-1db869e634e4",
+        "819dedff-ad1c-46d7-a329-399bcc53687f",
+        "c0a16d00-bdfd-4eee-bbc0-1c57ef2759b1",
+        "723bab5a-3d66-41a5-9cfb-432a59854303",
+        "f06f48f7-b686-4424-8a69-70578bd82d76",
+        "b96878c0-ffac-473b-ab61-5331291364d0",
+        "1338e985-adc2-4a10-8b14-a4a201eb7203",
+        "70eb5e53-571e-4f2b-9b75-b0a609f2aee3",
+        "6390a654-f365-4173-a051-40ac5a295853",
+        "34c9cd5f-2e7a-42bd-af48-d7620f41d608",
+        "e435efbd-9af4-42fc-9dc4-13b271103f4c"
+      ],
+      "settings": {
+        "title": "",
+        "logo_opacity": 76,
+        "alt": false
+      }
+    },
+    "20051030-fad8-4a74-a558-e8ce422327e9": {
+      "type": "us_vs_them_lp",
+      "blocks": {
+        "c7898c1e-2ef5-4519-983e-ca881c2eeb7q": {
+          "type": "featured_image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Belkin_vs_Anker.png"
+          }
+        },
+        "d064417f-020e-4728-a4f5-25a46f95c18w": {
+          "type": "featured_image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Clutch_Pro_Card.png"
+          }
+        },
+        "190f1c5b-8c46-4de7-86a7-45e2b0c5aabe": {
+          "type": "Table",
+          "settings": {
+            "table_id": "shopify:\/\/shop_images\/Frame_157.png",
+            "text_table_id": "Magnetic"
+          }
+        },
+        "857b5174-3359-4367-b573-48d8077d2c1r": {
+          "type": "Table",
+          "settings": {
+            "table_id": "shopify:\/\/shop_images\/Frame_153_6f4f0b20-7c6a-4e7e-b097-0ab78b93110f.png",
+            "text_table_id": "Built-in cable"
+          }
+        },
+        "f6442095-46e6-4d76-a024-9cacc8e0e64t": {
+          "type": "Table",
+          "settings": {
+            "table_id": "shopify:\/\/shop_images\/Frame_153_6f4f0b20-7c6a-4e7e-b097-0ab78b93110f.png",
+            "text_table_id": "Minimal &  Sleek Design"
+          }
+        },
+        "bb691f28-7137-4827-9f9d-d90f82d620by": {
+          "type": "Table",
+          "settings": {
+            "table_id": "shopify:\/\/shop_images\/Frame_155_df4510f5-c0fb-411d-ab2e-855160c598c6.png",
+            "text_table_id": "Colors"
+          }
+        },
+        "798be532-e61f-4a0c-b322-34685b4aeabu": {
+          "type": "Table",
+          "settings": {
+            "table_id": "shopify:\/\/shop_images\/Frame_156.png",
+            "text_table_id": "Weight"
+          }
+        },
+        "507c34bf-33d6-4156-9537-659353df07ei": {
+          "type": "Table",
+          "settings": {
+            "table_id": "shopify:\/\/shop_images\/Frame_158.png",
+            "text_table_id": "Price"
+          }
+        }
+      },
+      "block_order": [
+        "c7898c1e-2ef5-4519-983e-ca881c2eeb7q",
+        "d064417f-020e-4728-a4f5-25a46f95c18w",
+        "190f1c5b-8c46-4de7-86a7-45e2b0c5aabe",
+        "857b5174-3359-4367-b573-48d8077d2c1r",
+        "f6442095-46e6-4d76-a024-9cacc8e0e64t",
+        "bb691f28-7137-4827-9f9d-d90f82d620by",
+        "798be532-e61f-4a0c-b322-34685b4aeabu",
+        "507c34bf-33d6-4156-9537-659353df07ei"
+      ],
+      "settings": {
+        "title_id": "We're better...",
+        "sub_title_id": "Than the other chargers you're thinking of",
+        "image_id": "shopify:\/\/shop_images\/Table_d359b25b-7316-4554-b2bc-35d4e3b714b6.png",
+        "button_text_id": "",
+        "button_url_id": "",
+        "css_class": ""
+      }
+    },
+    "d8e93cd8-7091-4eaf-8773-44cd2f7fbc75": {
+      "type": "comparation-module",
+      "blocks": {
+        "b274316d-119e-40bf-b1d6-ed727b87daba": {
+          "type": "row",
+          "settings": {
+            "content": "text~blank\\black | text~Built In      Cable\\black | text~Minimal  & Sleek Design\\black | text~Colors\\black | text~Weight\\black | text~Pocket & Wallet-Friendly Size\\black | text~Price\\black",
+            "content_mobile": "text~blank\\black | image~clutch_mobile\\black | image~anker_mobile\\black | image~belkin_mobile\\black"
+          }
+        },
+        "fb066ac7-bae2-4fd0-869b-1e3d671a4029": {
+          "type": "row",
+          "settings": {
+            "content": "image~clutch\\white | icon~icon-check\\white | icon~icon-check\\white | colors~black,white,pink\\white | text~2 oz\\white | icon~icon-check\\white | text~$49\\white",
+            "content_mobile": "text~Built in Cable\\rgba(0, 0, 0, 0.1) | icon~icon-check\\white | icon~icon-cross\\rgba(0, 0, 0, 0.1) | icon~icon-cross\\rgba(0, 0, 0, 0.1)"
+          }
+        },
+        "ae612544-554d-4e8d-8234-6165db905279": {
+          "type": "row",
+          "settings": {
+            "content": "image~anker\\white | icon~icon-cross\\rgba(0, 0, 0, 0.1) | icon~icon-cross\\white | colors~black,white\\rgba(0, 0, 0, 0.1) | text~16.4 oz\\white | icon~icon-cross\\rgba(0, 0, 0, 0.1) | text~$59.99\\white",
+            "content_mobile": "text~Minimal & Sleek Design\\white | icon~icon-check\\white | icon~icon-cross\\white | icon~icon-cross\\white"
+          }
+        },
+        "c9ef45c2-2f8b-46c4-998d-41e6c1f689cf": {
+          "type": "row",
+          "settings": {
+            "content": "image~belkin\\white | icon~icon-cross\\rgba(0, 0, 0, 0.1) | icon~icon-cross\\white | colors~black\\rgba(0, 0, 0, 0.1) | text~16.16 oz\\white | icon~icon-cross\\rgba(0, 0, 0, 0.1) | text~$69.99\\white",
+            "content_mobile": "text~Colors\\rgba(0,0,0,0.1) | colors~black,white,pink\\white | colors~black,white\\rgba(0,0,0,0.1) | colors~black\\ rgba(0,0,0,0.1)"
+          }
+        },
+        "69303056-adb3-48ee-bf97-05608801f43c": {
+          "type": "row",
+          "settings": {
+            "content": "",
+            "content_mobile": "text~Weight\\white | text~2 oz\\white | text~16.4 oz\\white | text~16.16 oz\\white"
+          }
+        },
+        "db5889dc-f9a9-4ca4-a884-398c762bf700": {
+          "type": "row",
+          "settings": {
+            "content": "",
+            "content_mobile": "text~Pocket & Wallet-Friendly Size\\rgba(0,0,0,0.1) | icon~icon-check\\white | icon~icon-cross\\rgba(0,0,0,0.1) | icon~icon-cross\\rgba(0,0,0,0.1)"
+          }
+        },
+        "d2dd58f4-e684-4b8f-b7be-2f4ebef82070": {
+          "type": "row",
+          "settings": {
+            "content": "",
+            "content_mobile": "text~Price\\white | text~$49.99\\white | text~$59.99\\white | text~$69.99\\white"
+          }
+        }
+      },
+      "block_order": [
+        "b274316d-119e-40bf-b1d6-ed727b87daba",
+        "fb066ac7-bae2-4fd0-869b-1e3d671a4029",
+        "ae612544-554d-4e8d-8234-6165db905279",
+        "c9ef45c2-2f8b-46c4-998d-41e6c1f689cf",
+        "69303056-adb3-48ee-bf97-05608801f43c",
+        "db5889dc-f9a9-4ca4-a884-398c762bf700",
+        "d2dd58f4-e684-4b8f-b7be-2f4ebef82070"
+      ],
+      "disabled": true,
+      "settings": {
+        "title": "Us vs. Them",
+        "subtitle": "Compact and Convenient: Clutch Chargers are the obvious choice for on-the-go use",
+        "space_bottom": true,
+        "show_button": true,
+        "banner_desktop": "shopify:\/\/shop_images\/Clutch-Banner-Desktop_1.png",
+        "banner_movil": "shopify:\/\/shop_images\/Clutch-Banner-Mobile_1.png",
+        "imageTable": "{{ product.metafields.custom.comparation_image_desltop.value }}",
+        "imageTableMobile": "{{ product.metafields.custom.comparation_image_mobile.value }}"
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "show_product_recommendations": false,
+        "product_recommendations_heading": "You may also like"
+      }
+    },
+    "collection-return": {
+      "type": "collection-return",
+      "disabled": true,
+      "settings": {
+      }
+    },
+    "16372797806d495698": {
+      "type": "hero-video",
+      "disabled": true,
+      "settings": {
+        "abctext-id": "",
+        "title": "",
+        "title_size": 80,
+        "subheading": "",
+        "link_text": "",
+        "link": "",
+        "color_accent": "rgba(0,0,0,0)",
+        "text_align": "vertical-center horizontal-center",
+        "video_url": "https:\/\/cdn.shopify.com\/s\/files\/1\/0140\/3774\/5750\/files\/Live_Action_Wide....mp4?v=1594224562",
+        "mobile_video_url": "",
+        "section_height": "750px",
+        "mobile_height": "250px"
+      }
+    },
+    "1637279856a1a38707": {
+      "type": "logo-list",
+      "blocks": {
+        "1637279856a44010dd-0": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/HSN-logo_35a7e53d-45a4-4abc-bba0-6cabf824735f.png",
+            "link": ""
+          }
+        },
+        "1637279856a44010dd-1": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/gma-log-iso-crop.png",
+            "link": ""
+          }
+        },
+        "1637279856a44010dd-2": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/mens-health-logo.png",
+            "link": ""
+          }
+        },
+        "1637279856a44010dd-3": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/pcmag-logo-2.png",
+            "link": ""
+          }
+        },
+        "b0a19e7f-79d0-43a8-b0d0-cbc2c7ee35a8": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Mashable-Logo.jpg",
+            "link": ""
+          }
+        },
+        "71c2e9cf-7aa1-46f6-a215-278aa0eb3fe8": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/entrepreneur-logo.jpg",
+            "link": ""
+          }
+        },
+        "33cc9b7f-9d47-4bbf-adf3-b9fbb328b692": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/business-insider-logo.jpg",
+            "link": ""
+          }
+        },
+        "06eb63a6-5b1d-420b-9bd7-55458124b765": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/nyt-logo.png",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "1637279856a44010dd-0",
+        "1637279856a44010dd-1",
+        "1637279856a44010dd-2",
+        "1637279856a44010dd-3",
+        "b0a19e7f-79d0-43a8-b0d0-cbc2c7ee35a8",
+        "71c2e9cf-7aa1-46f6-a215-278aa0eb3fe8",
+        "33cc9b7f-9d47-4bbf-adf3-b9fbb328b692",
+        "06eb63a6-5b1d-420b-9bd7-55458124b765"
+      ],
+      "disabled": true,
+      "settings": {
+        "title": "",
+        "logo_opacity": 100,
+        "alt": false
+      }
+    },
+    "16372798625ada21dd": {
+      "type": "advanced-content",
+      "blocks": {
+        "16372798626146f30c-1": {
+          "type": "liquid",
+          "settings": {
+            "code": "<div class=\"section-button\" style=\"margin-top: 4%;\">\n<a href=\"\/pages\/press\" class=\"btn btn--tertiary\">View Press<\/a>\n<\/div>",
+            "width": "100%",
+            "alignment": "bottom-middle"
+          }
+        }
+      },
+      "block_order": [
+        "16372798626146f30c-1"
+      ],
+      "disabled": true,
+      "settings": {
+        "full_width": false,
+        "space_around": true,
+        "alt": false
+      }
+    },
+    "163727957899e27a75": {
+      "type": "apps",
+      "blocks": {
+        "ae97d29b-36b9-4bee-a685-e9e59e3465d5": {
+          "type": "shopify:\/\/apps\/judge-me-reviews\/blocks\/review_widget\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "ae97d29b-36b9-4bee-a685-e9e59e3465d5"
+      ],
+      "settings": {
+        "full_width": false,
+        "space_around": true
+      }
+    }
+  },
+  "order": [
+    "main",
+    "sub",
+    "244001ba-8e09-4632-8376-1795daaa2d4a",
+    "20051030-fad8-4a74-a558-e8ce422327e9",
+    "d8e93cd8-7091-4eaf-8773-44cd2f7fbc75",
+    "product-recommendations",
+    "collection-return",
+    "16372797806d495698",
+    "1637279856a1a38707",
+    "16372798625ada21dd",
+    "163727957899e27a75"
+  ]
+}

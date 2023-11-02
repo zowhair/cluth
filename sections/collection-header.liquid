@@ -1,0 +1,160 @@
+{% assign banners = section.blocks | where: "type", "promotional_banner" %}
+{% for banner in banners %}
+  {% if collections[banner.settings.collection].id == collection.id %}
+  <div class="banner">
+    <div class="desktop-show">
+      {%- if banner.settings.banner != blank -%}
+        {% assign image_width = banner.settings.banner.width | divided_by: 1.65 | floor | append: 'x' %}
+        {% if banner.settings.url != blank %}
+          <a href="{{ banner.settings.url }}">
+        {% endif %}
+        <img class="lazyload"
+          loading="lazy"
+            data-srcset="{{ banner.settings.banner | img_url: image_width }} 1024w, {{ banner.settings.banner | img_url: "master" }} 1440w"
+            alt="{{ banner.settings.banner.alt }}">
+        {% if banner.settings.url != blank %}
+          </a>
+        {% endif %}
+      {%- else -%}
+        {{ 'logo' | placeholder_svg_tag: 'placeholder-svg' }}
+      {%- endif -%}
+    </div>
+    <div class="mobile-show">
+      {%- if banner.settings.banner_mobile != blank -%}
+        {% assign image_width = banner.settings.banner_mobile.width | divided_by: 1.65 | floor | append: 'x' %}
+        {% if banner.settings.url != blank %}
+          <a href="{{ banner.settings.url }}">
+        {% endif %}
+        <img class="lazyload"
+            data-srcset="{{ banner.settings.banner_mobile | img_url: image_width }} 480w, {{ banner.settings.banner_mobile | img_url: "master" }} 600w"
+            alt="{{ banner.settings.banner_mobile.alt }}">
+        {% if banner.settings.url != blank %}
+        </a>
+      {% endif %}
+      {%- else -%}
+        {{ 'logo' | placeholder_svg_tag: 'placeholder-svg' }}
+      {%- endif -%}
+    </div>
+  </div>
+  {% endif %}
+{% endfor %}
+{% comment %}{% endcomment %}
+{%- if section.settings.collection_image_enable and collection.image -%}
+  <div class="collection-hero"
+    data-aos="hero__animation">
+    <div
+      class="collection-hero__image lazyload"
+      data-bgset="{% render 'bgset', image: collection.image %}"
+      data-sizes="auto">
+    </div>
+    <noscript>
+      <div
+        class="collection-hero__image"
+        style="background-image: url({{ collection.image | img_url: '1400x' }});";
+        ></div>
+    </noscript>
+
+    <div class="collection-hero__content">
+      <div class="page-width text-center">
+        <div class="hero__text-shadow" data-aos>
+          <header class="section-header section-header--hero" data-aos>
+            <h1 class="section-header__title appear-delay">
+              {{ collection.title }}
+            </h1>
+            {%- if collection.description != blank and section.settings.description_enable -%}
+              {%- assign desc_length = collection.description | size -%}
+              <div class="rte section-header__description{% if desc_length < 200 %} section-header__description--large{% endif %} appear-delay-1">
+                {{ collection.description }}
+              </div>
+            {%- endif -%}
+          </header>
+        </div>
+      </div>
+    </div>
+  </div>
+{%- else -%}
+  <div class="page-width page-content page-content--flush-bottom">
+    <header class="section-header" data-aos>
+      <h1 class="section-header__title appear-delay">
+        {{ collection.title }}
+      </h1>
+
+      {%- if collection.description != blank and section.settings.description_enable -%}
+        {%- assign desc_length = collection.description | size -%}
+        <div class="rte section-header__description{% if desc_length < 200 %} section-header__description--large{% endif %} appear-delay-1">
+          {{ collection.description }}
+        </div>
+      {%- endif -%}
+    </header>
+  </div>
+{%- endif -%}
+
+<style>
+  .banner .desktop-show {
+    display: block;
+  }
+  .banner .mobile-show {
+    display: none;
+  }
+  @media screen and (max-width: 768px){
+    .banner .desktop-show {
+      display: none;
+    }
+    .banner .mobile-show {
+      display: block;
+    }
+  }
+</style>
+
+{% schema %}
+  {
+    "name": "Collection header",
+    "class": "collection-header-wrapper",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "collection_image_enable",
+        "label": "Show collection image",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "description_enable",
+        "label": "Show description in header",
+        "default": true
+      }
+    ],
+    "blocks": [
+      {
+        "type": "promotional_banner",
+        "name": "Promotional Banner",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "banner",
+            "label": "Banner"
+          },
+          {
+            "type": "image_picker",
+            "id": "banner_mobile",
+            "label": "Banner Mobile"
+          },
+          {
+            "type": "url",
+            "id": "url",
+            "label": "Link to",
+            "info": "Optional"
+          },
+          {
+            "type": "collection",
+            "id": "collection",
+            "label": "Collection to show"
+          }
+        ]
+      }
+    ],
+    "presets": [{
+      "name": "Collection Header"
+    }]
+  }
+{% endschema %}

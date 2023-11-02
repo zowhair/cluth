@@ -1,0 +1,1161 @@
+{% comment %}
+  menu_alignment options:
+  - left
+  - left-center
+  - center-left
+  - center-split
+  - center
+  - right
+{% endcomment %}
+
+{%- liquid
+  assign main_menu = linklists[section.settings.main_menu_link_list]
+
+  assign menu_alignment = section.settings.main_menu_alignment
+  assign logo_alignment = 'left'
+  if menu_alignment == 'center-left' or menu_alignment == 'center-split' or menu_alignment == 'center'
+    assign logo_alignment = 'center'
+  endif
+  if menu_alignment == 'right'
+    assign logo_alignment = 'left-right'
+  endif
+
+  if main_menu == blank
+    assign logo_alignment = 'center'
+  endif
+
+  assign mobile_menu_style = 'thumb'
+
+  assign template_name = template | replace: '.', ' ' | truncatewords: 2, '' | handle
+
+  assign overlay_header = false
+  if template_name == 'index' and section.settings.sticky_index
+    assign overlay_header = true
+  endif
+  if template_name == 'collection' and collection.image and section.settings.sticky_collection
+    assign overlay_header = true
+  endif
+-%}
+
+{%- render 'slide-nav'
+  , section: section,
+  main_menu: main_menu,
+  mobile_menu_style: mobile_menu_style -%}
+{%- if settings.cart_type == 'sticky' -%}
+  {%- render 'sticky-cart', mobile_menu_style: mobile_menu_style -%}
+{%- endif -%}
+
+{%- style -%}
+  .slide-nav,
+  .slide-nav button {
+    font-size: {{ settings.type_navigation_size }}
+    px;
+  }
+
+  {% if mobile_menu_style == 'thumb' %}
+    body {
+      {% comment %}
+        Thumb menu button height + padding + 40{% endcomment %}
+      padding-bottom: 148px;
+    }
+  {% endif %}
+
+  {% if mobile_menu_style == 'top' %}
+    body.screen-layer-open {
+      {% comment %}
+        Space for the close modal button{% endcomment %}
+      padding-bottom: 40px;
+    }
+  {% endif %}
+
+  {% if overlay_header %}
+    @media only screen and (min-width: 769px) {
+      .collection-hero__content .section-header--hero {
+        margin-top: 40px;
+      }
+    }
+  {% endif %}
+{%- endstyle -%}
+
+<div data-section-id="{{ section.id }}" data-section-type="header-section" {% unless template.name == "index" %}class="header-other-pages"{% endunless %}>
+  {%- if section.settings.show_announcement -%}
+    {%- if section.settings.show_announcement_home_only -%}
+      {%- if template == 'index' -%}
+        {%- render 'announcement-bar', section: section -%}
+      {%- endif -%}
+    {%- else -%}
+      {%- render 'announcement-bar', section: section -%}
+    {%- endif -%}
+  {%- endif -%}
+  <div id="header_wrapper" 
+    data-header-style="{{ section.settings.header_style }}" class="header-wrapper{% if overlay_header %} header-wrapper--overlay is-light{% endif %}" >
+
+    {% comment %}
+      Logo is used as a between-screen loader, so we only
+      show the mobile logo on the home page (setting to override)
+    {% endcomment %}
+    {%- assign mobile_logo_only = true -%}
+
+    <header class="site-header{% if section.settings.logo_hide_mobile %}{% unless template_name == 'index' %} small--hide{% endunless %}{% endif %}" data-overlay="{{ overlay_header }}">
+      <div class="page-width">
+        <div class="header-layout header-layout--{{ menu_alignment }}{% if mobile_logo_only %} header-layout--mobile-logo-only{% endif %}" data-logo-align="{{ logo_alignment }}">
+
+          {%- if logo_alignment == 'left' or logo_alignment == 'left-right' -%}
+            <div class="header-item header-item--logo">
+              {%- render 'header-logo-block', section: section -%}
+            </div>
+          {%- endif -%}
+
+          {%- if logo_alignment == 'left' -%}
+            <div
+              role="navigation"
+              aria-label="Primary"
+              class="header-item header-item--navigation{% if menu_alignment == 'left-center' %} text-center{% endif %} small--hide">
+                {%- render 'header-desktop-nav', main_menu: main_menu, blocks: section -%}
+            </div>
+          {%- endif -%}
+
+          {%- if logo_alignment == 'center' -%}
+            <div
+              class="header-item header-item--left header-item--navigation small--hide"
+              role="navigation"
+              aria-label="Primary">
+              {%- if menu_alignment == 'center' or menu_alignment == 'center-split' -%}
+                {%- if section.settings.header_search_enable -%}
+                  <div class="site-nav">
+                    <a href="{{ routes.search_url }}" class="site-nav__link site-nav__link--icon js-modal-open-search-modal js-no-transition">
+                      <svg
+                        aria-hidden="true"
+                        focusable="false"
+                        role="presentation"
+                        class="icon icon-search"
+                        viewBox="0 0 64 64"><path d="M47.16 28.58A18.58 18.58 0 1 1 28.58 10a18.58 18.58 0 0 1 18.58 18.58zM54 54L41.94 42" /></svg>
+                      <span class="icon__fallback-text">{{ 'general.search.title' | t }}</span>
+                    </a>
+                  </div>
+                {%- endif -%}
+              {%- endif -%}
+
+              {%- if menu_alignment == 'center-left' -%}
+                {%- render 'header-desktop-nav', main_menu: main_menu, blocks: section.blocks -%}
+              {%- endif -%}
+            </div>
+
+            {%- if menu_alignment == 'center-split' -%}
+              {%- render 'header-split-nav', main_menu: main_menu, section: section -%}
+            {%- endif -%}
+
+            {%- if menu_alignment != 'center-split' -%}
+              <div class="header-item header-item--logo">
+                {%- render 'header-logo-block', section: section -%}
+              </div>
+            {%- endif -%}
+          {%- endif -%}
+
+          {%- if logo_alignment == 'left-right' -%}
+            <div
+              role="navigation"
+              aria-label="Primary"
+              class="header-item header-item--navigation text-right small--hide">
+              {%- render 'header-desktop-nav', main_menu: main_menu, blocks: section -%}
+          {%- endif -%}
+
+          {% comment %}
+            Center mobile logo if icons are not visible
+          {% endcomment %}
+          <div class="header-item header-item--icons{% if mobile_logo_only %} small--hide{% endif %}">
+            {%- render 'header-icons', section: section, menu_alignment: menu_alignment -%}
+            </div>
+          </div>
+        </div>
+
+        {%- if menu_alignment == 'center' -%}
+          <div
+            role="navigation"
+            aria-label="Primary"
+            class="text-center">
+            {%- render 'header-desktop-nav', main_menu: main_menu, blocks: section -%}
+          </div>
+        {%- endif -%}
+      </div>
+    </header>
+  </div>
+
+  {%- if mobile_menu_style == 'thumb' -%}
+    {%- if main_menu != blank -%}
+      <div class="site-nav__thumb-menu site-nav__thumb-menu--inactive">
+        <div class="mobile-menu">
+          <button type="button" class="btn site-nav__thumb-button js-toggle-slide-nav">
+            <svg
+              class="hamburger"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <rect
+                x="1"
+                y="4"
+                width="22"
+                height="1.5"
+                fill="white" />
+              <rect
+                x="1"
+                y="11"
+                width="18"
+                height="1.5"
+                fill="white" />
+              <rect
+                x="1"
+                y="18"
+                width="21"
+                height="1.5"
+                fill="white" />
+            </svg>
+            <svg
+              aria-hidden="true"
+              focusable="false"
+              role="presentation"
+              class="icon icon-close"
+              viewBox="0 0 64 64"><path d="M19 17.61l27.12 27.13m0-27.12L19 44.74" /></svg>
+            <span class="icon-menu-label">{{ 'general.drawers.navigation' | t }}</span>
+          </button>
+          <a href="/collections/clutch-chargers" class="shop-link">Shop</a>
+        </div>
+        <div class="logo-mobile-center">
+          {%- render 'header-logo-block', section: section -%}
+        </div>
+        <div class="actions-mobile">
+          <a class="site-nav__link site-nav__link--icon large--hide" href="{{ routes.account_url }}">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 32 32" fill="none">
+              <path d="M26.6667 28V25.3333C26.6667 23.9188 26.1048 22.5623 25.1046 21.5621C24.1044 20.5619 22.7478 20 21.3333 20H10.6667C9.25217 20 7.89562 20.5619 6.89543 21.5621C5.89523 22.5623 5.33333 23.9188 5.33333 25.3333V28" stroke="#F0F0F0" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M16 14.6667C18.9455 14.6667 21.3333 12.2789 21.3333 9.33333C21.3333 6.38781 18.9455 4 16 4C13.0545 4 10.6667 6.38781 10.6667 9.33333C10.6667 12.2789 13.0545 14.6667 16 14.6667Z" stroke="#F0F0F0" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="icon__fallback-text">
+              {%- if customer -%}
+                {{ 'layout.customer.account' | t }}
+              {%- else -%}
+                {{ 'layout.customer.log_in' | t }}
+              {%- endif -%}
+            </span>
+          </a>
+          {%- comment -%} <button class="search-trigger">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path d="M21.4433 20.4547L15.996 15.0067C17.091 13.6897 17.7503 11.9992 17.7503 10.1535C17.7503 5.95725 14.349 2.55675 10.1535 2.55675C5.95801 2.55675 2.55676 5.958 2.55676 10.1535C2.55676 14.349 5.95876 17.7502 10.1535 17.7502C12 17.7502 13.6905 17.091 15.0068 15.996L20.454 21.444L21.4433 20.4547ZM3.35626 10.1535C3.35626 6.40575 6.40501 3.35625 10.1535 3.35625C13.9013 3.35625 16.9508 6.40575 16.9508 10.1535C16.9508 13.9012 13.9013 16.9507 10.1535 16.9507C6.40501 16.9507 3.35626 13.9012 3.35626 10.1535Z" fill="white" />
+            </svg>
+          </button> {%- endcomment -%}
+          <button
+            href="{{ routes.cart_url }}"
+            class="site-nav__thumb-cart openCart"
+            aria-controls="CartDrawer"
+            data-icon="{{ settings.cart_icon }}">
+            <span class="cart-link">
+              {%- if settings.cart_icon == 'cart' -%}
+                <svg
+                  width="25"
+                  height="24"
+                  viewBox="0 0 21 19"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink">
+                  <rect
+                    width="21"
+                    height="19"
+                    fill="url(#cart-icon-svg)" />
+                  <defs>
+                    <pattern
+                      id="cart-icon-svg"
+                      patternContentUnits="objectBoundingBox"
+                      width="1"
+                      height="1">
+                      <use xlink:href="#image0_588_23" transform="translate(0 -0.00239234) scale(0.00378788 0.0041866)" />
+                    </pattern>
+                    <image
+                      id="image0_588_23"
+                      width="264"
+                      height="240"
+                      xlink:href="data:image/png;base64,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" />
+                  </defs>
+                </svg>
+              {%- else -%}
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M10.7032 3.99513C10.2104 5.02632 9.875 6.80908 9.875 9.75H8.875C8.875 6.76967 9.20902 4.80243 9.8009 3.56394C10.1008 2.93633 10.4765 2.4756 10.9272 2.17377C11.381 1.86981 11.8767 1.75 12.375 1.75C12.8733 1.75 13.369 1.86981 13.8228 2.17377C14.2735 2.4756 14.6492 2.93633 14.9491 3.56394C15.541 4.80243 15.875 6.76967 15.875 9.75H14.875C14.875 6.80908 14.5396 5.02632 14.0468 3.99513C13.8044 3.48789 13.5339 3.18386 13.2663 3.00463C13.0019 2.82754 12.7073 2.75 12.375 2.75C12.0427 2.75 11.7481 2.82754 11.4837 3.00463C11.2161 3.18386 10.9456 3.48789 10.7032 3.99513Z"
+                    fill="white" />
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M5.07411 6.25H19.6723L21.1163 21.0238H3.6261L5.07411 6.25ZM5.98089 7.25L4.7289 20.0238H20.0137L18.7652 7.25H5.98089Z"
+                    fill="white" />
+                </svg>
+              {%- endif -%}
+              <span class="icon__fallback-text">{{ 'layout.cart.title' | t }}</span>
+              <span class="cart-link__bubble{% if cart.item_count > 0 %} cart-link__bubble--visible{% endif %}">
+                <span class="cart-link__bubble-num" aria-hidden="true">
+                  {{ cart.item_count }}
+                </span>
+              </span>
+            </span>
+          </button>
+        </div>
+        <div class="mobile-search-form">
+          <button class="close-form">
+            <svg
+              width="9"
+              height="22"
+              viewBox="0 0 9 22"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path d="M8.49219 16H7.17285L4.47266 11.5977L1.73145 16H0.494141L3.82324 10.791L0.726562 6.00586H2.01855L4.51367 9.99121L7.02246 6.00586H8.25293L5.16309 10.7705L8.49219 16Z" fill="#DEDEDE" />
+            </svg>
+          </button>
+          <form
+            action="{{ routes.search_url }}"
+            method="get"
+            class="input-group search-bar {{ search_bar_location }}"
+            role="search">
+            <input
+              type="hidden"
+              name="type"
+              value="{{ settings.search_type }}">
+            <input
+              type="hidden"
+              name="options[prefix]"
+              value="last">
+            <input
+              type="search"
+              name="q"
+              required
+              value="{{ search.terms | escape }}"
+              placeholder="Start typing..."
+              class="input-group-field"
+              aria-label="{{ 'general.search.placeholder' | t }}">
+            <span class="input-group-btn">
+              <button type="submit" class="{{ search_btn_style }}">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path d="M21.4433 20.4547L15.996 15.0067C17.091 13.6897 17.7503 11.9992 17.7503 10.1535C17.7503 5.95725 14.349 2.55675 10.1535 2.55675C5.95801 2.55675 2.55676 5.958 2.55676 10.1535C2.55676 14.349 5.95876 17.7502 10.1535 17.7502C12 17.7502 13.6905 17.091 15.0068 15.996L20.454 21.444L21.4433 20.4547ZM3.35626 10.1535C3.35626 6.40575 6.40501 3.35625 10.1535 3.35625C13.9013 3.35625 16.9508 6.40575 16.9508 10.1535C16.9508 13.9012 13.9013 16.9507 10.1535 16.9507C6.40501 16.9507 3.35626 13.9012 3.35626 10.1535Z" fill="white" />
+                </svg>
+                <span class="icon__fallback-text">{{ 'general.search.submit' | t }}</span>
+              </button>
+            </span>
+          </form>
+        </div>
+      </div>
+    {%- endif -%}
+  {%- endif -%}
+</div>
+
+{%- assign collections_blocks = section.blocks | where: "type", "collection_mobile" -%}
+{%- if collections_blocks.size > 0 and template == "index" -%}
+  <div class="collections-mobile v1">
+    <div class="scrollable">
+      {% for block in collections_blocks %}
+        
+        <div class="collection-mobile">
+          <a href="{{ block.settings.collection }}{% if block.settings.tag != blank %}?tag={{ block.settings.tag }}{% endif %}">
+            <img class="lazyload" data-src="{{ block.settings.image | img_url: 'master' }}">
+            <h4 class="collection-title">{{ block.settings.title }}</h4>
+          </a>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{%- endif -%}
+
+{%- if section.settings.header_search_enable -%}
+  {%- render 'search-modal' -%}
+{%- endif -%}
+
+<style>
+  .collections-mobile {
+    overflow-x: scroll;
+    max-width: 100vw;
+    padding: 20px 10px 18px;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+  }
+  .collections-mobile::-webkit-scrollbar {
+    height: 0;
+    width: 0;
+  }
+  .collections-mobile .scrollable {
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-column-gap: 14px;
+    -moz-column-gap: 14px;
+    column-gap: 14px;
+  }
+  .collection-mobile {
+    display: inline-block;
+    max-width: 96px;
+  }
+  .collection-mobile img {
+    max-width: 89px;
+    display: block;
+    margin-bottom: 8px;
+  }
+  .collection-mobile .collection-title {
+    font-size: 16px;
+    line-height: 1.375;
+    text-align: center;
+    letter-spacing: 0.035em;
+    text-transform: none;
+    margin-bottom: 0;
+  }
+  @media screen and (min-width: 768px) {
+    .collections-mobile {
+      display: none !important;
+    }
+  }
+  .collection-mobile:last-child {
+    margin-right: 10px;
+  }
+</style>
+
+{% schema %}
+  {
+    "name": "Header",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Layout"
+      },
+      {
+        "type": "select",
+        "id": "header_style",
+        "label": "Desktop style",
+        "default": "button",
+        "options": [
+          {
+            "value": "button",
+            "label": "Sticky button"
+          }, {
+            "value": "bar",
+            "label": "Sticky bar"
+          }, {
+            "value": "top",
+            "label": "Top only"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "main_menu_alignment",
+        "label": "Header layout",
+        "default": "right",
+        "options": [
+          {
+            "value": "right",
+            "label": "Logo left, menu right"
+          },
+          {
+            "value": "left-center",
+            "label": "Logo left, menu center"
+          },
+          {
+            "value": "center-left",
+            "label": "Logo center, menu left"
+          },
+          {
+            "value": "center-split",
+            "label": "Logo center, menu split"
+          }, {
+            "value": "center",
+            "label": "Logo center, menu below"
+          }
+        ]
+      },
+      {
+        "type": "checkbox",
+        "id": "sticky_index",
+        "label": "Overlay header over home page"
+      }, {
+        "type": "checkbox",
+        "id": "sticky_collection",
+        "label": "Overlay header over collection",
+        "info": "(if collection image is enabled)"
+      }, {
+        "type": "checkbox",
+        "id": "header_search_enable",
+        "label": "Enable search"
+      }, {
+        "type": "header",
+        "content": "Logo"
+      }, {
+        "type": "image_picker",
+        "id": "logo",
+        "label": "Logo"
+      }, {
+        "type": "image_picker",
+        "id": "logo-inverted",
+        "label": "White logo",
+        "info": "Used when on top of an image"
+      }, {
+        "type": "range",
+        "id": "desktop_logo_width",
+        "label": "Desktop logo width",
+        "default": 200,
+        "min": 80,
+        "max": 400,
+        "step": 10,
+        "unit": "px"
+      }, {
+        "type": "range",
+        "id": "mobile_logo_width",
+        "label": "Mobile logo width",
+        "default": 140,
+        "min": 50,
+        "max": 200,
+        "step": 10,
+        "unit": "px",
+        "info": "Set as a max-width, may appear smaller"
+      }, {
+        "type": "checkbox",
+        "id": "logo_hide_mobile",
+        "label": "Hide logo on mobile pages",
+        "default": true,
+        "info": "Maximizes screen space for your content. Add your logo under Animations to show your logo as the page loads instead. Logo always shows on home page."
+      }, {
+        "type": "header",
+        "content": "Navigation"
+      }, {
+        "type": "link_list",
+        "id": "main_menu_link_list",
+        "label": "Menu",
+        "default": "main-menu"
+      }, {
+        "type": "header",
+        "content": "Announcement bar"
+      }, {
+        "type": "checkbox",
+        "id": "show_announcement",
+        "label": "Show an announcement"
+      }, {
+        "type": "checkbox",
+        "id": "show_announcement_home_only",
+        "label": "Home page only"
+      }, {
+        "type": "text",
+        "id": "announcement_text",
+        "label": "Announcement text",
+        "default": "Free shipping and returns"
+      }, {
+        "type": "url",
+        "id": "announcement_link",
+        "label": "Announcement link"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "announcement",
+        "name": "Announcement",
+        "settings": [
+          {
+            "type": "text",
+            "id": "announcement_text",
+            "label": "Text",
+            "default": "Announce something here"
+          }, {
+            "type": "url",
+            "id": "announcement_link",
+            "label": "Link"
+          }
+        ]
+        }, 
+        {
+            "type": "collection_mobile",
+            "name": "Collection Mobile",
+            "settings": [
+                {
+                    "type": "url",
+                    "id": "collection",
+                    "label": "Collection"
+                }, 
+                {
+                    "type": "image_picker",
+                    "id": "image",
+                    "label": "Image Collection"
+                }, 
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Title"
+                }
+            ]
+        },
+        {
+            "type": "dropdown_shop",
+            "name": "Dropdown shop item",
+            "settings": [
+                {
+                    "type": "url",
+                    "id": "link",
+                    "label": "Url item"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "image",
+                    "label": "Imagen"
+                },
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Title"
+                }
+            ]
+        }
+
+    ]
+  }
+{% endschema %}
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var elem = document.querySelector('.announcement__wrapper');
+    var flkty = new Flickity(elem, {
+      contain: true,
+      autoPlay: 5000,
+      prevNextButtons: false,
+      pageDots: false,
+      on: {
+        ready: function() {
+          setTimeout(() => {
+            document.body.style.paddingTop = `${
+              document.querySelector('.announcement').offsetHeight
+            }px`;
+          }, 5);
+        }
+      }
+    });
+    {%- comment -%} document
+      .querySelector('.search-trigger')
+      .addEventListener('click', event => {
+        event
+          .target
+          .closest('.actions-mobile')
+          .nextElementSibling
+          .classList
+          .add('active')
+      }) {%- endcomment -%}
+      document
+      .querySelector('.close-form')
+      .addEventListener('click', event => {
+        event
+          .target
+          .closest('.mobile-search-form')
+          .classList
+          .remove('active')
+      })
+    if (document.querySelector('.collections-mobile')) {
+      document.querySelector('.main-content').insertBefore(document.querySelector('.collections-mobile'), document.querySelector('.main-content :first-child'));
+    }
+
+    window.allowAb = true;
+
+    if (!window.allowAb) return;
+
+    const btnOpenShopDesktop = document.querySelector("#site-nav__openshopDesktop");
+    if(!btnOpenShopDesktop) return;
+
+    const header_other_pages = document.querySelector('.header-other-pages');
+    const site_header = document.querySelector('.site-header');
+    site_header.classList.add('overlay');
+    
+    /*btnOpenShopDesktop.addEventListener('click', function(e){
+      e.preventDefault();
+      const sub = document.querySelector('.site-nav__wrapsub');
+      const site_header = document.querySelector('.site-header');
+      
+      site_header.classList.toggle('overlay');
+      sub.classList.toggle('open');
+    });*/
+    
+    
+  })
+</script>
+<style>
+  @media screen and (min-width: 769px) {
+    .shop-link,
+    .logo-mobile-center,
+    .search-trigger,
+    .mobile-search-form,
+    .footer-nav {
+      display: none;
+    }
+    .mobile-menu {
+      width: 100%;
+    }
+    .js-toggle-slide-nav.is-active .hamburger,
+    .js-toggle-slide-nav.is-active .icon-menu-label {
+      display: none;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .mobile-menu .icon-menu-label {
+      display: none;
+    }
+    .header-wrapper {
+      display: none;
+    }
+    .site-nav__thumb-menu {
+      background: #000;
+      position: initial;
+      margin: 0;
+      transform: none;
+      padding: 0 27px;
+      flex-wrap: wrap;
+      position: relative;
+      overflow: hidden;
+      z-index: 50;
+    }
+    .site-nav__thumb-menu > * {
+      flex: 1;
+    }
+    .mobile-menu,
+    .actions-mobile {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .mobile-menu {
+      justify-content: flex-start;
+    }
+    .mobile-menu button.site-nav__thumb-button {
+      border: 0;
+      padding: 0;
+      min-width: 0;
+      max-width: 30px;
+      height: auto;
+    }
+    .mobile-menu button.site-nav__thumb-button .icon {
+      width: 24px;
+      height: 24px;
+    }
+    .mobile-menu button.site-nav__thumb-button:not(.is-active) .hamburger,
+    .mobile-menu button.site-nav__thumb-button.is-active .icon.icon-close {
+      display: block;
+    }
+    .mobile-menu button.site-nav__thumb-button.is-active .hamburger {
+      display: none;
+    }
+    .mobile-menu .shop-link {
+      color: #fff;
+      text-transform: uppercase;
+      font-family: "Open Sans Condensed", serif;
+      font-style: normal;
+      font-weight: 300;
+      font-size: 20px;
+      line-height: 1.375;
+      letter-spacing: 0.035em;
+    }
+    .logo-mobile-center .site-header__logo {
+      margin: 8px 0;
+    }
+    .logo-mobile-center .logo--has-inverted {
+      opacity: 0;
+      visibility: hidden;
+      overflow: hidden;
+      height: 0;
+    }
+    .logo-mobile-center .logo--inverted {
+      opacity: 1;
+      visibility: visible;
+      overflow: auto;
+      height: auto;
+      max-width: 38px;
+    }
+    .actions-mobile {
+      justify-content: flex-end;
+    }
+    .actions-mobile svg {
+      display: block;
+    }
+    .actions-mobile .site-nav__thumb-cart {
+      border-left: 0;
+      padding: 0;
+      height: auto;
+      display: flex;
+    }
+    .cart-has-items .actions-mobile [data-icon=cart] .cart-link__bubble {
+      top: -8px;
+      right: -8px;
+    }
+    .mobile-search-form {
+      flex: 1 1 auto;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 100%;
+      background: #000;
+      z-index: 99;
+      color: #fff;
+      padding: 0 23px;
+      display: flex;
+      gap: 36px;
+      align-items: center;
+      transition: left 0.25s ease-in;
+    }
+    .mobile-search-form.active {
+      left: 0;
+    }
+    .mobile-search-form .close-form svg {
+      display: block;
+    }
+    .mobile-search-form .input-group {
+      width: 100%;
+    }
+    .mobile-search-form .input-group .input-group-field {
+      padding: 0 0 5px;
+      border-bottom: 1px solid #808080;
+      font-family: "Open Sans Condensed", serif;
+      font-style: normal;
+      font-weight: 300;
+      font-size: 12px;
+      line-height: 1.33;
+      letter-spacing: 0.035em;
+      color: #808080;
+    }
+    .mobile-search-form .input-group .input-group-btn {
+      margin-left: 15px;
+      display: flex;
+      align-items: center;
+    }
+    .mobile-search-form .input-group .input-group-btn svg {
+      display: block;
+    }
+
+    #shopify-section-header {
+      position: relative;
+    }
+    .slide-nav__overflow--thumb {
+      max-height: 100vh;
+      top: 100%;
+      bottom: unset;
+      left: -100%;
+      right: unset;
+      z-index: 9999;
+      position: absolute;
+      height: 100vh;
+      width: 100%;
+      max-width: 204px;
+      background: rgba(0, 0, 0, 0.86);
+      transition: left 0.2s ease-out;
+    }
+    .slide-nav__overflow--thumb.js-menu--is-open {
+      background: rgba(0, 0, 0, 0.86);
+      left: 0;
+      transition: left 0.2s ease-out;
+    }
+    .slide-nav__wrapper {
+      background-color: transparent;
+      transition: none !important;
+      transform: none !important;
+    }
+    .slide-nav__wrapper .slide-nav__item:first-child {
+      display: none;
+    }
+    .slide-nav__link {
+      text-align: left;
+      padding: 12px 0 8px;
+      margin: 0 30px 0 22px;
+      border-bottom: 1px solid #3D3D3D;
+      width: auto;
+      font-family: "Open Sans Condensed", serif;
+      font-style: normal;
+      font-weight: 300;
+      font-size: 20px;
+      line-height: 1.35;
+      letter-spacing: 0.035em;
+    }
+    .footer-nav {
+      display: block;
+      margin-top: 80px;
+      color: #fff;
+      text-align: center;
+    }
+    .footer-nav h4 {
+      font-family: "Open Sans Condensed", serif !important;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 1.35;
+      letter-spacing: 0.035em;
+      margin-bottom: 18px;
+      padding-left: 22px;
+      text-align: left;
+    }
+    .footer-nav .footer__social {
+      padding-left: 22px;
+      margin-bottom: 8px;
+      text-align: left;
+    }
+    .footer-nav .js-no-transition {
+      font-family: "Open Sans Condensed", serif;
+      font-style: normal;
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 1.33;
+      letter-spacing: 0.035em;
+      padding: 0;
+      border: 0;
+      text-align: left;
+    }
+    .footer-nav .footer__social .icon {
+      width: 28px;
+      height: 28px;
+    }
+    .footer__social li {
+      margin: 0 24px 24px 0;
+    }
+    .footer-nav > a {
+      padding-left: 22px !important;
+      display: block;
+      width: 100%;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    #shopify-section-header.sticky .announcement {
+      visibility: visible;
+    }
+
+    #shopify-section-header.sticky .site-nav__thumb-menu {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      bottom: unset;
+    }
+
+    #shopify-section-header.sticky .logo-mobile-center .logo--inverted {
+      visibility: inherit;
+    }
+
+    #shopify-section-header .slide-nav__overflow--thumb.js-menu--is-open {
+      position: fixed;
+      z-index: 9999;
+      bottom: 0;
+      left: 0;
+      top: inherit;
+      padding-top: 0;
+    }
+    .announcement__text {
+      font-family: mr-eaves-xl-modern, sans-serif;
+      font-size: clamp(14px, 1.6vw, 16px);
+      font-weight: 600;
+      letter-spacing: 0.035em;
+      text-transform: none;
+      display: block;
+      padding: 6px 20px;
+      text-align: center;
+    }
+  }
+  @media screen and (max-width:768px) {
+    #shopify-section-header.sticky[style*="visible"] + .main-content {
+      padding-top: 110px;
+    }
+    #shopify-section-header.sticky[style*="hidden"] + .main-content {
+      padding-top: 88px;
+    }
+  }
+  @media screen and (max-width:590px) {
+    #shopify-section-header.sticky[style*="visible"] + .main-content {
+      padding-top: 110px;
+    }
+    #shopify-section-header.sticky[style*="hidden"] + .main-content {
+      padding-top: 88px;
+    }
+    #shopify-section-header .slide-nav__overflow--thumb.js-menu--is-open {
+      height: auto;
+      overflow: auto;
+      top: 85px !important;
+    }
+    #shopify-section-header .slide-nav__overflow--thumb.js-menu--is-open::-webkit-scrollbar {
+      width: 0;
+    }
+    .footer-nav {
+      padding-bottom: 30px;
+    }
+  }
+
+  .slide-nav__item:has(.slide-nav__sublist.open) {
+    
+  }
+
+  .site-nav.site-navigation.small--hide {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .site-nav.site-navigation.small--hide .site-nav__item:nth-child(6) {
+    order: 0;
+    margin-left: 0;
+    margin-right: 24px;
+  }
+
+  .site-nav.site-navigation.small--hide .site-nav__item:nth-child(6) .site-nav__link {
+    padding: 4px 13.5px;
+  }
+
+  .site-nav.site-navigation.small--hide .site-nav__item:nth-child(5) {
+    order: 1;
+  }
+
+  .site-nav.site-navigation.small--hide .site-nav__item:nth-child(1) {
+    order: 3;
+  }
+
+  .site-nav.site-navigation.small--hide .site-nav__item:nth-child(2) {
+    order: 4;
+  }
+
+  .site-nav.site-navigation.small--hide .site-nav__item:nth-child(3) {
+    order: 5;
+  }
+
+  .site-nav.site-navigation.small--hide .site-nav__item:nth-child(4) {
+    order: 6;
+  }
+  @media screen and (min-width: 769px) {
+    .site-header__logo {
+      max-width: 68px;
+    }
+  }
+  #shopify-section-header.sticky .header-wrapper {
+    position: fixed;
+    width: 100%;
+    z-index: 99;
+  }
+
+  #shopify-section-header.sticky .header-wrapper .site-header {
+    padding: 10px 0 0;
+  }
+
+  #shopify-section-header.sticky .header-wrapper:not(.is-light) .site-header {
+    top: 0;
+  }
+
+  #shopify-section-header.sticky .header-wrapper:not(.is-light) {
+    top: -15px;
+  }
+
+  #shopify-section-header.sticky .header-wrapper.is-light .site-header {
+    background: rgb(0, 0, 0);
+  }
+
+  #shopify-section-header .is-light .site-header__logo .logo--inverted {
+    visibility: inherit;
+  }
+
+
+  .site-nav__wrapsub {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    width: 100%;
+    background: rgb(0,0,0);
+    background: linear-gradient(360deg, #00000094 0%, #00000094 88%, rgba(1,196,245,0) 88%, rgba(0,212,255,0) 100%);
+    left: 0;
+    padding: 100px 0 30px;
+    z-index: 400;
+    top: calc(100% - 44px);
+    transition: opacity 0.3s ease-in-out, background 0.3s ease-in-out;
+  }
+  
+  .site-nav__wrapsub.open {
+    
+  }
+
+  .site-nav__wrapsub .site-nav__body {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    column-gap: 72px;
+  }
+
+  .site-nav__wrapsub .site-nav__body a span {
+    font-size: 26px;
+    color: #fff;
+  }
+
+  #site-nav__openshopDesktop {
+    cursor: pointer;
+    position: inherit;
+    border-color: #fff;
+    box-shadow: 5px 5px #fff;
+  }
+
+  #site-nav__openshopDesktop a::before {
+    border-color: transparent !important;
+    height: 0;
+    pointer-events: none;
+  }
+
+  .site-nav__expanded-item:hover .site-nav__wrapsub {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .site-header.overlay {
+    background: #00000094 !important;
+    padding: 4px 0px !important;
+    top: auto;
+  }
+
+  .header-other-pages:hover .site-header.overlay {
+    background: #00000094 !important;
+  }
+
+  .header-other-pages:hover .site-header.overlay .site-nav__link {
+    color: #fff !important;
+  }
+  
+  .site-header.overlay.openwrapsub {
+    
+  }
+
+  .site-header.overlay .site-nav__link {
+    color: #fff !important;
+  }
+  
+  .site-header.overlay .site-nav__item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .site-nav__wrapsub::before { 
+  }
+  .site-header.overlay::before {
+  }
+
+  @media (min-width: 768px) {
+    .mobile-container-menu {
+      display: none !important
+    }
+  }
+  
+</style>
