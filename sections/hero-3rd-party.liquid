@@ -1,0 +1,116 @@
+{{ '3rd-hero.min.css' | asset_url | stylesheet_tag: preload: true }}
+
+{%- liquid
+    assign title = section.settings.title
+    assign description = section.settings.description
+    assign url = section.settings.url
+    assign label = section.settings.label
+    assign type_background = section.settings.type_background
+    assign image = section.settings.image
+    assign color = section.settings.color
+-%}
+
+{% if type_background == 'image' %}
+    <div class="hero-3rd-party__image">
+        {%- render 'image-element',
+            img: image,
+            img_width: 1920,
+            loading: true,
+            classes: '3rd-image',
+          -%}
+    </div>
+{% endif %}
+
+<div class="hero-3rd-party__text text-hero {% if type_background == 'image' %}float{% endif %}">
+    <h1 class="text-hero__title">{{ title }}</h1>
+    <div class="text-hero__description">
+        {{ description }}
+        <span class="sub-description">limited time offer</span>
+    </div>
+    <a href="#" class="btn text-hero__btn scrollTo">
+        {{ label }}
+        <span class="line-decoration line-decoration-one"></span>
+        <span class="line-decoration line-decoration-two"></span>
+
+    </a>
+    <span class="scroll-btn">
+        <a href="#">
+            <span class="mouse">
+                <span>
+                </span>
+            </span>
+        </a>
+    </span>
+</div>
+
+
+{% if type_background == 'color' %}
+<style>
+    .hero-3rd-party {
+        background-color: {{ color }};
+    }
+</style>
+{% endif %}
+
+{% schema %}
+    {
+        "name": "Hero 3rd Party",
+        "class": "hero-3rd-party",
+        "settings": [
+            {
+                "type": "textarea",
+                "id": "title",
+                "label": "Title"
+            },
+            {
+                "type": "richtext",
+                "id": "description",
+                "label": "Description"
+            },
+            {
+                "type": "url",
+                "id": "url",
+                "label": "Button url"
+            },
+            {
+                "type": "text",
+                "id": "label",
+                "label": "Button label",
+                "default": "JOIN CLUB"
+            },
+            {
+                "type": "select",
+                "id": "type_background",
+                "label": "Options background",
+                "options": [
+                    {
+                        "value": "image",
+                        "label": "Image"
+                    },
+                    {
+                        "value": "color",
+                        "label": "Color"
+                    }
+                ],
+                "default": "color",
+                "info": "Select how you want to handle the background, whether to use an image or a solid color."
+            },
+            {
+                "type": "image_picker",
+                "id": "image",
+                "label": "Background image"
+            },
+            {
+                "type": "color",
+                "id": "color",
+                "label": "Solid color",
+                "default": "#000000"
+            }
+        ],
+        "presets": [
+            {
+                "name": "Hero 3rd Party"
+            }
+        ]
+    }
+{% endschema %}

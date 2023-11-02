@@ -1,0 +1,95 @@
+{{ 'component-video_section_lp.css' | asset_url | stylesheet_tag: preload: true }}
+
+
+<img src="{{ 'shadow-comes.png' | asset_img_url: '668x' }}" class="shadow-comes" loading="lazy" width="668" height="auto" alt="shadow product">
+
+<div class="head-section text-center">
+    <h2>{{ section.settings.title }}</h2>
+    <p class="subtitle_video_section">{{ section.settings.description }}</p>
+</div>
+
+<div class="videos-container">
+    {%- for block in section.blocks -%}
+        {%- if block.settings.video_url != blank -%}
+            <div class="video">
+                <div class="video__container">
+                    <iframe src="https://player.vimeo.com/video/{{ block.settings.video_url.id }}" width="287" height="512" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="video__info">
+                    <span class="video__author">
+                        {%- render 'author-icon_lp' -%}
+                        {{ block.settings.author }}
+                    </span>
+                    <p class="video__message">
+                        {{ block.settings.message }}
+                    </p>
+                </div>
+            </div>
+        {%- endif -%}
+    {%- endfor -%}
+    
+</div>
+<a class="button_video_section" href="{{ section.settings.button_id }}">Shop Clutch Pro</a>
+{% schema %}
+    {
+        "name": "Video section LP",
+        "class": "vide-section",
+        "settings": [
+            {
+                "type": "text",
+                "id": "title",
+                "label": "Title section",
+                "default": "Comes In Clutch For Any Emergency"
+            },
+            {
+                "type": "textarea",
+                "id": "description",
+                "label": "Description section",
+                "default": "If this is what they said about our previous version, they'd love Clutch Pro"
+            },
+            {
+                "type": "url",
+                "id": "button_id",
+                "label": "Button link"
+            }
+        ],
+        "blocks": [
+            {
+                "type": "video",
+                "name": "Video",
+                "settings": [
+                    {
+                        "type": "video_url",
+                        "id": "video_url",
+                        "label": "Video link",
+                        "default": "https://vimeo.com/794623657",
+                        "accept": ["vimeo"]
+                    },
+                    {
+                        "type": "text",
+                        "id": "author",
+                        "label": "Author"
+                    },
+                    {
+                        "type": "textarea",
+                        "id": "message",
+                        "label": "Message"
+                    }
+                ]
+            }
+        ],
+        "presets": [
+            {
+            "name": "Video section LP"
+            }
+        ]
+    }
+{% endschema %}
+
+
+
+
+
+
+
+

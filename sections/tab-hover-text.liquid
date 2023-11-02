@@ -1,0 +1,91 @@
+{{ 'component-tabs_hover.css' | asset_url | stylesheet_tag: preload: true }}
+
+{%- liquid
+    assign data = section.settings
+    assign title = data.title_id
+    assign subtitle = data.sub_title_id
+-%}
+
+<img src="{{ 'shadow-meet-your.png' | asset_img_url: '589x' }}" class="shadow-product" loading="lazy" width="589" height="auto" alt="shadow product">
+
+<section class="tabs_hover__container">
+    <h2>{{ title }}</h2>
+    <p class="sub_title_tabs">{{ subtitle }}</p>
+    <div class="tabs_container show_on_desktop">
+        <div class="tabs">
+             <!-- END tabs-nav -->
+            <div id="tabs-content">
+               {% for block in section.blocks %}
+                    <div id="tab{{ forloop.index }}" class="tab-content">
+                        <img src="{{ block.settings.image_id  | img_url: 'master'  }}" alt="{{ block.settings.image_id.alt  }}">
+                    </div>
+               {% endfor %} 
+            </div>
+            <ul id="tabs-nav">
+                {% for block in section.blocks %}
+                     <li><a href="#tab{{ forloop.index }}">{{ block.settings.title_id }}</a>
+                     <p>{{ block.settings.text_id }}</p>
+                    </li>
+                {% endfor %} 
+            </ul> <!-- END tabs-content -->
+          </div> <!-- END tabs -->
+    </div>
+
+    <div class="tabs_container show_on_mobile">
+        {% for block in section.blocks %}
+            <div class="card_tab__container">
+                <img src="{{ block.settings.image_id  | img_url: 'master'  }}" alt="{{ block.settings.image_id.alt }}">
+                <h4>{{ block.settings.title_id }}</h4>
+                <p>{{ block.settings.text_id }}</p>
+            </div>
+        {% endfor %}
+    </div>
+
+</section>
+
+{% schema %}
+{
+  "name": "Tabs Hover Text",
+  "class": "tab_hover_section",
+  "settings": [
+    {
+        "type": "text",
+        "id": "title_id",
+        "label": "Title"
+    },
+    {
+        "type": "text",
+        "id": "sub_title_id",
+        "label": "sub-title"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Tabs",
+      "type": "Tab",
+      "settings": [
+       {
+        "type": "image_picker",
+        "id": "image_id",
+        "label": "Brand image"
+       },
+       {
+        "type": "text",
+        "id": "title_id",
+        "label": "Title"
+       },
+       {
+        "type": "text",
+        "id": "text_id",
+        "label": "Text"
+       }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Tab hover text"
+    }
+  ]
+}
+{% endschema %}

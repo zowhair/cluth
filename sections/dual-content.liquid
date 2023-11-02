@@ -1,0 +1,91 @@
+{% liquid
+  assign imageUrl = section.settings.image | image_url
+  assign position = section.settings.position
+  assign count = section.blocks | size
+%}
+
+<div class="page-width">
+  <div class="dual-content">
+    <div class="dual-content__container dual-content__container--{{ position }}">
+      <figure class="dual-content__figure">
+        <img src="{{ imageUrl }}" alt="{{ section.settings.image.alt }}" />
+      </figure>
+      {% if count > 0 %}
+        <div class="dual-content__body {% if count == 1 %}dual-content__body--spaceup{% endif %} {% if count > 1 %}dual-content__body--large{% endif %}">
+          {% for block in section.blocks %}
+            <div class="dual-content__item">
+              {% unless block.settings.title == blank %}
+                <h2 class="dual-content__title">{{ block.settings.title }}</h2>
+              {% endunless %}
+              {% unless block.settings.subtitle == blank %}
+                <h3 class="dual-content__subtitle">{{ block.settings.subtitle }}</h3>
+              {% endunless %}
+              {% unless block.settings.body == blank %}
+                <div class="dual-content__text">
+                  {{ block.settings.body }}
+                </div>
+              {% endunless %}
+            </div>
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Dual Content",
+  "settings": [
+    {
+      "id": "image",
+      "type": "image_picker",
+      "label": "Image"
+    },
+    {
+      "id": "position",
+      "type": "select",
+      "label": "Position",
+      "default": "left",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Item",
+      "type": "item",
+      "settings": [
+        {
+          "id": "title",
+          "type": "text",
+          "label": "Title"
+        },
+        {
+          "id": "subtitle",
+          "type": "text",
+          "label": "Sub Title"
+        },
+        {
+          "id": "body",
+          "type": "richtext",
+          "label": "Content"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Dual Content"
+    }
+  ]
+}
+{% endschema %}

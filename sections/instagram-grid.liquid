@@ -1,0 +1,71 @@
+{{ 'instafeed.min.css' | asset_url | stylesheet_tag }}
+
+<div class="page-width instagram-grid__container">
+  {% unless section.settings.title == blank %}
+    <h3 class="instafeed__title">{{ section.settings.title }}</h3>
+  {% endunless %}
+
+  {% unless section.settings.subtitle == blank %}
+    <div class="instafeed__description">{{ section.settings.subtitle }}</div>
+  {% endunless %}
+
+  {% unless section.settings.username == blank %}
+    <a class="instafeed__link" href="https://www.instagram.com/{{ section.settings.username | remove: "@" }}">
+      {{ section.settings.username }}
+    </a>
+  {% endunless %}
+
+
+  <div id="insta-feed"></div>
+
+  {% unless section.settings.cta_text == blank and section.settings.cta_link %}
+    <div class="instafeed__center">
+      <div class="btn--instagram">
+        <a  class="btn btn--tertiary" href="{{ section.settings.cta_link }}">
+          {{ section.settings.cta_text }}
+        </a>
+      </div>
+    </div>
+  {% endunless %}
+</div>
+
+{% schema %}
+{
+  "name": "Instagram showcase",
+  "settings": [
+    {
+      "id": "title",
+      "type": "text",
+      "label": "Title",
+      "default": "Get Inspired on Instagram"
+    },
+    {
+      "id": "subtitle",
+      "type": "richtext",
+      "label": "Sub Title"
+    },
+    {
+      "id": "username",
+      "type": "text",
+      "label": "Title",
+      "default": "@clutchcharger"
+    },
+    {
+      "id": "cta_text",
+      "type": "text",
+      "label": "CTA Text",
+      "default": "Shop Now"
+    },
+    {
+      "id": "cta_link",
+      "type": "url",
+      "label": "CTA Url"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Instagram showcase"
+    }
+  ]
+}
+{% endschema %}

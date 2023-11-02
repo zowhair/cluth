@@ -1,0 +1,223 @@
+<style>
+.marquee-container {
+    padding: 56px 0;
+    overflow: hidden;
+}
+.marquee-container .heading {
+    font-size: 20px;
+    text-transform: none;
+    color: #ffffff;
+    margin-bottom: 32px;
+}
+.marquee-content {
+    display: flex;
+    gap: 128px;
+    width: max-content;
+}
+.marquee-content > div {
+    display: flex;
+    white-space: nowrap;
+    gap: 128px;
+    align-items: center;
+}
+.marquee-block {
+    text-align: center;
+    display: flex;
+    flex-flow: column;
+    gap: 16px;
+}
+.marquee-block img {
+    position: relative;
+    display: block;
+    height: auto;
+    width: auto;
+    max-height: 64px;
+    transition: transform 0.3s;
+    transform-origin: center center;
+}
+.marquee-block:not(.has-hover-image) img:hover{
+    transform: scale(1.5);
+}
+.has-hover-image  {
+  position: relative;
+  height: 64px;
+}
+.has-hover-image .hover-image {
+  display: none;
+  z-index: 9;
+}
+.has-hover-image:hover img {
+  visibility: hidden;
+  opacity: 0;
+}
+.has-hover-image:hover .hover-image {
+  display: block;
+  visibility: visible;
+  opacity: 1;
+  height: 150%;
+  max-height: 150%;
+  width: 150%;
+  max-width: 150%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.marquee-block h4 {
+    margin: 0;
+    color: #ffffff;
+    font-size: 16px;
+    text-transform: none;
+}
+@media screen and (max-width: 749px){
+    .marquee-block img {
+        max-height: 56px;
+    }
+    .marquee-content > div,
+    .marquee-content {
+        gap: 84px;
+    }
+}
+@media screen and (max-width: 749px){
+    .marquee-content > div,
+    .marquee-content {
+        gap: 56px;
+    }
+}
+</style>
+<div class="marquee-container">
+    {%- if section.settings.heading != blank -%}
+      <div class="section-heading text-center">
+        <h3 class="heading">
+          {{section.settings.heading}}
+        </h3>
+      </div>
+    {%- endif -%}
+    
+    <div class="marquee-content">
+        <div>
+        {% for block in section.blocks %}
+            <div class="marquee-block {% if block.settings.image_hover != blank %} has-hover-image{% endif %}">
+                {%- if block.settings.image != blank -%}
+                  {% assign width = block.settings.image.width | divided_by: 2 %}
+                  {% assign height = block.settings.image.height | divided_by: 2 %}
+                  {{ block.settings.image | image_url: width: width | image_tag:
+                      class: '',
+                      widths: '25, 50, 75, 100, 150, 200, 250, 300, 400, 500',
+                      height: height,
+                      width: width,
+                      alt: block.settings.title,
+                      loading: "lazy"
+                  }}
+                  {% if block.settings.image_hover != blank %}
+                    {% assign width = block.settings.image_hover.width %}
+                    {% assign height = block.settings.image_hover.height %}
+                    {{ block.settings.image_hover | image_url: width: width | image_tag:
+                        class: 'hover-image',
+                        widths: '25, 50, 75, 100, 150, 200, 250, 300, 400, 500',
+                        height: height,
+                        width: width,
+                        alt: block.settings.title,
+                        loading: "lazy"
+                    }}
+                  {% endif %}
+                {%- endif -%}
+                <h4>{{ block.settings.title }}</h4>
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+</div>
+<script>
+function Marquee(selector, speed) {
+    const parentSelector = document.querySelector(selector);
+    const clone = parentSelector.innerHTML;
+    const firstElement = parentSelector.children[0];
+    let i = 0;
+    let marqueeInterval;
+
+    parentSelector.insertAdjacentHTML('beforeend', clone);
+    parentSelector.insertAdjacentHTML('beforeend', clone);
+
+    function startMarquee() {
+    marqueeInterval = setInterval(function () {
+        firstElement.style.marginLeft = `-${i}px`;
+        if (i > firstElement.clientWidth) {
+        i = 0;
+        }
+        i = i + speed;
+    }, 0);
+    }
+
+    function stopMarquee() {
+    clearInterval(marqueeInterval);
+    }
+
+parentSelector.addEventListener('mouseenter', stopMarquee);
+    parentSelector.addEventListener('mouseleave', startMarquee);
+
+    startMarquee();
+}
+
+window.addEventListener('load', () => Marquee('.marquee-content', 0.3));
+</script>
+
+{% schema %}
+{
+    "name": "t:sections.marquee.name",
+    "settings": [
+      {
+        "type": "inline_richtext",
+        "id": "heading",
+        "label": "Heading"
+      }
+    ],
+    "class": "new-home ab-homepage",
+    "blocks": [
+        {
+        "type": "marquee_block",
+        "name": "t:sections.marquee.block.name",
+        "settings": [
+            {
+                "type": "image_picker",
+                "label": "t:sections.marquee.block.settings.image.label",
+                "id": "image"
+            },
+            {
+                "type": "image_picker",
+                "label": "t:sections.marquee.block.settings.image_hover.label",
+                "id": "image_hover"
+            },
+            {
+                "type": "text",
+                "label": "t:sections.marquee.block.settings.text.label",
+                "id": "title",
+                "default": "BRAND VALUE"
+            }
+        ]
+        }
+    ],
+    "presets": [
+        {
+        "name": "t:sections.marquee.name",
+        "blocks": [
+            {
+            "type": "marquee_block"
+            },
+            {
+            "type": "marquee_block"
+            },
+            {
+            "type": "marquee_block"
+            }
+        ]
+        }
+    ]
+}
+{% endschema %}
+
+{% stylesheet %}
+
+{% endstylesheet %}
+
+

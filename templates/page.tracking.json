@@ -1,0 +1,257 @@
+{
+  "sections": {
+    "1675266440ec6fc564": {
+      "type": "apps",
+      "blocks": {
+        "8ef4ac07-9413-488f-b319-d12be50166f3": {
+          "type": "shopify:\/\/apps\/wonderment\/blocks\/wonderBlock\/89d63369-6ee7-4097-ac41-8229c6f90001",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "8ef4ac07-9413-488f-b319-d12be50166f3"
+      ],
+      "settings": {
+        "full_width": false,
+        "space_around": true
+      }
+    },
+    "347d0f7e-9213-401e-a7de-abb41862364d": {
+      "type": "faq",
+      "blocks": {
+        "template--14485282095190__347d0f7e-9213-401e-a7de-abb41862364d-16752665209f0571b6-0": {
+          "type": "question",
+          "settings": {
+            "title": "How small is Clutch Charger?",
+            "text": "<p>Clutch Charger measures 3.6\" x 2.5\" x .16 inches and weighs 2 ounces.<\/p>"
+          }
+        },
+        "template--14485282095190__347d0f7e-9213-401e-a7de-abb41862364d-16752665209f0571b6-1": {
+          "type": "question",
+          "settings": {
+            "title": "How much battery will Clutch Charger get me?",
+            "text": "<p>Clutch Charger has a capacity of 3000 mAh which, depending on the device can get you a full charge. When not in use Clutch will also hold its charge for several weeks before discharging.<\/p>"
+          }
+        },
+        "8a6e5b2f-021b-4015-ac14-c05de3a82925": {
+          "type": "question",
+          "settings": {
+            "title": "Is Clutch Charger rechargeable?",
+            "text": "<p>Yes, absolutely! Clutch Charger is completely rechargeable.<\/p>"
+          }
+        },
+        "1e46ad91-2267-4821-ad81-765ff4a411a1": {
+          "type": "question",
+          "settings": {
+            "title": "Is the charging cord attached?",
+            "text": "<p>Yes the cord comes attached so you will never have to worry about bringing extra accessories with you.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "template--14485282095190__347d0f7e-9213-401e-a7de-abb41862364d-16752665209f0571b6-0",
+        "template--14485282095190__347d0f7e-9213-401e-a7de-abb41862364d-16752665209f0571b6-1",
+        "8a6e5b2f-021b-4015-ac14-c05de3a82925",
+        "1e46ad91-2267-4821-ad81-765ff4a411a1"
+      ],
+      "settings": {
+        "title": "FAQs"
+      }
+    },
+    "main-collection": {
+      "type": "main-collection",
+      "blocks": {
+        "collection_description": {
+          "type": "collection_description",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "collection_description"
+      ],
+      "disabled": true,
+      "custom_css": [
+
+      ],
+      "settings": {
+      }
+    },
+    "caf804d9-3466-461c-ac56-3ef9bfb45100": {
+      "type": "featured-collection-slider",
+      "disabled": true,
+      "settings": {
+        "title": "You May Also Like",
+        "description": "",
+        "home_featured_products": "clutch-lightning",
+        "per_row": "small",
+        "alt": false
+      }
+    },
+    "rebuy": {
+      "type": "wonderment-rebuy",
+      "disabled": true,
+      "settings": {
+        "rebuy-widget-id": ""
+      }
+    },
+    "40a3500e-1b1f-493d-9dc5-3428dde9638c": {
+      "type": "collection-test",
+      "blocks": {
+        "template--14485282095190__40a3500e-1b1f-493d-9dc5-3428dde9638c-1677165137f8a2b9a7-0": {
+          "type": "collection",
+          "settings": {
+            "collection": "clutch-lightning",
+            "title": "",
+            "visible_products": 8,
+            "button_label": "View all products",
+            "button_label_color": "#4b4949",
+            "button_background_color": "rgba(0,0,0,0)",
+            "button_radius": 0
+          }
+        },
+        "template--14485282095190__40a3500e-1b1f-493d-9dc5-3428dde9638c-1677165137f8a2b9a7-1": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "title": "",
+            "visible_products": 8,
+            "button_label": "View all products",
+            "button_label_color": "#4b4949",
+            "button_background_color": "rgba(0,0,0,0)",
+            "button_radius": 0
+          }
+        },
+        "template--14485282095190__40a3500e-1b1f-493d-9dc5-3428dde9638c-1677165137f8a2b9a7-2": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "title": "",
+            "visible_products": 8,
+            "button_label": "View all products",
+            "button_label_color": "#4b4949",
+            "button_background_color": "rgba(0,0,0,0)",
+            "button_radius": 0
+          }
+        }
+      },
+      "block_order": [
+        "template--14485282095190__40a3500e-1b1f-493d-9dc5-3428dde9638c-1677165137f8a2b9a7-0",
+        "template--14485282095190__40a3500e-1b1f-493d-9dc5-3428dde9638c-1677165137f8a2b9a7-1",
+        "template--14485282095190__40a3500e-1b1f-493d-9dc5-3428dde9638c-1677165137f8a2b9a7-2"
+      ],
+      "disabled": true,
+      "settings": {
+        "per_row": 3,
+        "show_arrows": true,
+        "show_product_title": true,
+        "show_product_price": true,
+        "show_product_label": true,
+        "text_size": 100,
+        "heading_color": "#121212",
+        "text_color": "#121212",
+        "background_color": "linear-gradient(360deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, 1) 100%)",
+        "base_width": 95,
+        "max_width": "",
+        "inner_padding": 40,
+        "outer_margin": 0,
+        "custom_css": "",
+        "mobile_custom_css": "",
+        "override_theme_font": false,
+        "heading_font": "serif",
+        "main_font": "sans-serif"
+      }
+    },
+    "c2ad03e3-fc79-4139-8afe-48d667bb599d": {
+      "type": "wonderment-featured-collection",
+      "blocks": {
+        "template--14485282095190__c2ad03e3-fc79-4139-8afe-48d667bb599d-16771653319589b196-0": {
+          "type": "collection",
+          "settings": {
+            "collection": "clutch-lightning",
+            "title": "",
+            "visible_products": 8,
+            "button_label": "View all products",
+            "button_label_color": "#4b4949",
+            "button_background_color": "rgba(0,0,0,0)",
+            "button_radius": 0
+          }
+        }
+      },
+      "block_order": [
+        "template--14485282095190__c2ad03e3-fc79-4139-8afe-48d667bb599d-16771653319589b196-0"
+      ],
+      "settings": {
+        "per_row": 5,
+        "show_arrows": true,
+        "show_product_title": true,
+        "show_product_price": true,
+        "show_product_label": true,
+        "text_size": 100,
+        "heading_color": "#121212",
+        "text_color": "#121212",
+        "background_color": "linear-gradient(360deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, 1) 100%)",
+        "base_width": 95,
+        "max_width": "",
+        "inner_padding": 40,
+        "outer_margin": 0,
+        "custom_css": "",
+        "mobile_custom_css": "",
+        "override_theme_font": false,
+        "heading_font": "serif",
+        "main_font": "sans-serif"
+      }
+    },
+    "be63bbcd-f77b-471e-9e31-26369d246800": {
+      "type": "wonderment-featured-collection",
+      "blocks": {
+        "template--14485282095190__be63bbcd-f77b-471e-9e31-26369d246800-1678481567d1560aab-0": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "title": "",
+            "visible_products": 8,
+            "button_label": "View all products",
+            "button_label_color": "#4B4949",
+            "button_background_color": "rgba(0,0,0,0)",
+            "button_radius": 0
+          }
+        }
+      },
+      "block_order": [
+        "template--14485282095190__be63bbcd-f77b-471e-9e31-26369d246800-1678481567d1560aab-0"
+      ],
+      "settings": {
+        "per_row": 3,
+        "show_arrows": true,
+        "show_product_title": true,
+        "show_product_price": true,
+        "show_product_label": true,
+        "text_size": 100,
+        "heading_color": "#121212",
+        "text_color": "#121212",
+        "background_color": "linear-gradient(360deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, 1) 100%)",
+        "base_width": 95,
+        "max_width": "",
+        "inner_padding": 40,
+        "outer_margin": 0,
+        "custom_css": "",
+        "mobile_custom_css": "",
+        "override_theme_font": false,
+        "heading_font": "serif",
+        "main_font": "sans-serif"
+      }
+    }
+  },
+  "order": [
+    "1675266440ec6fc564",
+    "347d0f7e-9213-401e-a7de-abb41862364d",
+    "main-collection",
+    "caf804d9-3466-461c-ac56-3ef9bfb45100",
+    "rebuy",
+    "40a3500e-1b1f-493d-9dc5-3428dde9638c",
+    "c2ad03e3-fc79-4139-8afe-48d667bb599d",
+    "be63bbcd-f77b-471e-9e31-26369d246800"
+  ]
+}

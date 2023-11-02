@@ -1,0 +1,285 @@
+{%- liquid
+  assign overlap_images = true
+  if section.settings.image != blank and section.settings.image2 == blank
+    assign overlap_images = false
+  endif
+  assign textColor = section.settings.text-color
+  assign highlightColor = section.settings.text-highlight-color
+  assign background = section.settings.bg-color
+  assign marginTop = section.settings.margin-top
+  assign marginBottom = section.settings.margin-bottom
+  assign paddingTop = section.settings.padding-top
+  assign paddingBottom = section.settings.padding-bottom
+-%}
+
+
+<div class="index-section{% if section.settings.alt %} index-section--alt{% endif %}">
+
+  <div class="page-width feature-row-wrapper">
+    {%- capture image_layout -%}
+      <div class="feature-row__item image-affiliate{% if overlap_images %} feature-row__item--overlap-images{% endif %}" style="max-width: {{ section.settings.image_width }}px" data-aos>
+        <svg width="52" height="128" viewBox="0 0 52 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M18.007 35.1426L-3.3046e-06 70.2851H12.2775C19.0074 70.2851 24.7369 70.5554 24.9188 71.006C25.1916 71.3664 25.0097 73.8895 24.4641 76.5928C20.8263 96.2365 15.7334 127.504 16.0062 127.865C16.2791 128.045 16.6428 128.045 16.8247 127.865C17.4613 127.144 51.9797 58.3006 51.9797 57.6698C51.9797 57.3094 47.2911 57.6698 41.5616 57.6698C35.8321 57.6698 30.9211 57.3094 30.5573 56.7687C30.1026 56.0479 35.4683 11.1735 37.0144 2.88349C37.3782 1.35163 37.1963 0 36.8325 0C36.3778 0 27.9199 15.8592 18.007 35.1426Z" fill="#4DACE1"/>
+        </svg>    
+          {%- if section.settings.image != blank -%}
+            <div>
+              {%- if section.settings.button_label != blank and section.settings.button_link != blank -%}<a href="{{ section.settings.button_link }}">{%- endif -%}
+                <div class="image-wrap" style="height: 0; padding-bottom: {{ 100 | divided_by: section.settings.image.aspect_ratio }}%;">
+                  {%- assign img_url = section.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+                  <img class="feature-row__image lazyload"
+                    data-src="{{ img_url }}"
+                    data-widths="[180, 360, 540, 750, 900, 1080]"
+                    data-aspectratio="{{ section.settings.image.aspect_ratio }}"
+                    data-sizes="auto"
+                    alt="{{ section.settings.image.alt }}">
+                </div>
+              {%- if section.settings.button_label != blank and section.settings.button_link != blank -%}</a>{%- endif -%}
+            </div>
+          {%- endif -%}
+          {%- if section.settings.image2 != blank -%}
+            <div>
+              {%- if section.settings.button_label != blank and section.settings.button_link != blank -%}<a href="{{ section.settings.button_link }}">{%- endif -%}
+                <div class="image-wrap" style="height: 0; padding-bottom: {{ 100 | divided_by: section.settings.image2.aspect_ratio }}%;">
+                  {%- assign img_url = section.settings.image2 | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+                  <img class="feature-row__image lazyload"
+                    data-src="{{ img_url }}"
+                    data-widths="[180, 360, 540, 750, 900, 1080]"
+                    data-aspectratio="{{ section.settings.image2.aspect_ratio }}"
+                    data-sizes="auto"
+                    alt="{{ section.settings.image2.alt }}">
+                </div>
+              {%- if section.settings.button_label != blank and section.settings.button_link != blank -%}</a>{%- endif -%}
+            </div>
+          {%- endif -%}
+          {%- if section.settings.image == blank and section.settings.image2 == blank -%}
+            <div>
+              <div class="image-wrap">
+                {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+              </div>
+            </div>
+            <div>
+              <div class="image-wrap">
+                {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+              </div>
+            </div>
+          {%- endif -%}
+      </div>
+    {%- endcapture -%}
+
+    <div class="feature-row">
+      {%- if section.settings.layout == 'left' -%}
+        {{ image_layout }}
+      {%- endif -%}
+
+      <div class="feature-row__item feature-row__text feature-row__text--{{ section.settings.layout }} text-{{ section.settings.align_text }}" data-aos>
+        {%- if section.settings.subtitle != blank -%}
+          <div class="subheading appear-delay{% cycle '','-1','-2','-3','-4' %}">{{ section.settings.subtitle }}</div>
+        {%- endif -%}
+        {%- if section.settings.title != blank -%}
+          <div class="h1 appear-delay{% cycle '','-1','-2','-3','-4' %}">{{ section.settings.title | escape }}</div>
+        {%- endif -%}
+        {%- if section.settings.text != blank -%}
+          <div class="rte appear-delay{% cycle '','-1','-2','-3','-4' %}">{{ section.settings.text }}</div>
+        {%- endif -%}
+        {%- if section.settings.button_label != blank -%}
+          <div class="appear-delay{% cycle '','-1','-2','-3','-4' %}">
+            <a href="{{ section.settings.button_link }}" class="btn{% if section.settings.button_style == 'secondary' %} btn--tertiary{% endif %}">
+              {{ section.settings.button_label }}
+            </a>
+          </div>
+        {%- endif -%}
+      </div>
+
+      {%- if section.settings.layout == 'right' -%}
+        {{ image_layout }}
+      {%- endif -%}
+    </div>
+  </div>
+
+</div>
+
+<style>
+  #shopify-section-{{ section.id }} *{
+      color: {{ textColor }};
+  }
+  #shopify-section-{{ section.id }} strong {
+      color: {{ highlightColor }};
+  }
+  #shopify-section-{{ section.id }} {
+      background-color: {{ background }};
+  }
+  #shopify-section-{{ section.id }} .index-section {
+      margin-top: {{ marginTop }}px;
+      margin-bottom: {{ marginBottom }}px;
+      padding-top: {{ paddingTop }}px;
+      padding-bottom: {{ paddingBottom }}px;
+  }
+</style>
+
+{% schema %}
+  {
+    "name": "Image with text affiliate",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "image2",
+        "label": "Image 2"
+      },
+      {
+        "type": "range",
+        "id": "image_width",
+        "label": "Image width",
+        "default": 700,
+        "min": 200,
+        "max": 700,
+        "step": 10,
+        "unit": "px"
+      },
+      {
+        "type": "text",
+        "id": "subtitle",
+        "label": "Subheading"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Image with text"
+      },
+      {
+         "type": "textarea",
+         "id": "text",
+         "label": "HTML",
+         "default": "<h2>Custom content</h2><p>Use this advanced section to build your own layouts or to add custom HTML or scripts.</p>"
+       },
+      {
+        "type": "text",
+        "id": "button_label",
+        "label": "Button label"
+      },
+      {
+        "type": "url",
+        "id": "button_link",
+        "label": "Button link"
+      },
+      {
+        "type": "select",
+        "id": "button_style",
+        "label": "Button style",
+        "default": "primary",
+        "options": [
+          {
+            "value": "primary",
+            "label": "Primary"
+          },
+          {
+            "value": "secondary",
+            "label": "Secondary"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "align_text",
+        "label": "Text alignment",
+        "default": "center",
+        "options": [
+          {
+            "value": "left",
+            "label": "Left"
+          },
+          {
+            "value": "center",
+            "label": "Centered"
+          },
+          {
+            "value": "right",
+            "label": "Right"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "layout",
+        "label": "Layout",
+        "default": "right",
+        "options": [
+          {
+            "value": "left",
+            "label": "Image on left"
+          },
+          {
+            "value": "right",
+            "label": "Image on right"
+          }
+        ]
+      },
+      {
+          "type": "color",
+          "id": "text-color",
+          "label": "Heading color"
+      },
+      {
+          "type": "color",
+          "id": "text-highlight-color",
+          "label": "Highlight color"
+      },
+      {
+          "type": "color",
+          "id": "bg-color",
+          "label": "Background color"
+      },
+      {
+        "type": "range",
+        "id": "margin-top",
+        "min": 0,
+        "max": 100,
+        "default": 0,
+        "step": 1,
+        "unit": "px",
+        "label": "Margin top section"
+      },
+      {
+        "type": "range",
+        "id": "margin-bottom",
+        "min": 0,
+        "max": 100,
+        "default": 0,
+        "step": 1,
+        "unit": "px",
+        "label": "Margin bottom section"
+      },
+      {
+        "type": "range",
+        "id": "padding-top",
+        "min": 0,
+        "max": 100,
+        "default": 0,
+        "step": 1,
+        "unit": "px",
+        "label": "Padding top section"
+      },
+      {
+        "type": "range",
+        "id": "padding-bottom",
+        "min": 0,
+        "max": 100,
+        "default": 0,
+        "step": 1,
+        "unit": "px",
+        "label": "Padding bottom section"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Image with text affiliate"
+      }
+    ]
+  }
+{% endschema %}
+

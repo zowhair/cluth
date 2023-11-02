@@ -1,0 +1,600 @@
+{% assign expected_shipping_icon_url_a = 'expedited-shipping-a.svg' | file_url %}
+
+{% assign expected_shipping_icon_url_b = 'expedited-shipping-b.svg' | file_url %}
+
+{% assign v3_icon_url_a = 'free-v3-a.svg' | file_url %}
+
+{% assign v3_icon_url_b = 'free-v3-b.svg' | file_url %}
+
+{% assign max_icon_url_a = 'free-cluch-a.svg' | file_url %}
+
+{% assign max_icon_url_b = 'free-cluch-b.svg' | file_url %}
+
+{% capture expected_shipping_icon_a %}
+  <img
+    class="expeted_shipping_a"
+    src="{{ expected_shipping_icon_url_a }}"
+    alt="expected shipping" />
+{% endcapture %}
+
+{%- capture expected_shipping_icon_b -%}
+  <img
+    class="expeted_shipping_b"
+    src="{{ expected_shipping_icon_url_b }}"
+    alt="expected shipping" />
+{% endcapture %}
+
+{% capture v3_icon_a %}
+  <img
+    class="v3_a"
+    src="{{ v3_icon_url_a }}"
+    alt="expected shipping" />
+{% endcapture %}
+
+{%- capture v3_icon_b -%}
+  <img
+    class="v3_b"
+    src="{{ v3_icon_url_b }}"
+    alt="expected shipping" />
+{% endcapture %}
+
+{% capture max_icon_a %}
+  <img
+    class="max_a"
+    src="{{ max_icon_url_a }}"
+    alt="expected shipping" />
+{% endcapture %}
+
+{%- capture max_icon_b -%}
+  <img
+    class="max_b"
+    src="{{ max_icon_url_b }}"
+    alt="expected shipping" />
+{% endcapture %}
+
+{% comment %}
+{% render "side-cart-gamification-script",
+expected_shipping_icon_a: expected_shipping_icon_a,
+expected_shipping_icon_b: expected_shipping_icon_b,
+v3_icon_a: v3_icon_a,
+v3_icon_b: v3_icon_b,
+max_icon_a: max_icon_a,
+max_icon_b: max_icon_b,
+%}
+{% endcomment %}
+
+<script>
+  document.addEventListener('rebuy:smartcart.init', function(event) {
+    Rebuy.SmartCart.gamificationCluch = {
+      limit: 150,
+      goals: {
+        {%- for block in section.blocks -%}
+          '{{ block.settings.text }}' : {
+            text: '{{ block.settings.text }}',
+            complete: false,
+            value: {{ block.settings.value | times: 100 }},
+            price: "{{ block.settings.value | money }}",
+            variant: '{{ all_products[block.settings.product].variants[0].id | default: nill }}',
+            product: {{ all_products[block.settings.product] | default: blank | json }},
+            fallbackProduct: "{{ block.settings.fallbackProduct | default: blank }}",
+            id_product: {{ all_products[block.settings.product].id | default: blank | json }},
+            background: '{{ block.settings.goal_icon | img_url: 'master' }}',
+            backgroundActive: '{{ block.settings.goal_icon_active | img_url: 'master' }}'
+          }{%- unless forloop.last == true -%},{%- endunless -%}{%- endfor -%}
+      },
+      cartItems: {{ cart.items | json }}
+    };
+  });
+
+  window.gift_goals = {
+    limit: 150,
+    goals: {
+      {%- for block in section.blocks -%}
+        '{{ block.settings.text }}' : {
+          text: '{{ block.settings.text }}',
+          complete: false,
+          value: {{ block.settings.value | times: 100 }},
+          price: "{{ block.settings.value | money }}",
+          variant: '{{ all_products[block.settings.product].variants[0].id | default: blank }}',
+          product: {{ all_products[block.settings.product] | default: blank | json }},
+          id_product: {{ all_products[block.settings.product].id | default: blank | json }},
+          background: '{{ block.settings.goal_icon | img_url: 'master' }}',
+          backgroundActive: '{{ block.settings.goal_icon_active | img_url: 'master' }}'
+        }{%- unless forloop.last == true -%},{%- endunless -%}{%- endfor -%}
+    },
+    cartItems: {{ cart.items | json }}
+  };
+
+  async function fetchCart(variant, quantity) {
+    console.log("iniciando cambio");
+    let url = quantity > 0
+      ? "cart/add.js"
+      : "cart/change.js";
+
+    await fetch(window.Shopify.routes.root + url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(
+        {
+          quantity: quantity,
+          id: variant,
+          properties: {
+            isGIft: true
+          }
+        }
+      )
+    }).catch((error) => {
+      console.error("Error:", error);
+    });
+    console.log("finalizando cambio");
+  }
+
+  const cartGamification = (cart, progressBarContainer) => {
+    const itemCount = cart.item_count;
+    const totalPrice = cart.total_price / 100;
+
+    let youAre = 125 - totalPrice;
+    let width = 0;
+    let awayFrom = "Free Mystery Gift";
+    let isChanged = false;
+
+    if (itemCount === 0) {
+      progressBarContainer.classList.add("hidden");
+    } else {
+      progressBarContainer.classList.remove("hidden");
+    }
+
+    if (totalPrice < 75) {
+      width = 15;
+    }
+
+    if (totalPrice >= 75) {
+      youAre = 75 - totalPrice;
+    }
+
+    if (totalPrice >= 125) {
+      youAre = 125 - totalPrice;
+    }
+
+    if (totalPrice >= 200) {
+      youAre = 200 - totalPrice;
+    }
+
+    if (totalPrice > 75 && totalPrice < 125) {
+      width = 18 * ((totalPrice - 5000) / 5000) + 28;
+    }
+
+    if (totalPrice > 125 && totalPrice < 200) {
+      width = 16 * ((totalPrice - 10000) / 5000) + 59;
+    }
+
+    if (totalPrice > 200) 
+      width = 100;
+    
+
+    if (window.innerWidth <= 480) {
+      if (totalPrice < 75) 
+        width = (totalPrice / 10000) * 50;
+      
+      if (totalPrice > 125 && totalPrice < 15000) 
+        width = ((totalPrice - 10000) / 5000) * 50 + 50;
+      
+      if (totalPrice > 125) 
+        width = 100;
+      
+    }
+
+    console.log(totalPrice);
+
+    let millestores = [];
+
+    let cont = 0,
+      aux_array = [];
+
+    for (goal in window.gift_goals.goals) {
+      let value = window.gift_goals.goals[goal];
+      millestores.push(`
+                <div class="${
+        totalPrice >= value.value && "cart__pbgreen"
+      } cart__progress-bar__stage">
+                    <span class="cart__progress-bar__stage__image" ${
+        totalPrice >= value.value && 'style="border-color: #007849"'
+      }>
+                        <img class="expeted_shipping_image" src="${
+        value.background
+      }" alt="expected shipping" />
+                    </span>
+                    <span class="cart__progress-bar__stage__number">${
+        value.text
+      }</span>
+                </div>
+            `);
+
+      if (totalPrice >= window.gift_goals.goals[goal].value) {
+        if (window.gift_goals.goals[goal].variant != "" || window.gift_goals.goals[goal].variant != null) {
+          let current_variants_in_cart = [];
+          let added_product = false;
+          let position;
+          let quantity;
+
+          for (x in window.gift_goals.cartItems) {
+            current_variants_in_cart.push(window.gift_goals.cartItems[x].variant_id);
+            if (window.gift_goals.cartItems[x].variant_id == window.gift_goals.goals[goal].variant && window.gift_goals.cartItems[x].quantity > 1) {
+              added_product = true;
+              position = parseInt(x) + 1;
+              quantity = cart.items[x].quantity;
+              console.log('x', x);
+            }
+          }
+
+          if (! current_variants_in_cart.includes(parseFloat(window.gift_goals.goals[goal].variant)) && window.gift_goals.goals[goal].variant != null && added_product == false) {
+            $.ajax({
+              type: 'POST',
+              url: '/cart/add.js',
+              async: false,
+              data: {
+                id: window.gift_goals.goals[goal].variant,
+                properties: {},
+                quantity: 1
+              },
+              dataType: 'json',
+              success: function(data) {
+                isChanged = true;
+                document.querySelectorAll('.go-cart-item__single[data-price="0"]').forEach(function(element) {
+                  element.querySelector('.go-cart-item__variant:nth-of-type(2)').innerText = 'Free Gift';
+                });
+              }
+            })
+          } else if (added_product == true && gift_goals.goals[goal].variant != null) { // console.log(gift_goals);
+            $.ajax({
+              type: 'POST',
+              url: '/cart/change.js',
+              async: false,
+              data: {
+                'line': position,
+                'quantity': 1
+              },
+              dataType: 'json',
+              success: function(data) {
+                isChanged = true;
+              }
+            })
+          }
+        }
+      } else {
+        let added_product = false;
+        let position;
+        goal_classes = "goal-marker";
+        for (x in window.gift_goals.cartItems) {
+          if (window.gift_goals.cartItems[x].variant_id == window.gift_goals.goals[goal].variant) {
+            added_product = true;
+            position = parseInt(x) + 1;
+          }
+        }
+        if (added_product == true) {
+          $.ajax({
+            type: "POST",
+            url: "/cart/change.js",
+            async: false,
+            data: {
+              line: position,
+              quantity: 0,
+              properties: {
+                Gift: "Free"
+              }
+            },
+            dataType: "json",
+            success: function(data) {
+              isChanged = true;
+
+// var goCart = new GoCart();
+// document.querySelector(".mini-cart-link").click()
+            }
+          });
+        }
+      } cont++;
+    }
+
+    millestores = millestores.join("");
+
+    const mill = window.gift_goals.goals;
+
+    console.log(mill);
+
+    progressBarContainer.innerHTML = `
+            <h5 class="cart__progress-bar__title ${
+      width === 100 && "hidden"
+    }">You are
+            <span class="cart__pbgreen">$${
+      (youAre * 10) / 1000
+    }</span> away from a
+            <span class="cart__pbgreen">${awayFrom}</span>
+            </h5>
+            <div class="cart__progress-bar__container">
+            <div class="cart__progress-bar__background">
+                <span class="cart__progress-bar__bar" style="width: ${width}%;"></span>
+            </div>
+            ${millestores}
+            </div>`;
+    return isChanged;
+  };
+
+  document.addEventListener("rebuy:smartcart.ready", () => {
+    let rebuyWidget = document.getElementById("rebuy-cart");
+
+    const progressBarContainer = document.createElement("div");
+    const headerSideCart = rebuyWidget.querySelector(".rebuy-cart__flyout-header");
+
+    progressBarContainer.classList.add("cart__progress-bar__main__container");
+
+// headerSideCart.parentNode.insertBefore(progressBarContainer, headerSideCart.nextSibling);
+
+// cartGamification(window.Rebuy.Cart.cart, progressBarContainer);
+
+    document.addEventListener("rebuy:cart.change", function(event) {
+
+// cartGamification(event.detail.cart.cart, progressBarContainer);
+    });
+  });
+</script>
+
+<style>
+  .cart__progress-bar__main__container {
+    background: #fff;
+  }
+
+  .cart__progress-bar__main__container {
+    background-color: white;
+    padding: 28px 42px 20px;
+    border-bottom: 1px solid #e5e4e2;
+  }
+
+  .cart__progress-bar__title {
+    color: black;
+    margin: 0 0 10px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 22px;
+  }
+
+  .cart__pbgreen {
+    color: #007849 !important;
+  }
+
+  .cart__progress-bar__stage.cart__pbgreen .expeted_shipping_a,
+  .cart__progress-bar__stage.cart__pbgreen .v3_a,
+  .cart__progress-bar__stage.cart__pbgreen .max_a {
+    display: none;
+  }
+
+  .cart__progress-bar__stage:not(.cart__pbgreen) .expeted_shipping_a,
+  .cart__progress-bar__stage:not(.cart__pbgreen) .v3_a,
+  .cart__progress-bar__stage:not(.cart__pbgreen) .max_a {
+    display: block;
+  }
+
+  .cart__progress-bar__stage.cart__pbgreen .expeted_shipping_b,
+  .cart__progress-bar__stage.cart__pbgreen .v3_b,
+  .cart__progress-bar__stage.cart__pbgreen .max_b {
+    display: block;
+  }
+
+  .cart__progress-bar__stage:not(.cart__pbgreen) .expeted_shipping_b,
+  .cart__progress-bar__stage:not(.cart__pbgreen) .v3_b,
+  .cart__progress-bar__stage:not(.cart__pbgreen) .max_b {
+    display: none;
+  }
+
+  .cart__progress-bar__stage:not(.cart__pbgreen) .expeted_shipping_image {
+    filter: invert(1);
+  }
+
+  .cart__progress-bar__container {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    padding: 0 48px;
+    text-align: center;
+  }
+
+  .cart__progress-bar__background {
+    position: absolute;
+    top: calc(50% - 18px);
+    left: calc(50% - 210px);
+    width: 84%;
+    height: 3px;
+    border-radius: 20px;
+    background-color: #C9C9C9;
+    z-index: 1;
+    overflow: hidden;
+  }
+
+  .cart__progress-bar__item {
+    z-index: 2;
+  }
+
+  .cart__progress-bar__bar {
+    border-radius: 20px;
+    transition: 0.5s all;
+    display: block;
+    height: 100%;
+    background-color: #000;
+    width: 0;
+  }
+
+  .rebuy-cart__flyout-item-price:has(.price-gift) {
+    margin-left: 50%;
+  }
+
+  .cart__progress-bar__stage {
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    color: #69727b;
+  }
+
+  .cart__progress-bar__stage__image {
+    border: 2px solid gray;
+    border-radius: 50%;
+    display: grid;
+    place-content: center;
+    height: 66px;
+    width: 66px;
+    background: #ffff;
+    margin-bottom: 10px;
+  }
+
+  .cart__progress-bar__stage__number {
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 22px;
+    margin-top: -15px;
+  }
+
+  .cart__progress-bar__stage__number.inactive {
+    color: #8B8B8B;
+  }
+
+  .cart__progress-bar__stage__name {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    white-space: nowrap;
+  }
+
+  .cart__progress-bar__stage__name--free {
+    margin-top: -3px;
+    white-space: initial;
+    max-width: fit-content;
+  }
+
+  @media screen and (max-width: 480px) {
+    .cart__progress-bar__main__container {
+      background-color: white;
+      padding: 28px 10px 20px;
+      border-bottom: 1px solid #e5e4e2;
+    }
+
+    .cart__progress-bar__container {
+      padding: 0 30px;
+    }
+
+    .cart__progress-bar__background {
+      top: calc(100% - 66px);
+      height: 2px;
+      width: 90%;
+      left: calc(50% - 192.5px);
+    }
+  }
+
+  @media screen and (min-width: 280px) {
+
+
+    .cart__progress-bar__background {
+      left: calc(50% - 161.5px);
+    }
+  }
+  @media screen and (min-width: 370px) {
+
+
+    .cart__progress-bar__background {
+      left: calc(50% - 168.5px);
+    }
+  }
+  @media screen and (min-width: 380px) {
+
+
+    .cart__progress-bar__background {
+      left: calc(50% - 176.5px);
+    }
+  }
+  @media screen and (min-width: 400px) {
+
+
+    .cart__progress-bar__background {
+      left: calc(50% - 185.5px);
+    }
+  }
+  @media screen and (min-width: 600px) {
+
+
+    .cart__progress-bar__background {
+      left: calc(50% - 210.5px);
+    }
+  }
+  @media screen and (min-width: 1024px) {
+
+
+    .cart__progress-bar__background {
+      left: calc(50% - 210.5px);
+    }
+  }
+</style>
+
+{% schema %}
+  {
+    "name": "Side cart gamification",
+    "blocks": [
+      {
+        "type": "sidecart_goal",
+        "name": "Sidecart goal",
+        "limit": 3,
+        "settings": [
+          {
+            "type": "header",
+            "content": "Goal settings"
+          },
+          {
+            "type": "header",
+            "content": "Goal icon"
+          },
+          {
+            "type": "image_picker",
+            "id": "goal_icon",
+            "label": "Icon"
+          },
+          {
+            "type": "image_picker",
+            "id": "goal_icon_active",
+            "label": "Icon active"
+          }, {
+            "type": "header",
+            "content": "Goal caption"
+          }, {
+            "type": "text",
+            "id": "text",
+            "label": "Caption"
+          }, {
+            "type": "header",
+            "content": "Goal value"
+          }, {
+            "type": "number",
+            "id": "value",
+            "label": "Reach at value"
+          }, {
+            "type": "header",
+            "content": "Goal free product"
+          }, {
+            "type": "checkbox",
+            "id": "showModal",
+            "label": "Show Modal Variant",
+            "default": false
+          }, {
+            "type": "product",
+            "id": "product",
+            "label": "Product free version 1"
+          }, {
+            "type": "text",
+            "id": "fallbackProduct",
+            "label": "Fallback product name"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

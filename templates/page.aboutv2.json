@@ -1,0 +1,67 @@
+{
+  "sections": {
+    "742cd0c2-38c0-415c-80bf-1e3619d945a3": {
+      "type": "dual-content",
+      "blocks": {
+        "46ca9a57-02cc-4294-8f28-265b7388704a": {
+          "type": "item",
+          "settings": {
+            "title": "Safety made convenient",
+            "subtitle": "Why we started Clutch",
+            "body": "<p>Our phones are the lifelines to the ones we love. So when we’re out and about, it’s important to stay charged and connected. We designed our slim chargers to do just that.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "46ca9a57-02cc-4294-8f28-265b7388704a"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/image_2.jpg",
+        "position": "right"
+      }
+    },
+    "first": {
+      "type": "image-text",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/clutchcharger-98_1.jpg",
+        "image_mobile": "shopify:\/\/shop_images\/image_2.png",
+        "title": "Benefits",
+        "body": "<p>When you already have a full pocket or a packed purse it’s such a pain to try to fit a blocky portable charger in with everything else. Clutch, the world’s thinnest portable charger, is here to fix that. Our lightweight charger can fit into a wallet, has a connected charging cable, and powers up your phone fast.<\/p>"
+      }
+    },
+    "bc489fac-6c79-43b8-bf55-e2481d1e9d51": {
+      "type": "dual-content",
+      "blocks": {
+        "a16bde78-0b5b-4c4c-9958-a0b7e4105b94": {
+          "type": "item",
+          "settings": {
+            "title": "Don’t get stuck with a dead phone",
+            "subtitle": "Our charger comes in Clutch",
+            "body": "<p>Ever had a bartender give you a blank stare when you ask to charge your phone? Or gotten your work bag tangled up with cords and weighed down with charging blocks? Maybe you’re an outdoorsy type who needs to optimize your backpack down to the inch.<\/p>"
+          }
+        },
+        "4f1b90e4-f1e7-4979-a542-9e4b34aac5bd": {
+          "type": "item",
+          "settings": {
+            "title": "Clutch’s got you.",
+            "subtitle": "",
+            "body": "<p>Our super slim charger is designed to go where no other portable charger can. It fits with ease into the compact wallets, tiny zip pockets, and mini bags we all carry. And instead of watching your battery life drain before your eyes, all you have to do is unlatch the attached charging cord, plug your phone in, and keep on keeping on.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "a16bde78-0b5b-4c4c-9958-a0b7e4105b94",
+        "4f1b90e4-f1e7-4979-a542-9e4b34aac5bd"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/image.jpg",
+        "position": "left"
+      }
+    }
+  },
+  "order": [
+    "742cd0c2-38c0-415c-80bf-1e3619d945a3",
+    "first",
+    "bc489fac-6c79-43b8-bf55-e2481d1e9d51"
+  ]
+}

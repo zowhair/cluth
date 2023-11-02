@@ -1,0 +1,26 @@
+{
+  "parent": "page.bfcm-new.json",
+  "context": {
+    "market": "us"
+  },
+  "sections": {
+    "2754dbbe-fe39-4632-835e-828aca109cfb": {
+      "settings": {
+      },
+      "blocks": {
+        "template--14626615656534__2754dbbe-fe39-4632-835e-828aca109cfb-information-1": {
+          "settings": {
+            "vimeo_video_url": "https:\/\/vimeo.com\/794624765",
+            "main_video_url": null
+          }
+        },
+        "template--14626615656534__2754dbbe-fe39-4632-835e-828aca109cfb-information-3": {
+          "settings": {
+            "vimeo_video_url": "https:\/\/vimeo.com\/859057977",
+            "main_video_url": null
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,156 @@
+{% unless section.blocks.size == 0 %}
+  {% comment %}
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+  {% endcomment %}
+
+  {% liquid
+    assign jm_metafields = shop.metafields.judgeme
+    assign jm_rating = jm_metafields.all_reviews_rating
+    assign jm_count = shop.metafields.judgeme.all_reviews_count
+  %}
+
+  <div class="page-width page-width--wg">
+    <review-judgeme data-visible="{{ section.settings.visible }}">
+    
+      <div class="reviews-judgeme__head">
+        {% unless section.settings.title == blank %}
+          <h3>{{ section.settings.title }}</h3>
+        {% endunless %}
+
+        {% if section.settings.raiting == true %}
+          <span style="display:block"  data-score='{{ jm_metafields.all_reviews_rating }}' class='jdgm-all-reviews-rating' aria-label='{{ jm_metafields.all_reviews_rating }} stars' tabindex='0' role='img'></span>
+          <span style="display: block" class='jdgm-carousel-number-of-reviews' data-number-of-reviews='{{ jm_metafields.all_reviews_count }}'>
+            from {{ shop.metafields.judgeme.all_reviews_count }} reviews
+          </span>
+        {% endif %}
+      </div>
+      
+      <div class="reviews-judgeme">
+        <button type="button" class="reviews-judgeme__arrow reviews-judgeme__arrow--left">
+          <svg width="15" height="28" viewBox="0 0 15 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M14.4422 26.0579C14.5595 26.1752 14.6254 26.3343 14.6254 26.5001C14.6254 26.666 14.5595 26.825 14.4422 26.9423C14.3249 27.0596 14.1659 27.1255 14 27.1255C13.8342 27.1255 13.6751 27.0596 13.5578 26.9423L1.05782 14.4423C0.999705 14.3842 0.953605 14.3153 0.922153 14.2394C0.8907 14.1636 0.874512 14.0822 0.874512 14.0001C0.874512 13.918 0.8907 13.8366 0.922153 13.7608C0.953605 13.6849 0.999705 13.616 1.05782 13.5579L13.5578 1.05792C13.6159 0.999847 13.6848 0.953784 13.7607 0.922357C13.8366 0.890931 13.9179 0.874756 14 0.874756C14.0821 0.874756 14.1634 0.890931 14.2393 0.922357C14.3152 0.953784 14.3841 0.999847 14.4422 1.05792C14.5003 1.11598 14.5463 1.18492 14.5777 1.26079C14.6092 1.33666 14.6254 1.41798 14.6254 1.5001C14.6254 1.58223 14.6092 1.66354 14.5777 1.73941C14.5463 1.81528 14.5003 1.88422 14.4422 1.94229L2.38438 14.0001L14.4422 26.0579Z" fill="black"/>
+          </svg>
+        </button>
+        
+        {% comment %}
+        <div class="reviews-judgeme__list swiper">
+          <div class="swiper-wrapper">
+            {% for block in section.blocks %}
+              {% render 'review-judgeme-card', block: block, class: 'swiper-slide' %}
+            {% endfor %}
+          </div>
+        </div>
+        {% endcomment %}
+
+        <div class="reviews-judgeme__list swiper">
+          {% for block in section.blocks %}
+            {% render 'review-judgeme-card', block: block %}
+          {% endfor %}
+        </div>
+
+
+        <button type="button" class="reviews-judgeme__arrow reviews-judgeme__arrow--right">
+          <svg width="15" height="28" viewBox="0 0 15 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0.55781 26.0579C0.440534 26.1752 0.374649 26.3343 0.374649 26.5001C0.374649 26.666 0.440534 26.825 0.55781 26.9423C0.675085 27.0596 0.834145 27.1255 0.999997 27.1255C1.16585 27.1255 1.32491 27.0596 1.44218 26.9423L13.9422 14.4423C14.0003 14.3842 14.0464 14.3153 14.0778 14.2394C14.1093 14.1636 14.1255 14.0822 14.1255 14.0001C14.1255 13.918 14.1093 13.8366 14.0778 13.7608C14.0464 13.6849 14.0003 13.616 13.9422 13.5579L1.44218 1.05792C1.38412 0.999847 1.31518 0.953784 1.23931 0.922357C1.16344 0.890931 1.08212 0.874756 0.999997 0.874756C0.917875 0.874756 0.836557 0.890931 0.760687 0.922357C0.684816 0.953784 0.615878 0.999847 0.55781 1.05792C0.499741 1.11598 0.453678 1.18492 0.422252 1.26079C0.390825 1.33666 0.374649 1.41798 0.374649 1.5001C0.374649 1.58223 0.390825 1.66354 0.422252 1.73941C0.453678 1.81528 0.499741 1.88422 0.55781 1.94229L12.6156 14.0001L0.55781 26.0579Z" fill="black"/>
+          </svg>
+        </button>
+      </div>
+      {% unless section.settings.cta_url == blank %}
+        <div class="reviews-judgeme__cta">
+          <a href="{{ section.settings.cta_url }}">View all reviews</a>
+        </div>
+      {% endunless %}
+    </review-judgeme>
+  </div>
+{% endunless %}
+
+{% schema %}
+{
+  "name": "Reviews judgeme",
+  "settings": [
+    {
+      "type": "header",
+      "content": "API"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Our Customers Think We're Clutch!"
+    },
+    {
+      "type": "url",
+      "id": "cta_url",
+      "label": "URL Cta"
+    },
+    {
+      "type": "checkbox",
+      "id": "visible",
+      "label": "Is visible",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "raiting",
+      "label": "Show rating",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Review",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "text",
+          "id": "author",
+          "label": "Author"
+        },
+        {
+          "type": "number",
+          "id": "starts",
+          "label": "Quantity stars",
+          "default": 5
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "select",
+          "id": "aspect_ratio",
+          "label": "Aspect ratio",
+          "default": "square",
+          "options": [
+            {
+              "label": "Square",
+              "value": "square"
+            },
+            {
+              "label": "Rectangle",
+              "value": "rectangle"
+            }
+          ]
+        },
+        {
+          "type": "textarea",
+          "id": "comment",
+          "label": "Comment"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Reviews judgeme"
+    }
+  ]
+}
+{% endschema %}

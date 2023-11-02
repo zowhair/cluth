@@ -1,0 +1,167 @@
+{{ 'component-card_products-lp.css' | asset_url | stylesheet_tag: preload: true }}
+
+
+{%- liquid
+    assign data = section.settings
+    assign title = data.title_id
+-%}
+
+<section id="product_buy" class="card_products__container {{section.settings.css_class}}">
+    <h2>{{ title }}</h2>
+
+    <div class="info_product__container">
+        <div class="info_p info1">
+            <img src="{{ 'truck_1.svg' | asset_url }}" width="20" height="auto" loading="lazy"  alt="Free US Shipping">
+            <p>Free US Shipping</p>
+        </div>
+        <div class="info_p info2">
+            <img src="{{ 'shield.svg' | asset_url }}" width="20" height="auto" loading="lazy"  alt="1 Year Warranty">
+            <p>1 Year Warranty</p>
+        </div>
+        <div class="info_p info3">
+            <img src="{{ 'Payments.svg' | asset_url }}" width="177" height="auto" loading="lazy"  alt="Payments">
+        </div>
+    </div>
+    <div class="cards__container">
+        {% for block in section.blocks %}
+        {% assign product = block.settings.products_id %}
+                    <div class="card_product">
+                        {%- liquid
+                            if block.settings.select_id == 'iphone'
+                                render 'apple_icon'
+                            else
+                                render 'android_icon'
+                            endif
+                            for image in product.first_available_variant.metafields.custom.image_variant.value
+                                if forloop.first
+                                    assign imageVariant = image
+                                endif
+                            endfor
+                        -%}
+                        <a href="{{ product.url }}">
+                            <img class="image_product_card" loading="lazy" width="568" height="auto" src="{{ imageVariant | image_url: width: 568 }}" alt="{{ product.title }}">
+                        </a>
+                        <p class="product_card__price">{{ product.first_available_variant.price | money }}</p>
+                        
+                        {% render 'judgeme_widgets',
+                            widget_type: 'judgeme_preview_badge',
+                            jm_style: '',
+                            concierge_install: true,
+                            product: product
+                        %}
+
+                        <p class="product_card__title">
+                            <a href="{{ product.url }}">{{ product.title }}</a>
+                        </p>
+
+
+                        <div class="seclect__variant">
+                            {% for variant in product.variants %}
+
+                            {%- for image in variant.metafields.custom.image_variant.value -%}
+                                {% if forloop.first %}
+                                    {%- assign imageVariants = image -%}
+                                {% endif %}
+                            {% endfor -%}
+                                
+                              <input class="color_swatches__card-product" data-image="{{ imageVariants | image_url: width: 568 }}" data-variant-id="{{ variant.id }} " type="radio" id="{{ variant.id }}" name="variants_{{ product.title | handleize}}" value="{{ variant.id }}" {% if forloop.first %}checked {% endif %}>
+                              <label style="background: {{ variant.metafields.custom.color_swatch }};" for="{{ variant.id }}"></label>
+                            {% endfor %}
+                        </div>
+                        <div class="product__quantity product_custom_qty">
+                            <div id="minus-btn" class="icons minus-btn"><i class="far fa-minus" aria-hidden="true"></i></div>
+                            <input name="quantity" value="1" min="1" id="quantity-input" type="number" value="1">
+                            <div id="plus-btn" class="icons plus-btn"><i class="far fa-plus" aria-hidden="true"></i></div>
+                        </div>
+
+                        <button class="btn_atc_landing">Add To Cart</button>
+                    </div>
+        {% endfor %}
+    </div>
+
+    <div class="spects_product__container">
+        <button class="spect_button tech_button" ><span>Tech Specs</span> {% render 'info_icon' %}</button>
+        <button class="spect_button devices_button"><span>Compatible Devices</span> {% render 'info_icon' %}</button>
+    </div>
+
+    <div class="overlay_popup hide_popup"></div>
+
+    <div class="tech_popups hide_popup popup__container">
+        <div class="popup desktop">
+            <span class="close_popup hide_close">X</span>
+            <img class="tech_popup desktop" src="{{ "tech-espect-desktop.png" | asset_url }}" loading="lazy" alt="Tech specs">
+            
+        </div>
+        <div class="popup mobile">
+            <span class="close_popup hide_close">X</span>
+            <img class="tech_popup mobile" src="{{ "Tech-espect-mobile.png" | asset_url }}" loading="lazy" alt="Tech specs mobile">
+        </div>
+        
+    </div>
+    <div class="compatible_popups hide_popup popup__container">
+        <div class="popup desktop">
+            <span class="close_popup hide_close">X</span>
+            <img class="compatible_popup desktop" src="{{ "Compatible-desktop.png" | asset_url }}" loading="lazy" alt="Compatible devices">
+        </div>
+        <div class="popup mobile">
+            <span class="close_popup hide_close">X</span>
+            <img class="compatible_popup mobile" src="{{ "Compatible-mobile.png" | asset_url }}" loading="lazy" alt="Compatible devices mobile">
+        </div>
+        
+    </div>
+   
+</section>
+
+
+{% schema %}
+{
+  "name": "Card products",
+  "class": "card_product_lp",
+  "settings": [
+   {
+    "type": "text",
+    "id": "title_id",
+    "label": "Title"
+   },
+   {
+    "type": "text",
+    "id": "css_class",
+    "label": "CSS Class",
+    "placeholder": "new-home other-class"
+   }
+  ],
+  "blocks": [
+    {
+      "name": "Products",
+      "type": "Product",
+      "settings": [
+       {
+        "type": "product",
+        "id": "products_id",
+        "label": "Product"
+       },
+       {
+        "type": "select",
+        "id": "select_id",
+        "label": "Operating System (OS)",
+        "options": [
+            {
+                "value": "android",
+                "label": "Android"
+            },
+            {
+                "value": "iphone",
+                "label": "Iphone"
+            }
+        ]
+       }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Card product landing"
+    }
+  ]
+}
+{% endschema %}

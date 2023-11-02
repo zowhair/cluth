@@ -1,0 +1,503 @@
+{%- if section.blocks.size > 0 or section.settings.main_heading_text != blank or section.settings.left_logo_image_1 != blank or section.settings.left_heading_text_2 != blank -%}
+  <div class="Page_table_difference_main_new {{ section.settings.customClass }}" style="background: {{ section.settings.main_back_color }};">
+    <div class="page-width">
+      <div class="Page_table_difference_inner_new">
+        {%- if section.settings.main_logo_image != blank -%}
+          <div class="Page_videos_images_slider_mainimage_new">
+            <div class="Page_videos_images_slider_innerimage_new">
+              {%- assign img_url = section.settings.main_logo_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+              <img class="Icon_image_new lazyload"
+                data-src="{{ img_url }}"
+                data-widths="[180, 360, 540, 750, 900, 1080, 1296, 1512, 1728, 1944, 2048]"
+                data-aspectratio="{{ section.settings.main_logo_image.aspect_ratio }}"
+                data-sizes="auto"
+                alt="{{ section.settings.main_logo_image.alt }}">
+            </div>
+          </div>
+        {%- endif -%}
+        {%- if section.settings.main_heading_text != blank -%}
+          <div class="common_title_new Page_table_difference_title_new">
+            <h2>{{ section.settings.main_heading_text }}</h2>
+          </div>
+        {%- endif -%}
+        {%- if section.blocks.size > 0 or section.settings.left_logo_image_1 != blank or section.settings.left_heading_text_2 != blank -%}
+          <div class="Page_table_difference_mainloop_new">
+            <div class="Page_table_difference_innerloop_new">
+              <div class="Page_table_difference_innerloop_1_new">
+                <div class="Page_table_difference_innerloop_1_list_new">
+                  <div class="Page_table_difference_innerloop_1_list_title_new">
+                    
+                  </div>
+                  {%- if section.settings.top_heading_text_1 != blank -%}
+                    <div class="Page_table_difference_innerloop_1_list_title_new">
+                      {{ section.settings.top_heading_text_1 }}
+                    </div>
+                  {%- endif -%}
+                  {%- if section.settings.top_heading_text_2 != blank -%}
+                    <div class="Page_table_difference_innerloop_1_list_title_new">
+                      {{ section.settings.top_heading_text_2 }}
+                    </div>
+                  {%- endif -%}
+                  {%- if section.settings.top_heading_text_3 != blank -%}
+                    <div class="Page_table_difference_innerloop_1_list_title_new">
+                      {{ section.settings.top_heading_text_3 }}
+                    </div>
+                  {%- endif -%}
+                  {%- if section.settings.top_heading_text_4 != blank -%}
+                    <div class="Page_table_difference_innerloop_1_list_title_new">
+                      {{ section.settings.top_heading_text_4 }}
+                    </div>
+                  {%- endif -%}
+                </div>
+              </div>
+              {%- if section.blocks.size > 0 or section.settings.left_logo_image_1 != blank -%}
+                <div class="Page_table_difference_innerloop_2_new">
+                  <div class="Page_table_difference_innerloop_2_list_new">
+                    {%- if section.settings.left_logo_image_1 != blank -%}
+                      <div class="Page_table_difference_innerloop_2_list_image_new">
+                        {%- assign img_url = section.settings.left_logo_image_1 | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+                        <img class="Logo_image_new lazyload"
+                          data-src="{{ img_url }}"
+                          data-widths="[180, 360, 540, 750, 900, 1080, 1296, 1512, 1728, 1944, 2048]"
+                          data-aspectratio="{{ section.settings.left_logo_image_1.aspect_ratio }}"
+                          data-sizes="auto"
+                          alt="{{ section.settings.left_logo_image_1.alt }}">
+                      </div>
+                    {%- endif -%}
+                    {%- if section.blocks.size > 0 -%}
+                      {%- for block in section.blocks -%}
+                        {%- if block.type == 'top-information-list' -%}
+                          {%- if block.settings.top_video_url_1 != blank or block.settings.top_desktop_image_1 != blank or block.settings.top_mobile_image_1 != blank or block.settings.top_info_text_1 != blank or block.settings.top_video_url_2 != blank or block.settings.top_desktop_image_2 != blank or block.settings.top_mobile_image_2 != blank or block.settings.top_info_text_2 != blank -%}
+                            <div class="Page_table_difference_innerloop_mainbox_new">
+                              <div class="Page_table_difference_innerloop_innerbox_new">
+                                {%- if block.settings.top_video_url_1 != blank or block.settings.top_desktop_image_1 != blank or block.settings.top_mobile_image_1 != blank or block.settings.top_info_text_1 != blank or block.settings.top_video_url_2 != blank or block.settings.top_desktop_image_2 != blank or block.settings.top_mobile_image_2 != blank or block.settings.top_info_text_2 != blank -%}
+                                  <div class="Page_table_difference_innerloop_innerbox_list_new">
+                                    {%- if block.settings.top_video_url_1 != blank or block.settings.top_desktop_image_1 != blank or block.settings.top_mobile_image_1 != blank or block.settings.top_info_text_1 != blank -%}
+                                      <div class="Page_table_difference_innerloop_innerbox_list_detail_new">
+                                        {%- if block.settings.top_video_url_1 != blank or block.settings.top_desktop_image_1 != blank or block.settings.top_mobile_image_1 != blank -%}
+                                          <div class="Page_table_difference_innerloop_innerbox_list_detail_videoimageboth_new">
+                                            {%- if block.settings.top_video_url_1 != blank -%}
+                                              <div class="Page_table_difference_innerloop_innerbox_list_detail_videoimage_new">
+                                                {{ block.settings.top_video_url_1 | video_tag: controls: false, autoplay: true, loop: true }}
+                                              </div>
+                                            {% else %}  
+                                              {%- if block.settings.top_desktop_image_1 != blank and block.settings.top_mobile_image_1 != blank -%}
+                                                <div class="Page_table_difference_innerloop_innerbox_list_detail_videoimage_new">
+                                                  {%- if block.settings.top_desktop_image_1 != blank -%}
+                                                    {%- assign img_url = block.settings.top_desktop_image_1 | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+                                                    <img class="desktop_image_new lazyload"
+                                                      data-src="{{ img_url }}"
+                                                      data-widths="[180, 360, 540, 750, 900, 1080, 1296, 1512, 1728, 1944, 2048]"
+                                                      data-aspectratio="{{ block.settings.top_desktop_image_1.aspect_ratio }}"
+                                                      data-sizes="auto"
+                                                      alt="{{ block.settings.top_desktop_image_1.alt }}">
+                                                  {%- endif -%}
+                                                  {%- if block.settings.top_mobile_image_1 != blank -%}
+                                                    {%- assign img_url = block.settings.top_mobile_image_1 | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+                                                    <img class="mobile_image_new lazyload"
+                                                      data-src="{{ img_url }}"
+                                                      data-widths="[180, 360, 540, 750, 900, 1080, 1296, 1512, 1728, 1944, 2048]"
+                                                      data-aspectratio="{{ block.settings.top_mobile_image_1.aspect_ratio }}"
+                                                      data-sizes="auto"
+                                                      alt="{{ block.settings.top_mobile_image_1.alt }}">
+                                                  {%- endif -%}
+                                                </div>
+                                              {%- endif -%}
+                                            {%- endif -%}
+                                          </div>
+                                        {%- endif -%}
+                                        {%- if block.settings.top_info_text_1 != blank -%}
+                                          <div class="Page_table_difference_innerloop_innerbox_list_detail_infotextboth_new">
+                                            {{ block.settings.top_info_text_1 }}
+                                          </div>
+                                        {%- endif -%}
+                                      </div>
+                                    {%- endif -%}
+                                    {%- if block.settings.top_video_url_2 != blank or block.settings.top_desktop_image_2 != blank or block.settings.top_mobile_image_2 != blank or block.settings.top_info_text_2 != blank -%}
+                                      <div class="Page_table_difference_innerloop_innerbox_list_detail_new">
+                                        {%- if block.settings.top_video_url_2 != blank or block.settings.top_desktop_image_2 != blank or block.settings.top_mobile_image_2 != blank -%}
+                                          <div class="Page_table_difference_innerloop_innerbox_list_detail_videoimageboth_new">
+                                            {%- if block.settings.top_video_url_2 != blank -%}
+                                              <div class="Page_table_difference_innerloop_innerbox_list_detail_videoimage_new">
+                                                {{ block.settings.top_video_url_2 | video_tag: controls: false, autoplay: true, loop: true }}
+                                              </div>
+                                            {% else %}  
+                                              {%- if block.settings.top_desktop_image_2 != blank and block.settings.top_mobile_image_2 != blank -%}
+                                                <div class="Page_table_difference_innerloop_innerbox_list_detail_videoimage_new">
+                                                  {%- if block.settings.top_desktop_image_2 != blank -%}
+                                                    {%- assign img_url = block.settings.top_desktop_image_2 | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+                                                    <img class="desktop_image_new lazyload"
+                                                      data-src="{{ img_url }}"
+                                                      data-widths="[180, 360, 540, 750, 900, 1080, 1296, 1512, 1728, 1944, 2048]"
+                                                      data-aspectratio="{{ block.settings.top_desktop_image_2.aspect_ratio }}"
+                                                      data-sizes="auto"
+                                                      alt="{{ block.settings.top_desktop_image_2.alt }}">
+                                                  {%- endif -%}
+                                                  {%- if block.settings.top_mobile_image_2 != blank -%}
+                                                    {%- assign img_url = block.settings.top_mobile_image_2 | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+                                                    <img class="mobile_image_new lazyload"
+                                                      data-src="{{ img_url }}"
+                                                      data-widths="[180, 360, 540, 750, 900, 1080, 1296, 1512, 1728, 1944, 2048]"
+                                                      data-aspectratio="{{ block.settings.top_mobile_image_2.aspect_ratio }}"
+                                                      data-sizes="auto"
+                                                      alt="{{ block.settings.top_mobile_image_2.alt }}">
+                                                  {%- endif -%}
+                                                </div>
+                                              {%- endif -%}
+                                            {%- endif -%}
+                                          </div>
+                                        {%- endif -%}
+                                        {%- if block.settings.top_info_text_2 != blank -%}
+                                          <div class="Page_table_difference_innerloop_innerbox_list_detail_infotextboth_new">
+                                            {{ block.settings.top_info_text_2 }}
+                                          </div>
+                                        {%- endif -%}
+                                      </div>
+                                    {%- endif -%}
+                                  </div>
+                                {%- endif -%}  
+                              </div>
+                            </div>
+                          {%- endif -%}
+                        {%- endif -%}
+                      {%- endfor -%}  
+                    {%- endif -%}  
+                  </div>
+                </div>
+              {%- endif -%}
+              {%- if section.blocks.size > 0 or section.settings.left_heading_text_2 != blank -%}
+                <div class="Page_table_difference_innerloop_3_new">
+                  <div class="Page_table_difference_innerloop_3_list_new">
+                    {%- if section.settings.left_heading_text_2 != blank -%}
+                      <div class="Page_table_difference_innerloop_3_list_title_new">
+                        {{ section.settings.left_heading_text_2 }}
+                      </div>
+                    {%- endif -%}
+                    {%- if section.blocks.size > 0 -%}
+                      {%- for block in section.blocks -%}
+                        {%- if block.type == 'bottom-information-list' -%}
+                          {%- if block.settings.bottom_video_url_1 != blank or block.settings.bottom_desktop_image_1 != blank or block.settings.bottom_mobile_image_1 != blank or block.settings.bottom_info_text_1 != blank or block.settings.bottom_video_url_2 != blank or block.settings.bottom_desktop_image_2 != blank or block.settings.bottom_mobile_image_2 != blank or block.settings.bottom_info_text_2 != blank -%}
+                            <div class="Page_table_difference_innerloop_mainbox_new">
+                            
+                              {% if forloop.index == 5 %}
+                                {%- if section.settings.top_heading_text_1 != blank -%}
+                                  <div class="Page_table_difference_innerloop_1_list_title_mobile_main_new">
+                                    <div class="Page_table_difference_innerloop_1_list_title_mobile_new">
+                                      {{ section.settings.top_heading_text_1 }}
+                                    </div>
+                                  </div>
+                                {%- endif -%}
+                              {% endif %}
+
+                              {% if forloop.index == 6 %}
+                                {%- if section.settings.top_heading_text_2 != blank -%}
+                                  <div class="Page_table_difference_innerloop_1_list_title_mobile_main_new">
+                                    <div class="Page_table_difference_innerloop_1_list_title_mobile_new">
+                                      {{ section.settings.top_heading_text_2 }}
+                                    </div>
+                                  </div>
+                                {%- endif -%}
+                              {% endif %}
+
+                              {% if forloop.index == 7 %}
+                                {%- if section.settings.top_heading_text_3 != blank -%}
+                                  <div class="Page_table_difference_innerloop_1_list_title_mobile_main_new">
+                                    <div class="Page_table_difference_innerloop_1_list_title_mobile_new">
+                                      {{ section.settings.top_heading_text_3 }}
+                                    </div>
+                                  </div>
+                                {%- endif -%}
+                              {% endif %}
+                            
+                              {% if forloop.index == 8 %}
+                                {%- if section.settings.top_heading_text_4 != blank -%}
+                                  <div class="Page_table_difference_innerloop_1_list_title_mobile_main_new">
+                                    <div class="Page_table_difference_innerloop_1_list_title_mobile_new">
+                                      {{ section.settings.top_heading_text_4 }}
+                                    </div>
+                                  </div>
+                                {%- endif -%}
+                              {% endif %}
+                              <div class="Page_table_difference_innerloop_innerbox_new">
+                                {%- if block.settings.bottom_video_url_1 != blank or block.settings.bottom_desktop_image_1 != blank or block.settings.bottom_mobile_image_1 != blank or block.settings.bottom_info_text_1 != blank or block.settings.bottom_video_url_2 != blank or block.settings.bottom_desktop_image_2 != blank or block.settings.bottom_mobile_image_2 != blank or block.settings.bottom_info_text_2 != blank -%}
+                                  <div class="Page_table_difference_innerloop_innerbox_list_new">
+                                    {%- if block.settings.bottom_video_url_1 != blank or block.settings.bottom_desktop_image_1 != blank or block.settings.bottom_mobile_image_1 != blank or block.settings.bottom_info_text_1 != blank -%}
+                                      <div class="Page_table_difference_innerloop_innerbox_list_detail_new">
+                                        {%- if block.settings.bottom_video_url_1 != blank or block.settings.bottom_desktop_image_1 != blank or block.settings.bottom_mobile_image_1 != blank -%}
+                                          <div class="Page_table_difference_innerloop_innerbox_list_detail_videoimageboth_new">
+                                            {%- if block.settings.bottom_video_url_1 != blank -%}
+                                              <div class="Page_table_difference_innerloop_innerbox_list_detail_videoimage_new">
+                                                {{ block.settings.bottom_video_url_1 | video_tag: controls: false, autoplay: true, loop: true }}
+                                              </div>
+                                            {% else %}  
+                                              {%- if block.settings.bottom_desktop_image_1 != blank and block.settings.bottom_mobile_image_1 != blank -%}
+                                                <div class="Page_table_difference_innerloop_innerbox_list_detail_videoimage_new">
+                                                  {%- if block.settings.bottom_desktop_image_1 != blank -%}
+                                                    {%- assign img_url = block.settings.bottom_desktop_image_1 | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+                                                    <img class="desktop_image_new lazyload"
+                                                      data-src="{{ img_url }}"
+                                                      data-widths="[180, 360, 540, 750, 900, 1080, 1296, 1512, 1728, 1944, 2048]"
+                                                      data-aspectratio="{{ block.settings.bottom_desktop_image_1.aspect_ratio }}"
+                                                      data-sizes="auto"
+                                                      alt="{{ block.settings.bottom_desktop_image_1.alt }}">
+                                                  {%- endif -%}
+                                                  {%- if block.settings.bottom_mobile_image_1 != blank -%}
+                                                    {%- assign img_url = block.settings.bottom_mobile_image_1 | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+                                                    <img class="mobile_image_new lazyload"
+                                                      data-src="{{ img_url }}"
+                                                      data-widths="[180, 360, 540, 750, 900, 1080, 1296, 1512, 1728, 1944, 2048]"
+                                                      data-aspectratio="{{ block.settings.bottom_mobile_image_1.aspect_ratio }}"
+                                                      data-sizes="auto"
+                                                      alt="{{ block.settings.bottom_mobile_image_1.alt }}">
+                                                  {%- endif -%}
+                                                </div>
+                                              {%- endif -%}
+                                            {%- endif -%}
+                                          </div>
+                                        {%- endif -%}
+                                        {%- if block.settings.bottom_info_text_1 != blank -%}
+                                          <div class="Page_table_difference_innerloop_innerbox_list_detail_infotextboth_new">
+                                            {{ block.settings.bottom_info_text_1 }}
+                                          </div>
+                                        {%- endif -%}
+                                      </div>
+                                    {%- endif -%}
+                                    {%- if block.settings.bottom_video_url_2 != blank or block.settings.bottom_desktop_image_2 != blank or block.settings.bottom_mobile_image_2 != blank or block.settings.bottom_info_text_2 != blank -%}
+                                      <div class="Page_table_difference_innerloop_innerbox_list_detail_new">
+                                        {%- if block.settings.bottom_video_url_2 != blank or block.settings.bottom_desktop_image_2 != blank or block.settings.bottom_mobile_image_2 != blank -%}
+                                          <div class="Page_table_difference_innerloop_innerbox_list_detail_videoimageboth_new">
+                                            {%- if block.settings.bottom_video_url_2 != blank -%}
+                                              <div class="Page_table_difference_innerloop_innerbox_list_detail_videoimage_new">
+                                                {{ block.settings.bottom_video_url_2 | video_tag: controls: false, autoplay: true, loop: true }}
+                                              </div>
+                                            {% else %}  
+                                              {%- if block.settings.bottom_desktop_image_2 != blank and block.settings.bottom_mobile_image_2 != blank -%}
+                                                <div class="Page_table_difference_innerloop_innerbox_list_detail_videoimage_new">
+                                                  {%- if block.settings.bottom_desktop_image_2 != blank -%}
+                                                    {%- assign img_url = block.settings.bottom_desktop_image_2 | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+                                                    <img class="desktop_image_new lazyload"
+                                                      data-src="{{ img_url }}"
+                                                      data-widths="[180, 360, 540, 750, 900, 1080, 1296, 1512, 1728, 1944, 2048]"
+                                                      data-aspectratio="{{ block.settings.bottom_desktop_image_2.aspect_ratio }}"
+                                                      data-sizes="auto"
+                                                      alt="{{ block.settings.bottom_desktop_image_2.alt }}">
+                                                  {%- endif -%}
+                                                  {%- if block.settings.bottom_mobile_image_2 != blank -%}
+                                                    {%- assign img_url = block.settings.bottom_mobile_image_2 | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+                                                    <img class="mobile_image_new lazyload"
+                                                      data-src="{{ img_url }}"
+                                                      data-widths="[180, 360, 540, 750, 900, 1080, 1296, 1512, 1728, 1944, 2048]"
+                                                      data-aspectratio="{{ block.settings.bottom_mobile_image_2.aspect_ratio }}"
+                                                      data-sizes="auto"
+                                                      alt="{{ block.settings.bottom_mobile_image_2.alt }}">
+                                                  {%- endif -%}
+                                                </div>
+                                              {%- endif -%}
+                                            {%- endif -%}
+                                          </div>
+                                        {%- endif -%}
+                                        {%- if block.settings.bottom_info_text_2 != blank -%}
+                                          <div class="Page_table_difference_innerloop_innerbox_list_detail_infotextboth_new">
+                                            {{ block.settings.bottom_info_text_2 }}
+                                          </div>
+                                        {%- endif -%}
+                                      </div>
+                                    {%- endif -%}
+                                  </div>
+                                {%- endif -%}  
+                              </div>
+                            </div>
+                          {%- endif -%}
+                        {%- endif -%}
+                      {%- endfor -%}  
+                    {%- endif -%}  
+                  </div>
+                </div>
+              {%- endif -%}
+            </div>
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+{%- endif -%}  
+
+{% schema %}
+  {
+    "name": "Page Table Difference",
+    "class": "Page_table_difference_new",
+    "settings": [
+      {
+        "type": "text",
+        "id": "customClass",
+        "label": "Add Custom Class",
+        "info": "Page_bfcm_table_difference_new"
+      },
+      {
+        "type": "color",
+        "id": "main_back_color",
+        "label": "Add Main Background Color",
+        "default": "#141414"
+      },
+      {
+        "type": "image_picker",
+        "id": "main_logo_image",
+        "label": "Add Main Logo Image"
+      },
+      {
+        "type": "textarea",
+        "id": "main_heading_text",
+        "label": "Add Main Heading Text",
+        "default": "The Clutch difference"
+      },
+      {
+        "type": "text",
+        "id": "top_heading_text_1",
+        "label": "Add Top Heading Text-1",
+        "default": "Heading"
+      },
+      {
+        "type": "text",
+        "id": "top_heading_text_2",
+        "label": "Add Top Heading Text-2",
+        "default": "Heading"
+      },
+      {
+        "type": "text",
+        "id": "top_heading_text_3",
+        "label": "Add Top Heading Text-3",
+        "default": "Heading"
+      },
+      {
+        "type": "text",
+        "id": "top_heading_text_4",
+        "label": "Add Top Heading Text-4",
+        "default": "Heading"
+      },
+      {
+        "type": "image_picker",
+        "id": "left_logo_image_1",
+        "label": "Add Left Logo Image-1"
+      },
+      {
+        "type": "textarea",
+        "id": "left_heading_text_2",
+        "label": "Add Left Heading Text-2",
+        "default": "Anker, Belkin & others"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "top-information-list",
+        "name": "Top Information List",
+        "limit": 4,
+        "settings": [
+          {
+            "type": "video",
+            "id": "top_video_url_1",
+            "label": "Add Top MP4 Video-1"
+          },
+          {
+            "type": "image_picker",
+            "id": "top_desktop_image_1",
+            "label": "Add Top Desktop Image-1"
+          },
+          {
+            "type": "image_picker",
+            "id": "top_mobile_image_1",
+            "label": "Add Top Mobile Image-1"
+          },
+          {
+            "type": "richtext",
+            "id": "top_info_text_1",
+            "label": "Add Top Information Text-1",
+            "default": "<p>Lorem ipsum dolor sit amet.</p>"
+          },
+          {
+            "type": "video",
+            "id": "top_video_url_2",
+            "label": "Add Top MP4 Video-2"
+          },
+          {
+            "type": "image_picker",
+            "id": "top_desktop_image_2",
+            "label": "Add Top Desktop Image-2"
+          },
+          {
+            "type": "image_picker",
+            "id": "top_mobile_image_2",
+            "label": "Add Top Mobile Image-2"
+          },
+          {
+            "type": "richtext",
+            "id": "top_info_text_2",
+            "label": "Add Top Information Text-2",
+            "default": "<p>Lorem ipsum dolor sit amet.</p>"
+          }
+        ]
+      },
+      {
+        "type": "bottom-information-list",
+        "name": "Bottom Information List",
+        "limit": 4,
+        "settings": [
+          {
+            "type": "video",
+            "id": "bottom_video_url_1",
+            "label": "Add Bottom MP4 Video-1"
+          },
+          {
+            "type": "image_picker",
+            "id": "bottom_desktop_image_1",
+            "label": "Add Bottom Desktop Image-1"
+          },
+          {
+            "type": "image_picker",
+            "id": "bottom_mobile_image_1",
+            "label": "Add Bottom Mobile Image-1"
+          },
+          {
+            "type": "richtext",
+            "id": "bottom_info_text_1",
+            "label": "Add Bottom Information Text-1",
+            "default": "<p>Lorem ipsum dolor sit amet.</p>"
+          },
+          {
+            "type": "video",
+            "id": "bottom_video_url_2",
+            "label": "Add Bottom MP4 Video-2"
+          },
+          {
+            "type": "image_picker",
+            "id": "bottom_desktop_image_2",
+            "label": "Add Bottom Desktop Image-2"
+          },
+          {
+            "type": "image_picker",
+            "id": "bottom_mobile_image_2",
+            "label": "Add Bottom Mobile Image-2"
+          },
+          {
+            "type": "richtext",
+            "id": "bottom_info_text_2",
+            "label": "Add Bottom Information Text-2",
+            "default": "<p>Lorem ipsum dolor sit amet.</p>"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Page Table Difference",
+        "blocks": [
+          {
+            "type": "top-information-list"
+          },
+          {
+            "type": "bottom-information-list"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

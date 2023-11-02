@@ -1,0 +1,74 @@
+{% if section.settings.cta_label != blank and section.settings.cta_url != blank %}
+  <div style="margin-top: {{ section.settings.cta_margin | append: "px" }}" class="cta cta--{{ section.settings.cta_align }}">
+    <a class="cta__btn cta__btn--{{ section.settings.cta_type }}" href="{{ section.settings.cta_url }}">
+      {{ section.settings.cta_label }}
+    </a>
+  </div>
+{% endif %}
+
+
+{% schema %}
+{
+  "name": "CTA",
+  "settings": [
+    {
+      "id": "cta_label",
+      "type": "text",
+      "label": "CTA Label",
+      "default": "Shop Now"
+    },
+    {
+      "id": "cta_url",
+      "type": "url",
+      "label": "CTA Url"
+    },
+    {
+      "id": "cta_type",
+      "type": "select",
+      "label": "CTA Type",
+      "default": "primary",
+      "options": [
+        {
+          "label": "Primary",
+          "value": "primary"
+        },
+        {
+          "label": "Secondary",
+          "value": "secondary"
+        }
+      ]
+    },
+    {
+      "id": "cta_align",
+      "type": "select",
+      "label": "CTA Type",
+      "default": "center",
+      "options": [
+        {
+          "label": "Center",
+          "value": "center"
+        },
+        {
+          "label": "Left",
+          "value": "left"
+        },
+        {
+          "label": "Right",
+          "value": "right"
+        }
+      ]
+    },
+    {
+      "id": "cta_margin",
+      "type": "number",
+      "label": "Negative Margin",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "CTA"
+    }
+  ]
+}
+{% endschema %}

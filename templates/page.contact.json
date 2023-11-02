@@ -1,0 +1,125 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "show_video": true,
+        "d_video_url": "",
+        "video_url": ""
+      }
+    },
+    "163732452939124908": {
+      "type": "text-columns",
+      "blocks": {
+        "16373245299ca0a3dc-0": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": false,
+            "enable_video": false,
+            "video_url": "",
+            "image_width": 650,
+            "title": "Clutch FAQ",
+            "text": "<div class=\"contact-page-icons\">\n<a href=\"\/pages\/faqs\" title=\"Clutch FAQ\">\n<i class=\"fas fa-question-circle fa-6x\"><\/i>\n<\/a>\n<\/div>",
+            "button_label": "Get Answers",
+            "button_link": "shopify:\/\/pages\/faqs"
+          }
+        },
+        "16373245299ca0a3dc-1": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": false,
+            "enable_video": false,
+            "video_url": "",
+            "image_width": 650,
+            "title": "Return Policy",
+            "text": "<div class=\"contact-page-icons\">\n<a href=\"\/pages\/faq-page\" title=\"Clutch FAQ\">\n<i class=\"fas fa-shipping-fast fa-6x\"><\/i>\n<\/a>\n<\/div>",
+            "button_label": "Learn More",
+            "button_link": "shopify:\/\/pages\/return-policy"
+          }
+        },
+        "2002dc6f-961c-46c2-81b5-4c2b42b7f43d": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": false,
+            "enable_video": false,
+            "video_url": "",
+            "image_width": 650,
+            "title": "Privacy Policy",
+            "text": "<div class=\"contact-page-icons\">\n<a href=\"\/pages\/faq-page\" title=\"Clutch FAQ\">\n<i class=\"fas fa-file-alt fa-6x\"><\/i>\n<\/a>\n<\/div>",
+            "button_label": "Learn More",
+            "button_link": "shopify:\/\/pages\/privacy-policy"
+          }
+        }
+      },
+      "block_order": [
+        "16373245299ca0a3dc-0",
+        "16373245299ca0a3dc-1",
+        "2002dc6f-961c-46c2-81b5-4c2b42b7f43d"
+      ],
+      "settings": {
+        "title": "Any Questions?",
+        "align_text": "center",
+        "alt": false
+      }
+    },
+    "1637324534fbb7bbf6": {
+      "type": "advanced-content",
+      "blocks": {
+        "1637324534e389d07e-1": {
+          "type": "liquid",
+          "settings": {
+            "code": "<hr>",
+            "width": "100%",
+            "alignment": "center"
+          }
+        }
+      },
+      "block_order": [
+        "1637324534e389d07e-1"
+      ],
+      "settings": {
+        "full_width": false,
+        "space_around": false,
+        "alt": false
+      }
+    },
+    "form": {
+      "type": "contact-form",
+      "disabled": true,
+      "settings": {
+        "title": "Contact us",
+        "show_phone": true,
+        "narrow_column": true
+      }
+    },
+    "16373247764651efb6": {
+      "type": "advanced-content",
+      "blocks": {
+        "1637324776c8967b97-1": {
+          "type": "liquid",
+          "settings": {
+            "code": "<div class=\"contact-email\">\n<div data-gorgias-contact-form=\"container\"><\/div>\n<script defer src=\"https:\/\/contact.gorgias.help\/api\/contact-forms\/loader.js?uid=eqspaa66&locale=en-US\" data-gorgias-contact-form=\"script\"><\/script>\n  <!-- <svg\n    aria-hidden=\"true\"\n    focusable=\"false\"\n    role=\"presentation\"\n    class=\"icon icon-email\"\n    viewbox=\"0 0 64 64\"\n  >\n    <path\n      d=\"M63 52H1V12h62zM1 12l25.68 24h9.72L63 12M21.82 31.68L1.56 51.16m60.78.78L41.27 31.68\"\n    ><\/path>\n  <\/svg>\n  <a href=\"mailto:hello@clutchcharger.com\" title=\"Email\"\n    >hello@clutchcharger.com<\/a\n  > -->\n  <br \/>\n\n  <svg\n    width=\"14\"\n    height=\"23\"\n    viewBox=\"0 0 14 23\"\n    fill=\"none\"\n    xmlns=\"http:\/\/www.w3.org\/2000\/svg\"\n  >\n    <path\n      d=\"M2 22.5C1.45 22.5 0.979333 22.3043 0.588 21.913C0.196 21.521 0 21.05 0 20.5V2.5C0 1.95 0.196 1.479 0.588 1.087C0.979333 0.695667 1.45 0.5 2 0.5H12C12.55 0.5 13.021 0.695667 13.413 1.087C13.8043 1.479 14 1.95 14 2.5V20.5C14 21.05 13.8043 21.521 13.413 21.913C13.021 22.3043 12.55 22.5 12 22.5H2ZM2 17.5V20.5H12V17.5H2ZM7 20C7.28333 20 7.521 19.904 7.713 19.712C7.90433 19.5207 8 19.2833 8 19C8 18.7167 7.90433 18.4793 7.713 18.288C7.521 18.096 7.28333 18 7 18C6.71667 18 6.47933 18.096 6.288 18.288C6.096 18.4793 6 18.7167 6 19C6 19.2833 6.096 19.5207 6.288 19.712C6.47933 19.904 6.71667 20 7 20ZM2 15.5H12V5.5H2V15.5ZM2 3.5H12V2.5H2V3.5Z\"\n      fill=\"black\"\n    \/>\n  <\/svg>\n  <a href=\"tel:+15615767578\" title=\"phone\"> (561) 576-7578 <\/a>\n<\/div>\n<hr \/>\n<div id=\"wholesale\" class=\"wholesale-contact\">\n  <h2>Wholesale Inquiries<\/h2>\n  <p>Want to become a Clutch retailer? Send us a message.<\/p>\n  <svg\n    aria-hidden=\"true\"\n    focusable=\"false\"\n    role=\"presentation\"\n    class=\"icon icon-email\"\n    viewbox=\"0 0 64 64\"\n  >\n    <path\n      d=\"M63 52H1V12h62zM1 12l25.68 24h9.72L63 12M21.82 31.68L1.56 51.16m60.78.78L41.27 31.68\"\n    ><\/path>\n  <\/svg>\n  <a\n    href=\"mailto:wholesale@clutchcharger.com\"\n    label=\"wholesale-email\"\n    title=\"Wholesale Email\"\n    >wholesale@clutchcharger.com<\/a\n  >\n<\/div>",
+            "width": "100%",
+            "alignment": "center"
+          }
+        }
+      },
+      "block_order": [
+        "1637324776c8967b97-1"
+      ],
+      "settings": {
+        "full_width": false,
+        "space_around": true,
+        "alt": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "163732452939124908",
+    "1637324534fbb7bbf6",
+    "form",
+    "16373247764651efb6"
+  ]
+}

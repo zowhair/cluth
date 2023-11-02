@@ -1,0 +1,645 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+      }
+    },
+    "16373548077dbf60d0": {
+      "type": "text-columns",
+      "blocks": {
+        "163735480711942e13-1": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": false,
+            "enable_video": true,
+            "video_url": "https:\/\/youtu.be\/YWRgtDHopXY",
+            "image_width": 650,
+            "title": "Home Shopping Network",
+            "text": "",
+            "button_label": "",
+            "button_link": "https:\/\/youtu.be\/YWRgtDHopXY"
+          }
+        },
+        "163735480711942e13-0": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": false,
+            "enable_video": true,
+            "video_url": "https:\/\/youtu.be\/x8j9okwq3zg",
+            "image_width": 650,
+            "title": "Good Morning America",
+            "text": "",
+            "button_label": "",
+            "button_link": "https:\/\/youtu.be\/x8j9okwq3zg"
+          }
+        },
+        "1618287f-4fc2-4e25-bd4a-f8642d3e7ad2": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": false,
+            "enable_video": true,
+            "video_url": "https:\/\/youtu.be\/aPkF9LqXVCY",
+            "image_width": 650,
+            "title": "Clutch Testimonials",
+            "text": "",
+            "button_label": "",
+            "button_link": "https:\/\/youtu.be\/aPkF9LqXVCY"
+          }
+        }
+      },
+      "block_order": [
+        "163735480711942e13-1",
+        "163735480711942e13-0",
+        "1618287f-4fc2-4e25-bd4a-f8642d3e7ad2"
+      ],
+      "settings": {
+        "title": "Press",
+        "align_text": "center",
+        "alt": false
+      }
+    },
+    "1637355016a51b5b3e": {
+      "type": "text-columns",
+      "blocks": {
+        "16373550164dad9727-0": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": false,
+            "enable_video": true,
+            "video_url": "https:\/\/www.youtube.com\/watch?v=oZquzJ0yk-U&t=2s",
+            "image_width": 650,
+            "title": "Gear Patrol Unboxing",
+            "text": "",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "16373550164dad9727-1": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": false,
+            "enable_video": true,
+            "video_url": "https:\/\/youtu.be\/Ro7uZJnDTO4",
+            "image_width": 650,
+            "title": "Good Morning America",
+            "text": "",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "a175027b-54f3-4274-a6ed-f99f8ed0b4e3": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": false,
+            "enable_video": true,
+            "video_url": "https:\/\/youtu.be\/CQEY56fib6I",
+            "image_width": 650,
+            "title": "Unbox Therapy",
+            "text": "",
+            "button_label": "",
+            "button_link": "https:\/\/youtu.be\/CQEY56fib6I"
+          }
+        }
+      },
+      "block_order": [
+        "16373550164dad9727-0",
+        "16373550164dad9727-1",
+        "a175027b-54f3-4274-a6ed-f99f8ed0b4e3"
+      ],
+      "settings": {
+        "title": "",
+        "align_text": "center",
+        "alt": false
+      }
+    },
+    "163735517459c8beda": {
+      "type": "text-columns",
+      "blocks": {
+        "163735517472d13f38-0": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "image": "shopify:\/\/shop_images\/mens-health.png",
+            "enable_video": false,
+            "video_url": "",
+            "image_width": 650,
+            "title": "Men's Health",
+            "text": "",
+            "button_label": "",
+            "button_link": "https:\/\/www.menshealth.com\/technology-gear\/g23941283\/best-tech-gifts\/"
+          }
+        },
+        "163735517472d13f38-1": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "image": "shopify:\/\/shop_images\/pc-mag.jpg",
+            "enable_video": false,
+            "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+            "image_width": 650,
+            "title": "PC Magazine",
+            "text": "",
+            "button_label": "",
+            "button_link": "https:\/\/www.pcmag.com\/picks\/the-best-tech-gifts-for-women?utm_source=facebook&utm_medium=paidsocial&fbclid=IwAR0yLLtRg0x4EBIbXoyjDrzOiRfm6jO6vyhYfC4mielb99E-1tl9275pw24"
+          }
+        },
+        "7695db0c-166b-422b-9998-42d9f1bf1fcc": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "image": "shopify:\/\/shop_images\/nyt_036b26b4-5c91-4d83-9ff4-a806e5510be4.png",
+            "enable_video": false,
+            "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+            "image_width": 650,
+            "title": "The New York Times",
+            "text": "",
+            "button_label": "",
+            "button_link": "https:\/\/www.nytimes.com\/wirecutter\/reviews\/best-usb-battery-packs\/"
+          }
+        }
+      },
+      "block_order": [
+        "163735517472d13f38-0",
+        "163735517472d13f38-1",
+        "7695db0c-166b-422b-9998-42d9f1bf1fcc"
+      ],
+      "settings": {
+        "title": "",
+        "align_text": "center",
+        "alt": false
+      }
+    },
+    "163735568931a3e0d6": {
+      "type": "text-columns",
+      "blocks": {
+        "16373556897f3a0acd-0": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "image": "shopify:\/\/shop_images\/ruelala.png",
+            "enable_video": false,
+            "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+            "image_width": 650,
+            "title": "Rue LaLa",
+            "text": "",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "16373556897f3a0acd-1": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "image": "shopify:\/\/shop_images\/zulily.png",
+            "enable_video": false,
+            "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+            "image_width": 650,
+            "title": "Zulily",
+            "text": "",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "d7dc4b4e-fa45-4ce1-9ea9-6a6f9da6863a": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "image": "shopify:\/\/shop_images\/touch-of-modern.jpg",
+            "enable_video": false,
+            "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+            "image_width": 650,
+            "title": "Touch of Modern",
+            "text": "",
+            "button_label": "",
+            "button_link": "https:\/\/www.touchofmodern.com\/sales\/clutch-charger\/clutch-charger?wall=1"
+          }
+        }
+      },
+      "block_order": [
+        "16373556897f3a0acd-0",
+        "16373556897f3a0acd-1",
+        "d7dc4b4e-fa45-4ce1-9ea9-6a6f9da6863a"
+      ],
+      "settings": {
+        "title": "",
+        "align_text": "center",
+        "alt": false
+      }
+    },
+    "1637355872d3ca1e81": {
+      "type": "text-columns",
+      "blocks": {
+        "1637355872b8f0b09f-0": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "image": "shopify:\/\/shop_images\/entreprenueur.jpg",
+            "enable_video": false,
+            "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+            "image_width": 650,
+            "title": "Entrepreneur",
+            "text": "",
+            "button_label": "",
+            "button_link": "https:\/\/store.entrepreneur.com\/sales\/clutch-charger?utm_campaign=feed&utm_medium=RSS&utm_source=ENTR"
+          }
+        },
+        "1637355872b8f0b09f-1": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "image": "shopify:\/\/shop_images\/mashable.jpg",
+            "enable_video": false,
+            "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+            "image_width": 650,
+            "title": "Mashable",
+            "text": "",
+            "button_label": "",
+            "button_link": "https:\/\/shop.mashable.com\/sales\/clutch-charger?gclid=EAIaIQobChMIzaPGwqnx6AIVForICh13IguoEAUYASABEgLlavD_BwE"
+          }
+        },
+        "30cc8729-43e7-4a0a-b837-b6608bee5ebd": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "image": "shopify:\/\/shop_images\/c-net-2.jpg",
+            "enable_video": false,
+            "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+            "image_width": 650,
+            "title": "C-NET",
+            "text": "",
+            "button_label": "",
+            "button_link": "https:\/\/www.cnet.com\/deals\/clutch-the-worlds-thinnest-portable-charger-27614\/"
+          }
+        }
+      },
+      "block_order": [
+        "1637355872b8f0b09f-0",
+        "1637355872b8f0b09f-1",
+        "30cc8729-43e7-4a0a-b837-b6608bee5ebd"
+      ],
+      "settings": {
+        "title": "",
+        "align_text": "center",
+        "alt": false
+      }
+    },
+    "16373560871b2711c1": {
+      "type": "text-columns",
+      "blocks": {
+        "16373560873020ef48-0": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "image": "shopify:\/\/shop_images\/business-insider.jpg",
+            "enable_video": false,
+            "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+            "image_width": 650,
+            "title": "Business Insider",
+            "text": "",
+            "button_label": "",
+            "button_link": "https:\/\/www.businessinsider.com\/best-battery-packs"
+          }
+        },
+        "16373560873020ef48-1": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "image": "shopify:\/\/shop_images\/gadget-flow.jpg",
+            "enable_video": false,
+            "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+            "image_width": 650,
+            "title": "Gadget Flow",
+            "text": "",
+            "button_label": "",
+            "button_link": "https:\/\/thegadgetflow.com\/portfolio\/tiny-power-bank\/"
+          }
+        },
+        "54629123-4114-4883-b3be-43922150a146": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "image": "shopify:\/\/shop_images\/digital-trends.jpg",
+            "enable_video": false,
+            "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+            "image_width": 650,
+            "title": "Digital Trends",
+            "text": "",
+            "button_label": "",
+            "button_link": "https:\/\/www.digitaltrends.com\/mobile\/best-portable-battery-chargers\/"
+          }
+        }
+      },
+      "block_order": [
+        "16373560873020ef48-0",
+        "16373560873020ef48-1",
+        "54629123-4114-4883-b3be-43922150a146"
+      ],
+      "settings": {
+        "title": "",
+        "align_text": "center",
+        "alt": false
+      }
+    },
+    "16373562640148dbb0": {
+      "type": "text-columns",
+      "blocks": {
+        "16373562648a9ff5fc-0": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "image": "shopify:\/\/shop_images\/gdgt-2.jpg",
+            "enable_video": false,
+            "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+            "image_width": 650,
+            "title": "GDGT",
+            "text": "",
+            "button_label": "",
+            "button_link": "https:\/\/deals.gdgt.com\/sales\/clutch-charger"
+          }
+        },
+        "16373562648a9ff5fc-1": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "image": "shopify:\/\/shop_images\/mac-world.jpg",
+            "enable_video": false,
+            "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+            "image_width": 650,
+            "title": "Macworld",
+            "text": "",
+            "button_label": "",
+            "button_link": "https:\/\/www.macworld.com\/article\/3546274\/6-tech-deals-you-can-get-for-extra-cheap-right-now.html"
+          }
+        },
+        "37c0676b-a67d-48b5-9d40-323adeb5d0e8": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "image": "shopify:\/\/shop_images\/ny-post.jpg",
+            "enable_video": false,
+            "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+            "image_width": 650,
+            "title": "NEW YORK POST",
+            "text": "",
+            "button_label": "",
+            "button_link": "https:\/\/nypost.com\/2020\/06\/21\/38-amazing-products-on-sale-you-should-probably-grab-right-now\/"
+          }
+        }
+      },
+      "block_order": [
+        "16373562648a9ff5fc-0",
+        "16373562648a9ff5fc-1",
+        "37c0676b-a67d-48b5-9d40-323adeb5d0e8"
+      ],
+      "settings": {
+        "title": "",
+        "align_text": "center",
+        "alt": false
+      }
+    },
+    "1637356440add8115a": {
+      "type": "text-columns",
+      "blocks": {
+        "334fb17d-7e27-44b7-b5d0-d1ad9d9771a0": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "image": "shopify:\/\/shop_images\/gma.jpg",
+            "enable_video": false,
+            "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+            "image_width": 650,
+            "title": "ABC - Good Morning America",
+            "text": "",
+            "button_label": "",
+            "button_link": "https:\/\/www.goodmorningamerica.com\/shop\/story\/gma3-deals-steals-tech-solutions-76067600"
+          }
+        },
+        "163735644052eaa234-0": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "image": "shopify:\/\/shop_images\/power-bank-expert.jpg",
+            "enable_video": false,
+            "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+            "image_width": 650,
+            "title": "Power Bank Expert",
+            "text": "",
+            "button_label": "",
+            "button_link": "https:\/\/www.powerbankexpert.com\/clutch-ultra-thin-power-bank-review\/"
+          }
+        },
+        "163735644052eaa234-1": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "image": "shopify:\/\/shop_images\/pocket-now.jpg",
+            "enable_video": false,
+            "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+            "image_width": 650,
+            "title": "Pocket Now",
+            "text": "",
+            "button_label": "",
+            "button_link": "https:\/\/pocketnow.com\/7-useful-and-stylish-chargers-for-your-smartphone"
+          }
+        }
+      },
+      "block_order": [
+        "334fb17d-7e27-44b7-b5d0-d1ad9d9771a0",
+        "163735644052eaa234-0",
+        "163735644052eaa234-1"
+      ],
+      "settings": {
+        "title": "",
+        "align_text": "center",
+        "alt": false
+      }
+    },
+    "163735667093818182": {
+      "type": "text-columns",
+      "blocks": {
+        "16373566704ff22e4e-0": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "image": "shopify:\/\/shop_images\/tech-connect.jpg",
+            "enable_video": false,
+            "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+            "image_width": 650,
+            "title": "Tech Connect",
+            "text": "",
+            "button_label": "",
+            "button_link": "https:\/\/www.techconnect.com\/article\/3537552\/these-10-essential-gadgets-are-all-on-sale-today.html"
+          }
+        },
+        "16373566704ff22e4e-1": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "image": "shopify:\/\/shop_images\/xda-developers.jpg",
+            "enable_video": false,
+            "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+            "image_width": 650,
+            "title": "XDA Developers",
+            "text": "",
+            "button_label": "",
+            "button_link": "https:\/\/www.xda-developers.com\/stay-connected-with-up-to-60-off-these-power-banks-and-wireless-chargers\/"
+          }
+        },
+        "badd3c26-553d-4720-a0b5-dfe9d5d06138": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "image": "shopify:\/\/shop_images\/GeekDad.jpg",
+            "enable_video": false,
+            "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+            "image_width": 650,
+            "title": "Geek Dad",
+            "text": "",
+            "button_label": "",
+            "button_link": "https:\/\/geekdad.com\/2020\/04\/geekdad-daily-deal-clutch-the-worlds-thinnest-portable-charger\/"
+          }
+        }
+      },
+      "block_order": [
+        "16373566704ff22e4e-0",
+        "16373566704ff22e4e-1",
+        "badd3c26-553d-4720-a0b5-dfe9d5d06138"
+      ],
+      "settings": {
+        "title": "",
+        "align_text": "center",
+        "alt": false
+      }
+    },
+    "16373568291ad1ab69": {
+      "type": "text-columns",
+      "blocks": {
+        "1637356829a02c8dbd-0": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "image": "shopify:\/\/shop_images\/i-more-3.jpg",
+            "enable_video": false,
+            "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+            "image_width": 650,
+            "title": "iMore",
+            "text": "",
+            "button_label": "",
+            "button_link": "https:\/\/www.imore.com\/clutch-charger-review"
+          }
+        },
+        "1637356829a02c8dbd-1": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "image": "shopify:\/\/shop_images\/sears.jpg",
+            "enable_video": false,
+            "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+            "image_width": 650,
+            "title": "Sears Online",
+            "text": "",
+            "button_label": "",
+            "button_link": "https:\/\/www.sears.com\/clutch-world-s-thinnest-portable-charger-ultra-slim-2300mah\/p-A062248959"
+          }
+        },
+        "5086b3cc-6947-44f0-978d-ba3e650db910": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "image": "shopify:\/\/shop_images\/live-mint.jpg",
+            "enable_video": false,
+            "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+            "image_width": 650,
+            "title": "Live Mint",
+            "text": "",
+            "button_label": "",
+            "button_link": "https:\/\/www.livemint.com\/technology\/gadgets\/iphone-users-can-now-charge-with-world-s-thinnest-portable-charger-11576126279826.html"
+          }
+        }
+      },
+      "block_order": [
+        "1637356829a02c8dbd-0",
+        "1637356829a02c8dbd-1",
+        "5086b3cc-6947-44f0-978d-ba3e650db910"
+      ],
+      "settings": {
+        "title": "",
+        "align_text": "center",
+        "alt": false
+      }
+    },
+    "1637356981577d7753": {
+      "type": "text-columns",
+      "blocks": {
+        "470492a7-1b76-4d6c-aa52-0c8f52fb174e": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "image": "shopify:\/\/shop_images\/pop-sci.jpg",
+            "enable_video": false,
+            "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+            "image_width": 650,
+            "title": "Popular Science",
+            "text": "",
+            "button_label": "",
+            "button_link": "https:\/\/www.popsci.com\/story\/sponsored-post\/memorial-day-tech-deals\/"
+          }
+        },
+        "163735698175d9b8ec-0": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "image": "shopify:\/\/shop_images\/toms-finds.jpg",
+            "enable_video": false,
+            "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+            "image_width": 650,
+            "title": "Tom's Finds",
+            "text": "",
+            "button_label": "",
+            "button_link": "https:\/\/tomsfinds.com\/?s=clutch"
+          }
+        },
+        "163735698175d9b8ec-1": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "image": "shopify:\/\/shop_images\/stack-social.jpg",
+            "enable_video": false,
+            "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+            "image_width": 650,
+            "title": "Stack Social",
+            "text": "",
+            "button_label": "",
+            "button_link": "https:\/\/stacksocial.com\/sales\/clutch-charger"
+          }
+        }
+      },
+      "block_order": [
+        "470492a7-1b76-4d6c-aa52-0c8f52fb174e",
+        "163735698175d9b8ec-0",
+        "163735698175d9b8ec-1"
+      ],
+      "settings": {
+        "title": "",
+        "align_text": "center",
+        "alt": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "16373548077dbf60d0",
+    "1637355016a51b5b3e",
+    "163735517459c8beda",
+    "163735568931a3e0d6",
+    "1637355872d3ca1e81",
+    "16373560871b2711c1",
+    "16373562640148dbb0",
+    "1637356440add8115a",
+    "163735667093818182",
+    "16373568291ad1ab69",
+    "1637356981577d7753"
+  ]
+}

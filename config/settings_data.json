@@ -1,0 +1,1385 @@
+{
+  "current": {
+    "color_body_bg": "#ffffff",
+    "color_body_text": "#333029",
+    "color_button": "#000000",
+    "color_button_text": "#ffffff",
+    "color_sale_price": "#333029",
+    "color_sale_tag": "#000000",
+    "color_cart_dot": "rgba(0,0,0,0)",
+    "color_cart_dot_text": "#000000",
+    "color_alt_bg": "#000000",
+    "color_alt_text": "#ffffff",
+    "color_announcement": "#1c1c1c",
+    "color_announcement_text": "#ffffff",
+    "color_newsletter": "#000000",
+    "color_newsletter_text": "#fff",
+    "color_drawer_background": "#000000",
+    "color_drawer_text": "#ffffff",
+    "color_image_text": "#ffffff",
+    "color_image_overlay": "#000000",
+    "color_image_overlay_opacity": 10,
+    "color_image_overlay_text_shadow": 30,
+    "color_small_image_bg": "#ffffff",
+    "color_large_image_bg": "#000000",
+    "type_header_font_family": "open_sans_condensed_n3",
+    "type_header_capitalize": true,
+    "type_header_spacing": 25,
+    "type_header_base_size": 49,
+    "type_header_line_height": 1,
+    "type_base_font_family": "open_sans_n3",
+    "type_product_capitalize": false,
+    "type_base_spacing": 25,
+    "type_base_size": 15,
+    "type_base_line_height": 1.6,
+    "type_navigation_size": 26,
+    "button_type_style": "normal",
+    "button_style": "shadow",
+    "animate_images": false,
+    "logo_loader_image": "shopify:\/\/shop_images\/CLUTCH-logo-white.png",
+    "desktop_loader_width": 400,
+    "mobile_loader_width": 100,
+    "product_hover_details": false,
+    "product_hover_image": true,
+    "product_image_scatter": false,
+    "product_grid_image_size": "square",
+    "enable_swatches": true,
+    "enable_product_reviews": false,
+    "enable_add_to_cart_plp": true,
+    "cart_type": "drawer",
+    "social_instagram_link": "https:\/\/www.instagram.com\/clutchcharger\/",
+    "social_facebook_link": "https:\/\/www.facebook.com\/Clutchcharger\/",
+    "social_twitter_link": "https:\/\/twitter.com\/clutchcharger",
+    "social_pinterest_link": "https:\/\/www.pinterest.com\/clutchcharger",
+    "social_tiktok_link": "https:\/\/www.tiktok.com\/@clutchcharger",
+    "social_youtube_link": "https:\/\/www.youtube.com\/channel\/UC2cGlOSPV42hIjR580ILJ7w",
+    "favicon": "shopify:\/\/shop_images\/CLUTCH-logo-white.png",
+    "checkout_logo_position": "left",
+    "checkout_logo_size": "medium",
+    "checkout_body_background_color": "#ffffff",
+    "checkout_input_background_color_mode": "white",
+    "checkout_sidebar_background_color": "#fafafa",
+    "checkout_heading_font": "Helvetica Neue",
+    "checkout_body_font": "Helvetica Neue",
+    "checkout_accent_color": "#111111",
+    "checkout_button_color": "#111111",
+    "checkout_error_color": "#ff6d6d",
+    "animate_page_transition_style": "page-logo",
+    "checkout_banner_background_color": "#ffffff",
+    "checkout_call_to_action_color": "#a26b25",
+    "checkout_use_header_image": false,
+    "product_video_style": "muted",
+    "sections": {
+      "header": {
+        "type": "header",
+        "blocks": {
+          "b6b170fd-6b74-4c0d-a8e0-99f73b90ac05": {
+            "type": "announcement",
+            "settings": {
+              "announcement_text": "BOGO 50% Off",
+              "announcement_link": "shopify:\/\/collections\/clutch-chargers"
+            }
+          },
+          "a10b2b0d-688f-480d-91ea-e3001a94dc80": {
+            "type": "announcement",
+            "settings": {
+              "announcement_text": "<p>Free US Shipping<\/p>",
+              "announcement_link": "https:\/\/clutchcharger.com\/collections\/clutch-chargers"
+            }
+          },
+          "6a4af419-307c-40f7-8f17-5976271b25d1": {
+            "type": "collection_mobile",
+            "settings": {
+              "collection": "https:\/\/clutchcharger.com\/collections\/clutch-chargers",
+              "image": "shopify:\/\/shop_images\/shop-all.png",
+              "title": "Shop All"
+            }
+          },
+          "9824ee97-c02e-4079-a4ac-c813815b0003": {
+            "type": "collection_mobile",
+            "settings": {
+              "collection": "shopify:\/\/collections\/best-sellers",
+              "image": "shopify:\/\/shop_images\/best-sellers.png",
+              "title": "Best Sellers"
+            }
+          },
+          "d5f29e91-5b27-4d20-91b2-da5d3b8f89ad": {
+            "type": "collection_mobile",
+            "settings": {
+              "collection": "\/products\/clutch-pro-iphone",
+              "image": "shopify:\/\/shop_images\/iphone.png",
+              "title": "iPhone"
+            }
+          },
+          "bb94de81-9fae-483d-ad65-e19a4304a0f5": {
+            "type": "collection_mobile",
+            "settings": {
+              "collection": "\/products\/clutch-pro-usbc",
+              "image": "shopify:\/\/shop_images\/android.png",
+              "title": "Android"
+            }
+          },
+          "5a4812bf-29ab-47de-bcbd-2b4d2ebb579a": {
+            "type": "collection_mobile",
+            "settings": {
+              "collection": "shopify:\/\/products\/clutch-max",
+              "image": "shopify:\/\/shop_images\/tablets_bf39b456-cb8b-4eb0-9422-a74b254dc538.png",
+              "title": "Tablets"
+            }
+          },
+          "2ca37f7e-3ee6-410c-b30f-82b1f01a03cd": {
+            "type": "collection_mobile",
+            "settings": {
+              "collection": "shopify:\/\/collections\/accessories",
+              "image": "shopify:\/\/shop_images\/accessories.png",
+              "title": "Accessories"
+            }
+          },
+          "3a472b71-d0a9-414f-b2c3-dd9a75d9f769": {
+            "type": "dropdown_shop",
+            "settings": {
+              "link": "shopify:\/\/collections\/clutch-chargers",
+              "image": "shopify:\/\/shop_images\/clutchcharger-105_1.jpg",
+              "title": "Shop All"
+            }
+          },
+          "6002df43-667c-4b77-b1e6-f1146345130c": {
+            "type": "dropdown_shop",
+            "settings": {
+              "link": "\/products\/clutch-pro-iphone",
+              "image": "shopify:\/\/shop_images\/clutchcharger-76_1_1.jpg",
+              "title": "iPhone"
+            }
+          },
+          "37142631-f00d-41de-b038-0d16ddef28bc": {
+            "type": "dropdown_shop",
+            "settings": {
+              "link": "\/products\/clutch-pro-usbc",
+              "image": "shopify:\/\/shop_images\/clutchcharger-39_1.jpg",
+              "title": "Android"
+            }
+          },
+          "24d4a92c-7fb5-4897-92ca-d3a203dd9ae2": {
+            "type": "dropdown_shop",
+            "settings": {
+              "link": "shopify:\/\/products\/clutch-max",
+              "image": "shopify:\/\/shop_images\/clutchcharger-39_2.jpg",
+              "title": "Tablet"
+            }
+          },
+          "02bb4c4b-1e05-44b4-b789-404166530f2a": {
+            "type": "dropdown_shop",
+            "settings": {
+              "link": "shopify:\/\/products\/clutch-gift-card",
+              "image": "shopify:\/\/shop_images\/gift_card.jpg",
+              "title": "Gift Card"
+            }
+          }
+        },
+        "block_order": [
+          "b6b170fd-6b74-4c0d-a8e0-99f73b90ac05",
+          "a10b2b0d-688f-480d-91ea-e3001a94dc80",
+          "6a4af419-307c-40f7-8f17-5976271b25d1",
+          "9824ee97-c02e-4079-a4ac-c813815b0003",
+          "d5f29e91-5b27-4d20-91b2-da5d3b8f89ad",
+          "bb94de81-9fae-483d-ad65-e19a4304a0f5",
+          "5a4812bf-29ab-47de-bcbd-2b4d2ebb579a",
+          "2ca37f7e-3ee6-410c-b30f-82b1f01a03cd",
+          "3a472b71-d0a9-414f-b2c3-dd9a75d9f769",
+          "6002df43-667c-4b77-b1e6-f1146345130c",
+          "37142631-f00d-41de-b038-0d16ddef28bc",
+          "24d4a92c-7fb5-4897-92ca-d3a203dd9ae2",
+          "02bb4c4b-1e05-44b4-b789-404166530f2a"
+        ],
+        "settings": {
+          "header_style": "button",
+          "main_menu_alignment": "left-center",
+          "sticky_index": true,
+          "sticky_collection": false,
+          "header_search_enable": true,
+          "logo": "shopify:\/\/shop_images\/CLUTCH-logo-white.png",
+          "logo-inverted": "shopify:\/\/shop_images\/CLUTCH-logo-white.png",
+          "desktop_logo_width": 80,
+          "mobile_logo_width": 80,
+          "logo_hide_mobile": false,
+          "main_menu_link_list": "menu-new",
+          "show_announcement": true,
+          "show_announcement_home_only": false,
+          "announcement_text": "Buy One get One 50% OFF with code \"BOGO50\"",
+          "announcement_link": ""
+        }
+      },
+      "header-v2": {
+        "type": "header-v2",
+        "blocks": {
+          "header-v2-1": {
+            "type": "hamburger_menu",
+            "settings": {
+              "hamburger_icon": "shopify:\/\/shop_images\/hamburguer-clutch.svg",
+              "floating_menu_logo": "shopify:\/\/shop_images\/logo-floating-menu.svg",
+              "link_list": "hamburger-menu-desktop",
+              "account_link": true,
+              "phone_number": "(561) 576-7578",
+              "mail": "hello@clutchcharger.com",
+              "social_links": true
+            }
+          },
+          "header-v2-2": {
+            "type": "logo",
+            "settings": {
+              "main_logo": "shopify:\/\/shop_images\/logo-clutch.svg"
+            }
+          },
+          "header-v2-3": {
+            "type": "mega_nav",
+            "settings": {
+              "link_list": "mega-nav-menu",
+              "featured_image": "shopify:\/\/shop_images\/featured-image-menu.png",
+              "featured_image_link": "shopify:\/\/products\/clutch-pro",
+              "featured_image_link_text": "Peace of Mind Anytime, <strong>Anywhere<\/strong>"
+            }
+          },
+          "header-v2-4": {
+            "type": "utility_nav",
+            "settings": {
+              "account_link": true,
+              "search_link": true,
+              "cart_link": true
+            }
+          },
+          "header-v2-5": {
+            "type": "announcement",
+            "settings": {
+              "announcement_text": "<p>Free 2-4 Day US Shipping<\/p>",
+              "announcement_link": "https:\/\/clutchcharger.com\/collections\/clutch-chargers"
+            }
+          },
+          "header-v2-6": {
+            "type": "announcement",
+            "disabled": true,
+            "settings": {
+              "announcement_text": "20% Off Sitewide with Code:  <span class=\"cupon\">LABOR20<\/span>",
+              "announcement_link": "\/collections\/clutch-chargers"
+            }
+          },
+          "header-v2-7": {
+            "type": "collection_mobile",
+            "settings": {
+              "collection": "https:\/\/clutchcharger.com\/collections\/clutch-chargers",
+              "image": "shopify:\/\/shop_images\/shop-all.png",
+              "title": "Shop All"
+            }
+          },
+          "header-v2-8": {
+            "type": "collection_mobile",
+            "settings": {
+              "collection": "shopify:\/\/collections\/best-sellers",
+              "image": "shopify:\/\/shop_images\/best-sellers.png",
+              "title": "Best Sellers"
+            }
+          },
+          "header-v2-9": {
+            "type": "collection_mobile",
+            "settings": {
+              "collection": "\/products\/clutch-pro-iphone",
+              "image": "shopify:\/\/shop_images\/iphone.png",
+              "title": "iPhone"
+            }
+          },
+          "header-v2-10": {
+            "type": "collection_mobile",
+            "settings": {
+              "collection": "\/products\/clutch-pro-usbc",
+              "image": "shopify:\/\/shop_images\/android.png",
+              "title": "Android"
+            }
+          },
+          "header-v2-11": {
+            "type": "collection_mobile",
+            "settings": {
+              "collection": "shopify:\/\/products\/clutch-max",
+              "image": "shopify:\/\/shop_images\/tablets_bf39b456-cb8b-4eb0-9422-a74b254dc538.png",
+              "title": "Tablets"
+            }
+          },
+          "header-v2-12": {
+            "type": "collection_mobile",
+            "settings": {
+              "collection": "shopify:\/\/collections\/accessories",
+              "image": "shopify:\/\/shop_images\/accessories.png",
+              "title": "Accessories"
+            }
+          },
+          "header-v2-13": {
+            "type": "mobile_menu",
+            "settings": {
+              "link_list": "hamburger-mobile-menu",
+              "search_form": true
+            }
+          }
+        },
+        "block_order": [
+          "header-v2-1",
+          "header-v2-2",
+          "header-v2-3",
+          "header-v2-4",
+          "header-v2-5",
+          "header-v2-6",
+          "header-v2-7",
+          "header-v2-8",
+          "header-v2-9",
+          "header-v2-10",
+          "header-v2-11",
+          "header-v2-12",
+          "header-v2-13"
+        ],
+        "settings": {
+          "highlighted_link": "shopify:\/\/products\/clutch-max",
+          "highlighted_badge": "New"
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "blocks": {
+          "87428aa8-f09b-4604-a0d0-fdde1acb4d06": {
+            "type": "navigation",
+            "settings": {
+              "title": "Shop",
+              "menu": "shop-footer"
+            }
+          },
+          "1270e031-2807-4b0d-a20b-2feb6658c409": {
+            "type": "navigation",
+            "settings": {
+              "title": "About",
+              "menu": "about-footer"
+            }
+          },
+          "54d42370-c3d7-4798-ad0e-e75899f7721b": {
+            "type": "navigation",
+            "settings": {
+              "title": "Support",
+              "menu": "support-footer"
+            }
+          }
+        },
+        "block_order": [
+          "87428aa8-f09b-4604-a0d0-fdde1acb4d06",
+          "1270e031-2807-4b0d-a20b-2feb6658c409",
+          "54d42370-c3d7-4798-ad0e-e75899f7721b"
+        ],
+        "settings": {
+          "show_newsletter": false,
+          "newsletter_title": "Sign up. Stay Clutch.",
+          "newsletter_richtext": "<p>Be the first to know about special promotions, new releases, product updates, and more!<\/p>",
+          "show_locale_selector": false,
+          "show_currency_selector": false,
+          "show_currency_flags": false,
+          "show_social_icons": true,
+          "menu": "",
+          "show_payment_icons": false,
+          "show_copyright": true,
+          "copyright_text": "All Rights Reserved."
+        }
+      },
+      "newsletter-popup": {
+        "type": "newsletter-popup",
+        "settings": {
+          "mode": "disabled",
+          "popup_seconds": 5,
+          "popup_days": 30,
+          "popup_title": "Sign up and save",
+          "popup_text": "<p>Entice customers to sign up for your mailing list with discounts or exclusive offers.<\/p>",
+          "enable_newsletter": true,
+          "button_label": "",
+          "button_link": ""
+        }
+      },
+      "product-recommendations": {
+        "type": "product-recommendations",
+        "settings": {
+          "show_product_recommendations": true
+        }
+      },
+      "social": {
+        "type": "social",
+        "settings": {
+          "enable_home": false,
+          "enable_product": false,
+          "enable_collection": false,
+          "title": "On social",
+          "description": "<p>Send us yours <a href=\"https:\/\/instagram.com\/youraccount\/\">@youraccount<\/a><\/p>"
+        }
+      },
+      "side-cart-gamification": {
+        "type": "side-cart-gamification",
+        "blocks": {
+          "57229e8e-927b-4cd8-b220-f7d705be7719": {
+            "type": "sidecart_goal",
+            "settings": {
+              "goal_icon": "shopify:\/\/shop_images\/Frame.png",
+              "goal_icon_active": "shopify:\/\/shop_images\/expedited-shipping-b.png",
+              "text": "$75",
+              "value": 75,
+              "showModal": false,
+              "product": "",
+              "fallbackProduct": "Free Expedited Shipping"
+            }
+          },
+          "dccb8736-1dd5-4c4b-afa7-f0551c12d177": {
+            "type": "sidecart_goal",
+            "settings": {
+              "goal_icon": "shopify:\/\/shop_images\/Frame_1.png",
+              "goal_icon_active": "shopify:\/\/shop_images\/free-v3-b.png",
+              "text": "$125",
+              "value": 125,
+              "showModal": false,
+              "product": "cluch-v3",
+              "fallbackProduct": ""
+            }
+          },
+          "c9b474e0-c10a-4325-b787-15bd2200cdb4": {
+            "type": "sidecart_goal",
+            "settings": {
+              "goal_icon": "shopify:\/\/shop_images\/Frame_2.png",
+              "goal_icon_active": "shopify:\/\/shop_images\/free-cluch-b.png",
+              "text": "$200",
+              "value": 200,
+              "showModal": false,
+              "product": "clutch-max-1",
+              "fallbackProduct": ""
+            }
+          }
+        },
+        "block_order": [
+          "57229e8e-927b-4cd8-b220-f7d705be7719",
+          "dccb8736-1dd5-4c4b-afa7-f0551c12d177",
+          "c9b474e0-c10a-4325-b787-15bd2200cdb4"
+        ],
+        "settings": {
+        }
+      },
+      "cart-drawer": {
+        "type": "cart-drawer",
+        "blocks": {
+          "5a1629cd-3a03-4f07-8a6a-2c9a82989a98": {
+            "type": "sidecart_goal",
+            "settings": {
+              "goal_icon": "shopify:\/\/shop_images\/shipping_4827179c-f72f-4ff3-965d-27c148a0d5ab.png",
+              "goal_icon_active": "shopify:\/\/shop_images\/shipping-active.png",
+              "caption": "$75",
+              "value": 75,
+              "showModal": false,
+              "product": "",
+              "fallbackProduct": "Free Expedited Shipping"
+            }
+          },
+          "ad788309-9bb2-4eb5-83ab-d8527f9b9ffd": {
+            "type": "sidecart_goal",
+            "settings": {
+              "goal_icon": "shopify:\/\/shop_images\/Group_45_24c8da51-ca24-4c22-95a5-115fe39826d1.png",
+              "goal_icon_active": "shopify:\/\/shop_images\/Group_46_1.png",
+              "caption": "$125",
+              "value": 125,
+              "showModal": false,
+              "product": "clutch-pro",
+              "fallbackProduct": "Free Clutch Pro"
+            }
+          },
+          "6a8e3bc7-7fff-4511-a26e-0c92d23c6382": {
+            "type": "sidecart_goal",
+            "settings": {
+              "goal_icon": "shopify:\/\/shop_images\/Group_45_24c8da51-ca24-4c22-95a5-115fe39826d1.png",
+              "goal_icon_active": "shopify:\/\/shop_images\/Group_46_1.png",
+              "caption": "$200",
+              "value": 200,
+              "showModal": false,
+              "product": "copy-of-clutch-pro",
+              "fallbackProduct": "Free Clutch Pro"
+            }
+          },
+          "f8119c64-ff42-4344-a9bd-f4b6b70cf355": {
+            "type": "also-like",
+            "settings": {
+              "prod": "clutch-pro-iphone"
+            }
+          },
+          "1b48db64-a163-49fb-b5a9-97e2bb01634a": {
+            "type": "also-like",
+            "settings": {
+              "prod": "clutch-pro-usbc"
+            }
+          }
+        },
+        "block_order": [
+          "5a1629cd-3a03-4f07-8a6a-2c9a82989a98",
+          "ad788309-9bb2-4eb5-83ab-d8527f9b9ffd",
+          "6a8e3bc7-7fff-4511-a26e-0c92d23c6382",
+          "f8119c64-ff42-4344-a9bd-f4b6b70cf355",
+          "1b48db64-a163-49fb-b5a9-97e2bb01634a"
+        ],
+        "settings": {
+          "enableGamification": true,
+          "alsoLike": true,
+          "title-upsell": "Hey, add one more as a gift!"
+        }
+      },
+      "header-clutch-pro": {
+        "type": "header-clutch-pro",
+        "settings": {
+          "logo": "shopify:\/\/shop_images\/logo-clucthc.png",
+          "url_cta": "#product_buy",
+          "label_cta": "Shop Sale Now!",
+          "anchor-link": true
+        }
+      },
+      "Page-announcement-bar-new": {
+        "type": "Page-announcement-bar-new",
+        "blocks": {
+          "ce120576-77b4-4b54-b05f-34180f699326": {
+            "type": "information",
+            "settings": {
+              "info_text": "<p><a href=\"#shop\" title=\"#shop\">GET FREE SHIPPING TODAY!<\/a><\/p>"
+            }
+          }
+        },
+        "block_order": [
+          "ce120576-77b4-4b54-b05f-34180f699326"
+        ],
+        "settings": {
+          "main_back_color": "#222222",
+          "main_text_color": "#ffffff",
+          "main_timer_heading_text": "",
+          "main_timer_end_date": ""
+        }
+      },
+      "header-lp-new": {
+        "type": "header-lp-new",
+        "settings": {
+          "main_back_color": "#141414",
+          "main_logo_image": "shopify:\/\/shop_images\/LP_logo.svg"
+        }
+      },
+      "footer-lp-new": {
+        "type": "footer-lp-new",
+        "settings": {
+          "main_back_color": "#141414",
+          "main_text_color": "#ffffff",
+          "main_logo_image": "shopify:\/\/shop_images\/Footer-LP-Logo.svg",
+          "main_heading_text": "All Rights Reserved.",
+          "main_menu_list": "new-footer-menu"
+        }
+      },
+      "Page-announcement-bar-bfcm-new": {
+        "type": "Page-announcement-bar-bfcm-new",
+        "blocks": {
+          "7131864a-b9dc-441d-b80b-920471776da0": {
+            "type": "information",
+            "settings": {
+              "info_text": "<p><a href=\"#shop\" title=\"#shop\">30% OFF SITEWIDE + FREE SHIPPING<\/a><\/p>"
+            }
+          }
+        },
+        "block_order": [
+          "7131864a-b9dc-441d-b80b-920471776da0"
+        ],
+        "settings": {
+          "main_back_color": "#222222",
+          "main_text_color": "#ffffff",
+          "main_timer_heading_text": "BFCM SALE ENDS IN:",
+          "main_timer_end_date": "Nov 27, 2023 23:59:59"
+        }
+      },
+      "Page-announcement-bar-travel-new": {
+        "type": "Page-announcement-bar-travel-new",
+        "blocks": {
+          "7a9db482-2971-4156-a863-c2dcb5a2f80b": {
+            "type": "information",
+            "settings": {
+              "info_text": "<p><a href=\"#shop\" title=\"#shop\">GET FREE SHIPPING TODAY!<\/a><\/p>"
+            }
+          }
+        },
+        "block_order": [
+          "7a9db482-2971-4156-a863-c2dcb5a2f80b"
+        ],
+        "settings": {
+          "main_back_color": "#222222",
+          "main_text_color": "#ffffff",
+          "main_timer_heading_text": "",
+          "main_timer_end_date": ""
+        }
+      },
+      "Page-announcement-bar-gifting-new": {
+        "type": "Page-announcement-bar-gifting-new",
+        "blocks": {
+          "97634fcd-b4fc-4a31-b8c0-5808739ebc91": {
+            "type": "information",
+            "settings": {
+              "info_text": "<p><a href=\"#shop\" title=\"#shop\">BUY 3 GET 1 FREE<\/a><\/p>"
+            }
+          }
+        },
+        "block_order": [
+          "97634fcd-b4fc-4a31-b8c0-5808739ebc91"
+        ],
+        "settings": {
+          "main_back_color": "#222222",
+          "main_text_color": "#ffffff",
+          "main_timer_heading_text": "",
+          "main_timer_end_date": ""
+        }
+      }
+    },
+    "content_for_index": [
+
+    ],
+    "blocks": {
+      "855628211100114053": {
+        "type": "shopify:\/\/apps\/klaviyo-email-marketing-sms\/blocks\/klaviyo-onsite-embed\/2632fe16-c075-4321-a88b-50b567f42507",
+        "disabled": false,
+        "settings": {
+        }
+      },
+      "17174303574952363282": {
+        "type": "shopify:\/\/apps\/fondue-cashback-promotions\/blocks\/caseback-embed\/dcfd972d-99c5-4526-b55b-2d76e990dec8",
+        "disabled": false,
+        "settings": {
+        }
+      },
+      "2267199344015275021": {
+        "type": "shopify:\/\/apps\/deliverr-fast-tags\/blocks\/main\/d1895120-1caf-4af4-97c2-280d442481f8",
+        "disabled": false,
+        "settings": {
+        }
+      },
+      "15885745614559378752": {
+        "type": "shopify:\/\/apps\/accessibly\/blocks\/app-embed\/4b59303e-1141-4c8a-945f-bf4adb516864",
+        "disabled": false,
+        "settings": {
+          "themeColor": "#000000",
+          "iconColor": "#ffffff",
+          "showLogo": true,
+          "topBottomPosition": 10,
+          "rightLeftPosition": 10,
+          "iconSize": "small",
+          "iconCustomSize": 64,
+          "position": "bottom-left"
+        }
+      },
+      "14060646107696862457": {
+        "type": "shopify:\/\/apps\/judge-me-product-reviews\/blocks\/judgeme_core\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+        "disabled": false,
+        "settings": {
+        }
+      },
+      "12120936241911852800": {
+        "type": "shopify:\/\/apps\/judge-me-reviews\/blocks\/reviews_tab\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+        "disabled": false,
+        "settings": {
+          "position": "right"
+        }
+      },
+      "12509190167029697241": {
+        "type": "shopify:\/\/apps\/blotout-edgetag\/blocks\/app-embed\/ae22d985-ba57-41f5-94c5-18d3dd98ea3c",
+        "disabled": false,
+        "settings": {
+        }
+      },
+      "6858403126979251294": {
+        "type": "shopify:\/\/apps\/omega-cookie-banner\/blocks\/omega-cookies-notification\/13cba824-a338-452e-9b8e-c83046a79f21",
+        "disabled": false,
+        "settings": {
+        }
+      }
+    },
+    "color_schemes": {
+      "background-1": {
+        "settings": {
+          "background": "rgba(0,0,0,0)",
+          "background_gradient": "",
+          "text": "#ffffff",
+          "button": "#121212",
+          "button_label": "#ffffff",
+          "secondary_button_label": "#121212",
+          "shadow": "#121212"
+        }
+      },
+      "background-2": {
+        "settings": {
+          "background": "#f3f3f3",
+          "background_gradient": "",
+          "text": "#121212",
+          "button": "#121212",
+          "button_label": "#f3f3f3",
+          "secondary_button_label": "#121212",
+          "shadow": "#121212"
+        }
+      },
+      "inverse": {
+        "settings": {
+          "background": "#242833",
+          "background_gradient": "",
+          "text": "#ffffff",
+          "button": "#ffffff",
+          "button_label": "#000000",
+          "secondary_button_label": "#ffffff",
+          "shadow": "#121212"
+        }
+      },
+      "accent-1": {
+        "settings": {
+          "background": "#121212",
+          "background_gradient": "",
+          "text": "#ffffff",
+          "button": "#ffffff",
+          "button_label": "#121212",
+          "secondary_button_label": "#ffffff",
+          "shadow": "#121212"
+        }
+      },
+      "accent-2": {
+        "settings": {
+          "background": "#334fb4",
+          "background_gradient": "",
+          "text": "#ffffff",
+          "button": "#ffffff",
+          "button_label": "#334fb4",
+          "secondary_button_label": "#ffffff",
+          "shadow": "#121212"
+        }
+      }
+    }
+  },
+  "presets": {
+    "Core": {
+      "color_schemes": {
+        "background-1": {
+          "settings": {
+            "background": "#FFFFFF",
+            "background_gradient": "",
+            "text": "#121212",
+            "button": "#121212",
+            "button_label": "#FFFFFF",
+            "secondary_button_label": "#121212",
+            "shadow": "#121212"
+          }
+        },
+        "background-2": {
+          "settings": {
+            "background": "#F3F3F3",
+            "background_gradient": "",
+            "text": "#121212",
+            "button": "#121212",
+            "button_label": "#F3F3F3",
+            "secondary_button_label": "#121212",
+            "shadow": "#121212"
+          }
+        },
+        "inverse": {
+          "settings": {
+            "background": "#242833",
+            "background_gradient": "",
+            "text": "#FFFFFF",
+            "button": "#FFFFFF",
+            "button_label": "#000000",
+            "secondary_button_label": "#FFFFFF",
+            "shadow": "#121212"
+          }
+        },
+        "accent-1": {
+          "settings": {
+            "background": "#121212",
+            "background_gradient": "",
+            "text": "#FFFFFF",
+            "button": "#FFFFFF",
+            "button_label": "#121212",
+            "secondary_button_label": "#FFFFFF",
+            "shadow": "#121212"
+          }
+        },
+        "accent-2": {
+          "settings": {
+            "background": "#334FB4",
+            "background_gradient": "",
+            "text": "#FFFFFF",
+            "button": "#FFFFFF",
+            "button_label": "#334FB4",
+            "secondary_button_label": "#FFFFFF",
+            "shadow": "#121212"
+          }
+        }
+      },
+      "animate_images": true,
+      "animate_page_transition_style": "page-logo",
+      "button_style": "round",
+      "button_type_style": "normal",
+      "cart_type": "sticky",
+      "checkout_accent_color": "#111111",
+      "checkout_banner_background_color": "#ffffff",
+      "checkout_body_background_color": "#ffffff",
+      "checkout_body_font": "Helvetica Neue",
+      "checkout_button_color": "#111111",
+      "checkout_call_to_action_color": "#a26b25",
+      "checkout_error_color": "#ff6d6d",
+      "checkout_heading_font": "Helvetica Neue",
+      "checkout_input_background_color_mode": "white",
+      "checkout_logo_position": "left",
+      "checkout_logo_size": "medium",
+      "checkout_sidebar_background_color": "#fafafa",
+      "checkout_use_header_image": false,
+      "color_alt_bg": "#f9f9f9",
+      "color_alt_text": "#000000",
+      "color_announcement": "#000000",
+      "color_announcement_text": "#ffffff",
+      "color_body_bg": "#ffffff",
+      "color_body_text": "#000000",
+      "color_button": "#000000",
+      "color_button_text": "#ffffff",
+      "color_cart_dot": "#f75d44",
+      "color_cart_dot_text": "#ffffff",
+      "color_drawer_background": "#ffffff",
+      "color_drawer_text": "#000000",
+      "color_image_overlay": "#000000",
+      "color_image_overlay_opacity": 10,
+      "color_image_overlay_text_shadow": 20,
+      "color_image_text": "#ffffff",
+      "color_large_image_bg": "#000000",
+      "color_newsletter": "#000000",
+      "color_newsletter_text": "#fff",
+      "color_sale_price": "#000000",
+      "color_sale_tag": "#990000",
+      "color_small_image_bg": "#ffffff",
+      "desktop_loader_width": 100,
+      "mobile_loader_width": 100,
+      "product_grid_image_size": "natural",
+      "product_hover_details": false,
+      "product_hover_image": true,
+      "product_image_scatter": false,
+      "product_video_style": "muted",
+      "type_base_font_family": "roboto_condensed_n4",
+      "type_base_line_height": 1.6,
+      "type_base_size": 18,
+      "type_base_spacing": "25",
+      "type_header_base_size": 46,
+      "type_header_capitalize": true,
+      "type_header_font_family": "roboto_condensed_i7",
+      "type_header_line_height": 1,
+      "type_header_spacing": "-25",
+      "type_product_capitalize": false,
+      "sections": {
+        "header": {
+          "type": "header",
+          "blocks": {
+            "581f349b-b583-4bb5-9541-cdff4e083cb4": {
+              "type": "announcement",
+              "settings": {
+                "announcement_text": "<p>Buy One get One 50% OFF with code \"BOGO50\"<\/p>",
+                "announcement_link": ""
+              }
+            },
+            "48fcde1f-9ea7-45dd-8458-90701c5db952": {
+              "type": "announcement",
+              "settings": {
+                "announcement_text": "<p>Free Shipping on all US orders<\/p>",
+                "announcement_link": ""
+              }
+            }
+          },
+          "block_order": [
+            "581f349b-b583-4bb5-9541-cdff4e083cb4",
+            "48fcde1f-9ea7-45dd-8458-90701c5db952"
+          ],
+          "settings": {
+            "sticky_index": true,
+            "sticky_collection": false,
+            "header_search_enable": true,
+            "show_announcement": false,
+            "show_announcement_home_only": false
+          }
+        },
+        "footer": {
+          "type": "footer",
+          "settings": {
+            "show_newsletter": true,
+            "newsletter_title": "Join the club",
+            "newsletter_richtext": "",
+            "show_social_icons": true,
+            "menu": "footer",
+            "show_payment_icons": false,
+            "show_copyright": false
+          }
+        },
+        "newsletter-popup": {
+          "type": "newsletter-popup",
+          "settings": {
+            "mode": "disabled",
+            "popup_seconds": 5,
+            "popup_days": 30,
+            "enable_newsletter": true
+          }
+        },
+        "product-recommendations": {
+          "type": "product-recommendations",
+          "settings": {
+            "show_product_recommendations": true
+          }
+        }
+      }
+    },
+    "Luxe": {
+      "color_schemes": {
+        "background-1": {
+          "settings": {
+            "background": "#FFFFFF",
+            "background_gradient": "",
+            "text": "#121212",
+            "button": "#121212",
+            "button_label": "#FFFFFF",
+            "secondary_button_label": "#121212",
+            "shadow": "#121212"
+          }
+        },
+        "background-2": {
+          "settings": {
+            "background": "#F3F3F3",
+            "background_gradient": "",
+            "text": "#121212",
+            "button": "#121212",
+            "button_label": "#F3F3F3",
+            "secondary_button_label": "#121212",
+            "shadow": "#121212"
+          }
+        },
+        "inverse": {
+          "settings": {
+            "background": "#242833",
+            "background_gradient": "",
+            "text": "#FFFFFF",
+            "button": "#FFFFFF",
+            "button_label": "#000000",
+            "secondary_button_label": "#FFFFFF",
+            "shadow": "#121212"
+          }
+        },
+        "accent-1": {
+          "settings": {
+            "background": "#121212",
+            "background_gradient": "",
+            "text": "#FFFFFF",
+            "button": "#FFFFFF",
+            "button_label": "#121212",
+            "secondary_button_label": "#FFFFFF",
+            "shadow": "#121212"
+          }
+        },
+        "accent-2": {
+          "settings": {
+            "background": "#334FB4",
+            "background_gradient": "",
+            "text": "#FFFFFF",
+            "button": "#FFFFFF",
+            "button_label": "#334FB4",
+            "secondary_button_label": "#FFFFFF",
+            "shadow": "#121212"
+          }
+        }
+      },
+      "animate_images": true,
+      "animate_page_transition_style": "page-logo",
+      "button_style": "shadow",
+      "cart_type": "sticky",
+      "checkout_accent_color": "#111111",
+      "checkout_banner_background_color": "#ffffff",
+      "checkout_body_background_color": "#ffffff",
+      "checkout_body_font": "Helvetica Neue",
+      "checkout_button_color": "#111111",
+      "checkout_call_to_action_color": "#a26b25",
+      "checkout_error_color": "#ff6d6d",
+      "checkout_heading_font": "Helvetica Neue",
+      "checkout_input_background_color_mode": "white",
+      "checkout_logo_position": "left",
+      "checkout_logo_size": "medium",
+      "checkout_sidebar_background_color": "#fafafa",
+      "checkout_use_header_image": false,
+      "color_alt_bg": "#ffffff",
+      "color_alt_text": "#333029",
+      "color_announcement": "#c67066",
+      "color_announcement_text": "#ffffff",
+      "color_body_bg": "#fdfbfa",
+      "color_body_text": "#333029",
+      "color_button": "#c67066",
+      "color_button_text": "#ffffff",
+      "color_cart_dot": "#c67066",
+      "color_drawer_background": "#fdf9f5",
+      "color_drawer_text": "#333029",
+      "color_image_bg": "#000000",
+      "color_image_overlay": "#000000",
+      "color_image_overlay_opacity": 10,
+      "color_image_text": "#ffffff",
+      "color_large_image_bg": "#eee5e0",
+      "color_newsletter": "#c67066",
+      "color_newsletter_text": "#ffffff",
+      "color_sale_price": "#333029",
+      "color_sale_tag": "#c67066",
+      "color_small_image_bg": "#fdfbfa",
+      "desktop_loader_width": 140,
+      "mobile_loader_width": 130,
+      "product_grid_image_size": "natural",
+      "product_hover_details": true,
+      "product_hover_image": true,
+      "product_image_scatter": false,
+      "product_video_style": "muted",
+      "type_base_font_family": "futura_n4",
+      "type_base_line_height": 1.7,
+      "type_base_size": 18,
+      "type_base_spacing": "25",
+      "type_header_base_size": 50,
+      "type_header_capitalize": false,
+      "type_header_font_family": "itc_novarese_n5",
+      "type_header_line_height": 1.1,
+      "type_header_spacing": "0",
+      "type_product_capitalize": false,
+      "sections": {
+        "header": {
+          "type": "header",
+          "settings": {
+            "sticky_index": true,
+            "sticky_collection": true,
+            "header_search_enable": true,
+            "show_announcement": true,
+            "show_announcement_home_only": false
+          }
+        },
+        "footer": {
+          "type": "footer",
+          "settings": {
+            "show_newsletter": true,
+            "show_social_icons": true,
+            "show_payment_icons": false,
+            "show_copyright": false
+          }
+        },
+        "newsletter-popup": {
+          "type": "newsletter-popup",
+          "settings": {
+            "mode": "disabled",
+            "popup_seconds": 5,
+            "popup_days": 30,
+            "enable_newsletter": true
+          }
+        },
+        "password-header": {
+          "type": "password-header",
+          "settings": {
+          }
+        },
+        "product-recommendations": {
+          "type": "product-recommendations",
+          "settings": {
+            "show_product_recommendations": true
+          }
+        }
+      }
+    },
+    "Hype": {
+      "color_schemes": {
+        "background-1": {
+          "settings": {
+            "background": "#FFFFFF",
+            "background_gradient": "",
+            "text": "#121212",
+            "button": "#121212",
+            "button_label": "#FFFFFF",
+            "secondary_button_label": "#121212",
+            "shadow": "#121212"
+          }
+        },
+        "background-2": {
+          "settings": {
+            "background": "#F3F3F3",
+            "background_gradient": "",
+            "text": "#121212",
+            "button": "#121212",
+            "button_label": "#F3F3F3",
+            "secondary_button_label": "#121212",
+            "shadow": "#121212"
+          }
+        },
+        "inverse": {
+          "settings": {
+            "background": "#242833",
+            "background_gradient": "",
+            "text": "#FFFFFF",
+            "button": "#FFFFFF",
+            "button_label": "#000000",
+            "secondary_button_label": "#FFFFFF",
+            "shadow": "#121212"
+          }
+        },
+        "accent-1": {
+          "settings": {
+            "background": "#121212",
+            "background_gradient": "",
+            "text": "#FFFFFF",
+            "button": "#FFFFFF",
+            "button_label": "#121212",
+            "secondary_button_label": "#FFFFFF",
+            "shadow": "#121212"
+          }
+        },
+        "accent-2": {
+          "settings": {
+            "background": "#334FB4",
+            "background_gradient": "",
+            "text": "#FFFFFF",
+            "button": "#FFFFFF",
+            "button_label": "#334FB4",
+            "secondary_button_label": "#FFFFFF",
+            "shadow": "#121212"
+          }
+        }
+      },
+      "animate_images": false,
+      "animate_page_transition_style": "page-logo",
+      "button_style": "shadow",
+      "cart_type": "sticky",
+      "checkout_accent_color": "#111111",
+      "checkout_body_background_color": "#ffffff",
+      "checkout_body_font": "Helvetica Neue",
+      "checkout_button_color": "#111111",
+      "checkout_error_color": "#ff6d6d",
+      "checkout_heading_font": "Helvetica Neue",
+      "checkout_input_background_color_mode": "white",
+      "checkout_logo_position": "left",
+      "checkout_logo_size": "medium",
+      "checkout_sidebar_background_color": "#fafafa",
+      "color_alt_bg": "#000000",
+      "color_alt_text": "#ffffff",
+      "color_announcement": "#000000",
+      "color_announcement_text": "#ffffff",
+      "color_body_bg": "#ffffff",
+      "color_cart_dot": "#FF2300",
+      "color_drawer_background": "#ffffff",
+      "color_drawer_text": "#000000",
+      "color_image_bg": "#000000",
+      "color_image_overlay": "#000000",
+      "color_image_overlay_opacity": 10,
+      "color_image_text": "#ffffff",
+      "color_large_image_bg": "#000000",
+      "color_newsletter": "#000000",
+      "color_newsletter_text": "#ffffff",
+      "color_small_image_bg": "#f2f2f2",
+      "desktop_loader_width": 190,
+      "mobile_loader_width": 180,
+      "product_grid_image_size": "natural",
+      "product_hover_details": false,
+      "product_hover_image": true,
+      "product_image_scatter": true,
+      "product_video_style": "muted",
+      "type_base_font_family": "basic_commercial_n7",
+      "type_base_line_height": 1.3,
+      "type_base_size": 20,
+      "type_base_spacing": "25",
+      "type_header_base_size": 48,
+      "type_header_capitalize": true,
+      "type_header_font_family": "basic_commercial_n7",
+      "type_header_line_height": 0.9,
+      "type_header_spacing": "25",
+      "type_product_capitalize": true,
+      "sections": {
+        "header": {
+          "type": "header",
+          "settings": {
+            "sticky_index": true,
+            "sticky_collection": true,
+            "header_search_enable": true,
+            "show_announcement": false
+          }
+        },
+        "footer": {
+          "type": "footer",
+          "settings": {
+            "show_newsletter": false
+          }
+        },
+        "newsletter-popup": {
+          "type": "newsletter-popup",
+          "settings": {
+            "mode": "disabled",
+            "popup_seconds": 5,
+            "popup_days": 30,
+            "enable_newsletter": true
+          }
+        },
+        "product-recommendations": {
+          "type": "product-recommendations",
+          "settings": {
+            "show_product_recommendations": true
+          }
+        }
+      }
+    },
+    "Default": {
+      "color_schemes": {
+        "background-1": {
+          "settings": {
+            "background": "#FFFFFF",
+            "background_gradient": "",
+            "text": "#121212",
+            "button": "#121212",
+            "button_label": "#FFFFFF",
+            "secondary_button_label": "#121212",
+            "shadow": "#121212"
+          }
+        },
+        "background-2": {
+          "settings": {
+            "background": "#F3F3F3",
+            "background_gradient": "",
+            "text": "#121212",
+            "button": "#121212",
+            "button_label": "#F3F3F3",
+            "secondary_button_label": "#121212",
+            "shadow": "#121212"
+          }
+        },
+        "inverse": {
+          "settings": {
+            "background": "#242833",
+            "background_gradient": "",
+            "text": "#FFFFFF",
+            "button": "#FFFFFF",
+            "button_label": "#000000",
+            "secondary_button_label": "#FFFFFF",
+            "shadow": "#121212"
+          }
+        },
+        "accent-1": {
+          "settings": {
+            "background": "#121212",
+            "background_gradient": "",
+            "text": "#FFFFFF",
+            "button": "#FFFFFF",
+            "button_label": "#121212",
+            "secondary_button_label": "#FFFFFF",
+            "shadow": "#121212"
+          }
+        },
+        "accent-2": {
+          "settings": {
+            "background": "#334FB4",
+            "background_gradient": "",
+            "text": "#FFFFFF",
+            "button": "#FFFFFF",
+            "button_label": "#334FB4",
+            "secondary_button_label": "#FFFFFF",
+            "shadow": "#121212"
+          }
+        }
+      },
+      "type_header_font": "assistant_n4",
+      "heading_scale": 100,
+      "type_body_font": "assistant_n4",
+      "body_scale": 100,
+      "page_width": 1200,
+      "spacing_sections": 0,
+      "spacing_grid_horizontal": 8,
+      "spacing_grid_vertical": 8,
+      "animations_reveal_on_scroll": true,
+      "animations_hover_elements": "none",
+      "buttons_border_thickness": 1,
+      "buttons_border_opacity": 100,
+      "buttons_radius": 0,
+      "buttons_shadow_opacity": 0,
+      "buttons_shadow_horizontal_offset": 0,
+      "buttons_shadow_vertical_offset": 4,
+      "buttons_shadow_blur": 5,
+      "variant_pills_border_thickness": 1,
+      "variant_pills_border_opacity": 55,
+      "variant_pills_radius": 40,
+      "variant_pills_shadow_opacity": 0,
+      "variant_pills_shadow_horizontal_offset": 0,
+      "variant_pills_shadow_vertical_offset": 4,
+      "variant_pills_shadow_blur": 5,
+      "inputs_border_thickness": 1,
+      "inputs_border_opacity": 55,
+      "inputs_radius": 0,
+      "inputs_shadow_opacity": 0,
+      "inputs_shadow_horizontal_offset": 0,
+      "inputs_shadow_vertical_offset": 4,
+      "inputs_shadow_blur": 5,
+      "card_style": "standard",
+      "card_image_padding": 0,
+      "card_text_alignment": "left",
+      "card_color_scheme": "background-2",
+      "card_border_thickness": 0,
+      "card_border_opacity": 10,
+      "card_corner_radius": 0,
+      "card_shadow_opacity": 0,
+      "card_shadow_horizontal_offset": 0,
+      "card_shadow_vertical_offset": 4,
+      "card_shadow_blur": 5,
+      "collection_card_style": "standard",
+      "collection_card_image_padding": 0,
+      "collection_card_text_alignment": "left",
+      "collection_card_color_scheme": "background-2",
+      "collection_card_border_thickness": 0,
+      "collection_card_border_opacity": 10,
+      "collection_card_corner_radius": 0,
+      "collection_card_shadow_opacity": 0,
+      "collection_card_shadow_horizontal_offset": 0,
+      "collection_card_shadow_vertical_offset": 4,
+      "collection_card_shadow_blur": 5,
+      "blog_card_style": "standard",
+      "blog_card_image_padding": 0,
+      "blog_card_text_alignment": "left",
+      "blog_card_color_scheme": "background-2",
+      "blog_card_border_thickness": 0,
+      "blog_card_border_opacity": 10,
+      "blog_card_corner_radius": 0,
+      "blog_card_shadow_opacity": 0,
+      "blog_card_shadow_horizontal_offset": 0,
+      "blog_card_shadow_vertical_offset": 4,
+      "blog_card_shadow_blur": 5,
+      "text_boxes_border_thickness": 0,
+      "text_boxes_border_opacity": 10,
+      "text_boxes_radius": 0,
+      "text_boxes_shadow_opacity": 0,
+      "text_boxes_shadow_horizontal_offset": 0,
+      "text_boxes_shadow_vertical_offset": 4,
+      "text_boxes_shadow_blur": 5,
+      "media_border_thickness": 1,
+      "media_border_opacity": 5,
+      "media_radius": 0,
+      "media_shadow_opacity": 0,
+      "media_shadow_horizontal_offset": 0,
+      "media_shadow_vertical_offset": 4,
+      "media_shadow_blur": 5,
+      "popup_border_thickness": 1,
+      "popup_border_opacity": 10,
+      "popup_corner_radius": 0,
+      "popup_shadow_opacity": 5,
+      "popup_shadow_horizontal_offset": 0,
+      "popup_shadow_vertical_offset": 4,
+      "popup_shadow_blur": 5,
+      "drawer_border_thickness": 1,
+      "drawer_border_opacity": 10,
+      "drawer_shadow_opacity": 0,
+      "drawer_shadow_horizontal_offset": 0,
+      "drawer_shadow_vertical_offset": 4,
+      "drawer_shadow_blur": 5,
+      "badge_position": "bottom left",
+      "badge_corner_radius": 40,
+      "sale_badge_color_scheme": "accent-2",
+      "sold_out_badge_color_scheme": "inverse",
+      "brand_headline": "",
+      "brand_description": "<p><\/p>",
+      "brand_image_width": 100,
+      "predictive_search_enabled": true,
+      "predictive_search_show_vendor": false,
+      "predictive_search_show_price": false,
+      "currency_code_enabled": true
+    }
+  }
+}

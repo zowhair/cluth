@@ -1,0 +1,136 @@
+{% unless product.metafields.custom.hide_us_vs_them_table %}
+  {{ 'component-us_vs_the_landing.css' | asset_url | stylesheet_tag: preload: true }}
+  
+  {% if template contains 'product' %}
+    {{ 'component-us_vs_them-PDP.css' | asset_url | stylesheet_tag: preload: true }}
+  {% endif %}
+  
+  {%- liquid
+      assign data = section.settings
+      assign title = data.title_id
+      assign subtitle = data.sub_title_id
+      assign image = data.image_id
+      assign buttoText = data.button_text_id
+      assign buttoUrl = data.button_url_id
+      assign featured_images = section.blocks | where: 'type', 'featured_image'
+      assign tables_mobile = section.blocks | where: 'type', 'Table'
+  -%}
+  
+  
+  <section class="us_vs_them__wrapper {{section.settings.css_class}}">
+    <div class="us_vs_them__container">
+      <h2>{{ title }}</h2>
+      <p>{{ subtitle }}</p>
+      {% if featured_images.size > 0 %}
+        <div class="container-featured-images" style="--columns:{{featured_images.size}};">
+          {% for block in featured_images %}
+            {% if block.settings.image != blank %}
+              {% assign width = block.settings.image.width %}
+              {% assign height = block.settings.image.height %}
+              {{ block.settings.image | image_url: width: width | image_tag:
+                class: '',
+                widths: '200, 250, 300, 400, 500, 690, 780, 920, 1024, 1440, 1690, 2880',
+                height: height,
+                width: width,
+                alt: block.settings.image.alt,
+                loading: "lazy"
+              }}
+            {% endif %}
+          {% endfor %}
+        </div>
+      {% endif %}
+      
+      <div class="container-table">
+        <img class="image_table_desktop" src="{{ image | img_url: 'master' }}" loading="lazy" alt="{{ image.alt }}">
+      </div>
+      <div class="column_tables_mobile">
+          {% for block in tables_mobile %}
+              <div class="table_item_mobile">
+                  <p>{{ block.settings.text_table_id }}</p>
+                  <div class="container-table-mobile">
+                    <img src="{{ block.settings.table_id | img_url: 'master'}}" loading="lazy" alt="{{ block.settings.table_id.alt }}">
+                  </div>
+              </div>
+          {% endfor %}
+      </div>
+      {% if buttoUrl != blank %}
+        <a href="{{ buttoUrl }}">{{ buttoText }}</a>
+      {% endif %}
+    </div>
+  </section>
+{% endunless %}
+
+
+{% schema %}
+{
+  "name": "Us vs Them landing pro",
+  "class": "section us_them_landing",
+  "settings": [
+    {
+        "type": "text",
+        "id": "title_id",
+        "label": "Title"
+    },
+    {
+        "type": "inline_richtext",
+        "id": "sub_title_id",
+        "label": "sub-title"
+    },
+    {
+        "type": "image_picker",
+        "id": "image_id",
+        "label": "Image"
+    },
+    {
+        "type": "text",
+        "id": "button_text_id",
+        "label": "Button label"
+    },
+    {
+        "type": "url",
+        "id": "button_url_id",
+        "label": "Button url"
+    },
+    {
+      "type": "text",
+      "id": "css_class",
+      "label": "CSS Class",
+      "placeholder": "new-home other-class"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Featured Image",
+      "type": "featured_image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+      ]
+    },
+    {
+      "name": "Table for mobile",
+      "type": "Table",
+      "settings": [
+       {
+        "type": "image_picker",
+        "id": "table_id",
+        "label": "Table image"
+       },
+       {
+        "type": "text",
+        "id": "text_table_id",
+        "label": "Text"
+       }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "us vs them landing pro"
+    }
+  ]
+}
+{% endschema %}

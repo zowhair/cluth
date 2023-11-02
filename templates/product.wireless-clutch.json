@@ -1,0 +1,397 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "9e4ba50d-4ebf-447c-b3b2-d29e347650ea": {
+          "type": "shopify:\/\/apps\/judge-me-reviews\/blocks\/preview_badge\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+          }
+        },
+        "0c7a6863-298f-4b94-9c2c-493a2510024f": {
+          "type": "text",
+          "settings": {
+            "text": ""
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "variant_labels": true,
+            "picker_type": "button",
+            "color_swatches": true
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "surface_pickup_enable": true
+          }
+        },
+        "sales_point": {
+          "type": "sales_point",
+          "settings": {
+            "icon": "truck",
+            "text": "Free Shipping in the USA"
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {
+            "is_tab": false
+          }
+        },
+        "share": {
+          "type": "share",
+          "settings": {
+          }
+        },
+        "tab": {
+          "type": "tab",
+          "settings": {
+            "title": "Tech Specs",
+            "content": "{{product.metafields.tech-specs.tech-specs}}",
+            "page": ""
+          }
+        },
+        "85f45c8e-a4fe-41f5-92da-8ea130b8f973": {
+          "type": "tab",
+          "settings": {
+            "title": "Compatible Devices",
+            "content": "{{product.metafields.compatible-devices.compatible-devices}}",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "9e4ba50d-4ebf-447c-b3b2-d29e347650ea",
+        "price",
+        "0c7a6863-298f-4b94-9c2c-493a2510024f",
+        "variant_picker",
+        "buy_buttons",
+        "sales_point",
+        "description",
+        "share",
+        "tab",
+        "85f45c8e-a4fe-41f5-92da-8ea130b8f973"
+      ],
+      "settings": {
+        "product_image_size": "large",
+        "product_image_type": "stacked",
+        "product_zoom_enable": true,
+        "enable_video_looping": true,
+        "product_video_style": "muted",
+        "sku_enable": false
+      }
+    },
+    "sub": {
+      "type": "product-full-width",
+      "disabled": true,
+      "settings": {
+        "max_width": true
+      }
+    },
+    "163727957899e27a75": {
+      "type": "apps",
+      "blocks": {
+        "ae97d29b-36b9-4bee-a685-e9e59e3465d5": {
+          "type": "shopify:\/\/apps\/judge-me-reviews\/blocks\/review_widget\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "ae97d29b-36b9-4bee-a685-e9e59e3465d5"
+      ],
+      "settings": {
+        "full_width": false,
+        "space_around": true
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "show_product_recommendations": false,
+        "product_recommendations_heading": "You may also like"
+      }
+    },
+    "collection-return": {
+      "type": "collection-return",
+      "disabled": true,
+      "settings": {
+      }
+    },
+    "16372797806d495698": {
+      "type": "hero-video",
+      "settings": {
+        "title": "",
+        "title_size": 80,
+        "subheading": "",
+        "link_text": "",
+        "link": "",
+        "color_accent": "rgba(0,0,0,0)",
+        "text_align": "vertical-center horizontal-center",
+        "video_url": "https:\/\/cdn.shopify.com\/s\/files\/1\/0140\/3774\/5750\/files\/Features-Desktop.mp4?v=1647204657",
+        "mobile_video_url": "https:\/\/cdn.shopify.com\/s\/files\/1\/0140\/3774\/5750\/files\/Features-Mobile.mp4?v=1647204657",
+        "section_height": "750px",
+        "mobile_height": "100vh"
+      }
+    },
+    "1637279856a1a38707": {
+      "type": "logo-list",
+      "blocks": {
+        "1637279856a44010dd-0": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/HSN-logo_35a7e53d-45a4-4abc-bba0-6cabf824735f.png",
+            "link": ""
+          }
+        },
+        "1637279856a44010dd-1": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/gma-log-iso-crop.png",
+            "link": ""
+          }
+        },
+        "1637279856a44010dd-2": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/mens-health-logo.png",
+            "link": ""
+          }
+        },
+        "1637279856a44010dd-3": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/pcmag-logo-2.png",
+            "link": ""
+          }
+        },
+        "b0a19e7f-79d0-43a8-b0d0-cbc2c7ee35a8": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Mashable-Logo.jpg",
+            "link": ""
+          }
+        },
+        "71c2e9cf-7aa1-46f6-a215-278aa0eb3fe8": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/entrepreneur-logo.jpg",
+            "link": ""
+          }
+        },
+        "33cc9b7f-9d47-4bbf-adf3-b9fbb328b692": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/business-insider-logo.jpg",
+            "link": ""
+          }
+        },
+        "06eb63a6-5b1d-420b-9bd7-55458124b765": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/nyt-logo.png",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "1637279856a44010dd-0",
+        "1637279856a44010dd-1",
+        "1637279856a44010dd-2",
+        "1637279856a44010dd-3",
+        "b0a19e7f-79d0-43a8-b0d0-cbc2c7ee35a8",
+        "71c2e9cf-7aa1-46f6-a215-278aa0eb3fe8",
+        "33cc9b7f-9d47-4bbf-adf3-b9fbb328b692",
+        "06eb63a6-5b1d-420b-9bd7-55458124b765"
+      ],
+      "disabled": true,
+      "settings": {
+        "title": "",
+        "logo_opacity": 100,
+        "alt": false
+      }
+    },
+    "16372798625ada21dd": {
+      "type": "advanced-content",
+      "blocks": {
+        "16372798626146f30c-1": {
+          "type": "liquid",
+          "settings": {
+            "code": "<div class=\"section-button\" style=\"margin-top: 4%;\">\n<a href=\"\/pages\/press\" class=\"btn btn--tertiary\">View Press<\/a>\n<\/div>",
+            "width": "100%",
+            "alignment": "bottom-middle"
+          }
+        }
+      },
+      "block_order": [
+        "16372798626146f30c-1"
+      ],
+      "disabled": true,
+      "settings": {
+        "full_width": false,
+        "space_around": true,
+        "alt": false
+      }
+    },
+    "fb663a0d-279f-438d-b28b-30babcf94262": {
+      "type": "logo-list-1",
+      "blocks": {
+        "template--14272335511638__fb663a0d-279f-438d-b28b-30babcf94262-1665157620f4a9870a-0": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Mashable_Logo_1.png",
+            "link": ""
+          }
+        },
+        "template--14272335511638__fb663a0d-279f-438d-b28b-30babcf94262-1665157620f4a9870a-1": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/HSN.png",
+            "link": ""
+          }
+        },
+        "template--14272335511638__fb663a0d-279f-438d-b28b-30babcf94262-1665157620f4a9870a-2": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Entrepreneur.png",
+            "link": ""
+          }
+        },
+        "template--14272335511638__fb663a0d-279f-438d-b28b-30babcf94262-1665157620f4a9870a-3": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/GMA.png",
+            "link": ""
+          }
+        },
+        "98016bc2-74a3-40bf-b887-4bcf09ad8aa3": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Menshealth.png",
+            "link": ""
+          }
+        },
+        "499c4ebd-e5fb-4ba7-b0f9-d5971f7b0872": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/BusinessInsider.png",
+            "link": ""
+          }
+        },
+        "51736c38-2db5-4ddb-9cd5-960828e12aec": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/PCmag.png",
+            "link": ""
+          }
+        },
+        "781a49db-4c1c-44b1-81ea-8c6ecbb2c44b": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/TheNewYorkTimes.png",
+            "link": ""
+          }
+        },
+        "31693977-25dd-47f6-ab6c-175ca289772c": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Mashable_Logo_1.png",
+            "link": ""
+          }
+        },
+        "2d6bbf29-bbc4-4f2f-8b1c-3efc9658abef": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/HSN.png",
+            "link": ""
+          }
+        },
+        "4a632631-c553-42b5-9e49-a15efa710bf6": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Entrepreneur.png",
+            "link": ""
+          }
+        },
+        "a8f78b9a-01a9-4141-a1ed-171e2719872d": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/GMA.png",
+            "link": ""
+          }
+        },
+        "3d41b972-12db-42e6-9a7c-70ed4ed27772": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Menshealth.png",
+            "link": ""
+          }
+        },
+        "251f1fed-d8ac-4a93-8130-21508c5e76b9": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/BusinessInsider.png",
+            "link": ""
+          }
+        },
+        "dd8c7675-7861-4f0a-a4ea-5eb867adfce6": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/PCmag.png",
+            "link": ""
+          }
+        },
+        "9229e348-bae3-44a6-a9fe-6f6389ae48b7": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/TheNewYorkTimes.png",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--14272335511638__fb663a0d-279f-438d-b28b-30babcf94262-1665157620f4a9870a-0",
+        "template--14272335511638__fb663a0d-279f-438d-b28b-30babcf94262-1665157620f4a9870a-1",
+        "template--14272335511638__fb663a0d-279f-438d-b28b-30babcf94262-1665157620f4a9870a-2",
+        "template--14272335511638__fb663a0d-279f-438d-b28b-30babcf94262-1665157620f4a9870a-3",
+        "98016bc2-74a3-40bf-b887-4bcf09ad8aa3",
+        "499c4ebd-e5fb-4ba7-b0f9-d5971f7b0872",
+        "51736c38-2db5-4ddb-9cd5-960828e12aec",
+        "781a49db-4c1c-44b1-81ea-8c6ecbb2c44b",
+        "31693977-25dd-47f6-ab6c-175ca289772c",
+        "2d6bbf29-bbc4-4f2f-8b1c-3efc9658abef",
+        "4a632631-c553-42b5-9e49-a15efa710bf6",
+        "a8f78b9a-01a9-4141-a1ed-171e2719872d",
+        "3d41b972-12db-42e6-9a7c-70ed4ed27772",
+        "251f1fed-d8ac-4a93-8130-21508c5e76b9",
+        "dd8c7675-7861-4f0a-a4ea-5eb867adfce6",
+        "9229e348-bae3-44a6-a9fe-6f6389ae48b7"
+      ],
+      "settings": {
+        "title": "",
+        "logo_opacity": 76,
+        "alt": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "sub",
+    "163727957899e27a75",
+    "product-recommendations",
+    "collection-return",
+    "16372797806d495698",
+    "1637279856a1a38707",
+    "16372798625ada21dd",
+    "fb663a0d-279f-438d-b28b-30babcf94262"
+  ]
+}

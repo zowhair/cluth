@@ -1,0 +1,74 @@
+{%- if section.settings.inner_review_info_text != blank or section.settings.inner_author_name_text != blank -%}
+  <div class="Page_gifting_review_main_new" style="background: {{ section.settings.main_back_color }};">
+    <div class="Page_gifting_review_inner_new" style="background: {{ section.settings.inner_back_color }};">
+      <div class="page-width">
+        <div class="Page_gifting_review_detail_new">
+          {%- if section.settings.inner_star_icon_image != blank -%}
+            <div class="Page_gifting_review_staricons_new">
+              {%- assign img_url = section.settings.inner_star_icon_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+              <img class="Icon_star_image_new lazyload"
+                data-src="{{ img_url }}"
+                data-widths="[180, 360, 540, 750, 900, 1080, 1296, 1512, 1728, 1944, 2048]"
+                data-aspectratio="{{ section.settings.inner_star_icon_image.aspect_ratio }}"
+                data-sizes="auto"
+                alt="{{ section.settings.inner_star_icon_image.alt }}">
+            </div>
+          {%- endif -%}
+          {%- if section.settings.inner_review_info_text != blank -%}
+            <div class="Page_gifting_review_reviewinfo_new">
+              {{ section.settings.inner_review_info_text }}
+            </div>
+          {%- endif -%}
+          {%- if section.settings.inner_author_name_text != blank -%}
+            <div class="Page_gifting_review_authorname_new">
+              {{ section.settings.inner_author_name_text }}
+            </div>
+          {%- endif -%}
+        </div>
+      </div>
+    </div>
+  </div>
+{%- endif -%}
+
+{% schema %}
+  {
+    "name": "Page Gifting Review",
+    "class": "Page_gifting_review_new",
+    "settings": [
+      {
+        "type": "color",
+        "id": "main_back_color",
+        "label": "Add Main Background Color",
+        "default": "#141414"
+      },
+      {
+        "type": "color",
+        "id": "inner_back_color",
+        "label": "Add Inner Background Color",
+        "default": "#222222"
+      },
+      {
+        "type": "image_picker",
+        "id": "inner_star_icon_image",
+        "label": "Add Inner Star Icon Image"
+      },
+      {
+        "type": "richtext",
+        "id": "inner_review_info_text",
+        "label": "Add Inner Review Information Text",
+        "default": "<p>I purchased 4 of these for me and my family for the holidays. Days later, we had a power outage. These little power banks are awesome!</p>"
+      },
+      {
+        "type": "text",
+        "id": "inner_author_name_text",
+        "label": "Add Inner Author Name Text",
+        "default": "Mary"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Page Gifting Review"
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,1266 @@
+<!DOCTYPE html>
+<html
+  lang="{{ locale }}"
+  dir="{{ direction }}"
+  class="{{ checkout_html_classes }}">
+  <head>
+  {% render 'elevar-head' %}
+
+    <!-- Begin Google Optimize Script Tag: DO NOT MODIFY! -->
+    <script src="https://www.googleoptimize.com/optimize.js?id=OPT-TVPKG45"></script>
+    <!-- End Google Optimize Script Tag -->
+    {% render 'elevar-head-listener' %}
+    {%- unless request.path contains 'thank_you' -%}
+    {%- endunless -%}
+
+    <!-- Begin BlackCrow Script Tag: DO NOT MODIFY! -->
+    <script
+      type="text/javascript"
+      async
+      src="https://shopify-init.blackcrow.ai/js/core/clutchllc.js?shopify_app_version=1.0.107&shop=clutchllc.myshopify.com"></script>
+    <!-- End BlackCrow Script Tag -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0, user-scalable=0">
+    <meta name="referrer" content="origin">
+
+    <title>{{ page_title }}</title>
+
+    <link rel="preconnect" href="https://cdn.shopify.com">
+    <link rel="preconnect" href="https://fonts.shopifycdn.com">
+
+<!-- Start VWO Async SmartCode -->
+  <link rel="preconnect" href="https://dev.visualwebsiteoptimizer.com" />
+  <script type='text/javascript' id='vwoCode'>
+    window._vwo_code=window._vwo_code || (function() {
+    var account_id=715007,
+    version = 1.5,
+    settings_tolerance=2000,
+    library_tolerance=2500,
+    use_existing_jquery=false,
+    is_spa=1,
+    hide_element='body',
+    hide_element_style = 'opacity:0 !important;filter:alpha(opacity=0) !important;background:none !important',
+    /* DO NOT EDIT BELOW THIS LINE */
+    f=false,w=window,d=document,vwoCodeEl=d.querySelector('#vwoCode'),code={use_existing_jquery:function(){return use_existing_jquery},library_tolerance:function(){return library_tolerance},hide_element_style:function(){return'{'+hide_element_style+'}'},finish:function(){if(!f){f=true;var e=d.getElementById('_vis_opt_path_hides');if(e)e.parentNode.removeChild(e)}},finished:function(){return f},load:function(e){var t=d.createElement('script');t.fetchPriority='high';t.src=e;t.type='text/javascript';t.onerror=function(){_vwo_code.finish()};d.getElementsByTagName('head')[0].appendChild(t)},getVersion:function(){return version},getMatchedCookies:function(e){var t=[];if(document.cookie){t=document.cookie.match(e)||[]}return t},getCombinationCookie:function(){var e=code.getMatchedCookies(/(?:^|;)\s?(_vis_opt_exp_\d+_combi=[^;$]*)/gi);e=e.map(function(e){try{var t=decodeURIComponent(e);if(!/_vis_opt_exp_\d+_combi=(?:\d+,?)+\s*$/.test(t)){return''}return t}catch(e){return''}});var i=[];e.forEach(function(e){var t=e.match(/([\d,]+)/g);t&&i.push(t.join('-'))});return i.join('|')},init:function(){if(d.URL.indexOf('__vwo_disable__')>-1)return;w.settings_timer=setTimeout(function(){_vwo_code.finish()},settings_tolerance);var e=d.currentScript,t=d.createElement('style'),i=e&&!e.async?hide_element?hide_element+'{'+hide_element_style+'}':'':code.lA=1,n=d.getElementsByTagName('head')[0];t.setAttribute('id','_vis_opt_path_hides');vwoCodeEl&&t.setAttribute('nonce',vwoCodeEl.nonce);t.setAttribute('type','text/css');if(t.styleSheet)t.styleSheet.cssText=i;else t.appendChild(d.createTextNode(i));n.appendChild(t);var o=this.getCombinationCookie();this.load('https://dev.visualwebsiteoptimizer.com/j.php?a='+account_id+'&u='+encodeURIComponent(d.URL)+'&f='+ +is_spa+'&vn='+version+(o?'&c='+o:''));return settings_timer}};w._vwo_settings_timer = code.init();return code;}());
+  </script>
+<!-- End VWO Async SmartCode -->
+
+    {{ content_for_header }}
+
+    {{ checkout_stylesheets }}
+
+
+    {{ checkout_scripts }}
+
+    <!-- ADDRESS VALIDATOR -->
+    <script async src="https://d3ox8tdk614ykk.cloudfront.net/pobox_checker.js"></script>
+
+    {%- render 'css-variables' -%}
+    {%- render 'critical-css' -%}
+    <style > :root
+    {
+      --colorBtnPrimary: {{ settings.color_button | default: "#000" }};
+      --colorBtnPrimaryText: {{ settings.color_button_text | default: "#fff" }};
+      --colorBtnPrimaryBgTransition: background 0.15s ease;
+      --colorBtnPrimaryActive: {{ settings.color_button | default: "#000" | color_lighten: 20 }};
+      --colorCartDot: {{ settings.color_cart_dot | default: "#ff4f33" }};
+      --colorCartDotText: {{ settings.color_cart_dot_text | default: "#fff" }};
+
+      --colorLink: {{ settings.color_body_text | default: "#1c1d1d" }};
+
+      --colorTextBody: {{ settings.color_body_text | default: "#1c1d1d" }};
+      --colorSalePrice: {{ settings.color_sale_price | default: "#1c1d1d" }};
+      --colorSaleTag: {{ settings.color_sale_tag | default: "#1c1d1d" }};
+      --colorSaleTagText: {{ settings.color_sale_tag_text | default: "#ffffff" }};
+
+      --colorBody: {{ settings.color_body_bg | default: "#fff" }};
+      --colorBodyDim: {{ settings.color_body_bg | default: "#fff" | color_darken: 5 }};
+      --colorInputBg: {{ settings.color_body_bg | default: "#fff" }};
+      --colorInputText: {{ settings.color_body_text | default: "#1c1d1d" }};
+
+      --colorAlt: {{ settings.color_alt_bg | default: "#f4f4f4" }};
+      --colorAltText: {{ settings.color_alt_text | default: "#000" }};
+
+      --colorNav: {{ settings.color_body_bg | default: "#fff" }};
+      --colorNavText: {{ settings.color_body_text | default: "#000" }};
+      --colorAnnouncement: {{ settings.color_announcement | default: "#1c1d1d" }};
+      --colorAnnouncementText: {{ settings.color_announcement_text | default: "#fff" }};
+
+      --colorNewsletter: {{ settings.color_newsletter | default: "#1c1d1d" }};
+      --colorNewsletterText: {{ settings.color_newsletter_text | default: "#fff" }};
+
+      --colorHeroText: {{ settings.color_image_text | default: "#fff" }};
+
+      --colorSmallImageBg: {{ settings.color_small_image_bg | default: "#eee" }};
+      --colorLargeImageBg: {{ settings.color_large_image_bg | default: "#1c1d1d" }};
+
+      --colorImageOverlay: {{ settings.color_image_overlay | default: "#000" }};
+      --colorImageOverlayOpacity: {{ settings.color_image_overlay_opacity | divided_by: 100.0 }};
+      --colorImageOverlayTextShadow: {{ settings.color_image_overlay_text_shadow | divided_by: 100.0 }};
+
+      --colorDrawers: {{ settings.color_drawer_background | default: "#1c1d1d" }};
+      --colorDrawersDim: {{ settings.color_drawer_background | default: "#1c1d1d" | color_darken: 5 }};
+      --colorDrawerText: {{ settings.color_drawer_text | default: "#fff" }};
+      --colorDrawerTextDarken: {{ settings.color_drawer_text | default: "#fff" | color_darken: 15 }};
+      --color-body-text: {{ settings.color_body_text | default: "#1c1d1d" }};
+      --color-body: {{ settings.color_body_bg | default: "#fff" }};
+      --color-bg: {{ settings.color_body_bg | default: "#fff" }};
+      --typeHeaderWeight: 700;
+      --typeBaseWeight: 500;
+    }
+  </style>
+
+  {% include 'judgeme_core' %}
+
+  <script type="text/javascript">
+    var checkoutSteps = (callback) => {
+    document.addEventListener("page:load", callback);
+            document.addEventListener("page:change", callback);
+          }
+          checkoutSteps(() => { 
+        
+            console.log('step',Shopify.Checkout.step,'page',Shopify.Checkout.page,'OrderStatus',Shopify.Checkout.OrderStatus);
+            let progressBar = 0;
+            switch(Shopify.Checkout.step) {
+              case "contact_information":
+                if (document.querySelector('.step__footer') != null) {
+                  let img = document.createElement("img");
+                  img.classList.add('guaranted-safe-checkout');
+                  img.src = '{{ "Guaranteed.png" | asset_url }}';
+    let stepFooter = document.querySelector('.step__footer');
+                  stepFooter.insertBefore(img,stepFooter.children[stepFooter.children.length - 1]);
+                }
+                progressBar = 0;
+                break;
+              case "shipping_method":
+                if (document.querySelector('.step__footer') != null) {
+                  let img = document.createElement("img");
+                  img.classList.add('guaranted-safe-checkout');
+                  img.src = '{{ "Guaranteed.png" | asset_url }}';
+    let stepFooter = document.querySelector('.step__footer');
+                  stepFooter.insertBefore(img,stepFooter.children[stepFooter.children.length - 1]);
+                }
+                progressBar = 33.33;
+                if (document.querySelector(".content-box__emphasis").innerText.includes('Free')){
+                  current_shipping = document.querySelector(".section--shipping-method .radio__label__primary").innerHTML.replace('Free ','')
+                  upgrade_text = '<br class="hidden" /><span class="free-upgrade hidden">Free upgrade</span>';
+    document.querySelector(".section--shipping-method .radio__label__primary").innerHTML = current_shipping + upgrade_text;
+    
+                  stroke_price = '<s class="hidden">$8.00</s><br class="hidden" />';
+    upgrade_pice = document.querySelector(".content-box__emphasis").innerHTML;
+                  document.querySelector('.content-box__emphasis').innerHTML = stroke_price + upgrade_pice;
+                }            
+                break;
+              case "payment_method":
+                if (document.querySelector('.step__footer') != null) {
+                  let img = document.createElement("img");
+                  img.classList.add('guaranted-safe-checkout');
+                  img.src = '{{ "Guaranteed.png" | asset_url }}';
+    let stepFooter = document.querySelector('.step__footer');
+                  stepFooter.insertBefore(img,stepFooter.children[stepFooter.children.length - 1]);
+                }
+                progressBar = 66.66;
+                break;
+              case "review_order":
+                progressBar = 100;
+                break;
+              case "processing":
+                progressBar = 100;
+                break;
+              case "stock_problems":
+                break;
+              default:
+            }
+            if (progressBar >= 0) {
+              if (document.querySelector('.steps .step-1') != null) {
+                document.querySelector('.steps .step-1').classList.add('active');
+              }
+            }
+            if (progressBar >= 33.33) {
+              if (document.querySelector('.steps .step-2') != null) {
+                document.querySelector('.steps .step-2').classList.add('active');
+              }
+            }
+            if (progressBar >= 66.66) {
+              if (document.querySelector('.steps .step-3') != null) {
+                document.querySelector('.steps .step-3').classList.add('active');
+              }
+            }
+            if (progressBar >= 99.99) {
+              if (document.querySelector('.steps .step-4') != null) {
+                document.querySelector('.steps .step-4').classList.add('active');
+              }
+            }
+            if (document.querySelector('.progress-steps .progress-bar') != null) {
+              document.querySelector('.progress-steps .progress-bar').style.width = progressBar + "%";
+              document.querySelector('.progress-steps .progress-bar').setAttribute('aria-valuenow', progressBar);
+              document.querySelector('.progress-steps .progress-bar span').innerHTML = progressBar + "% Complete";
+            }
+                   
+          });
+          function positioningWidget() {
+            let judgemeWidget = document.querySelector('#judge-me-custom-install');
+            if(window.innerWidth < 1000){
+              document.querySelector('.main').insertBefore(judgemeWidget, document.querySelector('footer'));
+            }else{
+              document.querySelector('.sidebar').append(judgemeWidget);
+            } 
+          }
+    
+          window.addEventListener('resize', positioningWidget);
+          window.addEventListener('DOMContentLoaded',positioningWidget)</script>
+
+  <style>
+    .wrapper {
+      max-width: 1260px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+    @media screen and (min-width: 591px) {
+      .wrapper {
+        padding: 0 30px;
+      }
+    }
+    .grid,
+    .grid--full,
+    .grid--rev,
+    .grid-uniform {
+      list-style: none;
+      margin: 0 0 0 -15px;
+      padding: 0;
+    }
+    @media screen and (min-width: 591px) {
+      .grid,
+      .grid--full,
+      .grid--rev,
+      .grid-uniform {
+        margin-left: -30px;
+      }
+    }
+    .grid--full {
+      margin-left: 0;
+    }
+    .site-header .grid--table {
+      display: table;
+      table-layout: fixed;
+      width: 100%;
+    }
+    .grid__item {
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      float: left;
+      min-height: 1px;
+      padding-left: 15px;
+      vertical-align: top;
+      width: 100%;
+    }
+    @media screen and (min-width: 591px) {
+      .grid__item {
+        padding-left: 30px;
+      }
+    }
+    .grid--full > .grid__item {
+      padding-left: 0;
+    }
+    .site-header .grid--table > .grid__item {
+      float: none;
+      display: table-cell;
+      vertical-align: middle;
+    }
+    .header-container {
+      position: relative;
+      z-index: 2;
+    }
+    .header-wrapper {
+      z-index: 2;
+      -webkit-animation: fadeIn 0.8s cubic-bezier(0.44,.13,0.48,.87) forwards;
+      -moz-animation: fadeIn 0.8s cubic-bezier(0.44,.13,0.48,.87) forwards;
+      -o-animation: fadeIn 0.8s cubic-bezier(0.44,.13,0.48,.87) forwards;
+      animation: fadeIn 0.8s cubic-bezier(0.44,.13,0.48,.87) forwards;
+    }
+    .announcement {
+      position: sticky;
+      width: 100%;
+      z-index: 24;
+      top: 0;
+    }
+
+    .announcement__wrapper {
+      background-color: {{ settings.color_announcement | default: "#1c1d1d" }};
+      background-color: var(--colorAnnouncement);
+      color: {{ settings.color_announcement_text | default: "#fff" }};
+      color: var(--colorAnnouncementText);
+      /*opacity: 0;*/
+    }
+
+    .announcement__wrapper.flickity-enabled {
+      opacity: 1;
+    }
+
+    .announcement-slide {
+      display: block;
+      width: 100%;
+    }
+
+    .announcement__text {
+      font-size: clamp(14px, 1.6vw, 16px);
+      letter-spacing: 0.2em;
+      text-transform: none;
+      display: block;
+      padding: 7px 20px 6px;
+      text-align: center;
+      font-weight: 800;
+    }
+
+    .announcement__link {
+      display: block;
+      color: {{ settings.color_announcement_text | default: "#fff" }};
+      color: var(--colorAnnouncementText)
+    }
+
+    .announcement__link:hover {
+      color: {{ settings.color_announcement_text | default: "#fff" }};
+      color: var(--colorAnnouncementText);
+    }
+
+    .head-logo {
+      text-align: center;
+      margin: 26px 0 6px;
+    }
+
+    .site-header {
+      padding: 15px 0;
+      height: 92px;
+      background-color: #FAFAFA;
+    }
+    .site-header .wrapper {
+      font-size: 22px;
+      position: relative;
+      transition: padding-top 0.3s linear;
+      max-width: calc(100% - 44px);
+    }
+    .site-header__logo-image {
+      display: block;
+      margin: 0 auto;
+    }
+    .site-header__logo-image {
+      display: block;
+      margin: 0 auto;
+    }
+    .order-summary__section--discount button * {
+      pointer-events: none;
+    }
+    @media screen and (min-width: 769px) {
+      .site-header .site-header__logo img {
+        border: 10px solid #FAFAFA;
+        border-bottom-left-radius: 50%;
+        border-bottom-right-radius: 50%;
+        margin-bottom: -80px;
+        position: relative;
+        z-index: 80;
+      }
+    }
+    @media screen and (max-width: 768px) {
+      .site-header {
+        padding: 0;
+        height: 64px;
+      }
+      .site-header .wrapper .grid--table {
+        height: 64px;
+      }
+      .site-header__logo img {
+        margin-top: 10px;
+        max-width: 62px !important;
+      }
+      .medium-down--one-half {
+        width: 50%;
+      }
+    }
+    .progress-steps {
+      max-width: 651px;
+      margin: 0 auto 20px;
+      position: relative;
+      padding: 18px 0 40px;
+      text-align: center;
+    }
+    .progress-steps .progress {
+      background-color: #DADADA;
+      height: 5px;
+      margin: 0;
+      border-radius: 2.5px;
+    }
+    .progress-steps .progress .progress-bar {
+      background-color: #000;
+      border-radius: 2.5px;
+      -webkit-box-shadow: none;
+      box-shadow: none;
+      height: 5px;
+      max-width: 100%;
+    }
+    .progress-steps .progress .progress-bar span {
+      display: none;
+    }
+    .steps .step {
+      position: absolute;
+      top: 0;
+      display: inline-block;
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 1.14;
+      color: #666467;
+      text-align: center;
+      margin: 0;
+      width: 33.33%;
+      height: 100%;
+    }
+    .steps .step * {
+      pointer-events: none;
+    }
+    .steps .step .title {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      padding-bottom: 8px;
+      color: #979797;
+    }
+    .steps .step .step-icon svg path {
+      fill: #DADADA;
+    }
+    .steps .step .step-icon svg circle {
+      stroke: #DADADA;
+    }
+    .steps .step.active .title {
+      color: #000;
+    }
+    .steps .step.active .step-icon svg path {
+      fill: #000;
+    }
+    .steps .step.active .step-icon svg circle {
+      stroke: #000;
+    }
+    .steps .step-1 {
+      left: calc(-33.33% / 2);
+    }
+    .steps .step-2 {
+      left: calc(33.33% / 2)
+    }
+    .steps .step-3 {
+      left: calc(66.66% -(33.33% / 2));
+    }
+    .steps .step-4 {
+      right: -40px;
+      width: auto;
+    }
+    .steps .step span {
+      display: block;
+    }
+    .steps .step.active,
+    .steps .step.active a {
+      color: #000000;
+    }
+    .steps .step.active * {
+      pointer-events: initial;
+    }
+    .content {
+      -webkit-box-shadow: 0 1px 0 #e1e1e1 inset;
+      box-shadow: 0 1px 0 #e1e1e1 inset;
+    }
+    @media(min-width: 1000px) {
+      .content .sidebar::after {
+        -webkit-box-shadow: 1px 0 0 #e1e1e1 inset;
+        box-shadow: 1px 0 0 #e1e1e1 inset;
+      }
+    }
+    .main {
+      margin: 0 !important;
+    }
+    .logo {
+      margin: 16px 0;
+    }
+    .logo.logo--center {
+      display: none !important;
+    }
+    .breadcrumb.breadcrumb--center {
+      text-align: left;
+      -webkit-box-pack: inherit;
+      -ms-flex-pack: inherit;
+      justify-content: inherit;
+    }
+    .step .step__footer {
+      -webkit-box-orient: inherit;
+      -webkit-box-direction: inherit;
+      -ms-flex-direction: inherit;
+      flex-direction: inherit;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+      justify-content: space-between;
+      gap: 16px;
+      -webkit-box-align: end;
+      -ms-flex-align: end;
+      align-items: end;
+      display: flex;
+    }
+    @media(min-width: 750px) {
+      .step[data-step="contact_information"] .step__footer .step__footer__previous-link {
+        margin-left: 1em;
+        margin-right: 0;
+      }
+      .step[data-step="contact_information"] .step__footer .step__footer__previous-link svg {
+        display: none;
+      }
+    }
+    .guaranted-safe-checkout {
+      max-width: 335px;
+      -ms-flex-order: 1;
+      order: 1;
+    }
+    .step__footer__continue-btn,
+    .step__footer .shown-if-js,
+    .step__footer .hidden-if-js {
+      -ms-flex-order: 2;
+      order: 2;
+      max-width: 210px;
+    }
+    .step__footer .step__footer__previous-link {
+      /*display: none !important;*/
+      -ms-flex-order: 3;
+      order: 3;
+    }
+
+    .sidebar .order-summary__emphasis[data-checkout-total-shipping-target="0"] {
+      font-family: Hanoded, sans-serif;
+      font-size: 16px;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      color: #76c4dc;
+    }
+    @media(min-width: 1000px) {
+      .sidebar::after {
+        left: 0;
+        background-position: left top;
+      }
+      .order-summary__sections {
+        height: inherit;
+      }
+    }
+    @media(min-width: 750px) {
+      .guaranted-safe-checkout {
+        -ms-flex-order: 1;
+        order: 1;
+      }
+    }
+    @media(max-width: 999px) {
+      .head-logo {
+        margin-top: 0;
+      }
+      .progress-steps {
+        margin: 26px auto 11px;
+      }
+    }
+    @media(max-width: 749px) {
+      .guaranted-safe-checkout {
+        display: block;
+        max-width: 290px;
+        margin: 14px auto 0;
+      }
+      .step__footer__continue-btn {
+        max-width: 100%;
+        width: 100%;
+      }
+    }
+    @media(max-width: 650px) {
+      .head-logo {
+        margin-top: 32px;
+      }
+      .anyflexbox .banner {
+        padding: 0;
+      }
+      .progress-steps {
+        max-width: 75%;
+        margin-top: 14px;
+        padding: 18px 0 40px;
+      }
+      .steps .step .title svg {
+        width: 18px;
+        height: auto;
+        margin-right: 4px;
+      }
+    }
+    @media(max-width: 550px) {
+      .header__logo {
+        padding: 30px 0;
+      }
+      .steps .step {
+        font-size: 12px;
+        margin: 0;
+      }
+    }
+    @media(max-width: 375px) {
+      .guaranted-safe-checkout {
+        max-width: 100%;
+      }
+    }
+
+    .properties-clutch-cehckout {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      align-items: baseline;
+    }
+    .properties-clutch-cehckout .propertie {
+      flex: 1;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      text-align: center;
+    }
+    .properties-clutch-cehckout .propertie svg {
+      margin-bottom: 16px;
+    }
+    .properties-clutch-cehckout .propertie .text {
+      display: block;
+      width: 100%;
+      font-family: 'Open Sans';
+      font-style: normal;
+      font-weight: 600;
+      font-size: clamp(12px, 1.4vw, 14px);
+      line-height: 1.14;
+    }
+    @media screen and (max-width: 999px) {
+      .properties-clutch-cehckout {
+        margin: 32px 0;
+      }
+      .properties-clutch-cehckout .propertie .text {
+        line-height: 1.33;
+      }
+      .properties-clutch-cehckout .propertie svg {
+        max-width: 62px;
+        max-height: 62px;
+      }
+    }
+
+    .jdgm-carousel-wrapper[data-from-snippet="true"],
+    .jdgm-hidden {
+      display: block !important;
+      visibility: visible !important;
+    }
+    .jdgm-carousel-wrapper .jdgm-carousel-item {
+      width: 100% !important;
+    }
+    .jdgm-carousel-wrapper {
+      position: relative;
+      padding: 10px 0;
+      width: 100%;
+      margin-top: 30px;
+    }
+    .jdgm-carousel-title {
+      display: none;
+    }
+    .jdgm-carousel-wrapper .jdgm-all-reviews-rating-wrapper {
+      text-align: left;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #D9D9D9;
+    }
+    .jdgm-all-reviews-rating {
+      display: inline-block !important;
+    }
+    .jdgm-carousel-number-of-reviews a {
+      display: none;
+    }
+    .jdgm-carousel-number-of-reviews:after {
+      content: attr(data-number-of-reviews);
+      display: inline-block;
+    }
+    .jdgm-carousel-number-of-reviews {
+      display: inline-block !important;
+      margin-left: 5px;
+    }
+    .jdgm-carousel__arrows {
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: 0 15px;
+      z-index: 999;
+    }
+    .jdgm-carousel__right-arrow,
+    .jdgm-carousel__left-arrow {
+      width: 10px;
+      height: 10px;
+      border-width: 1px;
+      border-color: #000 !important;
+    }
+    .jdgm-carousel-item__review,
+    .jdgm-carousel-item__reviewer-name-wrapper,
+    .jdgm-carousel-item__product {
+      text-align: left !important;
+    }
+    .jdgm-carousel-item {
+      padding: 0 5px !important;
+    }
+
+    .announcement,
+    .container-steps,
+    .guaranted-safe-checkout,
+    #judge-me-custom-install {
+      display: block;
+    }
+
+    .properties-clutch-cehckout {
+      display: flex;
+    }
+
+    /*ABTest*/
+
+    .head-help {
+      display: none;
+    }
+
+    .abtest-optimize .progress-steps {
+      display: none;
+    }
+
+    .abtest-optimize .head-help {
+      display: block;
+      width: 100%;
+      margin: 10px auto 15px;
+      text-align: center;
+      font-size: 16px;
+      font-weight: 400;
+    }
+
+    .abtest-optimize .order-summary__emphasis.total-recap__final-price.skeleton-while-loading {
+      font-weight: 700;
+    }
+
+    .abtest-optimize .head-help a {
+      text-decoration: underline;
+    }
+
+    .abtest-optimize .dynamic-checkout__title {
+      font-size: 12px;
+    }
+
+    .abtest-optimize .paypal-button.paypal-button-color-gold {
+      background: #123984 !important;
+    }
+
+    .logo.logo--left {
+      display: none !important;
+    }
+
+    @media screen and (max-width: 768px) {
+      .abtest-optimize .head-help {
+        font-size: 14px;
+      }
+    }
+    .jdgm-carousel__right-arrow, .jdgm-carousel__left-arrow {
+      border-width: 2px !important;
+      width: 10px !important;
+      height: 10px !important;
+    }
+    .jdgm-carousel__arrows {
+      position: absolute !important;
+      top: 34px !important;
+    }
+  </style>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      window['abtest_checkout'] = false;
+    });
+
+    document.addEventListener("DOMContentLoaded", function() {
+      const body = document.querySelector('.abtest-optimize');
+
+
+    });
+  </script>
+
+  <script src="https://socialsnowball.io/js/leaked-discount-code-detect.js" async></script>
+
+</head>
+<body class="">
+  {% render 'elevar-checkout-end' %}
+  {%- unless request.path contains 'thank_you' -%}
+  {%- endunless -%}
+  <div class="announcement">
+    <div class="announcement__wrapper">
+      <span class="announcement__text">{{ settings.ribbon_checkout }}</span>
+    </div>
+  </div>
+
+  {{ skip_to_content_link }}
+
+  <header
+    class="banner"
+    data-header
+    role="banner">
+    <div class="wrap">
+      {{ content_for_logo }}
+    </div>
+  </header>
+
+  <div class="wrap container-steps">
+    <div class="head-logo">
+      <a href="/">
+        <svg
+          width="80"
+          height="80"
+          viewBox="0 0 80 80"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink">
+          <rect
+            width="80"
+            height="80"
+            fill="url(#pattern0)" />
+          <defs>
+            <pattern
+              id="pattern0"
+              patternContentUnits="objectBoundingBox"
+              width="1"
+              height="1">
+              <use xlink:href="#image0_4_29" transform="scale(0.0125)" />
+            </pattern>
+            <image
+              id="image0_4_29"
+              width="80"
+              height="80"
+              xlink:href="data:image/png;base64,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" />
+          </defs>
+        </svg>
+      </a>
+    </div>
+    <div class="progress-steps">
+      <div class="progress">
+        <div
+          class="progress-bar"
+          role="progressbar"
+          aria-valuenow=""
+          aria-valuemin="0"
+          aria-valuemax="100"
+          style="width: 0%;">
+          <span class="u-hiddenVisually sr-only">% Complete</span>
+        </div>
+      </div>
+      <div class="steps">
+        <div class="step step-1">
+          <span class="step-icon">
+            <svg
+              width="39"
+              height="39"
+              viewBox="0 0 39 39"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <circle
+                cx="19.5"
+                cy="19.5"
+                r="18.5"
+                fill="white"
+                stroke="black"
+                stroke-width="2" />
+              <path d="M20.957 24H19.1465V19.043C19.1465 18.9062 19.1484 18.7383 19.1523 18.5391C19.1562 18.3359 19.1621 18.1289 19.1699 17.918C19.1777 17.7031 19.1855 17.5098 19.1934 17.3379C19.1504 17.3887 19.0625 17.4766 18.9297 17.6016C18.8008 17.7227 18.6797 17.832 18.5664 17.9297L17.582 18.7207L16.709 17.6309L19.4688 15.4336H20.957V24Z" fill="black" />
+            </svg>
+          </span>
+          <a href="?step=contact_information">
+            <span class="title">Your Info</span>
+          </a>
+        </div>
+        <div class="step step-2">
+          <span class="step-icon">
+            <svg
+              width="39"
+              height="39"
+              viewBox="0 0 39 39"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <circle
+                cx="19.5"
+                cy="19.5"
+                r="18.5"
+                fill="white"
+                stroke="black"
+                stroke-width="2" />
+              <path d="M22.4688 24H16.4805V22.7402L18.6309 20.5664C19.0645 20.1211 19.4121 19.75 19.6738 19.4531C19.9395 19.1523 20.1309 18.8789 20.248 18.6328C20.3691 18.3867 20.4297 18.123 20.4297 17.8418C20.4297 17.502 20.334 17.248 20.1426 17.0801C19.9551 16.9082 19.7031 16.8223 19.3867 16.8223C19.0547 16.8223 18.7324 16.8984 18.4199 17.0508C18.1074 17.2031 17.7812 17.4199 17.4414 17.7012L16.457 16.5352C16.7031 16.3242 16.9629 16.125 17.2363 15.9375C17.5137 15.75 17.834 15.5996 18.1973 15.4863C18.5645 15.3691 19.0039 15.3105 19.5156 15.3105C20.0781 15.3105 20.5605 15.4121 20.9629 15.6152C21.3691 15.8184 21.6816 16.0957 21.9004 16.4473C22.1191 16.7949 22.2285 17.1895 22.2285 17.6309C22.2285 18.1035 22.1348 18.5352 21.9473 18.9258C21.7598 19.3164 21.4863 19.7031 21.127 20.0859C20.7715 20.4688 20.3418 20.8926 19.8379 21.3574L18.7363 22.3945V22.4766H22.4688V24Z" fill="black" />
+            </svg>
+          </span>
+          <a href="?step=shipping_method">
+            <span class="title">Delivery</span>
+          </a>
+        </div>
+        <div class="step step-3">
+          <span class="step-icon">
+            <svg
+              width="39"
+              height="39"
+              viewBox="0 0 39 39"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <circle
+                cx="19.5"
+                cy="19.5"
+                r="18.5"
+                fill="white"
+                stroke="#DADADA"
+                stroke-width="2" />
+              <path d="M22.1348 17.3496C22.1348 17.7441 22.0527 18.0859 21.8887 18.375C21.7246 18.6641 21.502 18.9004 21.2207 19.084C20.9434 19.2676 20.6309 19.4023 20.2832 19.4883V19.5234C20.9707 19.6094 21.4922 19.8203 21.8477 20.1562C22.207 20.4922 22.3867 20.9414 22.3867 21.5039C22.3867 22.0039 22.2637 22.4512 22.0176 22.8457C21.7754 23.2402 21.4004 23.5508 20.8926 23.7773C20.3848 24.0039 19.7305 24.1172 18.9297 24.1172C18.457 24.1172 18.0156 24.0781 17.6055 24C17.1992 23.9258 16.8164 23.8105 16.457 23.6543V22.1133C16.8242 22.3008 17.209 22.4434 17.6113 22.541C18.0137 22.6348 18.3887 22.6816 18.7363 22.6816C19.3848 22.6816 19.8379 22.5703 20.0957 22.3477C20.3574 22.1211 20.4883 21.8047 20.4883 21.3984C20.4883 21.1602 20.4277 20.959 20.3066 20.7949C20.1855 20.6309 19.9746 20.5059 19.6738 20.4199C19.377 20.334 18.9609 20.291 18.4258 20.291H17.7754V18.9023H18.4375C18.9648 18.9023 19.3652 18.8535 19.6387 18.7559C19.916 18.6543 20.1035 18.5176 20.2012 18.3457C20.3027 18.1699 20.3535 17.9707 20.3535 17.748C20.3535 17.4434 20.2598 17.2051 20.0723 17.0332C19.8848 16.8613 19.5723 16.7754 19.1348 16.7754C18.8613 16.7754 18.6113 16.8105 18.3848 16.8809C18.1621 16.9473 17.9609 17.0293 17.7812 17.127C17.6016 17.2207 17.4434 17.3125 17.3066 17.4023L16.4688 16.1543C16.8047 15.9121 17.1973 15.7109 17.6465 15.5508C18.0996 15.3906 18.6387 15.3105 19.2637 15.3105C20.1465 15.3105 20.8457 15.4883 21.3613 15.8438C21.877 16.1992 22.1348 16.7012 22.1348 17.3496Z" fill="#DADADA" />
+            </svg>
+          </span>
+          <a href="">
+            <span class="title">Payment</span>
+          </a>
+        </div>
+        <div class="step step-4">
+          <span class="step-icon">
+            <svg
+              width="39"
+              height="39"
+              viewBox="0 0 39 39"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <circle
+                cx="19.5"
+                cy="19.5"
+                r="18.5"
+                fill="white"
+                stroke="#DADADA"
+                stroke-width="2" />
+              <path d="M22.6621 22.2246H21.6309V24H19.8613V22.2246H16.2051V20.9648L19.9609 15.4336H21.6309V20.8184H22.6621V22.2246ZM19.8613 20.8184V19.3652C19.8613 19.2285 19.8633 19.0664 19.8672 18.8789C19.875 18.6914 19.8828 18.5039 19.8906 18.3164C19.8984 18.1289 19.9062 17.9629 19.9141 17.8184C19.9258 17.6699 19.9336 17.5664 19.9375 17.5078H19.8906C19.8164 17.668 19.7383 17.8242 19.6562 17.9766C19.5742 18.125 19.4785 18.2812 19.3691 18.4453L17.7988 20.8184H19.8613Z" fill="#DADADA" />
+            </svg>
+          </span>
+          <span class="title">Confirmation</span>
+        </div>
+      </div>
+    </div>
+    <!--New implementation with abtest-->
+    <div class="head-help">
+      Questions? Email
+      <a href="mailto:hello@clutchcharger.com">hello@clutchcharger.com</a>
+    </div>
+    <!--New implementation with abtest-->
+  </div>
+
+  {{ order_summary_toggle }}
+  <div class="content" data-content>
+    <div class="wrap">
+      <div class="main">
+        <header class="main__header" role="banner">
+          {{ content_for_logo }}
+          {{ breadcrumb }}
+          {{ alternative_payment_methods }}
+        </header>
+        <main class="main__content" role="main">
+          {{ content_for_layout }}
+        </main>
+        <footer class="main__footer" role="contentinfo">
+          {{ content_for_footer }}
+        </footer>
+      </div>
+      <aside class="sidebar" role="complementary">
+        <div class="sidebar__header">
+          {{ content_for_logo }}
+        </div>
+        <div class="sidebar__content">
+          {{ content_for_order_summary }}
+          <div class="properties-clutch-cehckout">
+            <div class="propertie">
+              <svg
+                width="82"
+                height="82"
+                viewBox="0 0 82 82"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <circle
+                  cx="41"
+                  cy="41"
+                  r="40.25"
+                  stroke="#2D2D2C"
+                  stroke-width="1.5" />
+                <g clip-path="url(#clip0_108_382)">
+                  <path d="M40.8329 32.9113H36.2891L36.9317 34.2296L33.8599 35.2065H38.4528L37.7889 34.0589L40.8329 32.9113Z" fill="#010303" />
+                  <path d="M46.3732 41.0325H41.8277L42.4703 42.3508L39.4001 43.3294H43.9931L43.3276 42.1801L46.3732 41.0325Z" fill="#010303" />
+                  <path
+                    d="M28.3801 36.876V40.961"
+                    stroke="#010303"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path
+                    d="M28.3801 43.5716V46.8861C28.3797 47.1144 28.4247 47.3405 28.5125 47.5515C28.6002 47.7625 28.7291 47.9543 28.8917 48.1158C29.0543 48.2774 29.2475 48.4056 29.4601 48.493C29.6727 48.5805 29.9006 48.6255 30.1308 48.6255H34.2565C34.2565 47.8128 34.5821 47.0334 35.1615 46.4588C35.741 45.8841 36.5269 45.5613 37.3464 45.5613C38.1658 45.5613 38.9517 45.8841 39.5312 46.4588C40.1107 47.0334 40.4362 47.8128 40.4362 48.6255H53.1774C53.1774 48.2231 53.2573 47.8246 53.4126 47.4528C53.5679 47.0811 53.7955 46.7433 54.0824 46.4588C54.3693 46.1742 54.7099 45.9485 55.0848 45.7945C55.4597 45.6405 55.8615 45.5613 56.2672 45.5613C57.0867 45.5613 57.8726 45.8841 58.4521 46.4588C59.0315 47.0334 59.3571 47.8128 59.3571 48.6255H59.9275C60.3918 48.6255 60.8371 48.4426 61.1654 48.117C61.4937 47.7914 61.6781 47.3498 61.6781 46.8894V44.451C61.6781 43.7228 59.1555 39.4736 57.8408 36.8938C57.4229 36.0811 56.6557 35.7446 56.141 35.7446H51.1252V32.0448C51.1234 31.5855 50.9382 31.1456 50.6101 30.8214C50.282 30.4973 49.8377 30.3152 49.3746 30.3152H30.1308C29.6676 30.3152 29.2233 30.4973 28.8952 30.8214C28.5671 31.1456 28.3819 31.5855 28.3801 32.0448V34.0524"
+                    stroke="#010303"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path
+                    d="M37.3464 51.6864C39.0529 51.6864 40.4362 50.3145 40.4362 48.6222C40.4362 46.9299 39.0529 45.558 37.3464 45.558C35.64 45.558 34.2566 46.9299 34.2566 48.6222C34.2566 50.3145 35.64 51.6864 37.3464 51.6864Z"
+                    stroke="#010303"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path
+                    d="M56.2673 51.6864C57.9738 51.6864 59.3571 50.3145 59.3571 48.6222C59.3571 46.9299 57.9738 45.558 56.2673 45.558C54.5609 45.558 53.1775 46.9299 53.1775 48.6222C53.1775 50.3145 54.5609 51.6864 56.2673 51.6864Z"
+                    stroke="#010303"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path
+                    d="M51.1252 35.7397V48.6222"
+                    stroke="#010303"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path
+                    d="M32.7467 34.0589H24.6001"
+                    stroke="#010303"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path
+                    d="M30.7732 43.5505H22.6282"
+                    stroke="#010303"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path
+                    d="M25.8933 37.3068H20.3218"
+                    stroke="#010303"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path
+                    d="M37.3463 40.961H26.0508"
+                    stroke="#010303"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </g>
+                <defs>
+                  <clipPath id="clip0_108_382">
+                    <rect
+                      width="44"
+                      height="24"
+                      fill="white"
+                      transform="translate(19 29)" />
+                  </clipPath>
+                </defs>
+              </svg>
+              <p class="text">FREE<br>SHIPPING</p>
+            </div>
+            <div class="propertie">
+              <svg
+                width="82"
+                height="82"
+                viewBox="0 0 82 82"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0_108_193)">
+                  <path
+                    d="M25.6554 33.2845V48.8311C25.655 49.207 25.7579 49.5758 25.9528 49.8972C26.1478 50.2186 26.4273 50.4803 26.7609 50.6536L39.7081 57.3663C39.8207 57.4245 39.9463 57.4527 40.073 57.4482C40.1996 57.4437 40.3229 57.4067 40.431 57.3406C40.5392 57.2746 40.6284 57.1817 40.6902 57.0711C40.752 56.9605 40.7842 56.8358 40.7837 56.7091V40.6644C40.7887 40.322 40.6981 39.985 40.5222 39.6912C40.3463 39.3974 40.092 39.1585 39.7878 39.0012L26.6414 32.6869C26.5389 32.6312 26.4236 32.6032 26.307 32.606C26.1903 32.6087 26.0765 32.642 25.9767 32.7025C25.8769 32.7629 25.7948 32.8485 25.7384 32.9506C25.682 33.0527 25.6534 33.1678 25.6554 33.2845V33.2845Z"
+                    stroke="#2D2D2C"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path
+                    d="M55.9421 33.2845V48.8311C55.9425 49.207 55.8396 49.5758 55.6447 49.8972C55.4497 50.2186 55.1702 50.4803 54.8366 50.6536L41.8894 57.3663C41.7768 57.4245 41.6512 57.4527 41.5246 57.4482C41.3979 57.4437 41.2746 57.4067 41.1665 57.3406C41.0583 57.2746 40.9691 57.1817 40.9073 57.0711C40.8455 56.9605 40.8133 56.8358 40.8138 56.7091V40.6644C40.8111 40.3225 40.9026 39.9863 41.0783 39.6929C41.254 39.3995 41.507 39.1602 41.8097 39.0012L54.9562 32.6869C55.0586 32.6312 55.1739 32.6032 55.2906 32.606C55.4072 32.6087 55.521 32.642 55.6208 32.7025C55.7206 32.7629 55.8027 32.8485 55.8591 32.9506C55.9155 33.0527 55.9441 33.1678 55.9421 33.2845V33.2845Z"
+                    stroke="#2D2D2C"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path
+                    d="M26.6414 32.7167C26.546 32.673 26.4652 32.6029 26.4086 32.5146C26.3519 32.4263 26.3218 32.3236 26.3218 32.2187C26.3218 32.1138 26.3519 32.0112 26.4086 31.9229C26.4652 31.8346 26.546 31.7644 26.6414 31.7207L39.8177 24.8786C40.1248 24.7172 40.4666 24.6329 40.8136 24.6329C41.1606 24.6329 41.5024 24.7172 41.8096 24.8786L54.6871 31.671C54.7851 31.7225 54.8672 31.7998 54.9245 31.8946C54.9818 31.9894 55.012 32.0981 55.012 32.2089C55.012 32.3196 54.9818 32.4282 54.9245 32.523C54.8672 32.6178 54.7851 32.6951 54.6871 32.7466"
+                    stroke="#2D2D2C"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path
+                    d="M49.9066 29.1712L35.3459 36.82V45.5644L32.627 43.3135L30.416 43.682V34.5194L45.3552 26.7709"
+                    stroke="#2D2D2C"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path
+                    d="M19.411 74.2077C18.8434 73.8491 18.2956 73.4906 17.7478 73.1022"
+                    stroke="#2D2D2C"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path
+                    d="M14.5705 70.6323C6.8376 63.9929 1.95847 54.6305 0.946045 44.4888"
+                    stroke="#2D2D2C"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-dasharray="4.04 4.04" />
+                  <path
+                    d="M0.79687 42.4969C0.79687 41.8296 0.74707 41.1723 0.74707 40.505"
+                    stroke="#2D2D2C"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path
+                    d="M6.73267 19.5106C10.3001 13.7699 15.2729 9.03387 21.1807 5.75058C27.0886 2.46729 33.7362 0.745111 40.4951 0.746919C51.0396 0.746919 61.1522 4.93578 68.6083 12.3919C76.0644 19.8479 80.2531 29.9605 80.2531 40.505C80.2531 45.7256 79.2247 50.895 77.2265 55.7182C75.2284 60.5413 72.2997 64.9235 68.6077 68.6146C64.9157 72.3057 60.5327 75.2333 55.7091 77.2302C50.8855 79.2272 45.7158 80.2544 40.4951 80.2531C34.2038 80.2634 28.0005 78.7748 22.3989 75.9107"
+                    stroke="#2D2D2C"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path
+                    d="M13.5249 19.5105L6.40395 20.0881L5.07935 13.4253"
+                    stroke="#2D2D2C"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path d="M51.2023 46.6787L47.0515 48.5313L48.1756 49.4733L45.7709 51.6182L49.965 49.7462L48.8889 48.968L51.2023 46.6787Z" fill="#010303" />
+                  <path d="M52.3675 38L48.2168 39.8526L49.3409 40.7946L46.9362 42.9395L51.1303 41.0675L50.0542 40.2893L52.3675 38Z" fill="#010303" />
+                </g>
+                <defs>
+                  <clipPath id="clip0_108_193">
+                    <rect
+                      width="82"
+                      height="82"
+                      fill="white" />
+                  </clipPath>
+                </defs>
+              </svg>
+              <p class="text">FREE EXCHANGES<br>AND RETURNS</p>
+            </div>
+            <div class="propertie">
+              <svg
+                width="82"
+                height="82"
+                viewBox="0 0 82 82"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0_108_383)">
+                  <path d="M27.4559 42.866L26.2452 47.8951H24.6608L24.1862 45.7029C24.1769 45.6631 24.1638 45.5929 24.1451 45.4943C24.1264 45.3957 24.104 45.2838 24.0797 45.1568C24.0554 45.0297 24.0349 44.9065 24.0162 44.7775C23.9975 44.6485 23.9826 44.5518 23.9732 44.4665C23.9639 44.5518 23.9489 44.6561 23.9284 44.7775C23.9078 44.8989 23.8873 45.024 23.863 45.1568C23.8387 45.2895 23.8163 45.3957 23.7957 45.4943L23.749 45.7029L23.2557 47.8951H21.6732L20.4531 42.866H21.7461L22.2842 45.3881L22.3402 45.6498C22.3645 45.7636 22.3888 45.8888 22.415 46.0291C22.4411 46.1694 22.4654 46.2927 22.4878 46.4084C22.5103 46.524 22.5252 46.6359 22.5345 46.7194C22.5532 46.5771 22.5775 46.414 22.6074 46.2339C22.6373 46.0537 22.6728 45.8679 22.7102 45.6821C22.7475 45.4962 22.783 45.3199 22.8167 45.1606C22.8503 45.0013 22.8802 44.8685 22.9045 44.768L23.3417 42.8717H24.5823L25.0065 44.768C25.0289 44.8666 25.0588 44.9975 25.0924 45.1587C25.126 45.3199 25.1634 45.4943 25.2008 45.684C25.2381 45.8736 25.2736 46.0632 25.3054 46.2396C25.3372 46.4159 25.3596 46.5809 25.3764 46.7194C25.3895 46.6037 25.4119 46.4595 25.4437 46.2832C25.4754 46.1068 25.5072 45.9381 25.5408 45.7712C25.5745 45.6043 25.5987 45.4792 25.6174 45.3919L26.1667 42.8641L27.4559 42.866Z" fill="#2D2D2C" />
+                  <path d="M31.1368 47.8951L30.8939 46.9469H29.2834L29.033 47.8951H27.5532L29.1713 42.8451H30.9575L32.5979 47.8951H31.1368ZM30.6156 45.8375L30.4026 45.0126C30.3801 44.9235 30.3465 44.7946 30.3035 44.6334C30.2606 44.4722 30.2176 44.2958 30.1765 44.1176C30.1354 43.9393 30.1017 43.7933 30.0793 43.6795C30.0588 43.7933 30.0307 43.9355 29.9934 44.1043C29.956 44.2731 29.9186 44.4399 29.8775 44.6049C29.8364 44.7699 29.8047 44.9083 29.7748 45.0183L29.5618 45.8432L30.6156 45.8375Z" fill="#2D2D2C" />
+                  <path d="M34.7616 42.866C35.142 42.8551 35.5213 42.9116 35.8826 43.0329C36.1525 43.1231 36.3877 43.2969 36.5553 43.5297C36.7123 43.7732 36.7912 44.06 36.7814 44.3508C36.7833 44.5417 36.7484 44.7311 36.6786 44.9083C36.6118 45.0759 36.5134 45.2285 36.389 45.3578C36.2573 45.4949 36.1062 45.6112 35.9406 45.7029L37.3848 47.8951H35.8677L34.8158 46.0651H34.4776V47.8951H33.1379V42.866H34.7616ZM34.741 43.8938H34.4776V45.043H34.728C34.9062 45.0511 35.0825 45.0027 35.2324 44.9046C35.3033 44.8461 35.3586 44.7704 35.3932 44.6846C35.4278 44.5988 35.4406 44.5056 35.4305 44.4134C35.434 44.3416 35.421 44.2699 35.3924 44.204C35.3639 44.1382 35.3206 44.08 35.2661 44.0341C35.1123 43.9272 34.9268 43.8777 34.741 43.8938Z" fill="#2D2D2C" />
+                  <path d="M39.4607 42.866C39.8411 42.8551 40.2205 42.9116 40.5818 43.0329C40.8516 43.1231 41.0868 43.2969 41.2544 43.5297C41.4107 43.7734 41.489 44.0602 41.4786 44.3508C41.4812 44.5416 41.4469 44.731 41.3777 44.9083C41.3109 45.0759 41.2125 45.2285 41.0881 45.3578C40.9544 45.4958 40.8006 45.6121 40.6322 45.7029L42.0765 47.8951H40.5593L39.5112 46.0651H39.173V47.8951H37.8296V42.866H39.4607ZM39.4402 43.8938H39.1767V45.043H39.4271C39.6053 45.0511 39.7816 45.0027 39.9316 44.9046C40.0021 44.8459 40.057 44.7701 40.0913 44.6843C40.1256 44.5985 40.1381 44.5054 40.1277 44.4134C40.1311 44.3418 40.1181 44.2703 40.0899 44.2046C40.0618 44.1388 40.0191 44.0805 39.9652 44.0341C39.8114 43.9272 39.6259 43.8777 39.4402 43.8938Z" fill="#2D2D2C" />
+                  <path d="M45.5759 47.8951L45.333 46.9469H43.7224L43.4721 47.8951H41.9998L43.6215 42.8451H45.404L47.0407 47.8951H45.5759ZM45.0546 45.8375L44.8416 45.0126C44.8173 44.9235 44.7856 44.7946 44.7426 44.6334C44.6996 44.4722 44.6566 44.2958 44.6155 44.1176C44.5744 43.9393 44.5408 43.7933 44.5184 43.6795C44.4978 43.7933 44.4698 43.9355 44.4324 44.1043C44.3951 44.2731 44.3558 44.4399 44.3166 44.6049C44.2774 44.7699 44.2437 44.9083 44.2138 45.0183L43.9952 45.8375H45.0546Z" fill="#2D2D2C" />
+                  <path d="M52.2965 47.8951H50.5346L48.7241 44.3508H48.6923C48.7036 44.4589 48.7148 44.5898 48.7241 44.7396C48.7335 44.8894 48.7409 45.0468 48.7465 45.2023C48.7521 45.3578 48.7577 45.5019 48.7577 45.629V47.9046H47.5769V42.8755H49.3257L51.1288 46.359H51.1493C51.1493 46.2491 51.1362 46.122 51.1288 45.9798C51.1213 45.8375 51.1157 45.6858 51.1101 45.5379C51.1045 45.39 51.1101 45.2554 51.1101 45.1416V42.866H52.304L52.2965 47.8951Z" fill="#2D2D2C" />
+                  <path d="M55.5534 47.8951H54.2156V43.9772H53.0049V42.866H56.7604V43.9772H55.5534V47.8951Z" fill="#2D2D2C" />
+                  <path d="M59.2396 44.7301L60.0935 42.866H61.5453L59.9141 45.9305V47.8951H58.5689V45.9798L56.9377 42.8736H58.3951L59.2396 44.7301Z" fill="#2D2D2C" />
+                  <path
+                    d="M63.2306 40.6776H19.7694C18.8696 40.6776 18.1401 41.418 18.1401 42.3312V48.7465C18.1401 49.6598 18.8696 50.4001 19.7694 50.4001H63.2306C64.1304 50.4001 64.8599 49.6598 64.8599 48.7465V42.3312C64.8599 41.418 64.1304 40.6776 63.2306 40.6776Z"
+                    stroke="#2D2D2C"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path
+                    d="M38.519 27.5853L36.7085 29.7642L33.7601 27.062C31.6423 28.4022 29.8955 30.2677 28.6844 32.4826C27.4733 34.6974 26.8378 37.1888 26.8376 39.7219C26.8376 40.0405 26.8507 40.3553 26.8694 40.67H38.519V27.5853Z"
+                    stroke="#2D2D2C"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path
+                    d="M44.3352 25.0689V40.67H56.2258C56.2464 40.3572 56.2594 40.0424 56.2594 39.7219C56.2575 36.2541 55.0665 32.8951 52.8907 30.2214C50.7149 27.5477 47.69 25.726 44.3352 25.0689V25.0689Z"
+                    stroke="#2D2D2C"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path
+                    d="M38.519 27.5853L36.7085 29.7642L32.7027 26.0929L37.3737 21.5114C33.3223 22.4695 29.7094 24.7903 27.1222 28.0965C24.535 31.4027 23.1256 35.4998 23.1233 39.7219C23.1233 40.0386 23.1233 40.3553 23.1457 40.67H38.519V27.5853Z"
+                    stroke="#2D2D2C"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path
+                    d="M44.3352 21.2421V40.67H59.9496C59.9645 40.3571 59.9738 40.0404 59.9738 39.7219C59.9719 35.2534 58.3938 30.9333 55.5252 27.5436C52.6566 24.1539 48.6871 21.9185 44.3352 21.2421V21.2421Z"
+                    stroke="#2D2D2C"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path
+                    d="M38.519 40.6776H44.3354V20.1422H38.7638L32.7026 26.0948L36.7104 29.7642L38.519 27.5815V40.6776Z"
+                    stroke="#2D2D2C"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path
+                    d="M33.1305 32.237L34.1152 34.2642L36.3199 34.5904L34.7262 36.1681L35.1017 38.3944L33.1305 37.3439L31.1594 38.3944L31.5349 36.1681L29.9412 34.5904L32.144 34.2642L33.1305 32.237Z"
+                    stroke="#2D2D2C"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path
+                    d="M49.9835 32.237L50.9681 34.2642L53.1729 34.5904L51.5772 36.1681L51.9547 38.3944L49.9835 37.3439L48.0123 38.3944L48.3879 36.1681L46.7922 34.5904L48.997 34.2642L49.9835 32.237Z"
+                    stroke="#2D2D2C"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path
+                    d="M30.8359 50.3982C32.2115 51.8636 33.8662 53.0297 35.6996 53.8258C37.533 54.6219 39.5067 55.0313 41.5009 55.0291C43.495 55.0312 45.4687 54.6217 47.302 53.8257C49.1354 53.0296 50.7902 51.8635 52.1658 50.3982H30.8359Z"
+                    stroke="#2D2D2C"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path
+                    d="M26.0266 50.3982C27.7134 52.999 30.0106 55.1336 32.7116 56.6099C35.4127 58.0862 38.433 58.858 41.5008 58.8559C44.5686 58.8575 47.5887 58.0855 50.2897 56.6092C52.9907 55.133 55.2879 52.9987 56.9751 50.3982H26.0266Z"
+                    stroke="#2D2D2C"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </g>
+                <circle
+                  cx="41"
+                  cy="41"
+                  r="40.5"
+                  stroke="black" />
+                <defs>
+                  <clipPath id="clip0_108_383">
+                    <rect
+                      width="49"
+                      height="41"
+                      fill="white"
+                      transform="translate(17 19)" />
+                  </clipPath>
+                </defs>
+              </svg>
+              <p class="text">1 YEAR<br>WARRANTY</p>
+            </div>
+          </div>
+          <div id="judge-me-custom-install" style="max-width:100%; margin:0 auto;">
+            {% include 'judgeme_widgets', widget_type: 'judgeme_featured_carousel', concierge_install: true %}
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  {{ tracking_code }}
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const breadcrum = [...document.querySelectorAll(".breadcrumb .breadcrumb__item")];
+      if (breadcrum) {
+        breadcrum.map(function(item, index) {
+          if (index != 0) 
+            return;
+          
+          const link = item.querySelector('a');
+          link.setAttribute('href', "/?viewcart=true");
+        });
+      }
+    });
+  </script>
+
+{%- comment -%}
+  <script>
+    let ppShop = 'clutchllc.myshopify.com'
+  </script>
+  <script src='https://promopirates.com/cdn/promo-pirates-plus.js'></script>
+{%- endcomment -%}
+
+</body></html>

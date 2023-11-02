@@ -1,0 +1,106 @@
+{%- if section.blocks.size > 0 -%}
+  <div class="Page_quote_text_icon_list_main_new" style="background: {{ section.settings.main_back_color }};">
+    <div class="page-width">
+      <div class="Page_quote_text_icon_list_inner_new">
+        <div class="Page_quote_text_icon_list_allloop_new">
+          <div class="swiper swiper-container Page_quote_slider">
+            <div class="swiper-wrapper">
+              {%- for block in section.blocks -%}
+                {%- if block.settings.title != blank or block.settings.icons != blank -%}
+                  <div class="swiper-slide Page_quote_text_icon_list_allloop_mainbox_new">
+                    <div class="Page_quote_text_icon_list_allloop_innerbox_new">
+                      <div class="Page_quote_text_icon_list_allloop_innerbox_top_new">
+                        <div class="Page_quote_text_icon_list_allloop_innerbox_quote_new">
+                          <svg width="46" height="40" viewBox="0 0 46 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M40.7782 40C41.9569 40 43.0874 39.5317 43.9209 38.6983C44.7543 37.8648 45.2226 36.7343 45.2226 35.5556V24.7022C45.2226 23.5235 44.7543 22.393 43.9209 21.5595C43.0874 20.726 41.9569 20.2578 40.7782 20.2578H34.6093C34.6093 18.6978 34.7026 17.1333 34.8848 15.5733C35.1604 13.92 35.6226 12.4489 36.2626 11.1644C36.907 9.87556 37.7337 8.86667 38.747 8.12889C39.7559 7.30222 41.0404 6.88889 42.6048 6.88889V0C40.0315 0 37.7826 0.551111 35.8493 1.65333C33.9328 2.74438 32.285 4.2509 31.027 6.06222C29.7645 8.05918 28.8339 10.2475 28.2715 12.5422C27.7048 15.0745 27.4274 17.6629 27.4448 20.2578V35.5556C27.4448 36.7343 27.9131 37.8648 28.7466 38.6983C29.5801 39.5317 30.7105 40 31.8893 40H40.7782ZM14.1115 40C15.2902 40 16.4207 39.5317 17.2542 38.6983C18.0877 37.8648 18.5559 36.7343 18.5559 35.5556V24.7022C18.5559 23.5235 18.0877 22.393 17.2542 21.5595C16.4207 20.726 15.2902 20.2578 14.1115 20.2578H7.9426C7.9426 18.6978 8.03594 17.1333 8.21816 15.5733C8.49371 13.92 8.95594 12.4489 9.59594 11.1644C10.2404 9.87556 11.067 8.86667 12.0804 8.12889C13.0893 7.30222 14.3737 6.88889 15.9382 6.88889V0C13.3648 0 11.1159 0.551111 9.1826 1.65333C7.2661 2.74438 5.61835 4.2509 4.36038 6.06222C3.09783 8.05918 2.16725 10.2475 1.60483 12.5422C1.0381 15.0745 0.760765 17.6629 0.77816 20.2578V35.5556C0.77816 36.7343 1.24641 37.8648 2.07991 38.6983C2.9134 39.5317 4.04386 40 5.2226 40H14.1115Z" fill="#4DACE1"/></svg>
+                        </div>
+                        {%- if block.settings.title != blank -%}
+                          <div class="Page_quote_text_icon_list_allloop_innerbox_infos_new">
+                            {{ block.settings.title }}
+                          </div>
+                        {%- endif -%}
+                      </div>
+                      {%- if block.settings.icons != blank -%}
+                        <div class="Page_quote_text_icon_list_allloop_innerbox_icons_new">
+                          {%- assign img_url = block.settings.icons | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+                          <img class="Icon_image_new lazyload"
+                            data-src="{{ img_url }}"
+                            data-widths="[750, 900, 1080, 1296, 1512, 1728, 1944, 2048]"
+                            data-aspectratio="{{ block.settings.icons.aspect_ratio }}"
+                            data-sizes="auto"
+                            alt="{{ block.settings.icons.alt }}">
+                        </div>
+                      {%- endif -%}
+                    </div>
+                  </div>
+                {%- endif -%}
+              {%- endfor -%}
+            </div>
+            <div class="custom_swipe_new">
+              <div class="swiper-button-prev">
+                <svg width="25" height="8" viewBox="0 0 25 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M0.646447 3.89645C0.451184 4.09171 0.451184 4.40829 0.646447 4.60355L3.82843 7.78553C4.02369 7.9808 4.34027 7.9808 4.53553 7.78553C4.7308 7.59027 4.7308 7.27369 4.53553 7.07843L1.70711 4.25L4.53553 1.42157C4.7308 1.22631 4.7308 0.909728 4.53553 0.714466C4.34027 0.519204 4.02369 0.519204 3.82843 0.714466L0.646447 3.89645ZM25 3.75L1 3.75V4.75L25 4.75V3.75Z" fill="white"/>
+                </svg>
+              </div>
+              <div class="swiper-pagination"></div>
+              <div class="swiper-button-next">
+                <svg width="25" height="8" viewBox="0 0 25 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M24.3536 4.60355C24.5488 4.40829 24.5488 4.09171 24.3536 3.89645L21.1716 0.714466C20.9763 0.519204 20.6597 0.519204 20.4645 0.714466C20.2692 0.909728 20.2692 1.22631 20.4645 1.42157L23.2929 4.25L20.4645 7.07843C20.2692 7.27369 20.2692 7.59027 20.4645 7.78553C20.6597 7.9808 20.9763 7.9808 21.1716 7.78553L24.3536 4.60355ZM0 4.75H24V3.75H0V4.75Z" fill="white"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{%- endif -%}  
+
+{% schema %}
+  {
+    "name": "Page Quote Text Icon List",
+    "class": "Page_quote_text_icon_list_new",
+    "settings": [
+      {
+        "type": "color",
+        "id": "main_back_color",
+        "label": "Add Main Background Color",
+        "default": "#141414"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "information",
+        "name": "Information",
+        "settings": [
+          {
+            "type": "richtext",
+            "id": "title",
+            "label": "Add Main Information Text",
+            "default": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>"
+          },
+          {
+            "type": "image_picker",
+            "id": "icons",
+            "label": "Add Main Icon Image"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Page Quote Text Icon List",
+        "blocks": [
+          {
+            "type": "information"
+          },
+          {
+            "type": "information"
+          },
+          {
+            "type": "information"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

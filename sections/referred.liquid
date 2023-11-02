@@ -1,0 +1,324 @@
+{{ 'referred.min.css' | asset_url | stylesheet_tag: preload: true }}
+
+{%- liquid
+    assign title = section.settings.title
+    assign image = section.settings.image
+    assign description = section.settings.description
+    assign textColor = section.settings.text-color
+    assign highlightColor = section.settings.text-highlight-color
+    assign marginTop = section.settings.margin-top
+    assign marginBottom = section.settings.margin-bottom
+    assign paddingTop = section.settings.padding-top
+    assign paddingBottom = section.settings.padding-bottom
+    assign separator = section.settings.separator
+    assign separator-position = section.settings.separator-position
+
+    assign marginTopM = section.settings.margin-top-m
+    assign marginBottomM = section.settings.margin-bottom-m
+    assign paddingTopM = section.settings.padding-top-m
+    assign paddingBottomM = section.settings.padding-bottom-m
+
+-%}
+
+<div class="referred">
+    <div class="referred__container">
+        <div class="referred__column referred__text">
+            <div class="referred__header">
+                <div class="referred__h2">
+                    {{ title }}
+                </div>
+                <div class="referred__description">
+                    <p>{{ description }}</p>
+                </div>
+            </div>
+            <div class="referred__body">
+                <span class="referred-copy">Referred<span id="friends-count">10</span>friends?</span>
+                <div class="referred__earn earn">
+                    <span class="earn__text">Earn</span>
+                    <span id="earn-value" class="earn__value">20</span>
+                </div>
+            </div>
+        </div>
+        <div class="referred__column referred__image">
+            <svg width="52" height="128" viewBox="0 0 52 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18.007 35.1426L-3.3046e-06 70.2851H12.2775C19.0074 70.2851 24.7369 70.5554 24.9188 71.006C25.1916 71.3664 25.0097 73.8895 24.4641 76.5928C20.8263 96.2365 15.7334 127.504 16.0062 127.865C16.2791 128.045 16.6428 128.045 16.8247 127.865C17.4613 127.144 51.9797 58.3006 51.9797 57.6698C51.9797 57.3094 47.2911 57.6698 41.5616 57.6698C35.8321 57.6698 30.9211 57.3094 30.5573 56.7687C30.1026 56.0479 35.4683 11.1735 37.0144 2.88349C37.3782 1.35163 37.1963 0 36.8325 0C36.3778 0 27.9199 15.8592 18.007 35.1426Z" fill="#4DACE1"/>
+            </svg>                
+            {%- render 'image-element',
+                img: image,
+                img_width: 728,
+                loading: true,
+                classes: 'referred-image',
+              -%}
+        </div>
+    </div>
+</div>
+
+<style>
+    #shopify-section-{{ section.id }} .referred .referred__h2 *{
+        color: {{ textColor }};
+    }
+    #shopify-section-{{ section.id }} .referred .referred__h2 strong {
+        color: {{ highlightColor }};
+    }
+    #shopify-section-{{ section.id }} {
+        background-color: {{ section.settings.bg-color }};
+    }
+    #shopify-section-{{ section.id }} .referred {
+        margin-top: {{ marginTop }}px;
+        margin-bottom: {{ marginBottom }}px;
+        padding-top: {{ paddingTop }}px;
+        padding-bottom: {{ paddingBottom }}px;
+    }
+
+    @media (max-width: 768px) {
+        #shopify-section-{{ section.id }} .referred {
+            margin-top: {{ marginTopM }}px;
+            margin-bottom: {{ marginBottomM }}px;
+            padding-top: {{ paddingTopM }}px;
+            padding-bottom: {{ paddingBottomM }}px;
+        }
+    }
+
+    {% if separator %}
+        #shopify-section-{{ section.id }} {
+            position: relative;
+        }
+        #shopify-section-{{ section.id }}::after {
+            background: #000;
+            -webkit-clip-path: polygon(100% 0px, 49.93% 73%, 49.93% 7%, 0px 72%, 0px 0px);
+            clip-path: polygon(100% 0px, 49.93% 73%, 49.93% 7%, 0px 72%, 0px 0px);
+            content: "";
+            left: 0;
+            display: block;
+            height: 90px;
+            position: absolute;
+            width: 100%;
+        }
+        {% if separator-position == 'top' %}
+            #shopify-section-{{ section.id }}::after {
+                top: 0;
+            }
+        {% else %}
+            #shopify-section-{{ section.id }}::after {
+                bottom: -100px;
+                transform: rotate(180deg);
+            }
+        {% endif %}
+    {% endif %}
+</style>
+
+
+<script>
+    window.referred = [
+        {%- for block in section.blocks -%}
+            {
+              "friends": {{ block.settings.friends }},
+              "value": {{ block.settings.earn }}
+            }{% unless forloop.last %},{% endunless %}
+        {%- endfor -%}
+    ]
+
+    const referred = () => {
+        const referredValues = window.referred;
+        const friendsCount = document.querySelector('#friends-count');
+        const friendsValue = document.querySelector('#earn-value');
+        
+        let index = 0;
+    
+        const updateValues = () => {
+    
+            friendsCount.textContent = referredValues[index].friends;
+            friendsValue.textContent = `$${referredValues[index].value}`;
+            friendsCount.classList.add('active');
+            friendsValue.classList.add('active');
+    
+            index++;
+    
+            if (index >= referredValues.length) {
+                index = 0;
+            }
+    
+            setTimeout(() => {
+                friendsCount.classList.remove('active');
+                friendsValue.classList.remove('active');
+            }, 500);
+    
+        }
+        
+        setInterval(updateValues, 3000);
+    
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const variableAffiliate = window.referred;
+        referred()
+    
+    });
+
+</script>
+
+{% schema %}
+    {
+        "name": "Referred affiliates",
+        "class": "referred-affiliates",
+        "settings": [
+            {
+                "type": "image_picker",
+                "id": "image",
+                "label": "Image section"
+            },
+            {
+                "type": "richtext",
+                "id": "title",
+                "label": "Title sedction"
+            },
+            {
+                "type": "textarea",
+                "id": "description",
+                "label": "Description"
+            },
+            {
+                "type": "color",
+                "id": "text-color",
+                "label": "Heading color"
+            },
+            {
+                "type": "color",
+                "id": "text-highlight-color",
+                "label": "Highlight color"
+            },
+            {
+                "type": "color",
+                "id": "bg-color",
+                "label": "Background color"
+            },
+            {
+                "type": "range",
+                "id": "margin-top",
+                "min": 0,
+                "max": 100,
+                "default": 0,
+                "step": 1,
+                "unit": "px",
+                "label": "Margin top section"
+            },
+            {
+                "type": "range",
+                "id": "margin-bottom",
+                "min": 0,
+                "max": 100,
+                "default": 0,
+                "step": 1,
+                "unit": "px",
+                "label": "Margin bottom section"
+            },
+            {
+                "type": "range",
+                "id": "padding-top",
+                "min": 0,
+                "max": 100,
+                "default": 0,
+                "step": 1,
+                "unit": "px",
+                "label": "Padding top section"
+            },
+            {
+                "type": "range",
+                "id": "padding-bottom",
+                "min": 0,
+                "max": 100,
+                "default": 0,
+                "step": 1,
+                "unit": "px",
+                "label": "Padding bottom section"
+            },
+            {
+                "type": "checkbox",
+                "id": "separator",
+                "label": "Separator",
+                "default": false,
+                "info": "In the options below you can choose the position of the separator."
+            },
+            {
+                "type": "select",
+                "id": "separator-position",
+                "label": "Position separator",
+                "options": [
+                    {
+                    "value": "top",
+                    "label": "Top"
+                    },
+                    {
+                    "value": "bottom",
+                    "label": "Bottom"
+                    }
+                ]
+            },
+            {
+            "type": "header",
+            "content": "Mobile"
+            },
+            {
+                "type": "range",
+                "id": "margin-top-m",
+                "min": 0,
+                "max": 100,
+                "default": 0,
+                "step": 1,
+                "unit": "px",
+                "label": "Margin top section mobile"
+            },
+            {
+                "type": "range",
+                "id": "margin-bottom-m",
+                "min": 0,
+                "max": 100,
+                "default": 0,
+                "step": 1,
+                "unit": "px",
+                "label": "Margin bottom section mobile"
+            },
+            {
+                "type": "range",
+                "id": "padding-top-m",
+                "min": 0,
+                "max": 100,
+                "default": 0,
+                "step": 1,
+                "unit": "px",
+                "label": "Padding top section mobile"
+            },
+            {
+                "type": "range",
+                "id": "padding-bottom-m",
+                "min": 0,
+                "max": 100,
+                "default": 0,
+                "step": 1,
+                "unit": "px",
+                "label": "Padding bottom section mobile"
+            }
+        ],
+        "blocks" : [
+        {
+          "type": "referred",
+          "name": "Referred values",
+          "settings": [
+            {
+                "type": "text",
+                "id": "friends",
+                "label": "Value friends"
+            },
+            {
+                "type": "text",
+                "id": "earn",
+                "label": "Value earn"
+            }
+          ]
+        }
+      ],
+      "presets": [{
+        "name": "Referred affiliates"
+      }]
+    }
+{% endschema %}

@@ -1,0 +1,95 @@
+#header_wrapper{
+    margin-top: -1px;
+}
+
+.grid{
+  margin: 0 auto;
+}
+
+#Mp4Video_faq{
+    height: 720px;
+    width: 100%;
+    margin: 0 auto;
+}
+#Mp4Video_faq_desktop{
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.video_wrap{
+   margin-bottom: 30px;
+   height: 100%;
+   width: 100%;
+}
+
+.video_wrap video {
+    position: relative;
+    -o-object-fit: cover;
+    object-fit: cover;
+    -o-object-position: 50% 20%;
+    object-position: 50% 20%;
+    font-family: "object-fit: cover";
+}
+
+.p_custom__item {
+    margin-bottom: -6px!important;
+    padding-left: 0px!important;
+}
+
+.desktop_video-hero{
+    display: block;
+}
+
+.mobile_video-hero{
+    display: none;
+}
+.no_video{
+    display: none;  
+}
+
+.grid-product__colors span.color-swatch.disabled:after {
+    position: absolute;
+    content: "";
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    border-left: 2px solid;
+    border-color: #b6b6b6;
+    transform: rotate(45deg);
+}
+
+.css-1xx31kc{
+  margin: 35px 0px!important;
+}
+
+@media (max-width:767px) {
+   .p_custom__item {
+      margin-bottom: 0px!important;
+      padding-left: 30px!important;
+  }
+   #Mp4Video_faq {
+    height: auto; 
+    width: 100%;
+    margin: 0 auto;
+   }
+  .desktop_video-hero{
+    display: none;
+  }
+  
+  .mobile_video-hero{
+      display: block;
+  }
+}
+
+.rebuy-cart a[href="/products/clutch-max-1"],
+.rebuy-cart a[href="/products/cluch-v3"]{
+    pointer-events: none;
+}
+.t-clutch-pro .main-content{
+    background: linear-gradient(180deg, #141414 0%, #232323 100%);
+}
+
+.template-index .jdgm-revs-tab-btn {
+    display: none;
+}

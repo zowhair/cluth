@@ -1,0 +1,278 @@
+<script>
+    const cartGamification = (cart, progressBarContainer) => {     
+      const itemCount = cart.item_count;
+      const totalPrice = cart.total_price / 100;
+      const thereIsAGift = cart.items.some(item => item.id === 40549461098539)
+
+      const modalVariant = document.querySelector('..modal-sidecart-variant-overlay');
+    
+      let youAre = 125 - totalPrice
+      let width = 0
+      let awayFrom = "Free Mystery Gift"
+    
+      if (itemCount === 0) {
+        progressBarContainer.classList.add('hidden')
+      } else {
+        progressBarContainer.classList.remove('hidden')
+      }
+
+      if (totalPrice >= 125) {
+        console.log('1212121212121212121212121');
+        modalVariant.setAttribute('data-toggle', true);
+      }
+    
+      /*if (totalPrice < 10000 && thereIsAGift) {
+        fetch(window.Shopify.routes.root + 'cart/change.js', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ "quantity": 0, "id": "40549461098539" })
+        })
+          .catch((error) => {
+            console.error('Error:', error);
+          });
+      }
+    
+      if (totalPrice >= 10000) {
+        awayFrom = "Extra 5% off"
+        youAre = 15000 - totalPrice
+    
+        if (!thereIsAGift) {
+          fetch(window.Shopify.routes.root + 'cart/add.js', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              items: [{
+                id: 40549461098539,
+                quantity: 1
+              }]
+            })
+          })
+            .catch((error) => {
+              console.error('Error:', error);
+            });
+        }
+      }*/
+    
+    if (totalPrice < 75) {
+    width = 15;
+    }
+    
+    if( totalPrice >= 75 ){
+        youAre = 75 - totalPrice
+    } 
+    
+    if( totalPrice >= 125 ){
+        youAre = 125 - totalPrice
+    } 
+    
+    if( totalPrice >= 200 ){
+        youAre = 200 - totalPrice
+    } 
+    
+    if (totalPrice > 75 && totalPrice < 125){
+        width = (18 * ((totalPrice - 5000) / 5000)) + 28;
+      }
+
+      if (totalPrice > 125 && totalPrice < 200) {
+        width = (16 * ((totalPrice - 10000) / 5000)) + 59;
+      }
+
+      if (totalPrice > 200) width = 100
+    
+      if (window.innerWidth <= 480) {
+        if (totalPrice < 75) width = (totalPrice / 10000) * 50
+        if (totalPrice > 125 && totalPrice < 15000) width = (((totalPrice - 10000) / 5000) * 50) + 50
+        if (totalPrice > 125) width = 100
+      }
+
+      console.log(totalPrice);
+    
+      progressBarContainer.innerHTML = `
+        <h5 class="cart__progress-bar__title ${width === 100 && "hidden"}">You are
+          <span class="cart__pbgreen">$${youAre * 10 / 1000}</span> away from a
+          <span class="cart__pbgreen">${awayFrom}</span>
+        </h5>
+        <div class="cart__progress-bar__container">
+          <div class="cart__progress-bar__background">
+            <span class="cart__progress-bar__bar" style="width: ${width}%;"></span>
+          </div>
+          <div class="${totalPrice >= 75 && "cart__pbgreen"} cart__progress-bar__stage">
+            <span class="cart__progress-bar__stage__image" ${totalPrice >= 75 && 'style="border-color: #007849"'}>
+                {{ expected_shipping_icon_a }}
+                {{ expected_shipping_icon_b }}
+            </span>
+            <span class="cart__progress-bar__stage__number">$75</span>
+          </div>
+          <div class="${totalPrice >= 125 && "cart__pbgreen"} cart__progress-bar__stage">
+            <span class="cart__progress-bar__stage__image" ${totalPrice >= 125 && 'style="border-color: #007849"'}>
+                {{ v3_icon_a }}
+                {{ v3_icon_b }}
+            </span>
+            <span class="cart__progress-bar__stage__number">$125</span>
+          </div>
+          <div class="${totalPrice >= 200 && "cart__pbgreen"} cart__progress-bar__stage">
+            <span class="cart__progress-bar__stage__image" ${totalPrice >= 200 && 'style="border-color: #007849"'}>
+                {{ max_icon_a }}
+                {{ max_icon_b }}
+            </span>
+            <span class="cart__progress-bar__stage__number">$200</span>
+          </div>
+        </div>
+      `
+    }
+    
+    document.addEventListener('rebuy:smartcart.ready', () => {
+      let rebuyWidget = document.getElementById('rebuy-cart');
+    
+      const progressBarContainer = document.createElement("div")
+      const headerSideCart = rebuyWidget.querySelector('.rebuy-cart__flyout-header')
+    
+      progressBarContainer.classList.add('cart__progress-bar__main__container')
+      headerSideCart.parentNode.insertBefore(progressBarContainer, headerSideCart.nextSibling)
+    
+      cartGamification(window.Rebuy.Cart.cart, progressBarContainer)
+    
+      document.addEventListener('rebuy:cart.change', function (event) {
+        cartGamification(event.detail.cart.cart, progressBarContainer)
+      });
+    });
+</script>
+
+<style>
+.cart__progress-bar__main__container {
+    background: #fff;
+}
+
+.cart__progress-bar__main__container {
+    background-color: white;
+    padding: 28px 42px 20px;
+    border-bottom: 1px solid #e5e4e2;
+  }
+  
+  .cart__progress-bar__title {
+    color: black;
+    margin: 0;
+    text-align: center;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+    margin-bottom: 10px;
+  }
+  
+  .cart__pbgreen {
+    color: #007849 !important;
+  }
+
+  .cart__progress-bar__stage.cart__pbgreen .expeted_shipping_a,
+  .cart__progress-bar__stage.cart__pbgreen .v3_a,
+  .cart__progress-bar__stage.cart__pbgreen .max_a {
+    display: none;
+  }
+  
+  .cart__progress-bar__stage:not(.cart__pbgreen) .expeted_shipping_a,
+  .cart__progress-bar__stage:not(.cart__pbgreen) .v3_a,
+  .cart__progress-bar__stage:not(.cart__pbgreen) .max_a {
+    display: block;
+  }
+  
+  .cart__progress-bar__stage.cart__pbgreen .expeted_shipping_b,
+  .cart__progress-bar__stage.cart__pbgreen .v3_b,
+  .cart__progress-bar__stage.cart__pbgreen .max_b {
+    display: block;
+  }
+  
+  .cart__progress-bar__stage:not(.cart__pbgreen) .expeted_shipping_b,
+  .cart__progress-bar__stage:not(.cart__pbgreen) .v3_b,
+  .cart__progress-bar__stage:not(.cart__pbgreen) .max_b {
+    display: none;
+  }
+  
+  .cart__progress-bar__container {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    padding: 0 48px;
+    text-align: center;
+  }
+  
+  .cart__progress-bar__background {
+    position: absolute;
+    top: calc(50% - 10px);
+    right: 0;
+    width: 100%;
+    height: 2px;
+    border-radius: 20px;
+    background-color: #000;
+  }
+  
+  .cart__progress-bar__bar {
+    border-radius: 20px;
+    transition: 0.5s all;
+    display: block;
+    height: 100%;
+    background-color: #000;
+  }
+  
+  .cart__progress-bar__stage {
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    color: #69727b;
+  }
+  
+  .cart__progress-bar__stage__image {
+    border: 2px solid gray;
+    border-radius: 50%;
+    display: grid;
+    place-content: center;
+    height: 66px;
+    width: 66px;
+    background: #ffff;
+    margin-bottom: 10px;
+  }
+  
+  .cart__progress-bar__stage__number {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+    margin-top: -15px;
+  }
+  
+  .cart__progress-bar__stage__name {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    white-space: nowrap;
+  }
+  
+  .cart__progress-bar__stage__name--free {
+    margin-top: -3px;
+    white-space: initial;
+    max-width: fit-content;
+  }
+  
+  @media screen and (max-width: 480px) {
+    .cart__progress-bar__main__container {
+      background-color: white;
+      padding: 28px 10px 20px;
+      border-bottom: 1px solid #e5e4e2;
+    }
+  
+    .cart__progress-bar__container {
+      padding: 0;
+    }
+  
+    .cart__progress-bar__background {
+      top: 27px;
+      height: 15px;
+      width: 90%;
+      right: 10px;
+    }
+  }
+</style>

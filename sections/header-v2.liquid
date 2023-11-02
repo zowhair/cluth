@@ -1,0 +1,587 @@
+{{ 'header-v2.min.css' | asset_url | stylesheet_tag }}
+<main-nav-v2>
+    <!-- Announcement bar -->
+    {%- assign announcement = section.blocks | where: "type", "announcement" -%}
+    {% if announcement.size > 0 %}
+        {%- render 'announcement-bar', section: section -%}
+    {% endif %}
+
+    {%- assign mobile_menu = section.blocks | where: "type", "mobile_menu" | first -%}
+
+    <!-- Top Navigation -->
+    <div class="top-nav">
+        {% for block in section.blocks %}
+            {%- case block.type -%}
+                {%- when 'hamburger_menu' -%}
+                    <!-- Hamburger Menu Button -->
+                    <div class="menu-hamburger">
+                        <!-- Agrega aquí el código para el ícono del menú -->
+                        <button type="button" class="menu-hamburger-button">
+                            {% if block.settings.hamburger_icon != blank %}
+                                {% assign width = block.settings.hamburger_icon.width %}
+                                {% assign height = block.settings.hamburger_icon.height %}
+                                {{ block.settings.hamburger_icon | image_url: width: width | image_tag:
+                                    class: 'hamburger-icon',
+                                    widths: '25, 50, 75, 100, 150, 200',
+                                    height: height,
+                                    width: width,
+                                    alt: 'hamburger menu icon',
+                                    loading: 'lazy'
+                                }}
+                            {% endif %}
+                        </button>
+                        
+                        <!-- Menú desplegable del botón de hamburguesa -->
+                        <div class="floating-menu">
+                            <div class="heading">
+                                <button type="button" class="close-menu">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M18.3536 5.64645C18.5488 5.84171 18.5488 6.15829 18.3536 6.35355L6.35355 18.3536C6.15829 18.5488 5.84171 18.5488 5.64645 18.3536C5.45118 18.1583 5.45118 17.8417 5.64645 17.6464L17.6464 5.64645C17.8417 5.45118 18.1583 5.45118 18.3536 5.64645Z" fill="#141414"/>
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M5.64645 5.64645C5.84171 5.45118 6.15829 5.45118 6.35355 5.64645L18.3536 17.6464C18.5488 17.8417 18.5488 18.1583 18.3536 18.3536C18.1583 18.5488 17.8417 18.5488 17.6464 18.3536L5.64645 6.35355C5.45118 6.15829 5.45118 5.84171 5.64645 5.64645Z" fill="#141414"/>
+                                    </svg>                                    
+                                </button>
+                                <a href="/">
+                                    {% if block.settings.floating_menu_logo != blank %}
+                                        {% assign width = block.settings.floating_menu_logo.width %}
+                                        {% assign height = block.settings.floating_menu_logo.height %}
+                                        {{ block.settings.floating_menu_logo | image_url: width: width | image_tag:
+                                            class: 'hamburger-icon',
+                                            widths: '25, 50, 75, 100, 150, 200, 250, 300, 400',
+                                            height: height,
+                                            width: width,
+                                            alt: 'logo floating menu',
+                                            loading: 'lazy'
+                                        }}
+                                    {% endif %}
+                                </a>
+                            </div>
+                            <div class="content">
+                                {% if block.settings.link_list != blank %}
+                                    <div class="menu">
+                                        {% assign menu = linklists[block.settings.link_list] %}
+                                        <ul class="menu-content">
+                                            {%- for link in menu.links -%}
+                                                <li class="menu-item">
+                                                    <a href="{{ link.url }}" class="menu-item-link"
+                                                    {% if section.settings.highlighted_link != blank and section.settings.highlighted_badge != blank and section.settings.highlighted_link == link.url %}
+                                                        data-highlighted_badge="{{ section.settings.highlighted_badge }}"
+                                                    {% endif %}>{{ link.title }}</a>
+                                                </li>
+                                            {%- endfor -%}
+                                        </ul>
+                                    </div>
+                                    <hr class="separator-menu">
+                                {% endif %}
+                                {% if mobile_menu %}
+                                    <div class="mobile-menu">
+                                        {% if mobile_menu.settings.search_form %}
+                                            <div class="search-form">
+                                                <form action="{{ routes.search_url }}" method="get" class="input-group search-bar {{ search_bar_location }}" role="search">
+                                                    <input type="hidden" name="type" value="{{ settings.search_type }}">
+                                                    <input type="search" name="q" value="" placeholder="I’m Interested In..." class="input-group-field" aria-label="{{ 'general.search.placeholder' | t }}">
+                                                    <span class="input-group-btn">
+                                                        <button type="submit" class="search-button">
+                                                            <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M9.16683 3.24996C5.71505 3.24996 2.91683 6.04818 2.91683 9.49996C2.91683 12.9517 5.71505 15.75 9.16683 15.75C12.6186 15.75 15.4168 12.9517 15.4168 9.49996C15.4168 6.04818 12.6186 3.24996 9.16683 3.24996ZM2.0835 9.49996C2.0835 5.58794 5.25481 2.41663 9.16683 2.41663C13.0788 2.41663 16.2502 5.58794 16.2502 9.49996C16.2502 13.412 13.0788 16.5833 9.16683 16.5833C5.25481 16.5833 2.0835 13.412 2.0835 9.49996Z" fill="#141414"/>
+                                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M13.58 13.9137C13.7428 13.751 14.0066 13.751 14.1693 13.9137L17.7943 17.5387C17.957 17.7014 17.957 17.9653 17.7943 18.128C17.6316 18.2907 17.3678 18.2907 17.205 18.128L13.58 14.503C13.4173 14.3403 13.4173 14.0764 13.58 13.9137Z" fill="#141414"/>
+                                                            </svg>
+                                                        </button>
+                                                    </span>
+                                                </form>
+                                            </div>
+                                        {% endif %}
+                                        {% if mobile_menu.settings.link_list != blank %}
+                                            <ul class="mobile-menu-content">
+                                                {% assign menu = linklists[mobile_menu.settings.link_list] %}
+                                                {%- for link in menu.links -%}
+                                                    <li class="menu-item {% if link.links != blank %} has-children{% endif %}">
+                                                        <a href="{{ link.url }}" class="menu-item-link"
+                                                        {% if section.settings.highlighted_link != blank and section.settings.highlighted_badge != blank and section.settings.highlighted_link == link.url %}
+                                                            data-highlighted_badge="{{ section.settings.highlighted_badge }}"
+                                                        {% endif %}>{{ link.title }}</a>
+                                                        {% if link.links != blank %}
+                                                        <button type="button" class="show-children">
+                                                            <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M4.70553 7.53866C4.86825 7.37595 5.13207 7.37595 5.29479 7.53866L10.0002 12.244L14.7055 7.53866C14.8683 7.37595 15.1321 7.37595 15.2948 7.53866C15.4575 7.70138 15.4575 7.9652 15.2948 8.12792L10.2948 13.1279C10.1321 13.2906 9.86825 13.2906 9.70553 13.1279L4.70553 8.12792C4.54282 7.9652 4.54282 7.70138 4.70553 7.53866Z" fill="#141414"/>
+                                                            </svg>
+                                                        </button>
+                                                        <div class="children">
+                                                            <ul class="children-container">
+                                                                {% for child in link.links %}
+                                                                <li class="menu-item">
+                                                                    <a href="{{ child.url }}" class="menu-item-link"
+                                                                    {% if section.settings.highlighted_link != blank and section.settings.highlighted_badge != blank and section.settings.highlighted_link == child.url %}
+                                                                        data-highlighted_badge="{{ section.settings.highlighted_badge }}"
+                                                                    {% endif %}>{{ child.title }}</a>
+                                                                </li>
+                                                                {% endfor %}
+                                                            </ul>
+                                                        </div>
+                                                        {% endif %}
+                                                    </li>
+                                                {%- endfor -%}
+                                            </ul>
+                                        {% endif %}
+                                    </div>
+                                {% endif %}
+                                {% if block.settings.account_link %}
+                                    <div class="account-link-container">
+                                        <a href="{{ routes.account_url }}" class="account-link">
+                                            <span class="icon">
+                                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M4.01534 13.1817C4.7186 12.4784 5.67243 12.0833 6.66699 12.0833H13.3337C14.3282 12.0833 15.282 12.4784 15.9853 13.1817C16.6886 13.8849 17.0837 14.8388 17.0837 15.8333V17.5C17.0837 17.7301 16.8971 17.9166 16.667 17.9166C16.4369 17.9166 16.2503 17.7301 16.2503 17.5V15.8333C16.2503 15.0598 15.943 14.3179 15.3961 13.7709C14.8491 13.2239 14.1072 12.9166 13.3337 12.9166H6.66699C5.89344 12.9166 5.15158 13.2239 4.6046 13.7709C4.05762 14.3179 3.75033 15.0598 3.75033 15.8333V17.5C3.75033 17.7301 3.56378 17.9166 3.33366 17.9166C3.10354 17.9166 2.91699 17.7301 2.91699 17.5V15.8333C2.91699 14.8388 3.31208 13.8849 4.01534 13.1817Z" fill="black"/>
+                                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M10 2.91665C8.38917 2.91665 7.08333 4.22248 7.08333 5.83331C7.08333 7.44414 8.38917 8.74998 10 8.74998C11.6108 8.74998 12.9167 7.44414 12.9167 5.83331C12.9167 4.22248 11.6108 2.91665 10 2.91665ZM6.25 5.83331C6.25 3.76224 7.92893 2.08331 10 2.08331C12.0711 2.08331 13.75 3.76224 13.75 5.83331C13.75 7.90438 12.0711 9.58331 10 9.58331C7.92893 9.58331 6.25 7.90438 6.25 5.83331Z" fill="black"/>
+                                                </svg>         
+                                            </span>   
+                                            <span class="text">{%- if customer -%}
+                                                {{ 'layout.customer.account' | t }}
+                                              {%- else -%}
+                                                {{ 'layout.customer.log_in' | t }}
+                                              {%- endif -%}</span>
+                                        </a>
+                                    </div>
+                                {% endif %}
+                                <div class="bottom-content">
+                                    {% if block.settings.phone_number != blank %}
+                                        <div class="phone-number-container bottom-content-item">
+                                            <a href="tel:{{block.settings.phone_number | handleize}}" class="phone-link">
+                                                <span class="icon"><svg width="11" height="12" viewBox="0 0 11 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M8.89008 7.74442V8.81012C8.89048 8.90905 8.87021 9.00697 8.83058 9.09762C8.79094 9.18827 8.73281 9.26964 8.65991 9.33652C8.58701 9.4034 8.50095 9.45432 8.40723 9.48602C8.31351 9.51771 8.2142 9.52948 8.11567 9.52058C7.02257 9.4018 5.97256 9.02828 5.05003 8.43002C4.19173 7.88462 3.46404 7.15693 2.91864 6.29863C2.31829 5.3719 1.94468 4.31679 1.82808 3.21877C1.8192 3.12054 1.83088 3.02154 1.86236 2.92806C1.89384 2.83459 1.94444 2.74869 2.01094 2.67585C2.07744 2.603 2.15837 2.5448 2.2486 2.50495C2.33882 2.46509 2.43636 2.44446 2.53499 2.44437H3.60068C3.77308 2.44267 3.94021 2.50372 4.07092 2.61614C4.20164 2.72855 4.28702 2.88466 4.31115 3.05537C4.35613 3.39641 4.43954 3.73128 4.55981 4.05357C4.6076 4.18071 4.61794 4.3189 4.58961 4.45174C4.56128 4.58458 4.49546 4.70652 4.39995 4.80311L3.94881 5.25425C4.4545 6.14359 5.19086 6.87995 6.0802 7.38564L6.53134 6.93449C6.62792 6.83899 6.74986 6.77317 6.88271 6.74483C7.01555 6.7165 7.15373 6.72685 7.28088 6.77464C7.60317 6.8949 7.93803 6.97832 8.27908 7.0233C8.45164 7.04765 8.60923 7.13456 8.72189 7.26752C8.83454 7.40048 8.8944 7.57021 8.89008 7.74442Z" stroke="#141414" stroke-linecap="round" stroke-linejoin="round"/>
+                                                    </svg>
+                                                    </span>
+                                                    <span class="text">{{block.settings.phone_number}}</span>
+                                            </a>
+                                        </div>
+                                    {% endif %}
+                                    {% if block.settings.mail != blank %}
+                                        <div class="mail-container bottom-content-item">
+                                            <a href="mailto:{{block.settings.mail | handleize}}" class="phone-link">
+                                                <span class="icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M2.66667 3.00004C2.11743 3.00004 1.66667 3.4508 1.66667 4.00004V12C1.66667 12.5493 2.11743 13 2.66667 13H13.3333C13.8826 13 14.3333 12.5493 14.3333 12V4.00004C14.3333 3.4508 13.8826 3.00004 13.3333 3.00004H2.66667ZM1 4.00004C1 3.08261 1.74924 2.33337 2.66667 2.33337H13.3333C14.2508 2.33337 15 3.08261 15 4.00004V12C15 12.9175 14.2508 13.6667 13.3333 13.6667H2.66667C1.74924 13.6667 1 12.9175 1 12V4.00004Z" fill="#141414"/>
+                                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M1.06028 3.80883C1.16586 3.65802 1.3737 3.62134 1.52452 3.72691L8.00003 8.25977L14.4755 3.72691C14.6264 3.62134 14.8342 3.65802 14.9398 3.80883C15.0453 3.95965 15.0087 4.16749 14.8579 4.27307L8.19118 8.93973C8.07641 9.02007 7.92365 9.02007 7.80888 8.93973L1.14221 4.27307C0.991391 4.16749 0.954713 3.95965 1.06028 3.80883Z" fill="#141414"/>
+                                                    </svg>              
+                                                    </span>
+                                                    <span class="text">{{block.settings.mail}}</span>
+                                            </a>
+                                        </div>
+                                    {% endif %}
+                                    {% if block.settings.social_links != blank %}
+                                        <div class="social-links-container bottom-content-item">
+                                            {%- render 'social-icons', social_class: 'social-links' -%}
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {%- when 'logo' -%}
+                    <!-- Logo de la marca -->
+                    <div class="clutch-logo">
+                    <!-- Agrega aquí el código para tu logo -->
+                        {% if block.settings.main_logo != blank %}
+                            <a href="/">
+                                {% assign width = block.settings.main_logo.width %}
+                                {% assign height = block.settings.main_logo.height %}
+                                {{ block.settings.main_logo | image_url: width: width | image_tag:
+                                    class: 'clutch-logo-image',
+                                    widths: '25, 50, 75, 100, 150, 200, 250, 300, 400, 500, 600',
+                                    height: height,
+                                    width: width,
+                                    alt: 'clutch logo',
+                                    loading: 'lazy'
+                                }}
+                            </a>
+                        {% endif %}
+                    </div>
+                {%- when 'mega_nav' -%}
+                    <!-- Menú Horizontal -->
+                    {% if block.settings.link_list != blank %}
+                        <div class="horizontal-menu-container">
+                            {% assign menu = linklists[block.settings.link_list] %}
+                            <ul class="horizontal-menu">
+                                {%- for link in menu.links -%}
+                                {%- liquid
+                                    assign has_dropdown = false
+                                    assign has_megamenu = false
+                                    if link.links != blank
+                                        assign has_dropdown = true
+                                        for sublink in link.links
+                                            if sublink.links != blank
+                                                assign has_megamenu = true
+                                                break
+                                            endif
+                                        endfor
+                                    endif
+                                -%}
+                                <li class="menu-item {% if has_megamenu %} has-mega-menu {% elsif has_dropdown %} has-dropdown{% endif %}">
+                                    <a href="{{link.url}}" class="menu-item-link">{{link.title}}</a>
+                                    
+                                    {% if has_megamenu %}
+                                        <div class="mega-menu">
+                                            <div class="mega-menu-wrapper">
+                                                <div class="mega-menu-items links">
+                                                    {% assign nested_submenu = 0 %}
+                                                    {% capture nested_submenu_html %}<div class="mega-menu-item nested-submenu">{% endcapture %}
+                                                    {% for sublink in link.links %}
+                                                        {% if sublink.links.size == 1 %}
+                                                            {% assign nested_submenu = nested_submenu | plus: 1 %}
+                                                            {% capture nested_submenu_html %}
+                                                                {{nested_submenu_html}}
+                                                                <h3 class="mega-menu-title">
+                                                                    {% render 'icons-mega-menu', title: sublink.title %}
+                                                                    {{sublink.title}}
+                                                                </h3>
+                                                                <ul class="mega-menu-submenu">
+                                                                    {% for sub_sublink in sublink.links %}
+                                                                    <li class="submenu-item">
+                                                                        <a class="submenu-item-link" href="{{ sub_sublink.url }}"
+                                                                        {% if section.settings.highlighted_link != blank and section.settings.highlighted_badge != blank and section.settings.highlighted_link == sub_sublink.url %}
+                                                                            data-highlighted_badge="{{ section.settings.highlighted_badge }}"
+                                                                        {% endif %}>{{ sub_sublink.title }}</a>
+                                                                    </li>
+                                                                    {% endfor %}
+                                                                </ul>
+                                                            {% endcapture %}
+                                                            {% if nested_submenu == 2 %}
+                                                                {% capture nested_submenu_html %}
+                                                                    {{nested_submenu_html}}
+                                                                    </div>
+                                                                {% endcapture %}
+                                                                {% assign nested_submenu = 0 %}
+                                                                {{ nested_submenu_html }}
+                                                                {% capture nested_submenu_html %}<div class="mega-menu-item nested-submenu">{% endcapture %}
+                                                            {% endif %}
+                                                        {% else %}
+                                                            <div class="mega-menu-item">
+                                                                <h3 class="mega-menu-title">
+                                                                    {% render 'icons-mega-menu', title: sublink.title %}
+                                                                    {{sublink.title}}
+                                                                </h3>
+                                                                <ul class="mega-menu-submenu">
+                                                                    {% for sub_sublink in sublink.links %}
+                                                                    <li class="submenu-item">
+                                                                        <a class="submenu-item-link" href="{{ sub_sublink.url }}"
+                                                                        {% if section.settings.highlighted_link != blank and section.settings.highlighted_badge != blank and section.settings.highlighted_link == sub_sublink.url %}
+                                                                            data-highlighted_badge="{{ section.settings.highlighted_badge }}"
+                                                                        {% endif %}>{{ sub_sublink.title }}</a>
+                                                                    </li>
+                                                                    {% endfor %}
+                                                                </ul>
+                                                            </div>
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                </div>
+                                                {% if block.settings.featured_image != blank %}
+                                                    <div class="mega-menu-items featured-content">
+                                                        {% if block.settings.featured_image_link != blank %}
+                                                            <a href="{{block.settings.featured_image_link}}">
+                                                        {% endif %}
+                                                            {% assign width = block.settings.featured_image.width %}
+                                                            {% assign height = block.settings.featured_image.height %}
+                                                            {{ block.settings.featured_image | image_url: width: width | image_tag:
+                                                                class: 'featured-content-image',
+                                                                widths: '25, 50, 75, 100, 150, 200, 250, 300, 400, 500, 600, 700, 800',
+                                                                height: height,
+                                                                width: width,
+                                                                alt: 'featured content mega menu',
+                                                                loading: 'lazy'
+                                                            }}
+                                                        {% if block.settings.featured_image_link != blank %}
+                                                            </a>
+                                                        {% endif %}
+                                                        {% if block.settings.featured_image_link != blank and block.settings.featured_image_link_text != blank %}
+                                                            <a href="{{ block.settings.featured_image_link }}">{{ block.settings.featured_image_link_text }}</a>
+                                                        {% elsif block.settings.featured_image_link_text != blank %} 
+                                                            <h3>{{ block.settings.featured_image_link_text }}</h3>
+                                                        {% endif %}
+                                                    </div>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    {% elsif has_dropdown %}
+                                        <div class="dropdown-menu">
+                                            <ul class="dropdown-menu-container">
+                                                {% for sublink in link.links %}
+                                                    <li class="dropdown-menu-item">
+                                                        <a href="{{ sublink.url }}" class="dropdown-menu-item-link" 
+                                                        {% if section.settings.highlighted_link != blank and section.settings.highlighted_badge != blank and section.settings.highlighted_link == sublink.url %}
+                                                            data-highlighted_badge="{{ section.settings.highlighted_badge }}"
+                                                        {% endif %}>{{ sublink.title }}</a>
+                                                    </li>
+                                                {% endfor %}
+                                            </ul>
+                                        </div>
+                                    {% endif %}
+                                </li>
+                                {%- endfor -%}
+                            </ul>
+                        </div>
+                    {% endif %}
+                {%- when 'utility_nav' -%}
+                    <!-- Iconos del lado derecho -->
+                    <div class="utility-menu">
+                        {%- if block.settings.account_link -%}
+                            <a href="{{ routes.account_url }}" class="account-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M4.81802 15.818C5.66193 14.9741 6.80653 14.5 8 14.5H16C17.1935 14.5 18.3381 14.9741 19.182 15.818C20.0259 16.6619 20.5 17.8065 20.5 19V21C20.5 21.2761 20.2761 21.5 20 21.5C19.7239 21.5 19.5 21.2761 19.5 21V19C19.5 18.0717 19.1313 17.1815 18.4749 16.5251C17.8185 15.8687 16.9283 15.5 16 15.5H8C7.07174 15.5 6.1815 15.8687 5.52513 16.5251C4.86875 17.1815 4.5 18.0717 4.5 19V21C4.5 21.2761 4.27614 21.5 4 21.5C3.72386 21.5 3.5 21.2761 3.5 21V19C3.5 17.8065 3.97411 16.6619 4.81802 15.818Z" fill="#F0F0F0"/>
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M12 3.5C10.067 3.5 8.5 5.067 8.5 7C8.5 8.933 10.067 10.5 12 10.5C13.933 10.5 15.5 8.933 15.5 7C15.5 5.067 13.933 3.5 12 3.5ZM7.5 7C7.5 4.51472 9.51472 2.5 12 2.5C14.4853 2.5 16.5 4.51472 16.5 7C16.5 9.48528 14.4853 11.5 12 11.5C9.51472 11.5 7.5 9.48528 7.5 7Z" fill="#F0F0F0"/>
+                                </svg>
+                            </a>
+                        {%- endif -%}
+                        {%- if block.settings.search_link -%}
+                            <a href="#search-modal" class="search-icon js-modal-open-search-modal">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M11 3.5C6.85786 3.5 3.5 6.85786 3.5 11C3.5 15.1421 6.85786 18.5 11 18.5C15.1421 18.5 18.5 15.1421 18.5 11C18.5 6.85786 15.1421 3.5 11 3.5ZM2.5 11C2.5 6.30558 6.30558 2.5 11 2.5C15.6944 2.5 19.5 6.30558 19.5 11C19.5 15.6944 15.6944 19.5 11 19.5C6.30558 19.5 2.5 15.6944 2.5 11Z" fill="#F0F0F0"/>
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M16.2968 16.2965C16.4921 16.1012 16.8087 16.1012 17.0039 16.2965L21.3539 20.6465C21.5492 20.8417 21.5492 21.1583 21.3539 21.3536C21.1587 21.5488 20.8421 21.5488 20.6468 21.3536L16.2968 17.0036C16.1016 16.8083 16.1016 16.4917 16.2968 16.2965Z" fill="#F0F0F0"/>
+                                </svg>
+                            </a>
+                        {%- endif -%}
+                        {%- if block.settings.cart_link -%}
+                            <a {% comment %}href="{{ routes.cart_url }}"{% endcomment %} href="#cart" class="cart-icon openCart">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path fill-rule="evenodd" clip-rule="evenodd" d="M9 20.5C8.72386 20.5 8.5 20.7239 8.5 21C8.5 21.2761 8.72386 21.5 9 21.5C9.27614 21.5 9.5 21.2761 9.5 21C9.5 20.7239 9.27614 20.5 9 20.5ZM7.5 21C7.5 20.1716 8.17157 19.5 9 19.5C9.82843 19.5 10.5 20.1716 10.5 21C10.5 21.8284 9.82843 22.5 9 22.5C8.17157 22.5 7.5 21.8284 7.5 21Z" fill="#F0F0F0"/>
+                                  <path fill-rule="evenodd" clip-rule="evenodd" d="M20 20.5C19.7239 20.5 19.5 20.7239 19.5 21C19.5 21.2761 19.7239 21.5 20 21.5C20.2761 21.5 20.5 21.2761 20.5 21C20.5 20.7239 20.2761 20.5 20 20.5ZM18.5 21C18.5 20.1716 19.1716 19.5 20 19.5C20.8284 19.5 21.5 20.1716 21.5 21C21.5 21.8284 20.8284 22.5 20 22.5C19.1716 22.5 18.5 21.8284 18.5 21Z" fill="#F0F0F0"/>
+                                  <path fill-rule="evenodd" clip-rule="evenodd" d="M0.5 1C0.5 0.723858 0.723858 0.5 1 0.5H5C5.23831 0.5 5.44351 0.668193 5.49028 0.901872L6.41059 5.5H23C23.149 5.5 23.2903 5.56646 23.3852 5.68128C23.4802 5.79609 23.5191 5.94729 23.4911 6.09366L21.8911 14.4837L21.8904 14.4874C21.7761 15.0629 21.463 15.5799 21.006 15.9478C20.5503 16.3146 19.9803 16.51 19.3955 16.5H9.68454C9.09968 16.51 8.52975 16.3146 8.07401 15.9478C7.61707 15.5799 7.30403 15.0631 7.18966 14.4878C7.18963 14.4877 7.18969 14.4879 7.18966 14.4878L5.51618 6.12664C5.51138 6.10826 5.5076 6.08948 5.50491 6.07035L4.59016 1.5H1C0.723858 1.5 0.5 1.27614 0.5 1ZM6.61074 6.5L8.17028 14.2919C8.23886 14.6372 8.42685 14.9481 8.70108 15.1688C8.97531 15.3896 9.31844 15.5068 9.67042 15.5001L9.68 15.4999L19.4096 15.5C19.7616 15.5067 20.1047 15.3896 20.3789 15.1688C20.6527 14.9484 20.8404 14.6389 20.9092 14.2943C20.9094 14.2937 20.9095 14.2932 20.9096 14.2926L22.3956 6.5H6.61074Z" fill="#F0F0F0"/>
+                                </svg>
+                                <span class="cart-link__bubble">
+                                    <span class="cart-link__bubble-num" aria-hidden="true">{{cart.item_count}}</span>
+                                </span>
+                            </a>
+                        {%- endif -%}
+                        {%- comment -%}
+                            <!-- Is necessary only if the original header not exist -->
+                            {%- if block.settings.search_link -%}
+                                {%- render 'search-modal' -%}
+                            {%- endif -%}
+                        {%- endcomment -%}
+                    </div>
+                    
+            {%- endcase -%}
+        {% endfor %}
+    </div>
+    
+    <!-- Category Carousel -->
+    {%- assign collections_blocks = section.blocks | where: "type", "collection_mobile" -%}
+    {%- if collections_blocks.size > 0 and template == "index" -%}
+        <div class="collections-mobile">
+            <div class="scrollable">
+            {% for block in collections_blocks %}
+                
+                <div class="collection-mobile">
+                <a href="{{ block.settings.collection }}{% if block.settings.tag != blank %}?tag={{ block.settings.tag }}{% endif %}">
+                    <img class="lazyload" data-src="{{ block.settings.image | img_url: 'master' }}">
+                    <h4 class="collection-title">{{ block.settings.title }}</h4>
+                </a>
+                </div>
+            {% endfor %}
+            </div>
+        </div>
+    {%- endif -%}
+</main-nav-v2>
+{{ 'section-header.min.js' | asset_url | script_tag }}
+{% schema %}
+{
+    "name": "Header v2",
+    "class": "header-v2-section",
+    "settings": [
+        {
+            "type": "url",
+            "id": "highlighted_link",
+            "label": "Highlight link"
+        },
+        {
+            "type": "text",
+            "id": "highlighted_badge",
+            "label": "Highlight badge",
+            "placeholder": "New"
+        }
+    ],
+    "blocks": [
+        {
+            "name": "Hamburger Menu",
+            "type": "hamburger_menu",
+            "limit": 1,
+            "settings": [
+                {
+                    "label": "Hamburger Icon",
+                    "type": "image_picker",
+                    "id": "hamburger_icon"
+                },
+                {
+                    "label": "Logo for Floating Menu",
+                    "type": "image_picker",
+                    "id": "floating_menu_logo"
+                },
+                {
+                    "label": "Menu Selector",
+                    "type": "link_list",
+                    "id": "link_list",
+                    "info": "This menu must only have a first level, otherwise only the parent items will be displayed."
+                },
+                {
+                    "type": "header",
+                    "content": "Additional info"
+                },
+                {
+                    "label": "Include Account Link",
+                    "type": "checkbox",
+                    "id": "account_link"
+                },
+                {
+                    "type": "text",
+                    "id": "phone_number",
+                    "label": "Contact number",
+                    "placeholder": "(561) 576-7578"
+                },
+                {
+                    "type": "text",
+                    "id": "mail",
+                    "label": "Contact mail",
+                    "placeholder": "hello@clutchcharger.com"
+                },
+                {
+                    "label": "Include Social Links",
+                    "type": "checkbox",
+                    "id": "social_links"
+                }
+            ]
+        },
+        {
+            "name": "Logo",
+            "type": "logo",
+            "limit": 1,
+            "settings": [
+                {
+                    "label": "Main Logo",
+                    "type": "image_picker",
+                    "id": "main_logo"
+                }
+            ]
+        },
+        {
+            "name": "Mega Menu",
+            "type": "mega_nav",
+            "limit": 1,
+            "settings": [
+                {
+                    "label": "Menu Selector",
+                    "type": "link_list",
+                    "id": "link_list",
+                    "info": "In order to display the mega menu, the menu item must have children and grandchildren, the children will be displayed as titles of the mega menu and the grandchildren will be the links, in case of not reaching this level, the children will be displayed as a floating menu below the menu item."
+                },
+                {
+                    "label": "Featured Image",
+                    "type": "image_picker",
+                    "id": "featured_image"
+                },
+                {
+                    "label": "Featured Image Link",
+                    "type": "url",
+                    "id": "featured_image_link"
+                },
+                {
+                    "type": "inline_richtext",
+                    "id": "featured_image_link_text",
+                    "label": "Featured Image Link Label"
+                }
+            ]
+        },
+        {
+            "name": "Utility Menu",
+            "type": "utility_nav",
+            "limit": 1,
+            "settings": [
+                {
+                    "label": "Include Account Link",
+                    "type": "checkbox",
+                    "id": "account_link"
+                },
+                {
+                    "label": "Include Search Link",
+                    "type": "checkbox",
+                    "id": "search_link"
+                },
+                {
+                    "label": "Include Cart Link",
+                    "type": "checkbox",
+                    "id": "cart_link"
+                }
+            ]
+        },
+        {
+            "name": "Mobile Menu",
+            "type": "mobile_menu",
+            "limit": 1,
+            "settings": [
+                {
+                    "label": "Mobile Menu Selector",
+                    "type": "link_list",
+                    "id": "link_list"
+                },
+                {
+                    "label": "Include Search Form",
+                    "type": "checkbox",
+                    "id": "search_form"
+                }
+            ]
+        },
+        {
+            "type": "announcement",
+            "name": "Announcement",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "announcement_text",
+                    "label": "Text",
+                    "default": "Announce something here"
+                }, 
+                {
+                    "type": "url",
+                    "id": "announcement_link",
+                    "label": "Link"
+                }
+            ]
+        },
+        {
+            "type": "collection_mobile",
+            "name": "Collection Mobile",
+            "settings": [
+                {
+                    "type": "url",
+                    "id": "collection",
+                    "label": "Collection"
+                }, 
+                {
+                    "type": "image_picker",
+                    "id": "image",
+                    "label": "Image Collection"
+                }, 
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Title"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "Header V2",
+            "blocks": [
+                {
+                "type": "hamburger_menu"
+                },
+                {
+                "type": "logo"
+                },
+                {
+                "type": "mega_nav"
+                },
+                {
+                "type": "utility_nav"
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}

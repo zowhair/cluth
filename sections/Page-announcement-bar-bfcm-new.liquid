@@ -1,0 +1,92 @@
+{%- if section.blocks.size > 0 -%}
+  <div class="Page_announcement_bar_main_new {% if section.settings.main_timer_heading_text != blank or section.settings.main_timer_end_date != blank %} Page_bfcm_announcement_bar_main_new {% endif %}" style="color: {{ section.settings.main_text_color }}; background: {{ section.settings.main_back_color }};">
+    <div class="page-width">
+      <div class="Page_announcement_bar_inner_new">
+        {%- if section.settings.main_timer_heading_text != blank or section.settings.main_timer_end_date != blank -%}
+          <div class="Page_announcement_timer_new Page_timer_new">
+            {% include 'announcement-timer-new', timer_end_date: section.settings.main_timer_end_date, title: section.settings.main_timer_heading_text %}
+          </div>
+        {%- endif -%}
+        <div class="Page_announcement_bar_allloop_new">
+          <div class="swiper-containe {% if section.blocks.size > 1 %} Page_announcement_slider {% endif %}">
+            <div class="swiper-wrapper">
+              {%- for block in section.blocks -%}
+                {%- if block.settings.info_text != blank -%}
+                  <div class="swiper-slide Page_announcement_bar_allloop_boxs_new">
+                    <div class="Page_announcement_bar_allloop_textboxs_new">
+                      {%- if block.settings.info_text != blank -%}
+                        <div class="Page_announcement_bar_allloop_textboxs_desktopinfo_new">
+                          {{ block.settings.info_text }}
+                        </div>
+                      {% endif %}
+                    </div>
+                  </div>  
+                {% endif %}
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif %}  
+
+{% schema %}
+  {
+    "name": "Page Announcement BFCM",
+    "class": "Page_announcement_bar_new",
+    "settings": [
+      {
+        "type": "color",
+        "id": "main_back_color",
+        "label": "Add Main Background Color",
+        "default": "#222222"
+      },
+      {
+        "type": "color",
+        "id": "main_text_color",
+        "label": "Add Main Text Color",
+        "default": "#ffffff"
+      },
+      {
+        "type": "text",
+        "id": "main_timer_heading_text",
+        "label": "Add Main Timer Heading Text",
+        "info": "EX: BFCM Sale Ends In:"
+      },
+      {
+        "type": "text",
+        "id": "main_timer_end_date",
+        "label": "Add Main Timer End Date Text",
+        "info": "EX: Sep 15, 2023 22:00:00"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "information",
+        "name": "Information",
+        "settings": [
+          {
+            "type": "richtext",
+            "id": "info_text",
+            "label": "Add Information Text",
+            "default": "<p>GET FREE SHIPPING TODAY!</p>"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Page Announcement BFCM",
+        "blocks": [
+          {
+            "type": "information"
+          },
+          {
+            "type": "information"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,72 @@
+<div class="Footer_lp_main_new" style="background: {{ section.settings.main_back_color }}; color: {{ section.settings.main_text_color }};">
+  <div class="page-width">
+    <div class="Footer_lp_inner_new">
+      <div class="Footer_lp_detail_new">
+        {%- if section.settings.main_logo_image != blank -%}
+          <div class="Footer_lp_detail_1_new">
+            {%- assign img_url = section.settings.main_logo_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+            <a href="/">
+              <img class="footer_logo_new lazyload"
+                data-src="{{ img_url }}"
+                data-widths="[180, 360, 540, 750, 900, 1080, 1296, 1512, 1728, 1944, 2048]"
+                data-aspectratio="{{ section.settings.main_logo_image.aspect_ratio }}"
+                data-sizes="auto"
+                alt="{{ section.settings.main_logo_image.alt }}">
+            </a>
+          </div>
+        {%- endif -%}
+        <div class="Footer_lp_detail_2_new">
+          &copy; {{ 'now' | date: '%Y' }} {{ shop.name }}{% if section.settings.main_heading_text != blank %} {{ section.settings.main_heading_text }}{% endif %}
+        </div>
+        {%- if section.settings.main_menu_list != blank -%}
+          <div class="Footer_lp_detail_3_new">
+            <ul class="menu">
+              {%- for link in section.settings.main_menu_list.links -%}
+                <li class="menu-link">
+                  <a href="{{ link.url }}">{{ link.title }}</a>
+                </li>
+              {%- endfor -%}
+            </ul>
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>  
+</div>
+
+{% schema %}
+  {
+    "name": "Footer LP New",
+    "class": "Footer_lp_new",
+    "settings": [
+      {
+        "type": "color",
+        "id": "main_back_color",
+        "label": "Add Main Background Color",
+        "default": "#141414"
+      },
+      {
+        "type": "color",
+        "id": "main_text_color",
+        "label": "Add Main Text Color",
+        "default": "#FFFFFF"
+      },
+      {
+        "type": "image_picker",
+        "id": "main_logo_image",
+        "label": "Add Main Logo Image"
+      },
+      {
+        "type": "text",
+        "id": "main_heading_text",
+        "label": "Add Main Heading Text",
+        "default": "All Rights Reserved."
+      },
+      {
+        "type": "link_list",
+        "id": "main_menu_list",
+        "label": "Add Main Menu List"
+      }
+    ]
+  }
+{% endschema %}

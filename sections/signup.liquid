@@ -1,0 +1,91 @@
+<footer
+    id="site-footer"
+    class="site-footer text-center signup-footer  {{section.settings.css_class}}"
+    data-section-id="{{ section.id }}"
+    data-section-type="footer-section">
+    {% if section.settings.show_newsletter %}
+      <div class="site-footer__section site-footer__section--newsletter" data-aos>
+        <div class="page-width">
+          {%- if section.settings.newsletter_title != blank -%}
+            <div class="h2 appear-delay">{{ section.settings.newsletter_title }}</div>
+          {%- endif -%}
+  
+          {%- if section.settings.newsletter_richtext != blank -%}
+            <div class="rte rte--block appear-delay-1">
+              {{ section.settings.newsletter_richtext }}
+            </div>
+          {%- endif -%}
+  
+          <div class="appear-delay-2">
+            {%- render 'newsletter-form', section_id: section.id, snippet_context: 'footer' -%}
+          </div>
+        </div>
+      </div>
+    {%- endif -%}
+  </footer>
+  
+  <style>
+    #shopify-section-{{ section.id }} .site-footer__section{
+      background-color: var(--primary-black, #ffffff);
+    }
+    #shopify-section-{{ section.id }} .h2,
+    #shopify-section-{{ section.id }} .rte *{
+      color: var(--primary-clutch-white, black);
+    }
+    #shopify-section-{{ section.id }} .h2 strong {
+      color: var(--primary-blue, black)
+    }
+    #shopify-section-{{ section.id }} .newsletter-form-group__input{
+      border-color: var(--primary-clutch-white, black);
+      color: var(--primary-clutch-white, black);
+    }
+    #shopify-section-{{ section.id }} .newsletter-form-group__submit svg path {
+      stroke: var(--primary-clutch-white, black) !important;
+    }
+    .new-home .site-footer__section--newsletter {
+      margin-bottom: 0;
+    }
+  </style>
+  
+  
+  {% schema %}
+    {
+      "name": "Signup",
+      "settings": [
+        {
+          "type": "text",
+          "id": "css_class",
+          "label": "CSS Class",
+          "placeholder": "new-home other-class"
+        },
+        {
+          "type": "header",
+          "content": "Newsletter"
+        }, 
+        {
+          "type": "checkbox",
+          "id": "show_newsletter",
+          "label": "Show newsletter signup",
+          "info": "Customers who subscribe will have their email address added to the 'accepts marketing' [customer list](/admin/customers?query=&accepts_marketing=1).",
+          "default": true
+        }, 
+        {
+          "type": "inline_richtext",
+          "id": "newsletter_title",
+          "label": "Newsletter heading",
+          "default": "Sign up and save"
+        }, 
+        {
+          "type": "richtext",
+          "id": "newsletter_richtext",
+          "label": "Text",
+          "default": "<p>Let customers know about the key benefits of joining your newsletter.</p>"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Signup"
+        }
+      ]
+    }
+  {% endschema  %}

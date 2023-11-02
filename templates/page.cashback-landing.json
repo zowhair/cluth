@@ -1,0 +1,16 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "show_video": true,
+        "d_video_url": "",
+        "video_url": ""
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

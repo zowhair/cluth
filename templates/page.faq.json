@@ -1,0 +1,122 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "show_video": true,
+        "d_video_url": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/e047e3a5e9fe40faa46134bb3dde14bf.mp4",
+        "video_url": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/e047e3a5e9fe40faa46134bb3dde14bf.mp4"
+      }
+    },
+    "1637323430917840f3": {
+      "type": "faq",
+      "blocks": {
+        "16373234300f264567-0": {
+          "type": "question",
+          "settings": {
+            "title": "How small is Clutch Charger?",
+            "text": "<p>Clutch Pro measures W 3.86 x H 2.64 x T 0.32 and weighs 3.7 ounces.<br\/><br\/>Clutch V3 measures W 3.5\" x H 2.5\" x T 0.20\" and weighs 2 ounces.<br\/><br\/>Clutch Max measures W 6.5\"x  H 3.86\" x T 0.30\" and weighs 8 ounces.<\/p>"
+          }
+        },
+        "16373234300f264567-1": {
+          "type": "question",
+          "settings": {
+            "title": "How much battery will Clutch Charger get me?",
+            "text": "<p>Clutch Pro has a capacity of 5,000 mAh, Clutch V3 has a capacity of 3,300 mAh while Clutch Max has a capacity of 10,000 mAh. Depending on the device you charge, they can get you a full charge or more.<\/p><p>When not in use Clutch will also hold its charge for several weeks before discharging.<\/p>"
+          }
+        },
+        "c40610d4-a5a8-4ec8-90de-b622d5b0b1ff": {
+          "type": "question",
+          "settings": {
+            "title": "Are Clutch chargers allowed on airplanes?",
+            "text": "<p>Yes, Clutch chargers (except V2) are allowed on airplane <strong>carry-ons<\/strong>.<\/p>"
+          }
+        },
+        "4cbb4f43-b8c9-4b3a-8b0e-d143c0b753fd": {
+          "type": "question",
+          "settings": {
+            "title": "Are Clutch chargers rechargeable?",
+            "text": "<p>Yes, absolutely! Clutch Charger is completely rechargeable.<\/p>"
+          }
+        },
+        "77aa6bf5-8d3e-4828-a1aa-c5dc672fade3": {
+          "type": "question",
+          "settings": {
+            "title": "Is the charging cord attached?",
+            "text": "<p>Yes the cord comes attached so you will never have to worry about bringing extra accessories with you.<\/p>"
+          }
+        },
+        "d7439fb7-ae7e-4340-af7c-c2d20021f79d": {
+          "type": "question",
+          "settings": {
+            "title": "What material is the Clutch Charger made of?",
+            "text": "<p>Clutch Charger uses lithium ion batteries and is encased in metal for increased durability.<\/p>"
+          }
+        },
+        "c7544fd2-3de1-47c9-b6cf-226901892d24": {
+          "type": "question",
+          "settings": {
+            "title": "How much does the Clutch Charger cost?",
+            "text": "<p>Clutch Pro costs $49.99, Clutch V3 costs $39.99 while the Clutch Max costs $69.99.<\/p>"
+          }
+        },
+        "1ebcafc7-0567-4cf4-9ef5-a34c04b0b1a3": {
+          "type": "question",
+          "settings": {
+            "title": "How much is shipping?",
+            "text": "<p>We offer FREE 2-3 day shipping for all US orders.<\/p>"
+          }
+        },
+        "65103c9a-56f2-4638-ad94-b97608c6383c": {
+          "type": "question",
+          "settings": {
+            "title": "Does the Clutch charger work with Android phones?",
+            "text": "<p>Yes! Our USB-C models work with modern Android phones and almost any devices with a USB-C port.<\/p>"
+          }
+        },
+        "2dbd5cbc-1e55-46af-a9d6-6031842149ef": {
+          "type": "question",
+          "settings": {
+            "title": "What phones are compatible with Clutch chargers?",
+            "text": "<p>Apple products:<br\/>Works on iPhone 5 \/ 5c \/ 5s \/ 6 \/ 6 Plus \/ SE \/ 7 \/ 7 Plus \/ 8 \/ 8 Plus \/ X \/ XS \/ XS Max \/ XR \/ 11 \/ 11 Max \/ 12 \/ 12 Pro \/ 12 Pro Max \/ 12 Mini \/ 13 \/ 13 Pro \/ 13 Pro Max \/ 13 Mini \/ 14 \/ 14 Pro \/ 14 Pro Max \/ iPad 4, iPad Air, iPad Air 2, iPad Mini, iPad Mini 2, iPad Mini 3, iPad Mini 4, iPad Pro, iPod Nano (7th Gen), iPod Touch(5th Gen), iPod Touch (6th Gen).<br\/><br\/>Android Products:<br\/>SAMSUNG GALAXY S22 \/ SAMSUNG GALAXY S21 \/ SAMSUNG GALAXY S20 \/ SAMSUNG GALAXY S8 \/ SAMSUNG GALAXY C9 Pro \/ SAMSUNG GALAXY C7 Pro \/ SAMSUNG GALAXY Note 7 \/ SAMSUNG GALAXY A3 2017 \/ Google Pixel \/ Google Pixel XL \/ LG V20 \/ LG Nexus 5X \/ LG G5 \/ LG G5SE \/ Lenovo ZUK Z1 \/ Lenovo ZUK Z2 \/ Lenovo ZUK Z2 Pro \/ Lenovo ZUK Edge \/ ASUS ZenFone 3 \/ ASUS ZenFone 3 Ultra \/ ASUS ZenFone 3 Deluxe \/ SONY Xperia X Compact \/ SONY Xperia XZ \/ Microsoft Lumia 950 \/ Microsoft Lumia 950XL \/ Moto Z \/ Moto Z PLAY \/ Moto M \/ Sharp A1 \/ HTC 10 \/ HP Elite x3 \/ BlackBerry DTEK60 \/ innos D6000 \/ 360 Q5 Plus \/ Philips S653H \/ TCL 950 \/ Hisense E9 \/ COMIO i1<\/p>"
+          }
+        },
+        "d2165758-01f6-4d5f-9b9f-13c9996ba31f": {
+          "type": "question",
+          "settings": {
+            "title": "How do I store my Clutch Charger?",
+            "text": "<p>Please store your clutch in a cool and dry place. Do not use or store in extreme temperatures and keep it away from water and humidity. <\/p>"
+          }
+        },
+        "fe655862-5c87-41db-8eef-d53af1229245": {
+          "type": "question",
+          "settings": {
+            "title": "How do I properly dispose of my Clutch charger?",
+            "text": "<p>Please do not throw away your Clutch Charger in the trash or a recycling bin. Because of the Lithium-ION battery found inside your charger, it is important to dispose of your Clutch at a proper facility. For more information and drop site locations please visit <a href=\"https:\/\/www.epa.gov\/recycle\/used-lithium-ion-batteries\" target=\"_blank\" title=\"https:\/\/www.epa.gov\/recycle\/used-lithium-ion-batteries\">https:\/\/www.epa.gov\/recycle\/used-lithium-ion-batteries<\/a>.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "16373234300f264567-0",
+        "16373234300f264567-1",
+        "c40610d4-a5a8-4ec8-90de-b622d5b0b1ff",
+        "4cbb4f43-b8c9-4b3a-8b0e-d143c0b753fd",
+        "77aa6bf5-8d3e-4828-a1aa-c5dc672fade3",
+        "d7439fb7-ae7e-4340-af7c-c2d20021f79d",
+        "c7544fd2-3de1-47c9-b6cf-226901892d24",
+        "1ebcafc7-0567-4cf4-9ef5-a34c04b0b1a3",
+        "65103c9a-56f2-4638-ad94-b97608c6383c",
+        "2dbd5cbc-1e55-46af-a9d6-6031842149ef",
+        "d2165758-01f6-4d5f-9b9f-13c9996ba31f",
+        "fe655862-5c87-41db-8eef-d53af1229245"
+      ],
+      "settings": {
+        "title": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "1637323430917840f3"
+  ]
+}

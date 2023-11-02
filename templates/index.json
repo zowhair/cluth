@@ -1,0 +1,744 @@
+{
+  "sections": {
+    "a26eb653-6902-4024-9484-002157297b52": {
+      "type": "v3-hero",
+      "blocks": {
+        "5d96e4a3-9edb-45e4-9adc-2f9144a0a3fa": {
+          "type": "image",
+          "settings": {
+            "title": "",
+            "title_size": 80,
+            "subheading": "",
+            "link": "shopify:\/\/collections\/clutch-chargers",
+            "link_text": "",
+            "color_accent": "rgba(0,0,0,0)",
+            "disclaimer": "",
+            "text_align": "vertical-center horizontal-center",
+            "image": "shopify:\/\/shop_images\/Hero_bogo.png",
+            "image_mobile": "shopify:\/\/shop_images\/Hero_mobile_bogo.png",
+            "focal_point": "center center"
+          }
+        }
+      },
+      "block_order": [
+        "5d96e4a3-9edb-45e4-9adc-2f9144a0a3fa"
+      ],
+      "custom_css": [
+        ".index-section--hero {order: 0; width: 100vw;}"
+      ],
+      "settings": {
+        "variant_id": "",
+        "visible": true,
+        "style": "arrows",
+        "desktop_size": 0,
+        "mobile_size": 0,
+        "autoplay": false,
+        "autoplay_speed": 7
+      }
+    },
+    "f1a0ea09-e9b5-423e-9ff0-c9a4b0ac38f9": {
+      "type": "image-banner",
+      "blocks": {
+        "5862ae44-551a-49e3-bb17-455bcb1508d9": {
+          "type": "pre_heading",
+          "settings": {
+            "pre_heading": "Introducing <strong>Clutch® Pro<\/strong>"
+          }
+        },
+        "template--14551395237974__f1a0ea09-e9b5-423e-9ff0-c9a4b0ac38f9-heading-1": {
+          "type": "heading",
+          "settings": {
+            "heading": "Now magnetic & 50% stronger",
+            "heading_size": "h0"
+          }
+        },
+        "template--14551395237974__f1a0ea09-e9b5-423e-9ff0-c9a4b0ac38f9-text-1": {
+          "type": "text",
+          "settings": {
+            "text": "Experience the evolution of charging on-the-go with Clutch® Pro",
+            "text_style": "subtitle"
+          }
+        },
+        "template--14551395237974__f1a0ea09-e9b5-423e-9ff0-c9a4b0ac38f9-buttons-1": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Shop Clutch®  Pro",
+            "button_link_1": "shopify:\/\/collections\/clutch-pro",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "5862ae44-551a-49e3-bb17-455bcb1508d9",
+        "template--14551395237974__f1a0ea09-e9b5-423e-9ff0-c9a4b0ac38f9-heading-1",
+        "template--14551395237974__f1a0ea09-e9b5-423e-9ff0-c9a4b0ac38f9-text-1",
+        "template--14551395237974__f1a0ea09-e9b5-423e-9ff0-c9a4b0ac38f9-buttons-1"
+      ],
+      "disabled": true,
+      "settings": {
+        "image": "shopify:\/\/shop_images\/Hero_30581b72-d3df-42cf-b8c2-18c111339e36.png",
+        "image_2": "shopify:\/\/shop_images\/Background_1-magnet.png",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-left",
+        "show_text_box": true,
+        "desktop_content_alignment": "left",
+        "color_scheme": "background-1",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "stack_images_on_mobile": false,
+        "show_text_below": false
+      }
+    },
+    "4b6b14d5-be40-41df-92fb-28c8db575314": {
+      "type": "marquee-v2",
+      "blocks": {
+        "template--14551395237974__4b6b14d5-be40-41df-92fb-28c8db575314-marquee_block-1": {
+          "type": "marquee_block",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/entrepreneur.svg",
+            "image_hover": "shopify:\/\/shop_images\/entrepreneur_f9b4c679-77e6-4951-bc28-a417c6fcf95e.svg",
+            "title": ""
+          }
+        },
+        "template--14551395237974__4b6b14d5-be40-41df-92fb-28c8db575314-marquee_block-2": {
+          "type": "marquee_block",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/good-morning-america.svg",
+            "image_hover": "shopify:\/\/shop_images\/good-morning-america_fa2ae2ef-8b2d-49ee-8fc8-ec8f112f0ff5.svg",
+            "title": ""
+          }
+        },
+        "template--14551395237974__4b6b14d5-be40-41df-92fb-28c8db575314-marquee_block-3": {
+          "type": "marquee_block",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/business-insider.svg",
+            "image_hover": "shopify:\/\/shop_images\/business-insider_c4c62a85-6718-4970-81c4-16d5a0a5fdf3.svg",
+            "title": ""
+          }
+        },
+        "d35ed56d-f66a-4e4d-8e2e-59bd1e9ccdcf": {
+          "type": "marquee_block",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/hsn.svg",
+            "image_hover": "shopify:\/\/shop_images\/hsn_1211474f-7bb3-473f-8511-562126472e76.svg",
+            "title": ""
+          }
+        },
+        "76cbce06-8157-4b44-ad38-4b35bc4f40de": {
+          "type": "marquee_block",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/today.svg",
+            "image_hover": "shopify:\/\/shop_images\/today_888dda28-38bf-4050-8c19-cc4c0fa9edb8.svg",
+            "title": ""
+          }
+        },
+        "8976cda3-acbb-4522-a7a0-d88432a48272": {
+          "type": "marquee_block",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/pc.svg",
+            "image_hover": "shopify:\/\/shop_images\/pc_74da680a-1863-4cbc-9b2b-9d733eae676d.svg",
+            "title": ""
+          }
+        },
+        "dd64100d-5a97-46cb-a0c9-7ececfef82c3": {
+          "type": "marquee_block",
+          "disabled": true,
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Group_27_2.png",
+            "title": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--14551395237974__4b6b14d5-be40-41df-92fb-28c8db575314-marquee_block-1",
+        "template--14551395237974__4b6b14d5-be40-41df-92fb-28c8db575314-marquee_block-2",
+        "template--14551395237974__4b6b14d5-be40-41df-92fb-28c8db575314-marquee_block-3",
+        "d35ed56d-f66a-4e4d-8e2e-59bd1e9ccdcf",
+        "76cbce06-8157-4b44-ad38-4b35bc4f40de",
+        "8976cda3-acbb-4522-a7a0-d88432a48272",
+        "dd64100d-5a97-46cb-a0c9-7ececfef82c3"
+      ],
+      "settings": {
+        "heading": "Companies talking about us"
+      }
+    },
+    "dfdb46ff-997f-4788-b123-e182fcb1efa7": {
+      "type": "multicolumn",
+      "blocks": {
+        "template--14552351277142__dfdb46ff-997f-4788-b123-e182fcb1efa7-column-1": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Img-Avion_1.png",
+            "image_for_mobile": "shopify:\/\/shop_images\/Img-Avion_1_1.png",
+            "image_width": 600,
+            "content_position": "bottom-left",
+            "title_block": "",
+            "text": "<p>Airplane <\/p><p>Carry-On Approved<\/p>",
+            "link_label": "",
+            "link": "",
+            "button_background": "#1ea2f8",
+            "color_button": "#141414",
+            "identfierclass_id": "airplane_approved",
+            "col_span": 2,
+            "row_span": 2
+          }
+        },
+        "574e9763-6dea-4f20-874d-5bb9498906d1": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Attached_Cable.png",
+            "image_for_mobile": "shopify:\/\/shop_images\/Attached_Cable_1.png",
+            "image_width": 290,
+            "content_position": "bottom-left",
+            "title_block": "",
+            "text": "<p>Attached<\/p><p>Charging <br\/>Cable<\/p>",
+            "link_label": "",
+            "link": "",
+            "button_background": "#1ea2f8",
+            "color_button": "#141414",
+            "identfierclass_id": "Attached_Charging",
+            "col_span": 1,
+            "row_span": 1
+          }
+        },
+        "61ab61ac-7641-447c-864d-24149eb29d79": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Clutch-Pro-126_1.png",
+            "image_for_mobile": "shopify:\/\/shop_images\/Frame_31523.png",
+            "image_width": 290,
+            "content_position": "bottom-left",
+            "title_block": "",
+            "text": "<p>Magnetizes to iPhones & Magsafe Cases<\/p>",
+            "link_label": "",
+            "link": "",
+            "button_background": "#1ea2f8",
+            "color_button": "#141414",
+            "identfierclass_id": "Magnetizes",
+            "col_span": 1,
+            "row_span": 2
+          }
+        },
+        "291e8987-31f0-41a8-87d7-42c49483d1d3": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Sleek.png",
+            "image_for_mobile": "shopify:\/\/shop_images\/Sleek_1.png",
+            "image_width": 600,
+            "content_position": "top-center",
+            "title_block": "",
+            "text": "<p>Sleek & Lightweight<\/p>",
+            "link_label": "",
+            "link": "",
+            "button_background": "#4dace1",
+            "color_button": "#141414",
+            "identfierclass_id": "",
+            "col_span": 2,
+            "row_span": 1
+          }
+        },
+        "5f0ca491-629d-4f82-8fa0-4df7f4b5e5c7": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Powerfull.png",
+            "image_for_mobile": "shopify:\/\/shop_images\/Powerfull_1.png",
+            "image_width": 400,
+            "content_position": "top-center",
+            "title_block": "<svg width=\"190\" height=\"138\" viewbox=\"0 0 190 138\" fill=\"none\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\"> <path d=\"M95.4284 26.3479C96.0687 21.4121 96.6948 16.5846 97.3209 11.757C97.2234 11.7269 97.1276 11.6967 97.0301 11.6666C94.0378 17.6257 91.0455 23.5865 88 29.6555H94.3464C93.4932 34.5735 92.6578 39.3975 91.8206 44.2215C91.9253 44.2517 92.0281 44.2836 92.1328 44.3138C95.1056 38.3866 98.0801 32.4612 101.147 26.3479H95.4266H95.4284Z\" fill=\"#4DACE1\"><\/path> <path d=\"M14.0082 89.1539V60.3362H23.5101C30.0846 60.3362 32.9159 64.3707 32.9159 69.0296C32.9159 73.6884 30.0846 77.7229 23.5101 77.7229H17.8473V89.1539H14.0082ZM17.8473 74.5049H23.5101C27.8291 74.5049 29.1248 71.6712 29.1248 69.0296C29.1248 66.3879 27.8291 63.5542 23.5101 63.5542H17.8473V74.5049Z\" fill=\"#F0F0F0\"><\/path> <path d=\"M46.2941 89.9224C39.5756 89.9224 34.9686 84.8793 34.9686 78.7796C34.9686 72.7278 39.5756 67.6367 46.2941 67.6367C52.9646 67.6367 57.5716 72.7278 57.5716 78.7796C57.5716 84.8793 52.9646 89.9224 46.2941 89.9224ZM46.2941 86.9926C50.997 86.9926 53.9244 83.3424 53.9244 78.7796C53.9244 74.2648 50.997 70.5665 46.2941 70.5665C41.5431 70.5665 38.6158 74.2648 38.6158 78.7796C38.6158 83.3424 41.5911 86.9926 46.2941 86.9926Z\" fill=\"#F0F0F0\"><\/path> <path d=\"M67.1882 89.202L59.03 68.4052H62.6292L68.5319 84.0148L74.4345 68.4052H76.5941L82.5447 84.0148L88.3994 68.4052H91.8066L83.6485 89.202H81.297L75.4423 74.1687L69.4916 89.202H67.1882Z\" fill=\"#F0F0F0\"><\/path> <path d=\"M103.97 89.7303C97.875 89.7303 93.556 85.0714 93.556 78.6355C93.556 71.9594 98.4989 67.8288 103.586 67.8288C108.769 67.8288 112.416 71.1909 112.416 75.8978C112.416 76.6182 112.272 77.5308 112.128 78.2512H97.1552C96.8673 81.9015 98.5949 86.7525 105.217 86.7525C107.569 86.7525 110.448 85.5998 112.032 84.0628V87.2808C110.064 88.8658 106.993 89.7303 103.97 89.7303ZM97.4911 75.7057H108.913C109.344 72.92 107.137 70.7106 103.73 70.7106C100.802 70.7106 98.115 72.2956 97.4911 75.7057Z\" fill=\"#F0F0F0\"><\/path> <path d=\"M117.437 89.1539V68.4052H120.604L120.844 72.3916C122.188 69.8461 125.403 67.8288 128.906 67.8288V71.7672C124.971 71.0468 121.084 73.3042 121.084 76.8104V89.1539H117.437Z\" fill=\"#F0F0F0\"><\/path> <path d=\"M135.269 89.1539V70.9027H131.046V68.4052H135.269V68.3571C135.269 62.3054 137.573 60 141.94 60C142.851 60 143.955 60.2402 144.531 60.4323V63.0259C143.811 62.8818 142.947 62.7377 142.324 62.7377C139.78 62.7377 138.916 63.8904 138.916 68.117V68.4052H144.531V70.9027H138.916V89.1539H135.269Z\" fill=\"#F0F0F0\"><\/path> <path d=\"M154.822 89.7303C149.303 89.7303 147.335 85.8879 147.335 80.7488V68.4052H150.983V80.4126C150.983 85.0714 152.806 86.6084 155.83 86.6084C158.805 86.6084 162.644 84.0148 162.644 80.6527V68.4052H166.291V89.1539H163.124L162.884 85.1675C161.348 87.665 158.277 89.7303 154.822 89.7303Z\" fill=\"#F0F0F0\"><\/path> <path d=\"M172.222 89.1539V60.3362H175.869V89.1539H172.222Z\" fill=\"#F0F0F0\"><\/path> <path d=\"M8.44611 120.133C11.9973 118.116 15.3086 116.339 15.3086 113.409C15.3086 111.296 13.533 110.143 11.3735 110.143C8.25415 110.143 6.62252 112.256 6.62252 114.514C6.62252 116.531 7.29437 118.212 8.44611 120.133ZM10.4617 135.406C12.3332 135.406 14.0609 134.686 15.0686 133.533C12.8131 131.372 9.59785 127.722 7.10241 124.071C5.13485 125.512 3.69517 127.241 3.69517 129.739C3.69517 132.861 6.47855 135.406 10.4617 135.406ZM10.0777 138C5.03887 138 0 135.358 0 129.595C0 126.041 2.59142 123.735 5.61474 121.814C4.07909 119.172 3.16729 116.819 3.16729 114.562C3.16729 110.479 6.81448 107.549 11.3735 107.549C15.5485 107.549 18.6198 110.047 18.6198 113.409C18.6198 117.924 14.0129 119.941 9.93378 122.294C12.1893 125.416 14.7807 128.442 17.0842 130.651C17.9 129.163 18.2839 124.984 18.2359 122.727H25.6263V125.176H21.0193C20.8753 127.289 20.4914 130.267 19.1957 132.717C21.7871 135.07 23.3708 135.599 25.0504 135.599C25.9622 135.599 27.3539 135.118 28.2657 133.917L29.1295 135.214C27.8338 137.183 25.9142 138 24.2346 138C21.7391 138 19.7236 137.472 17.1322 135.406C15.5005 136.943 13.197 138 10.0777 138Z\" fill=\"#F0F0F0\"><\/path> <path d=\"M40.9318 137.183V108.366H49.8578C61.0393 108.366 65.8863 114.85 65.8863 122.775C65.8863 130.7 61.0393 137.183 49.8578 137.183H40.9318ZM44.771 133.821H49.9058C59.2637 133.821 61.9031 128.538 61.9031 122.775C61.9031 117.011 59.2637 111.728 49.9058 111.728H44.771V133.821Z\" fill=\"#4DACE1\"><\/path> <path d=\"M77.9406 137.76C72.4218 137.76 70.4542 133.917 70.4542 128.778V116.435H74.1014V128.442C74.1014 133.101 75.925 134.638 78.9483 134.638C81.9237 134.638 85.7628 132.044 85.7628 128.682V116.435H89.41V137.183H86.2427L86.0028 133.197C84.4671 135.695 81.3958 137.76 77.9406 137.76Z\" fill=\"#4DACE1\"><\/path> <path d=\"M95.3404 137.183C95.3404 129.081 95.3404 124.538 95.3404 116.435H98.5077L98.7477 120.421C100.091 117.876 103.307 115.858 106.81 115.858V119.797C102.875 119.076 98.9876 121.334 98.9876 124.84V137.183H95.3404Z\" fill=\"#4DACE1\"><\/path> <path d=\"M119.164 137.76C113.453 137.76 109.278 132.861 109.278 126.809C109.278 120.757 113.453 115.858 119.164 115.858C122.571 115.858 125.594 117.539 127.322 120.181L127.466 116.435H130.633V137.183H127.466L127.322 133.437C125.594 136.079 122.571 137.76 119.164 137.76ZM120.076 134.83C124.011 134.83 127.226 131.804 127.226 126.809C127.226 121.814 124.011 118.788 120.076 118.788C116.14 118.788 112.925 121.814 112.925 126.809C112.925 131.804 116.14 134.83 120.076 134.83Z\" fill=\"#4DACE1\"><\/path> <path d=\"M148.051 137.76C144.643 137.76 141.62 136.079 139.892 133.437L139.748 137.183H136.581V108.366H140.228V119.701C141.956 117.347 144.835 115.858 148.051 115.858C153.761 115.858 157.936 120.757 157.936 126.809C157.936 132.861 153.761 137.76 148.051 137.76ZM147.139 134.83C151.074 134.83 154.289 131.804 154.289 126.809C154.289 121.814 151.074 118.788 147.139 118.788C143.204 118.788 139.988 121.814 139.988 126.809C139.988 131.804 143.204 134.83 147.139 134.83Z\" fill=\"#4DACE1\"><\/path> <path d=\"M162.685 137.183V108.366H166.332V137.183H162.685Z\" fill=\"#4DACE1\"><\/path> <path d=\"M181.554 137.76C175.459 137.76 171.14 133.101 171.14 126.665C171.14 119.989 176.083 115.858 181.17 115.858C186.353 115.858 190 119.22 190 123.927C190 124.648 189.856 125.56 189.712 126.281H174.739C174.451 129.931 176.179 134.782 182.802 134.782C185.153 134.782 188.032 133.629 189.616 132.092V135.31C187.649 136.895 184.577 137.76 181.554 137.76ZM175.075 123.735H186.497C186.929 120.95 184.721 118.74 181.314 118.74C178.387 118.74 175.699 120.325 175.075 123.735Z\" fill=\"#4DACE1\"><\/path> <g opacity=\"0.5\"> <path d=\"M67.1836 27.3159C67.458 25.2006 67.7264 23.1316 67.9947 21.0627C67.9529 21.0498 67.9118 21.0368 67.87 21.0239C66.5876 23.5778 65.3052 26.1325 64 28.7335H66.7199C66.3542 30.8412 65.9962 32.9086 65.6374 34.976C65.6823 34.989 65.7263 35.0026 65.7712 35.0156C67.0452 32.4754 68.32 29.9359 69.6344 27.3159H67.1828H67.1836Z\" fill=\"#4DACE1\"><\/path> <\/g> <g opacity=\"0.5\"> <path d=\"M123.184 27.3159C123.458 25.2006 123.726 23.1316 123.995 21.0627C123.953 21.0498 123.912 21.0368 123.87 21.0239C122.588 23.5778 121.305 26.1325 120 28.7335H122.72C122.354 30.8412 121.996 32.9086 121.637 34.976C121.682 34.989 121.726 35.0026 121.771 35.0156C123.045 32.4754 124.32 29.9359 125.634 27.3159H123.183H123.184Z\" fill=\"#4DACE1\"><\/path> <\/g> <\/svg>",
+            "text": "",
+            "link_label": "",
+            "link": "",
+            "button_background": "#1ea2f8",
+            "color_button": "#141414",
+            "identfierclass_id": "powerful",
+            "col_span": 1,
+            "row_span": 2
+          }
+        },
+        "b334545f-8752-4569-aa84-506225adb1cf": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Buy.png",
+            "image_for_mobile": "shopify:\/\/shop_images\/Buy_1.png",
+            "image_width": 290,
+            "content_position": "middle-center",
+            "title_block": "",
+            "text": "",
+            "link_label": "Shop Now",
+            "link": "shopify:\/\/collections\/clutch-chargers",
+            "button_background": "#4dace1",
+            "color_button": "#141414",
+            "identfierclass_id": "",
+            "col_span": 1,
+            "row_span": 1
+          }
+        }
+      },
+      "block_order": [
+        "template--14552351277142__dfdb46ff-997f-4788-b123-e182fcb1efa7-column-1",
+        "574e9763-6dea-4f20-874d-5bb9498906d1",
+        "61ab61ac-7641-447c-864d-24149eb29d79",
+        "291e8987-31f0-41a8-87d7-42c49483d1d3",
+        "5f0ca491-629d-4f82-8fa0-4df7f4b5e5c7",
+        "b334545f-8752-4569-aa84-506225adb1cf"
+      ],
+      "settings": {
+        "icon_id": "<svg width=\"48\" height=\"48\" viewbox=\"0 0 48 48\" fill=\"none\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\"> <path d=\"M24.3672 22.584C24.916 18.3533 25.4527 14.2154 25.9894 10.0775C25.9058 10.0517 25.8237 10.0258 25.74 10C23.1752 15.1078 20.6104 20.2171 18 25.4191H23.4398C22.7085 29.6345 21.9924 33.7694 21.2748 37.9042C21.3645 37.9301 21.4527 37.9574 21.5424 37.9833C24.0905 32.9029 26.6401 27.824 29.2688 22.584H24.3657H24.3672Z\" fill=\"#4dace1\"><\/path> <\/svg>",
+        "title_sec": "The World’s Thinnest Portable Charger",
+        "color_title_id": "#f0f0f0",
+        "heading_size": "h2",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 4,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "enable_masonry": true,
+        "masonry_columns": 4,
+        "masonry_default_height": 292,
+        "masonry_gap": 16
+      }
+    },
+    "5110b9a1-2695-4a1c-8130-4623e36bc2db": {
+      "type": "social-proof-auto",
+      "blocks": {
+        "04a7cbfc-2771-4256-93b0-82555c497c4c": {
+          "type": "image",
+          "settings": {
+            "img": "shopify:\/\/shop_images\/364035230_10230687472681506_536519267248702956_n_5c6b8508-ccca-42a2-ba60-272137cc5a09.jpg"
+          }
+        },
+        "00b2aebf-2368-45f4-9052-eb448760684e": {
+          "type": "image",
+          "settings": {
+            "img": "shopify:\/\/shop_images\/364036601_10159108716906529_4867724330388648620_n.jpg"
+          }
+        },
+        "696296f7-4aa3-4aaa-b370-921f1bface7e": {
+          "type": "image",
+          "settings": {
+            "img": "shopify:\/\/shop_images\/ashleylewofficial-08-02-2023-instagram1_08a999be-a1ff-4e06-b626-08c2318e06aa.jpg"
+          }
+        },
+        "3895b33e-1f1f-4522-8e17-ed64cfef1ee3": {
+          "type": "image",
+          "settings": {
+            "img": "shopify:\/\/shop_images\/Copy_of_A00ED22E-42E8-4438-A847-F7245B053814.jpg"
+          }
+        },
+        "421ca793-f771-43cb-8520-8da1d322cc59": {
+          "type": "image",
+          "settings": {
+            "img": "shopify:\/\/shop_images\/Copy_of_CC007B52-D225-4D91-B247-3E60A77ED6B7.jpg"
+          }
+        },
+        "1a0fc357-88cd-4743-8ce2-7cdb2cba0232": {
+          "type": "image",
+          "settings": {
+            "img": "shopify:\/\/shop_images\/Copy_of_IMG_5164.png"
+          }
+        },
+        "4824815e-8fea-4f58-bf9a-a451a92d7d48": {
+          "type": "image",
+          "settings": {
+            "img": "shopify:\/\/shop_images\/Copy_of_IMG_5346.png"
+          }
+        },
+        "0f95011f-a4c6-4b6d-8404-83f459fd8239": {
+          "type": "image",
+          "settings": {
+            "img": "shopify:\/\/shop_images\/Copy_of_kclinked-08-30-2023-instagram_8f3c9369-d926-4a05-b183-025301f1076c.jpg"
+          }
+        },
+        "7d3b4d0c-1cdc-4327-9d30-3308db951734": {
+          "type": "image",
+          "settings": {
+            "img": "shopify:\/\/shop_images\/em.harriss-08-06-2023-instagram_da46916c-4963-42ee-bc04-e20901dd9a89.jpg"
+          }
+        },
+        "34dd05f6-9404-4456-a6aa-622aaadabec7": {
+          "type": "image",
+          "settings": {
+            "img": "shopify:\/\/shop_images\/Giveaway_entry_8c039c36-5523-4366-a642-617ae7af2bf9.jpg"
+          }
+        },
+        "496e576e-b98b-412d-abac-f9fcb75fb957": {
+          "type": "image",
+          "settings": {
+            "img": "shopify:\/\/shop_images\/julia.tric-2023-08-25-instagram-46f7e1-story.jpg"
+          }
+        },
+        "b5a4b096-900e-4274-99c9-d8f3e2d133a5": {
+          "type": "image",
+          "settings": {
+            "img": "shopify:\/\/shop_images\/Screen_Shot_2023-09-06_at_9.39.28.png"
+          }
+        },
+        "071a8c18-405f-436b-9aeb-769bd7451c9e": {
+          "type": "image",
+          "settings": {
+            "img": "shopify:\/\/shop_images\/Screen_Shot_2023-09-06_at_9.39.42.png"
+          }
+        },
+        "8d681c34-f512-4923-ac4b-d030c73bfab3": {
+          "type": "image",
+          "settings": {
+            "img": "shopify:\/\/shop_images\/stylerightblog-08-16-2023-instagram1.jpg"
+          }
+        },
+        "96d7846d-dcf0-4709-9aaf-43adbd77f494": {
+          "type": "image",
+          "settings": {
+            "img": "shopify:\/\/shop_images\/stylerightblog-08-16-2023-instagram2.jpg"
+          }
+        },
+        "0f2c3b6b-068d-4804-a1af-cb52b37f4fb8": {
+          "type": "image",
+          "settings": {
+            "img": "shopify:\/\/shop_images\/thecalliechisholm-06-21-2023-instagram.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "04a7cbfc-2771-4256-93b0-82555c497c4c",
+        "00b2aebf-2368-45f4-9052-eb448760684e",
+        "696296f7-4aa3-4aaa-b370-921f1bface7e",
+        "3895b33e-1f1f-4522-8e17-ed64cfef1ee3",
+        "421ca793-f771-43cb-8520-8da1d322cc59",
+        "1a0fc357-88cd-4743-8ce2-7cdb2cba0232",
+        "4824815e-8fea-4f58-bf9a-a451a92d7d48",
+        "0f95011f-a4c6-4b6d-8404-83f459fd8239",
+        "7d3b4d0c-1cdc-4327-9d30-3308db951734",
+        "34dd05f6-9404-4456-a6aa-622aaadabec7",
+        "496e576e-b98b-412d-abac-f9fcb75fb957",
+        "b5a4b096-900e-4274-99c9-d8f3e2d133a5",
+        "071a8c18-405f-436b-9aeb-769bd7451c9e",
+        "8d681c34-f512-4923-ac4b-d030c73bfab3",
+        "96d7846d-dcf0-4709-9aaf-43adbd77f494",
+        "0f2c3b6b-068d-4804-a1af-cb52b37f4fb8"
+      ],
+      "settings": {
+        "title": "4,000 + <svg xmlns=\"http:\/\/www.w3.org\/2000\/svg\" width=\"33\" height=\"32\" viewbox=\"0 0 33 32\" fill=\"none\">   <path d=\"M16.5 0L20.6568 10.2786L31.7169 11.0557L23.2259 18.1854L25.9046 28.9443L16.5 23.072L7.09544 28.9443L9.77413 18.1854L1.2831 11.0557L12.3432 10.2786L16.5 0Z\" fill=\"#F9C304\"><\/path> <\/svg> (5-star) Reviews"
+      }
+    },
+    "a483ca1e-81a3-4cf4-b765-8a39d707c213": {
+      "type": "social-proof-slider",
+      "blocks": {
+        "d438bdfb-d7db-4cc8-ab8b-4835670b491a": {
+          "type": "image",
+          "settings": {
+            "url": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/301c6785031145bb96914e12e73dff31.mp4",
+            "poster": "shopify:\/\/shop_images\/Screenshot_2023-10-03_at_12.48.08_PM.png"
+          }
+        },
+        "482e165e-b0d4-47c3-94eb-df542f1da66d": {
+          "type": "image",
+          "settings": {
+            "url": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/0efea3aa0fe24846bfa799fba845d8e6.mp4",
+            "poster": "shopify:\/\/shop_images\/Screenshot_2023-10-03_at_12.48.43_PM.png"
+          }
+        },
+        "ea7155e8-04ba-40ff-9f2c-e849cb9b9340": {
+          "type": "image",
+          "settings": {
+            "url": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/0418321c720d496082289bdbe48faf22.mp4",
+            "poster": "shopify:\/\/shop_images\/Screenshot_2023-10-03_at_12.49.29_PM.png"
+          }
+        },
+        "78fcb89c-4add-4e86-b1c9-0ac25d1dac36": {
+          "type": "image",
+          "settings": {
+            "url": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/c37e6c894e784501836063722fdf2413.mp4",
+            "poster": "shopify:\/\/shop_images\/Screenshot_2023-10-03_at_12.49.53_PM.png"
+          }
+        },
+        "561bc71b-7dc0-451c-8545-c1766f68a552": {
+          "type": "image",
+          "settings": {
+            "url": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/fe1bde63f69345e0abdeed54d74bedcb.mp4",
+            "poster": "shopify:\/\/shop_images\/Screenshot_2023-10-03_at_12.50.40_PM.png"
+          }
+        },
+        "32713b16-9bb9-49a5-acd7-0c6bb45bc5ef": {
+          "type": "image",
+          "settings": {
+            "url": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/da9850f82fe24d7db8b2af7bfdfde1f7.mp4",
+            "poster": "shopify:\/\/shop_images\/Screenshot_2023-10-03_at_12.51.04_PM.png"
+          }
+        },
+        "f6bbc4fe-ecf8-490d-9d1e-c805a82d3c1b": {
+          "type": "image",
+          "settings": {
+            "url": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/0418321c720d496082289bdbe48faf22.mp4",
+            "poster": "shopify:\/\/shop_images\/Screenshot_2023-10-03_at_12.49.29_PM.png"
+          }
+        },
+        "e67fcf75-4641-4c1c-bf70-6201e49bf37d": {
+          "type": "image",
+          "settings": {
+            "url": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/c37e6c894e784501836063722fdf2413.mp4",
+            "poster": "shopify:\/\/shop_images\/Screenshot_2023-10-03_at_12.49.53_PM.png"
+          }
+        }
+      },
+      "block_order": [
+        "d438bdfb-d7db-4cc8-ab8b-4835670b491a",
+        "482e165e-b0d4-47c3-94eb-df542f1da66d",
+        "ea7155e8-04ba-40ff-9f2c-e849cb9b9340",
+        "78fcb89c-4add-4e86-b1c9-0ac25d1dac36",
+        "561bc71b-7dc0-451c-8545-c1766f68a552",
+        "32713b16-9bb9-49a5-acd7-0c6bb45bc5ef",
+        "f6bbc4fe-ecf8-490d-9d1e-c805a82d3c1b",
+        "e67fcf75-4641-4c1c-bf70-6201e49bf37d"
+      ],
+      "settings": {
+        "title": "PEACE OF MIND ANYTIME, ANYWHERE"
+      }
+    },
+    "3e1f6325-5da2-472e-b141-4940774d7153": {
+      "type": "reviews-judgeme-new",
+      "blocks": {
+        "fe3b2c3d-06e6-427d-8869-79a1a6033f9a": {
+          "type": "review",
+          "settings": {
+            "title": "I love my clutch !",
+            "author": "Molly R.",
+            "starts": 5,
+            "image": "shopify:\/\/shop_images\/ashleylewofficial-08-02-2023-instagram1.jpg",
+            "aspect_ratio": "square",
+            "comment": "It light weight and fits perfectly in my bag while charging my phone! Just what I was looking for ."
+          }
+        },
+        "6963b2b2-d824-42b7-9f46-a6befaa15315": {
+          "type": "review",
+          "settings": {
+            "title": "Obsessed!",
+            "author": "Alejandra M",
+            "starts": 5,
+            "image": "shopify:\/\/shop_images\/Screen_Shot_2023-09-21_at_9.37.27.png",
+            "aspect_ratio": "square",
+            "comment": "I'm always out and about so having a Clutch has been a life saver soooo many times!"
+          }
+        },
+        "861a1d76-1ae4-4259-a8e3-080ad90d3a4a": {
+          "type": "review",
+          "settings": {
+            "title": "Best Charger Ever!",
+            "author": "Gwen",
+            "starts": 5,
+            "image": "shopify:\/\/shop_images\/Screen_Shot_2023-09-06_at_9.39.28_c89d0a59-ba8d-4bd5-aded-e01308a50469.png",
+            "aspect_ratio": "square",
+            "comment": "I loved my first Clutch Charger so much that I bought another one & one as a gift. It is now my go-to gift for friends."
+          }
+        },
+        "fa5a3ca3-0670-4465-bb50-1b6b6361f959": {
+          "type": "review",
+          "settings": {
+            "title": "Great product!",
+            "author": "Nathalie O’Malley",
+            "starts": 5,
+            "image": "shopify:\/\/shop_images\/Screen_Shot_2023-09-21_at_9.34.18.png",
+            "aspect_ratio": "square",
+            "comment": "I needed a small\/slim charger that can power up my phone when I needed it. Works like a charm!..."
+          }
+        },
+        "6b51d8f0-b094-41e8-9530-70651fb41cf0": {
+          "type": "review",
+          "settings": {
+            "title": "Convenient Size and Weight",
+            "author": "M.B",
+            "starts": 5,
+            "image": "shopify:\/\/shop_images\/em.harriss-08-06-2023-instagram.jpg",
+            "aspect_ratio": "square",
+            "comment": "Bought for myself, loved the convenience of the size and weight, I got for almost everyone who’s important to me because It’s portable and easy to carry."
+          }
+        },
+        "1cc928f0-cfe2-4ede-bc63-6fa840fa613c": {
+          "type": "review",
+          "settings": {
+            "title": "Love it!",
+            "author": "Jim Selick",
+            "starts": 5,
+            "image": "shopify:\/\/shop_images\/Screen_Shot_2023-09-21_at_9.35.11.png",
+            "aspect_ratio": "square",
+            "comment": "Convenience at it's finest, I love my Clutch cause it charges everything I carry with me!"
+          }
+        },
+        "3c07c9e8-b730-4c10-95f9-d8d586f26f54": {
+          "type": "review",
+          "settings": {
+            "title": "Essential",
+            "author": "Sheila H.",
+            "starts": 5,
+            "image": "shopify:\/\/shop_images\/Giveaway_entry.jpg",
+            "aspect_ratio": "square",
+            "comment": "How many times has it saved me from a dead phone?\nCan’t count that high.\nFits right in my wallet...."
+          }
+        }
+      },
+      "block_order": [
+        "fe3b2c3d-06e6-427d-8869-79a1a6033f9a",
+        "6963b2b2-d824-42b7-9f46-a6befaa15315",
+        "861a1d76-1ae4-4259-a8e3-080ad90d3a4a",
+        "fa5a3ca3-0670-4465-bb50-1b6b6361f959",
+        "6b51d8f0-b094-41e8-9530-70651fb41cf0",
+        "1cc928f0-cfe2-4ede-bc63-6fa840fa613c",
+        "3c07c9e8-b730-4c10-95f9-d8d586f26f54"
+      ],
+      "settings": {
+        "css_class": "",
+        "icon_id": "<svg width=\"48\" height=\"48\" viewbox=\"0 0 48 48\" fill=\"none\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\"> <path d=\"M24.3672 22.584C24.916 18.3533 25.4527 14.2154 25.9894 10.0775C25.9058 10.0517 25.8237 10.0258 25.74 10C23.1752 15.1078 20.6104 20.2171 18 25.4191H23.4398C22.7085 29.6345 21.9924 33.7694 21.2748 37.9042C21.3645 37.9301 21.4527 37.9574 21.5424 37.9833C24.0905 32.9029 26.6401 27.824 29.2688 22.584H24.3657H24.3672Z\" fill=\"#4DACE1\"><\/path> <\/svg>",
+        "title": "Our Customers Think We're Clutch!",
+        "cta_url": "#open-reviews-popup",
+        "visible": true,
+        "raiting": true
+      }
+    },
+    "67d1b54a-7972-4018-a421-36848a2567d4": {
+      "type": "cards_product_lp",
+      "blocks": {
+        "eab4550d-069d-42a0-a6f5-86ec23295235": {
+          "type": "Product",
+          "settings": {
+            "products_id": "clutch-pro-iphone",
+            "select_id": "iphone"
+          }
+        },
+        "dcf695eb-b328-4f56-9ac3-52c3cf560174": {
+          "type": "Product",
+          "settings": {
+            "products_id": "clutch-pro-usbc",
+            "select_id": "android"
+          }
+        }
+      },
+      "block_order": [
+        "eab4550d-069d-42a0-a6f5-86ec23295235",
+        "dcf695eb-b328-4f56-9ac3-52c3cf560174"
+      ],
+      "settings": {
+        "title_id": "Shop Clutch",
+        "css_class": "new-home ab-homepage"
+      }
+    },
+    "7f8283ca-d713-4da5-b997-570b2580981b": {
+      "type": "us_vs_them_lp",
+      "blocks": {
+        "c7898c1e-2ef5-4519-983e-ca881c2eeb7d": {
+          "type": "featured_image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Belkin_vs_Anker.png"
+          }
+        },
+        "d064417f-020e-4728-a4f5-25a46f95c187": {
+          "type": "featured_image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Clutch_Pro_Card.png"
+          }
+        },
+        "190f1c5b-8c46-4de7-86a7-45e2b0c5aab2": {
+          "type": "Table",
+          "settings": {
+            "table_id": "shopify:\/\/shop_images\/Frame_157.png",
+            "text_table_id": "Magnetic"
+          }
+        },
+        "857b5174-3359-4367-b573-48d8077d2c1a": {
+          "type": "Table",
+          "settings": {
+            "table_id": "shopify:\/\/shop_images\/Frame_153_6f4f0b20-7c6a-4e7e-b097-0ab78b93110f.png",
+            "text_table_id": "Built-in cable"
+          }
+        },
+        "f6442095-46e6-4d76-a024-9cacc8e0e644": {
+          "type": "Table",
+          "settings": {
+            "table_id": "shopify:\/\/shop_images\/Frame_153_6f4f0b20-7c6a-4e7e-b097-0ab78b93110f.png",
+            "text_table_id": "Minimal &  Sleek Design"
+          }
+        },
+        "bb691f28-7137-4827-9f9d-d90f82d620bf": {
+          "type": "Table",
+          "settings": {
+            "table_id": "shopify:\/\/shop_images\/Frame_155_df4510f5-c0fb-411d-ab2e-855160c598c6.png",
+            "text_table_id": "Colors"
+          }
+        },
+        "798be532-e61f-4a0c-b322-34685b4aeab4": {
+          "type": "Table",
+          "settings": {
+            "table_id": "shopify:\/\/shop_images\/Frame_156.png",
+            "text_table_id": "Weight"
+          }
+        },
+        "507c34bf-33d6-4156-9537-659353df07ee": {
+          "type": "Table",
+          "settings": {
+            "table_id": "shopify:\/\/shop_images\/Frame_158.png",
+            "text_table_id": "Price"
+          }
+        }
+      },
+      "block_order": [
+        "c7898c1e-2ef5-4519-983e-ca881c2eeb7d",
+        "d064417f-020e-4728-a4f5-25a46f95c187",
+        "190f1c5b-8c46-4de7-86a7-45e2b0c5aab2",
+        "857b5174-3359-4367-b573-48d8077d2c1a",
+        "f6442095-46e6-4d76-a024-9cacc8e0e644",
+        "bb691f28-7137-4827-9f9d-d90f82d620bf",
+        "798be532-e61f-4a0c-b322-34685b4aeab4",
+        "507c34bf-33d6-4156-9537-659353df07ee"
+      ],
+      "settings": {
+        "title_id": "We're better...",
+        "sub_title_id": "Than the other chargers you're thinking of",
+        "image_id": "shopify:\/\/shop_images\/Table_d359b25b-7316-4554-b2bc-35d4e3b714b6.png",
+        "button_text_id": "Shop Now",
+        "button_url_id": "shopify:\/\/collections\/clutch-chargers",
+        "css_class": "new-home ab-homepage"
+      }
+    },
+    "7ec5bb35-1a00-4701-88d5-897d274abfac": {
+      "type": "instagram-grid-v2",
+      "settings": {
+        "title": "Get Inspired on Instagram",
+        "subtitle": "",
+        "username": "",
+        "cta_text": "Shop Now",
+        "cta_link": "shopify:\/\/collections\/clutch-chargers"
+      }
+    },
+    "c8c07ebd-895c-448d-9c08-37ffd871d6f2": {
+      "type": "signup",
+      "settings": {
+        "css_class": "new-home ab-homepage",
+        "show_newsletter": true,
+        "newsletter_title": "Get <strong>20% Cashback<\/strong> on your first order!",
+        "newsletter_richtext": "<p>Be the first to hear about special promotions and product launches.<\/p>"
+      }
+    }
+  },
+  "order": [
+    "a26eb653-6902-4024-9484-002157297b52",
+    "f1a0ea09-e9b5-423e-9ff0-c9a4b0ac38f9",
+    "4b6b14d5-be40-41df-92fb-28c8db575314",
+    "dfdb46ff-997f-4788-b123-e182fcb1efa7",
+    "5110b9a1-2695-4a1c-8130-4623e36bc2db",
+    "a483ca1e-81a3-4cf4-b765-8a39d707c213",
+    "3e1f6325-5da2-472e-b141-4940774d7153",
+    "67d1b54a-7972-4018-a421-36848a2567d4",
+    "7f8283ca-d713-4da5-b997-570b2580981b",
+    "7ec5bb35-1a00-4701-88d5-897d274abfac",
+    "c8c07ebd-895c-448d-9c08-37ffd871d6f2"
+  ]
+}

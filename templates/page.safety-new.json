@@ -1,0 +1,497 @@
+{
+  "sections": {
+    "9c6f4ac3-cc26-447d-93d0-606d343b20a7": {
+      "type": "Page-top-texts-with-image-new",
+      "settings": {
+        "customClass": "",
+        "main_back_color": "#222222",
+        "main_heading_text": "Never worry about running out of phone battery again",
+        "main_infos_text": "<p>Ensure safety for yourself and loved ones with the Clutch Pro: our portable, magnetic, lightweight charger.<\/p>",
+        "main_button_text": "Shop Now",
+        "main_button_link": "#shop",
+        "star_icon_image": "shopify:\/\/shop_images\/Frame_1000002884.svg",
+        "star_icon_texts": "4,000+ 5 star reviews  •  Free Shipping",
+        "bottom_icon_image_1": "shopify:\/\/shop_images\/bi_apple.svg",
+        "bottom_icon_texts_1": "Apple and",
+        "bottom_icon_image_2": "shopify:\/\/shop_images\/uil_android.svg",
+        "bottom_icon_texts_2": "Android Compatible",
+        "main_desktop_image": "shopify:\/\/shop_images\/Rectangle_5-min_1.jpg",
+        "main_mobile_image": "shopify:\/\/shop_images\/Rectangle_5-min_1.jpg",
+        "image_link": ""
+      }
+    },
+    "55304daf-e625-4807-b070-d51f6d89c9b2": {
+      "type": "Page-image-step-list-text-new",
+      "blocks": {
+        "template--14626615656534__55304daf-e625-4807-b070-d51f6d89c9b2-information-1": {
+          "type": "information",
+          "settings": {
+            "title": "Peace of mind",
+            "inner_infos_list_text": "<p>because you’ll never run out of battery<\/p>"
+          }
+        },
+        "template--14626615656534__55304daf-e625-4807-b070-d51f6d89c9b2-information-2": {
+          "type": "information",
+          "settings": {
+            "title": "Lightweight, slim design",
+            "inner_infos_list_text": "<p>so your charger can easily fit in your pocket or bag<\/p>"
+          }
+        },
+        "template--14626615656534__55304daf-e625-4807-b070-d51f6d89c9b2-information-3": {
+          "type": "information",
+          "settings": {
+            "title": "Battery life that sticks with you",
+            "inner_infos_list_text": "<p>with our charger’s magnetic attachment to your phone<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "template--14626615656534__55304daf-e625-4807-b070-d51f6d89c9b2-information-1",
+        "template--14626615656534__55304daf-e625-4807-b070-d51f6d89c9b2-information-2",
+        "template--14626615656534__55304daf-e625-4807-b070-d51f6d89c9b2-information-3"
+      ],
+      "settings": {
+        "main_back_color": "#141414",
+        "main_desktop_image": "shopify:\/\/shop_images\/Ellipse_16_4_-min.png",
+        "main_mobile_image": "shopify:\/\/shop_images\/Ellipse_16_5_-min.png",
+        "inner_infos_text": "<p>Whether we’re coming home at the end of a long day, in a new place, or need to get in touch with a loved one, we often rely on our phones for safety.<\/p>",
+        "inner_heading_text": "Here are 3 ways Clutch can keep you safe:",
+        "inner_desktop_image": "shopify:\/\/shop_images\/Frame_1000003006-min.png",
+        "inner_mobile_image": "shopify:\/\/shop_images\/Frame_1000003006-min.png"
+      }
+    },
+    "05d1d39c-26dc-46e9-b0ba-06a951525a5e": {
+      "type": "Page-featured-product-new",
+      "blocks": {
+        "450e38f1-1606-4a9c-afba-82a84810bc61": {
+          "type": "custom",
+          "settings": {
+            "code": "<div class=\"custom_desc_new\">Slim, stylish and supercharged – stay powered when you travel. Compatible with iPhones\/Airpods (lightning ports) and Androids and iPhone 15 (USB-C ports).<\/div>"
+          }
+        },
+        "template--14626615656534__05d1d39c-26dc-46e9-b0ba-06a951525a5e-variant_picker-1": {
+          "type": "variant_picker",
+          "settings": {
+            "variant_labels": true,
+            "picker_type": "button",
+            "color_swatches": true
+          }
+        },
+        "template--14626615656534__05d1d39c-26dc-46e9-b0ba-06a951525a5e-buy_buttons-1": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false,
+            "surface_pickup_enable": false,
+            "shipping_text": "FREE 2-3 DAY US SHIPPING ON ALL ORDERS"
+          }
+        },
+        "cd044381-4b59-4aca-b214-67fd04e5a419": {
+          "type": "compatible-metafield-tab",
+          "settings": {
+            "title": "Compatible Devices"
+          }
+        },
+        "a2d04879-4170-4a2e-923f-9f2d11644c75": {
+          "type": "tech-specs-metafield-tab",
+          "settings": {
+            "title": "Tech Specs"
+          }
+        },
+        "fca62a3c-aba7-4dcb-83d5-2cfaba8ac4af": {
+          "type": "tab",
+          "settings": {
+            "title": "Shipping\/Warranty\/Returns",
+            "content": "<p>All orders are shipped within 72 hours of receipt barring extraordinary circumstances or stock outs.<\/p><p>Free Standard Shipping on individual orders arrive in 3-5 days.<\/p><p>Returns on individual orders are accepted within 30 days of shipment for orders within the Contiguous US.<\/p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "450e38f1-1606-4a9c-afba-82a84810bc61",
+        "template--14626615656534__05d1d39c-26dc-46e9-b0ba-06a951525a5e-variant_picker-1",
+        "template--14626615656534__05d1d39c-26dc-46e9-b0ba-06a951525a5e-buy_buttons-1",
+        "cd044381-4b59-4aca-b214-67fd04e5a419",
+        "a2d04879-4170-4a2e-923f-9f2d11644c75",
+        "fca62a3c-aba7-4dcb-83d5-2cfaba8ac4af"
+      ],
+      "settings": {
+        "customClass": "",
+        "main_back_color": "#222222",
+        "main_heading_text": "Shop now for peace of mind",
+        "main_timer_heading_text": "",
+        "main_timer_end_date": "",
+        "main_featured_product": "test-clutch®-pro",
+        "main_save_title": "",
+        "main_save_text": 0,
+        "star_icon_image": "shopify:\/\/shop_images\/Frame_1000002884.svg",
+        "star_icon_texts": "4000+ 5 star reviews",
+        "product_image_size": "medium",
+        "product_image_type": "slider",
+        "product_zoom_enable": false,
+        "enable_video_looping": true,
+        "product_video_style": "muted",
+        "sku_enable": false
+      }
+    },
+    "6a3ddfeb-18bf-4c93-ab81-add6ab33cc79": {
+      "type": "Page-testimonials-slider-new",
+      "blocks": {
+        "template--14626615656534__6a3ddfeb-18bf-4c93-ab81-add6ab33cc79-information-1": {
+          "type": "information",
+          "settings": {
+            "inner_back_color": "#222222",
+            "inner_review_info_text": "<p>Bought this for my daughter so she would never be without a dead phone. The peace of mind was worth the price.<\/p>",
+            "inner_star_icon_image": "shopify:\/\/shop_images\/Stars_4.svg",
+            "inner_author_icon_image": "M",
+            "title": "Mary",
+            "inner_author_detail_text": "Verified"
+          }
+        },
+        "template--14626615656534__6a3ddfeb-18bf-4c93-ab81-add6ab33cc79-information-2": {
+          "type": "information",
+          "settings": {
+            "inner_back_color": "#222222",
+            "inner_review_info_text": "<p>Bought three, one for me and the other two for my oldest granddaughters. 15 and 17. A good safety item to carry along with an alarm!<\/p>",
+            "inner_star_icon_image": "shopify:\/\/shop_images\/Stars_4.svg",
+            "inner_author_icon_image": "JK",
+            "title": "John K",
+            "inner_author_detail_text": "Verified"
+          }
+        },
+        "dee96cc9-eb9d-4e26-87b8-8c6c7047f20a": {
+          "type": "information",
+          "settings": {
+            "inner_back_color": "#222222",
+            "inner_review_info_text": "<p>Last time I traveled to NYC, my phone lost its charge.  I bought the Clutch this time for the trip and never had to worry.  <\/p>",
+            "inner_star_icon_image": "shopify:\/\/shop_images\/Stars_4.svg",
+            "inner_author_icon_image": "ME",
+            "title": "Margaret E.",
+            "inner_author_detail_text": "Verified"
+          }
+        },
+        "5eda01f9-e16a-4608-a8ba-fa40227a9496": {
+          "type": "information",
+          "settings": {
+            "inner_back_color": "#222222",
+            "inner_review_info_text": "<p>Holds a charge and helps me feel safe when out for a long night. Got one for my sister too! <\/p>",
+            "inner_star_icon_image": "shopify:\/\/shop_images\/Stars_4.svg",
+            "inner_author_icon_image": "L",
+            "title": "L.",
+            "inner_author_detail_text": "Verified"
+          }
+        },
+        "79f7714b-c1d0-49e7-8b4c-a487b5be85d0": {
+          "type": "information",
+          "settings": {
+            "inner_back_color": "#222222",
+            "inner_review_info_text": "<p>Specifically bought this so I can safely order ride share services and not worry about a dead battery. I have taken this to concerts, nights out and business trips and it hasn’t let me down.<\/p>",
+            "inner_star_icon_image": "shopify:\/\/shop_images\/Stars_4.svg",
+            "inner_author_icon_image": "P",
+            "title": "Peter",
+            "inner_author_detail_text": "Verified"
+          }
+        },
+        "590303fa-16eb-44af-81e1-8dbee9f0e6f0": {
+          "type": "information",
+          "settings": {
+            "inner_back_color": "#222222",
+            "inner_review_info_text": "<p>Off I go, knowing I am safe and won't get stuck somewhere with a dead phone. This is the best power bank I have purchased and I highly recommend it!<\/p>",
+            "inner_star_icon_image": "shopify:\/\/shop_images\/Stars_4.svg",
+            "inner_author_icon_image": "WS",
+            "title": "Wendy S.",
+            "inner_author_detail_text": "Verified"
+          }
+        }
+      },
+      "block_order": [
+        "template--14626615656534__6a3ddfeb-18bf-4c93-ab81-add6ab33cc79-information-1",
+        "template--14626615656534__6a3ddfeb-18bf-4c93-ab81-add6ab33cc79-information-2",
+        "dee96cc9-eb9d-4e26-87b8-8c6c7047f20a",
+        "5eda01f9-e16a-4608-a8ba-fa40227a9496",
+        "79f7714b-c1d0-49e7-8b4c-a487b5be85d0",
+        "590303fa-16eb-44af-81e1-8dbee9f0e6f0"
+      ],
+      "settings": {
+        "customClass": "",
+        "main_back_color": "#141414",
+        "main_desktop_image": "shopify:\/\/shop_images\/Ellipse_16_6_-min.png",
+        "main_mobile_image": "shopify:\/\/shop_images\/Ellipse_16_5_-min.png",
+        "main_heading_text": "Hear why Clutch is leading the charge for safety",
+        "main_heading_text_link": "",
+        "main_button_text": "",
+        "main_button_link": ""
+      }
+    },
+    "15cc46dc-c6c4-4d80-8074-9c7486cae93b": {
+      "type": "Page-question-answer-list-new",
+      "blocks": {
+        "template--14626615656534__15cc46dc-c6c4-4d80-8074-9c7486cae93b-text-with-button-1": {
+          "type": "text-with-button",
+          "settings": {
+            "heading_text_box_1": "<p>Which Clutch is <br\/>right for my device?<\/p>",
+            "title_box_1_text_1": "Clutch Pro <span>Lightning<\/span>",
+            "info_box_1_text_1": "<ul><li>iPhone 14s (and older)<\/li><li>Airpods (1st & 2nd gen)<\/li><\/ul>",
+            "title_box_1_text_2": "Clutch Pro <span>USB-C<\/span>",
+            "info_box_1_text_2": "<ul><li>iPhone 15s<\/li><li>Android Devices<\/li><\/ul>"
+          }
+        },
+        "template--14626615656534__15cc46dc-c6c4-4d80-8074-9c7486cae93b-text-with-image-1": {
+          "type": "text-with-image",
+          "settings": {
+            "heading_text_box_2": "<p>Does it magnetically <br\/>stick to the back of my phone?<\/p>",
+            "info_text_box_2": "<p>All Clutch Pro devices magnetize to iPhone 12s (or newer) and all magnetic cases. Don’t have a magnetic-friendly device? No worries, we’re throwing in a FREE magnetic ring with every order. <\/p>",
+            "main_desktop_image": "shopify:\/\/shop_images\/Frame_1000003025-min.jpg",
+            "main_mobile_image": "shopify:\/\/shop_images\/Frame_1000003026-min.jpg"
+          }
+        },
+        "template--14626615656534__15cc46dc-c6c4-4d80-8074-9c7486cae93b-text-with-image-2": {
+          "type": "text-with-image",
+          "settings": {
+            "heading_text_box_2": "<p>How much <br\/>battery will I get?<\/p>",
+            "info_text_box_2": "<p>You can easily get a full charge and more depending on the health of your device’s battery. All Clutch Pro devices are rechargeable and come with a built-in cable.<\/p>",
+            "main_desktop_image": "shopify:\/\/shop_images\/Frame_1000003025_1_-min.jpg",
+            "main_mobile_image": "shopify:\/\/shop_images\/Frame_1000003025_2_-min.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "template--14626615656534__15cc46dc-c6c4-4d80-8074-9c7486cae93b-text-with-button-1",
+        "template--14626615656534__15cc46dc-c6c4-4d80-8074-9c7486cae93b-text-with-image-1",
+        "template--14626615656534__15cc46dc-c6c4-4d80-8074-9c7486cae93b-text-with-image-2"
+      ],
+      "settings": {
+        "customClass": "",
+        "main_back_color": "#141414",
+        "main_heading_text": "Got questions? <br>We’ve got answers.",
+        "main_button_text": "Shop Now",
+        "main_button_link": "#shop"
+      }
+    },
+    "4ed80b97-91ae-4cf3-8d65-d7dae3cb7b86": {
+      "type": "Page-table-difference-new",
+      "blocks": {
+        "template--14626615656534__4ed80b97-91ae-4cf3-8d65-d7dae3cb7b86-top-information-list-1": {
+          "type": "top-information-list",
+          "settings": {
+            "top_desktop_image_1": "shopify:\/\/shop_images\/Rectangle_182-min.jpg",
+            "top_mobile_image_1": "shopify:\/\/shop_images\/Frame_1000002998-min.jpg",
+            "top_info_text_1": "<p>Your charger is always with you<\/p>",
+            "top_info_text_2": ""
+          }
+        },
+        "be3e1a80-706a-44b4-8db1-1548a78fbaf4": {
+          "type": "top-information-list",
+          "settings": {
+            "top_desktop_image_1": "shopify:\/\/shop_images\/Rectangle_182_1_-min.jpg",
+            "top_mobile_image_1": "shopify:\/\/shop_images\/Rectangle_182_4_-min.jpg",
+            "top_info_text_1": "<p>Sticks to the back of your phone<\/p>",
+            "top_info_text_2": ""
+          }
+        },
+        "8b658768-2a3f-42f6-be79-237355401949": {
+          "type": "top-information-list",
+          "settings": {
+            "top_desktop_image_1": "shopify:\/\/shop_images\/Rectangle_182_2_-min.jpg",
+            "top_mobile_image_1": "shopify:\/\/shop_images\/Rectangle_182_5_-min.jpg",
+            "top_info_text_1": "<p>3.7 oz won’t weigh you down!<\/p>",
+            "top_info_text_2": ""
+          }
+        },
+        "39667325-e047-40fb-9472-60814eb6692f": {
+          "type": "top-information-list",
+          "settings": {
+            "top_desktop_image_1": "shopify:\/\/shop_images\/Rectangle_182_3_-min.jpg",
+            "top_mobile_image_1": "shopify:\/\/shop_images\/Rectangle_182_6_-min.jpg",
+            "top_info_text_1": "<p>Pocket and purse friendly<\/p>",
+            "top_info_text_2": ""
+          }
+        },
+        "template--14626615656534__4ed80b97-91ae-4cf3-8d65-d7dae3cb7b86-bottom-information-list-1": {
+          "type": "bottom-information-list",
+          "settings": {
+            "bottom_desktop_image_1": "shopify:\/\/shop_images\/Rectangle_182_7_-min.jpg",
+            "bottom_mobile_image_1": "shopify:\/\/shop_images\/Rectangle_182_12.jpg",
+            "bottom_info_text_1": "<p>Forgetting your charger at home<\/p>",
+            "bottom_info_text_2": ""
+          }
+        },
+        "a331addc-530c-47e6-8e4e-0821695910bb": {
+          "type": "bottom-information-list",
+          "settings": {
+            "bottom_desktop_image_1": "shopify:\/\/shop_images\/Rectangle_182_8_-min.jpg",
+            "bottom_mobile_image_1": "shopify:\/\/shop_images\/Rectangle_182_13.jpg",
+            "bottom_info_text_1": "<p>Your hands <br\/>are tied<\/p>",
+            "bottom_info_text_2": ""
+          }
+        },
+        "b8a3ba20-f88b-4e09-b3c9-1ab6fd468491": {
+          "type": "bottom-information-list",
+          "settings": {
+            "bottom_desktop_image_1": "shopify:\/\/shop_images\/Rectangle_182_9_-min.jpg",
+            "bottom_mobile_image_1": "shopify:\/\/shop_images\/Rectangle_182_14.jpg",
+            "bottom_info_text_1": "<p> Belkin<br\/>16.2 oz<\/p>",
+            "bottom_desktop_image_2": "shopify:\/\/shop_images\/Rectangle_182_10_-min.jpg",
+            "bottom_mobile_image_2": "shopify:\/\/shop_images\/Rectangle_182_15.jpg",
+            "bottom_info_text_2": "<p>Anker<br\/>16.4 oz<\/p>"
+          }
+        },
+        "d2549d6d-d498-4164-9f51-9142c7e647eb": {
+          "type": "bottom-information-list",
+          "settings": {
+            "bottom_desktop_image_1": "shopify:\/\/shop_images\/Rectangle_182_11_-min.jpg",
+            "bottom_mobile_image_1": "shopify:\/\/shop_images\/Frame_1000003001.jpg",
+            "bottom_info_text_1": "<p>You’ll want to leave it at home<\/p>",
+            "bottom_info_text_2": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--14626615656534__4ed80b97-91ae-4cf3-8d65-d7dae3cb7b86-top-information-list-1",
+        "be3e1a80-706a-44b4-8db1-1548a78fbaf4",
+        "8b658768-2a3f-42f6-be79-237355401949",
+        "39667325-e047-40fb-9472-60814eb6692f",
+        "template--14626615656534__4ed80b97-91ae-4cf3-8d65-d7dae3cb7b86-bottom-information-list-1",
+        "a331addc-530c-47e6-8e4e-0821695910bb",
+        "b8a3ba20-f88b-4e09-b3c9-1ab6fd468491",
+        "d2549d6d-d498-4164-9f51-9142c7e647eb"
+      ],
+      "settings": {
+        "customClass": "",
+        "main_back_color": "#141414",
+        "main_heading_text": "The Clutch difference",
+        "top_heading_text_1": "Built-In Cable",
+        "top_heading_text_2": "Magnetic",
+        "top_heading_text_3": "Weight",
+        "top_heading_text_4": "Minimal & Sleek",
+        "left_logo_image_1": "shopify:\/\/shop_images\/Footer-LP-Logo.svg",
+        "left_heading_text_2": "Anker, Belkin <br>& others"
+      }
+    },
+    "2754dbbe-fe39-4632-835e-828aca109cfb": {
+      "type": "Page-videos-images-slider-new",
+      "blocks": {
+        "template--14626615656534__2754dbbe-fe39-4632-835e-828aca109cfb-information-1": {
+          "type": "information",
+          "settings": {
+            "vimeo_video_url": "",
+            "main_video_url": "shopify:\/\/files\/videos\/-1d5e-4fbd-8c90-a743e8ed7787 (1) (1).mp4"
+          }
+        },
+        "template--14626615656534__2754dbbe-fe39-4632-835e-828aca109cfb-information-2": {
+          "type": "information",
+          "settings": {
+            "vimeo_video_url": "",
+            "main_video_url": "shopify:\/\/files\/videos\/-6994-4ab1-9f5b-eb0dfaeaf648 (1) (1).mp4"
+          }
+        },
+        "template--14626615656534__2754dbbe-fe39-4632-835e-828aca109cfb-information-3": {
+          "type": "information",
+          "settings": {
+            "vimeo_video_url": "",
+            "main_video_url": "shopify:\/\/files\/videos\/-bb96-46a7-a667-cc9f851c2604 (1) (1).mp4"
+          }
+        }
+      },
+      "block_order": [
+        "template--14626615656534__2754dbbe-fe39-4632-835e-828aca109cfb-information-1",
+        "template--14626615656534__2754dbbe-fe39-4632-835e-828aca109cfb-information-2",
+        "template--14626615656534__2754dbbe-fe39-4632-835e-828aca109cfb-information-3"
+      ],
+      "settings": {
+        "customClass": "",
+        "main_back_color": "#222222",
+        "main_line_color": "#141414",
+        "main_logo_image": "shopify:\/\/shop_images\/bi_lightning-charge-fill.svg",
+        "main_heading_text": "Clutch on the go",
+        "main_button_text": "Shop Now",
+        "main_button_link": "#shop"
+      }
+    },
+    "cd9b36ca-ecc7-4b45-b8dc-6e916758ff3f": {
+      "type": "Page-image-with-accordion-new",
+      "blocks": {
+        "template--14626615656534__cd9b36ca-ecc7-4b45-b8dc-6e916758ff3f-information-1": {
+          "type": "information",
+          "settings": {
+            "inner_question_text": "How small is the Clutch charger?",
+            "inner_answer_text": "<p>Clutch Pro measures W 3.86 x H 2.64 x T 0.32 and weighs 3.7 ounces.<\/p>"
+          }
+        },
+        "template--14626615656534__cd9b36ca-ecc7-4b45-b8dc-6e916758ff3f-information-2": {
+          "type": "information",
+          "settings": {
+            "inner_question_text": "How much battery will Clutch Charger get me?",
+            "inner_answer_text": "<p>Clutch Pro has a capacity of 5,000 mAh, so you’ll get to a full charge (or more).<\/p>"
+          }
+        },
+        "template--14626615656534__cd9b36ca-ecc7-4b45-b8dc-6e916758ff3f-information-3": {
+          "type": "information",
+          "settings": {
+            "inner_question_text": "Are Clutch Chargers allowed on airplanes?",
+            "inner_answer_text": "<p>Yes they are allowed on airplane carry-ons.<\/p>"
+          }
+        },
+        "009fa196-2144-4c47-b746-43822e500237": {
+          "type": "information",
+          "settings": {
+            "inner_question_text": "Is the charging cord attached?",
+            "inner_answer_text": "<p>Yes the cord comes attached so you will never have to worry about bringing extra accessories with you.<\/p>"
+          }
+        },
+        "5ec59d15-6ce7-41ac-9e82-39ea27ddb7c6": {
+          "type": "information",
+          "settings": {
+            "inner_question_text": "What phones are compatible with Clutch Chargers?",
+            "inner_answer_text": "<p>Apple products: Works on iPhone 5 \/ 5c \/ 5s \/ 6 \/ 6 Plus \/ SE \/ 7 \/ 7 Plus \/ 8 \/ 8 Plus \/ X \/ XS \/ XS Max \/ XR \/ 11 \/ 11 Max \/ 12 \/ 12 Pro \/ 12 Pro Max \/ 12 Mini \/ 13 \/ 13 Pro \/ 13 Pro Max \/ 13 Mini \/ 14 \/ 14 Pro \/ 14 Pro Max \/ 15 \/ iPad 4, iPad Air, iPad Air 2, iPad Mini, iPad Mini 2, iPad Mini 3, iPad Mini 4, iPad Pro, iPod Nano (7th Gen), iPod Touch(5th Gen), iPod Touch (6th Gen).  Android Products: SAMSUNG GALAXY S22 \/ SAMSUNG GALAXY S21 \/ SAMSUNG GALAXY S20 \/ SAMSUNG GALAXY S8 \/ SAMSUNG GALAXY C9 Pro \/ SAMSUNG GALAXY C7 Pro \/ SAMSUNG GALAXY Note 7 \/ SAMSUNG GALAXY A3 2017 \/ Google Pixel \/ Google Pixel XL \/ LG V20 \/ LG Nexus 5X \/ LG G5 \/ LG G5SE \/ Lenovo ZUK Z1 \/ Lenovo ZUK Z2 \/ Lenovo ZUK Z2 Pro \/ Lenovo ZUK Edge \/ ASUS ZenFone 3 \/ ASUS ZenFone 3 Ultra \/ ASUS ZenFone 3 Deluxe \/ SONY Xperia X Compact \/ SONY Xperia XZ \/ Microsoft Lumia 950 \/ Microsoft Lumia 950XL \/ Moto Z \/ Moto Z PLAY \/ Moto M \/ Sharp A1 \/ HTC 10 \/ HP Elite x3 \/ BlackBerry DTEK60 \/ innos D6000 \/ 360 Q5 Plus \/ Philips S653H \/ TCL 950 \/ Hisense E9 \/ COMIO i1<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "template--14626615656534__cd9b36ca-ecc7-4b45-b8dc-6e916758ff3f-information-1",
+        "template--14626615656534__cd9b36ca-ecc7-4b45-b8dc-6e916758ff3f-information-2",
+        "template--14626615656534__cd9b36ca-ecc7-4b45-b8dc-6e916758ff3f-information-3",
+        "009fa196-2144-4c47-b746-43822e500237",
+        "5ec59d15-6ce7-41ac-9e82-39ea27ddb7c6"
+      ],
+      "settings": {
+        "customClass": "",
+        "main_back_color": "#141414",
+        "main_heading_text": "Frequently asked questions",
+        "main_desktop_image": "shopify:\/\/shop_images\/image_21-min.jpg",
+        "main_mobile_image": "shopify:\/\/shop_images\/image_21_1_-min.jpg"
+      }
+    },
+    "0b913320-c4cd-46ad-9969-d5bd5d2a7c6c": {
+      "type": "Page-text-btn-with-image-new",
+      "settings": {
+        "main_back_color": "#222222",
+        "main_desktop_image": "shopify:\/\/shop_images\/Img-min.png",
+        "main_mobile_image": "shopify:\/\/shop_images\/Img_1_-min.png",
+        "main_heading_text": "<p>Still debating leaving your charger at home? Now you  won’t have to.<\/p>",
+        "main_button_text": "Pick My Color",
+        "main_button_link": "#shop"
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "show_video": true,
+        "d_video_url": "",
+        "video_url": ""
+      }
+    }
+  },
+  "order": [
+    "9c6f4ac3-cc26-447d-93d0-606d343b20a7",
+    "55304daf-e625-4807-b070-d51f6d89c9b2",
+    "05d1d39c-26dc-46e9-b0ba-06a951525a5e",
+    "6a3ddfeb-18bf-4c93-ab81-add6ab33cc79",
+    "15cc46dc-c6c4-4d80-8074-9c7486cae93b",
+    "4ed80b97-91ae-4cf3-8d65-d7dae3cb7b86",
+    "2754dbbe-fe39-4632-835e-828aca109cfb",
+    "cd9b36ca-ecc7-4b45-b8dc-6e916758ff3f",
+    "0b913320-c4cd-46ad-9969-d5bd5d2a7c6c",
+    "main"
+  ]
+}

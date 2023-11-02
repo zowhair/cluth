@@ -1,0 +1,80 @@
+{%- if section.settings.main_desktop_image != blank or section.settings.main_mobile_image != blank or section.settings.main_heading_text != blank or section.settings.main_button_link != blank -%}
+  <div class="Page_image_overlay_texts_main_new Page_image_overlay_texts_main_new_{{ section.id }}" style="{% if section.settings.main_desktop_image != blank %}background: url({{ section.settings.main_desktop_image | img_url: 'master' }}) no-repeat center center; background-size: cover;{% else %}background: {{ section.settings.main_back_color }};{% endif %}">
+    <style>
+      @media(min-width:0px) and (max-width:768px){
+        .Page_image_overlay_texts_main_new_{{ section.id }}{
+          background: url({{ section.settings.main_mobile_image | img_url: 'master' }}) no-repeat bottom center !important;
+          background-size: cover !important;
+        }
+      }
+    </style>
+    {%- if section.settings.main_heading_text != blank or section.settings.main_button_link != blank -%}
+      <div class="page-width">
+        <div class="Page_image_overlay_texts_inner_new">
+          <div class="Page_image_overlay_texts_detail_new">
+            {%- if section.settings.main_heading_text != blank -%}
+              <div class="common_title_new Page_image_overlay_texts_detail_infos_new">
+                <h2>{{ section.settings.main_heading_text }}</h2>
+              </div>
+            {%- endif -%}
+            {%- if section.settings.main_button_text != blank and section.settings.main_button_link != blank -%}
+              <div class="Page_image_overlay_texts_detail_button_new">
+                <a href="{{ section.settings.main_button_link }}" class="btn btn_new">
+                  {{ section.settings.main_button_text }}
+                </a>
+              </div>
+            {%- endif -%}
+          </div>
+        </div>
+      </div>
+    {%- endif -%}
+  </div>
+{%- endif -%}    
+
+{% schema %}
+  {
+    "name": "Page Image Overlay Texts",
+    "class": "Page_image_overlay_texts_new",
+    "settings": [
+      {
+        "type": "color",
+        "id": "main_back_color",
+        "label": "Add Main Full Background Color",
+        "default": "#D9DFE3"
+      },
+      {
+        "type": "image_picker",
+        "id": "main_desktop_image",
+        "label": "Add Main Desktop Background Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "main_mobile_image",
+        "label": "Add Main Mobile Background Image"
+      },
+      {
+        "type": "richtext",
+        "id": "main_heading_text",
+        "label": "Add Main Heading Text",
+        "default": "<p>Perfect for college students, frequent travelers and for any one on-the-go</p>"
+      },
+      {
+        "type": "text",
+        "id": "main_button_text",
+        "label": "Add Main Button Text",
+        "default": "Get 15% Off Today"
+      },
+      {
+        "type": "text",
+        "id": "main_button_link",
+        "label": "Add Main Button Link",
+        "default": "#shop"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Page Image Overlay Texts"
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,191 @@
+{%- if section.settings.main_heading_text != blank or section.settings.main_infos_text != blank or section.settings.main_title_text_3 != blank or section.settings.main_infos_text_3 != blank or section.settings.main_title_text_2 != blank or section.settings.main_infos_text_2 != blank or section.settings.main_title_text_1 != blank or section.settings.main_infos_text_1 != blank or section.settings.main_button_link != blank -%}
+  <div class="Page_gifting_crush_detail_main_new" style="background: {{ section.settings.main_back_color }};">
+    <div class="page-width">
+      <div class="Page_gifting_crush_detail_inner_new">
+        {%- if section.settings.main_heading_text != blank or section.settings.main_infos_text != blank -%}
+          <div class="Page_gifting_crush_detail_1_new">
+            {%- if section.settings.main_heading_text != blank -%}
+              <div class="common_title_new Page_gifting_crush_detail_1_title_new">
+                <h2>{{ section.settings.main_heading_text }}</h2>
+              </div>
+            {%- endif -%}
+            {%- if section.settings.main_infos_text != blank -%}
+              <div class="Page_gifting_crush_detail_1_infos_new">
+                {{ section.settings.main_infos_text }}
+              </div>
+            {%- endif -%}
+          </div>
+        {%- endif -%}
+        {%- if section.settings.main_desktop_image != blank or section.settings.main_mobile_image != blank or section.settings.main_title_text_3 != blank or section.settings.main_infos_text_3 != blank or section.settings.main_title_text_2 != blank or section.settings.main_infos_text_2 != blank or section.settings.main_title_text_1 != blank or section.settings.main_infos_text_1 != blank -%}
+          <div class="Page_gifting_crush_detail_2_new">
+            <div class="Page_gifting_crush_detail_2_infos_new">
+              {%- if section.settings.main_desktop_image != blank and section.settings.main_mobile_image != blank -%}
+                <div class="Page_gifting_crush_detail_2_infos_videoimageboth_new">
+                  <div class="Page_gifting_crush_detail_2_infos_videoimage_new">
+                    {%- if section.settings.main_desktop_image != blank -%}
+                      {%- assign img_url = section.settings.main_desktop_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+                      <img class="desktop_image_new lazyload"
+                        data-src="{{ img_url }}"
+                        data-widths="[180, 360, 540, 750, 900, 1080, 1296, 1512, 1728, 1944, 2048]"
+                        data-aspectratio="{{ section.settings.main_desktop_image.aspect_ratio }}"
+                        data-sizes="auto"
+                        alt="{{ section.settings.main_desktop_image.alt }}">
+                    {%- endif -%}
+                    {%- if section.settings.main_mobile_image != blank -%}
+                      {%- assign img_url = section.settings.main_mobile_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+                      <img class="mobile_image_new lazyload"
+                        data-src="{{ img_url }}"
+                        data-widths="[180, 360, 540, 750, 900, 1080, 1296, 1512, 1728, 1944, 2048]"
+                        data-aspectratio="{{ section.settings.main_mobile_image.aspect_ratio }}"
+                        data-sizes="auto"
+                        alt="{{ section.settings.main_mobile_image.alt }}">
+                    {%- endif -%}
+                  </div>
+                </div>
+              {%- endif -%}
+              {%- if section.settings.main_title_text_1 != blank or section.settings.main_infos_text_1 != blank -%}
+                <div class="Page_gifting_crush_detail_2_infos_titletextsboth_new Page_gifting_crush_detail_2_infos_titletextsboth_1_new">
+                  {%- if section.settings.main_title_text_1 != blank -%}
+                    <div class="common_title_new Page_gifting_crush_detail_2_infos_title_new">
+                      <h3>{{ section.settings.main_title_text_1 }}</h3>
+                    </div>
+                  {%- endif -%}
+                  {%- if section.settings.main_infos_text_1 != blank -%}
+                    <div class="Page_gifting_crush_detail_2_infos_texts_new">
+                      {{ section.settings.main_infos_text_1 }}
+                    </div>
+                  {%- endif -%}
+                </div>
+              {%- endif -%}
+              {%- if section.settings.main_title_text_2 != blank or section.settings.main_infos_text_2 != blank -%}
+                <div class="Page_gifting_crush_detail_2_infos_titletextsboth_new Page_gifting_crush_detail_2_infos_titletextsboth_2_new">
+                  {%- if section.settings.main_title_text_2 != blank -%}
+                    <div class="common_title_new Page_gifting_crush_detail_2_infos_title_new">
+                      <h3>{{ section.settings.main_title_text_2 }}</h3>
+                    </div>
+                  {%- endif -%}
+                  {%- if section.settings.main_infos_text_2 != blank -%}
+                    <div class="Page_gifting_crush_detail_2_infos_texts_new">
+                      {{ section.settings.main_infos_text_2 }}
+                    </div>
+                  {%- endif -%}
+                </div>
+              {%- endif -%}
+              {%- if section.settings.main_title_text_3 != blank or section.settings.main_infos_text_3 != blank -%}
+                <div class="Page_gifting_crush_detail_2_infos_titletextsboth_new Page_gifting_crush_detail_2_infos_titletextsboth_3_new">
+                  {%- if section.settings.main_title_text_3 != blank -%}
+                    <div class="common_title_new Page_gifting_crush_detail_2_infos_title_new">
+                      <h3>{{ section.settings.main_title_text_3 }}</h3>
+                    </div>
+                  {%- endif -%}
+                  {%- if section.settings.main_infos_text_3 != blank -%}
+                    <div class="Page_gifting_crush_detail_2_infos_texts_new">
+                      {{ section.settings.main_infos_text_3 }}
+                    </div>
+                  {%- endif -%}
+                </div>
+              {%- endif -%}
+            </div>
+          </div>
+        {%- endif -%}
+        {%- if section.settings.main_button_text != blank and section.settings.main_button_link != blank -%}
+          <div class="Page_gifting_crush_detail_3_new">
+            <a href="{{ section.settings.main_button_link }}" class="btn btn_new">
+              {{ section.settings.main_button_text }}
+            </a>
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+{%- endif -%}  
+
+{% schema %}
+  {
+    "name": "Page Gifting Crush Detail",
+    "class": "Page_gifting_crush_detail_new",
+    "settings": [
+      {
+        "type": "color",
+        "id": "main_back_color",
+        "label": "Add Main Background Color",
+        "default": "#141414"
+      },
+      {
+        "type": "textarea",
+        "id": "main_heading_text",
+        "label": "Add Main Heading Text",
+        "default": "Meet your new holiday crush"
+      },
+      {
+        "type": "richtext",
+        "id": "main_infos_text",
+        "label": "Add Main Information Text",
+        "default": "<p>Stronger, faster and more durable</p>"
+      },
+      {
+        "type": "text",
+        "id": "main_button_text",
+        "label": "Add Main Button Text",
+        "default": "Shop and Save 15%"
+      },
+      {
+        "type": "text",
+        "id": "main_button_link",
+        "label": "Add Main Button Link",
+        "default": "#shop"
+      },
+      {
+        "type": "image_picker",
+        "id": "main_desktop_image",
+        "label": "Add Main Desktop Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "main_mobile_image",
+        "label": "Add Main Mobile Image"
+      },
+      {
+        "type": "text",
+        "id": "main_title_text_1",
+        "label": "Add Main Title Text-1",
+        "default": "Heading"
+      },
+      {
+        "type": "richtext",
+        "id": "main_infos_text_1",
+        "label": "Add Main Information Text-1",
+        "default": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>"
+      },
+      {
+        "type": "text",
+        "id": "main_title_text_2",
+        "label": "Add Main Title Text-2",
+        "default": "Heading"
+      },
+      {
+        "type": "richtext",
+        "id": "main_infos_text_2",
+        "label": "Add Main Information Text-2",
+        "default": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>"
+      },
+      {
+        "type": "text",
+        "id": "main_title_text_3",
+        "label": "Add Main Title Text-3",
+        "default": "Heading"
+      },
+      {
+        "type": "richtext",
+        "id": "main_infos_text_3",
+        "label": "Add Main Information Text-3",
+        "default": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Page Gifting Crush Detail"
+      }
+    ]
+  }
+{% endschema %}

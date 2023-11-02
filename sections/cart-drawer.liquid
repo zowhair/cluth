@@ -1,0 +1,277 @@
+{%- liquid
+  assign enableGamification = section.settings.enableGamification
+  assign enableAlsoLike = section.settings.alsoLike
+  assign showFreeMagnet = false
+  assign countPro = 0
+-%}
+
+{% if enableGamification %}
+  <script>
+
+    window.gift_goals = {
+      limit: 150,
+      goals: {
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'sidecart_goal' -%}
+          '{{ block.settings.caption }}' : {
+            text: '{{ block.settings.text }}',
+            complete: false,
+            value: {{ block.settings.value }},
+            price: "{{ block.settings.value | money }}",
+            idGoal: "{{ block.settings.fallbackProduct | handleize }}",
+            nameGoal: "{{ block.settings.fallbackProduct }}",
+            variant: '{{ all_products[block.settings.product].variants[0].id | default: blank }}',
+            product: {{ all_products[block.settings.product] | default: blank | json }},
+            id_product: {{ all_products[block.settings.product].id | default: blank | json }},
+            background: '{{ block.settings.goal_icon | img_url: 'master' }}',
+            backgroundActive: '{{ block.settings.goal_icon_active | img_url: 'master' }}'
+          }{%- unless forloop.last == true -%},{%- endunless -%}{%- endif -%}{%- endfor -%}
+      },
+      cartItems: {{ cart.items | json }}
+    };
+  </script>
+{% endif %}
+
+<div class="cart-drawer">
+  <div class="cart-drawer-box">
+    {% comment %} Header section {% endcomment %}
+    <header class="cart-drawer-header">
+      <h2>Your cart</h2>
+
+      <div class="cart-drawer-header-right">
+        <button class="cart-drawer-header-right-close" type="button">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6.575 7.975L1.675 12.875C1.49167 13.0583 1.25833 13.15 0.975 13.15C0.691667 13.15 0.458333 13.0583 0.275 12.875C0.0916663 12.6917 0 12.4583 0 12.175C0 11.8917 0.0916663 11.6583 0.275 11.475L5.175 6.575L0.275 1.675C0.0916663 1.49167 0 1.25833 0 0.975C0 0.691667 0.0916663 0.458333 0.275 0.275C0.458333 0.0916663 0.691667 0 0.975 0C1.25833 0 1.49167 0.0916663 1.675 0.275L6.575 5.175L11.475 0.275C11.6583 0.0916663 11.8917 0 12.175 0C12.4583 0 12.6917 0.0916663 12.875 0.275C13.0583 0.458333 13.15 0.691667 13.15 0.975C13.15 1.25833 13.0583 1.49167 12.875 1.675L7.975 6.575L12.875 11.475C13.0583 11.6583 13.15 11.8917 13.15 12.175C13.15 12.4583 13.0583 12.6917 12.875 12.875C12.6917 13.0583 12.4583 13.15 12.175 13.15C11.8917 13.15 11.6583 13.0583 11.475 12.875L6.575 7.975Z" fill="white"/>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    {% if enableGamification %}
+      <div class="clutch-cart-gamification">
+        <h5 class="cart__progress-bar__title">
+          You're <strong>$75.00</strong> away from <strong>Free Expedited Shipping</strong>
+        </h5>
+        <div class="cart__progress-bar__container">
+          <div class="cart__progress-bar__background">
+            <span class="cart__progress-bar__bar"></span>
+          </div>
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'sidecart_goal' -%}
+              <div class="cart__progress-bar__item" id="{{ block.settings.fallbackProduct | handleize }}-{{ block.settings.value | handleize }}">
+                <span class="cart__progress-bar__stage__image">
+                  <img
+                    src="{{ block.settings.goal_icon | image_url: width: 62 }}"
+                    srcset="{{ block.settings.goal_icon | image_url: width: 62 }} 1x, {{ block.settings.goal_icon | image_url: width: 124 }} 2x"
+                    loading="lazy"
+                    width="62"
+                    height="auto"
+                    alt="expected shipping"
+                    class="expeted_shipping_image first">
+                  <img
+                    src="{{ block.settings.goal_icon_active | image_url: width: 62 }}"
+                    srcset="{{ block.settings.goal_icon_active | image_url: width: 62 }} 1x, {{ block.settings.goal_icon_active | image_url: width: 124 }} 2x"
+                    loading="lazy"
+                    width="62"
+                    height="auto"
+                    alt="expected shipping"
+                    class="expeted_shipping_image last"
+                   >
+                </span>
+                <span class="cart__progress-bar__stage__number">{{ block.settings.caption }}</span>
+              </div>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      </div>
+    {% endif %}
+
+    <div id="shopify-section-cart-drawer-content">
+      {% form 'cart', cart, class: 'cart-drawer-form' %}
+        <div id="content-cart">
+          {% if cart.item_count == 0 %}
+            <div class="empty-cart">
+              <div class="icon-cart">
+                <img src="{{ 'icon-cart.png' | asset_img_url: '55x' }}" srcset="{{ 'icon-cart.png' | asset_img_url: '55x' }} 1x, {{ 'icon-cart.png' | asset_img_url: '105x' }} 2x" width="55" height="auto" loading="lazy" alt="">
+              </div>
+              <p class="cart-drawer-empty">Your cart is empty</p>
+              <a href="/collections/clutch-chargers" class="btn">Shop now!</a>
+            </div>
+          {% else %}
+            <div class="items-and-also-like">
+              <div class="cart-drawer-items">
+
+                {%- liquid
+
+                  for item in cart.items
+                    if item.product.title contains 'Clutch® Pro' or item.product.title contains 'Clutch Pro'
+                      assign countPro = countPro | plus: item.quantity
+                      assign showFreeMagnet = true
+                    endif
+                    render 'grid-product-cart', item: item
+                  endfor
+
+                  if showFreeMagnet
+                    render 'free-magnet', count: countPro
+                  endif
+
+                -%}
+
+              </div>
+      
+              {% if enableAlsoLike %}
+                <div class="you-may-also-like">
+                  <h3>{{ section.settings.title-upsell }}</h3>
+                  {%- for block in section.blocks -%}
+                    {%- if block.type == 'also-like' -%}
+                      {%- assign prod = all_products[block.settings.prod] -%}
+                      <div class="product">
+                        <div class="image">
+                          <img
+                            src="{{ prod.first_available_variant.featured_media | image_url: width: 200 }}"
+                            loading="lazy"
+                            height="auto"
+                            width="200"
+                            alt="{{ prod.title }}"
+                          >
+                        </div>
+                        <div class="info">
+                          <span class="name">{{ prod.title }}<br>{{ prod.first_available_variant.title }}</span>
+                          <span class="price">{{ prod.price | money }}</span>
+                        </div>
+                        <div class="add">
+                          <span data-id="{{ prod.first_available_variant.id }}">Add</span>
+                        </div>
+                      </div>         
+                    {%- endif -%}
+                  {%- endfor -%}
+                </div>
+              {% endif %}
+            </div>
+    
+            <footer class="cart-drawer-footer">
+              {% if cart.total_discounts > 0 %}
+                <div class="cart-drawer-footer-row">
+                  <h3>Discounts</h3>
+                  <span>{{ cart.total_discounts | money }}</span>
+                </div>
+              {% endif %}
+              <div class="cart-drawer-footer-row">
+                <h3>
+                  Subtotal (<span class="cart-drawer-header-right-items">{{ cart.item_count }} items</span>)
+                </h3>
+                <span>{{ cart.total_price | money }}</span>
+              </div>
+              <button type="submit" name="checkout" class="cart-drawer-button">Checkout</button>
+              <div class="payment-buttons">
+            </footer>
+          {% endif %}
+        </div>
+      {% endform %}
+    </div>
+  </div>
+</div>
+
+
+{% schema %}
+{
+  "name": "Cart drawer",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "enableGamification",
+      "label": "Enable gamification",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "alsoLike",
+      "label": "Enable upsell",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "title-upsell",
+      "label": "Title upsell",
+      "default": "You may also like"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "sidecart_goal",
+      "name": "Sidecart goal",
+      "limit": 3,
+      "settings": [
+        {
+          "type": "header",
+          "content": "Goal settings"
+        },
+        {
+          "type": "header",
+          "content": "Goal icon"
+        },
+        {
+          "type": "image_picker",
+          "id": "goal_icon",
+          "label": "Icon"
+        },
+        {
+          "type": "image_picker",
+          "id": "goal_icon_active",
+          "label": "Icon active"
+        },
+        {
+          "type": "header",
+          "content": "Goal caption"
+        },
+        {
+          "type": "text",
+          "id": "caption",
+          "label": "Caption"
+        },
+        {
+          "type": "header",
+          "content": "Goal value"
+        },
+        {
+          "type": "number",
+          "id": "value",
+          "label": "Reach at value"
+        },
+        {
+          "type": "header",
+          "content": "Goal free product"
+        },
+        {
+          "type": "checkbox",
+          "id": "showModal",
+          "label": "Show Modal Variant",
+          "default": false
+        },
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product free version 1"
+        },
+        {
+          "type": "text",
+          "id": "fallbackProduct",
+          "label": "Fallback product name"
+        }
+      ]
+    },
+    {
+      "type": "also-like",
+      "name": "Product",
+      "settings": [
+        {
+          "type": "product",
+          "id": "prod",
+          "label": "Product"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+

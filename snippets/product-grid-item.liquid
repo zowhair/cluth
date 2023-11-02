@@ -1,0 +1,445 @@
+{% comment %}
+  It's best to load images as JPG instead of PNG for faster
+  loading, so that is our default. If you upload
+  PNG files and want to keep them that way, set the line
+  below to false.
+{% endcomment %}
+{%- liquid
+  assign force_jpg = true
+
+  unless grid_item_width
+    assign grid_item_width = 'medium-up--one-quarter small--one-half'
+  endunless
+-%}
+
+{% comment %}
+  Do not output the quick shop modal if we're loading related products
+  through another quick shop modal. Determined by checking the product.ajax template suffix.
+  These are loaded for product.sections templates but quickly removed
+  in JS before appending the related section.
+{% endcomment %}
+{%- liquid
+  assign enable_quick_shop = settings.quick_shop_enable
+  if no_modal
+    assign enable_quick_shop = false
+  endif
+  if template == 'product.ajax'
+    assign enable_quick_shop = false
+  endif
+
+  assign on_sale = false
+  if product.compare_at_price > product.price
+    assign on_sale = true
+  endif
+
+  assign sold_out = true
+  if product.available
+    assign sold_out = false
+  endif
+
+  if selected_variant_obj
+    unless selected_variant_obj.available
+     assign sold_out = true
+    endunless
+  endif
+
+  assign product_tags = product.tags | join: ','
+  assign has_custom_label = false
+  if product.metafields.theme.label and product.metafields.theme.label != blank
+    assign has_custom_label = true
+    assign custom_label = product.metafields.theme.label.value
+  elsif product_tags contains '_label_'
+    for tag in product.tags
+      if tag contains '_label_'
+        assign tag_starts_with = tag | slice: 0
+        if tag_starts_with == '_'
+          assign has_custom_label = true
+          assign custom_label = tag | replace: '_label_', ''
+        endif
+      endif
+    endfor
+  endif
+-%}
+
+<div
+  class="{% if sold_out %}sold-out{% endif %} {% if selected_variant_obj %}selected-variant-product{% endif %} grid__item grid-product {{ grid_item_width }}{% if settings.product_hover_details %} grid-product__hover-details{% endif %}"
+  data-aos
+  data-product-grid
+  data-id="{{ product.id }}">
+  <div class="grid-product__content">
+    {%- if has_custom_label -%}
+      <div class="grid-product__tag grid-product__tag--custom">
+        {{ custom_label }}
+      </div>
+    {%- else -%}
+      {%- if sold_out -%}
+        <div class="grid-product__tag grid-product__tag--sold-out">
+          {{ 'products.product.sold_out' | t }}
+        </div>
+      {%- endif -%}
+      
+      {%- comment -%} {%- if on_sale and sold_out == false -%}
+        <div class="grid-product__tag grid-product__tag--sale">
+          {%- if settings.product_save_amount -%}
+            {%- if settings.product_save_type == 'dollar' -%}
+              {%- capture saved_amount -%}{{ product.compare_at_price | minus: product.price | money }}{%- endcapture -%}
+            {%- else -%}
+              {%- capture saved_amount -%}{{ product.compare_at_price | minus: product.price | times: 100.0 | divided_by: product.compare_at_price | round }}%{%- endcapture -%}
+            {%- endif -%}
+            {{ 'products.general.save_html' | t: saved_amount: saved_amount }}
+          {%- else -%}
+            {{ 'products.general.sale' | t }}
+          {%- endif -%}
+        </div>
+      {%- endif -%} {%- endcomment -%}
+    {%- endif -%}
+
+    {%- liquid
+      assign fixed_aspect_ratio = false
+      unless settings.product_grid_image_size == 'natural'
+        assign fixed_aspect_ratio = false
+      endunless
+
+      assign preview_image = product.featured_media.preview_image
+      if force_jpg
+        assign img_url = preview_image | img_url: '1x1', format: 'jpg' | replace: '_1x1.', '_{width}x.'
+      else
+        assign img_url = preview_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.'
+      endif
+
+      assign image_limit = 1
+      assign image_count = 0
+      if settings.product_hover_image
+        assign image_limit = 10
+      endif
+
+      assign slider_image_padding = '100%'
+
+      if selected_variant_obj
+
+        assign preview_image = selected_variant_obj.featured_media.preview_image
+        if force_jpg
+          assign img_url = preview_image | img_url: '1x1', format: 'jpg' | replace: '_1x1.', '_{width}x.'
+        else
+          assign img_url = preview_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.'
+        endif
+  
+        assign selected_media = selected_variant_obj.featured_media.preview_image
+
+      endif
+      
+    -%}
+
+    <a
+      href="{% if selected_variant_obj %}{{ selected_variant_obj.url | within: collection }}{% else %}{{ product.url | within: collection }}{% endif %}"
+      class="grid-product__link{% if sold_out %} grid-product__link--disabled{% endif %}{% if enable_quick_shop %} quick-product__btn js-screen-open-product-{{ product.id }} js-no-transition{% endif %}"
+      data-product-id="{{ product.id }}"
+      data-url="{{ product.url | within: collection }}">
+      {%- assign corner_treatment = false -%}
+
+      {% if selected_variant_obj.metafields.custom.corner_treatment != blank %}
+        {%- assign corner_treatment = selected_variant_obj.metafields.custom.corner_treatment -%}
+      {% elsif product.metafields.custom.corner_treatment %}
+        {%- assign corner_treatment = product.metafields.custom.corner_treatment -%}
+      {% endif %}
+
+      {% liquid
+        if selected_variant_obj.metafields.custom.secondimage != blank
+          assign second_image_variant = selected_variant_obj.metafields.custom.secondimage
+        else
+          assign second_image_variant = blank
+        endif
+      %}
+
+      {% unless collection.title contains "Best Sellers" %}
+        {% if corner_treatment == 'Best Seller' %}
+          <span class="corner-treatment">
+            <svg width="113" height="103" viewBox="0 0 113 103" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M112 103C112 103 113 100.833 113 100L112 99V103Z" fill="black"/>
+              <path d="M0 1C0 1 2.16667 -1.01993e-07 3 -6.55671e-08L4.5 1L0 1Z" fill="black"/>
+              <path d="M113 100L3 0H27.0502L113 75.8893V100Z" fill="#3D3D3D"/>
+              <path d="M38.7502 16.205L40.5568 17.8238C41.3539 18.5381 41.8463 19.1944 42.034 19.7927C42.2217 20.391 42.0588 20.9767 41.5453 21.5498C41.3237 21.7971 41.0763 21.9766 40.803 22.0884C40.5353 22.1999 40.2539 22.2388 39.9588 22.2052C39.6637 22.1716 39.3617 22.0609 39.0526 21.8732L39.0135 21.9168C39.2537 22.2107 39.4293 22.5123 39.5403 22.8215C39.6513 23.1308 39.6741 23.4449 39.6086 23.7639C39.5431 24.0828 39.3656 24.4037 39.0763 24.7267C38.7244 25.1194 38.3356 25.3689 37.9099 25.4753C37.4871 25.5842 37.0473 25.5599 36.5905 25.4024C36.1363 25.2419 35.6823 24.9584 35.2285 24.5517L33.0335 22.5849L38.7502 16.205ZM37.0403 19.6059L38.2622 20.7007C38.8179 21.1986 39.284 21.4511 39.6606 21.4581C40.0401 21.4677 40.3876 21.2965 40.703 20.9445C41.0288 20.5808 41.1354 20.2043 41.0228 19.8149C40.9131 19.4281 40.5804 18.9858 40.0247 18.4879L38.925 17.5025L37.0403 19.6059ZM36.4812 20.2299L34.3423 22.6169L35.6689 23.8056C36.2362 24.3139 36.7367 24.5631 37.1705 24.5531C37.6069 24.5403 37.9945 24.3448 38.3334 23.9666C38.5497 23.7251 38.681 23.4703 38.7271 23.2022C38.7762 22.9367 38.7219 22.652 38.5641 22.3481C38.4119 22.0438 38.138 21.7145 37.7423 21.3599L36.4812 20.2299ZM42.3633 30.9449L38.8112 27.762L44.5278 21.3821L48.08 24.565L47.4935 25.2196L44.6832 22.7014L42.8337 24.7655L45.4825 27.139L44.9038 27.7848L42.2549 25.4113L40.1395 27.7721L42.9498 30.2903L42.3633 30.9449ZM48.8984 33.7401C48.5595 34.1183 48.1756 34.3565 47.7467 34.4547C47.3233 34.5526 46.8803 34.5202 46.4177 34.3575C45.9551 34.1947 45.4954 33.9087 45.0387 33.4995C44.7972 33.2831 44.5793 33.0668 44.3848 32.8507C44.1904 32.6345 44.0226 32.4238 43.8813 32.2185C43.74 32.0132 43.6297 31.8174 43.5503 31.6308L44.1877 30.9195C44.325 31.2052 44.5156 31.5281 44.7595 31.8882C45.0059 32.2454 45.3007 32.5778 45.644 32.8854C45.964 33.1721 46.2724 33.3723 46.5691 33.4861C46.8684 33.5969 47.1464 33.6232 47.4033 33.5648C47.6656 33.5062 47.8985 33.3634 48.1018 33.1365C48.2973 32.9183 48.4122 32.6935 48.4466 32.462C48.4835 32.2276 48.4434 31.9504 48.3263 31.6304C48.2147 31.3101 48.0281 30.9095 47.7666 30.4287C47.5821 30.0903 47.4374 29.7718 47.3325 29.4732C47.2302 29.1718 47.1744 28.8858 47.1651 28.6152C47.1558 28.3446 47.2008 28.0807 47.3001 27.8235C47.4023 27.569 47.5642 27.318 47.7858 27.0708C48.0908 26.7304 48.4373 26.5164 48.8253 26.4287C49.2188 26.3407 49.6257 26.3696 50.0459 26.5153C50.4715 26.6607 50.8837 26.912 51.2822 27.2691C51.6226 27.5741 51.9081 27.8876 52.1388 28.2097C52.3723 28.5344 52.5616 28.8587 52.7067 29.1827L51.9045 29.6126C51.7607 29.3107 51.588 29.0117 51.3864 28.7157C51.1878 28.4223 50.9517 28.1531 50.6782 27.908C50.4048 27.663 50.137 27.4965 49.8749 27.4085C49.6183 27.3202 49.3754 27.3045 49.1462 27.3613C48.9169 27.4182 48.7124 27.5469 48.5325 27.7477C48.3318 27.9717 48.2115 28.1996 48.1716 28.4314C48.1347 28.6658 48.1674 28.9337 48.2696 29.2351C48.3774 29.5363 48.5469 29.9032 48.7781 30.3359C49.0309 30.8089 49.2191 31.2398 49.3428 31.6286C49.4691 32.0145 49.5015 32.3792 49.4401 32.7229C49.3813 33.0636 49.2008 33.4027 48.8984 33.7401ZM50.6415 38.3625L49.8952 37.6938L55.0254 31.9685L53.018 30.1698L53.6046 29.5153L58.3567 33.7734L57.7702 34.428L55.7716 32.6371L50.6415 38.3625ZM61.0472 44.6261C60.7083 45.0042 60.3244 45.2425 59.8955 45.3407C59.4721 45.4386 59.0291 45.4061 58.5665 45.2434C58.1039 45.0807 57.6443 44.7946 57.1875 44.3854C56.946 44.169 56.7281 43.9527 56.5337 43.7366C56.3392 43.5204 56.1714 43.3097 56.0301 43.1044C55.8889 42.8992 55.7785 42.7033 55.6992 42.5168L56.3365 41.8055C56.4739 42.0911 56.6645 42.414 56.9083 42.7741C57.1547 43.1313 57.4496 43.4637 57.7929 43.7713C58.1129 44.058 58.4212 44.2583 58.7179 44.372C59.0172 44.4829 59.2953 44.5091 59.5521 44.4508C59.8145 44.3921 60.0473 44.2493 60.2506 44.0224C60.4461 43.8042 60.5611 43.5794 60.5954 43.3479C60.6323 43.1135 60.5922 42.8363 60.4751 42.5163C60.3635 42.196 60.1769 41.7954 59.9155 41.3146C59.7309 40.9762 59.5862 40.6577 59.4813 40.3592C59.379 40.0577 59.3232 39.7717 59.3139 39.5011C59.3046 39.2305 59.3496 38.9666 59.449 38.7095C59.5512 38.4549 59.7131 38.204 59.9347 37.9567C60.2397 37.6163 60.5862 37.4023 60.9742 37.3146C61.3677 37.2267 61.7745 37.2555 62.1947 37.4012C62.6204 37.5466 63.0325 37.7979 63.4311 38.155C63.7714 38.46 64.057 38.7736 64.2876 39.0956C64.5212 39.4203 64.7105 39.7447 64.8555 40.0687L64.0533 40.4985C63.9095 40.1966 63.7368 39.8976 63.5353 39.6016C63.3366 39.3082 63.1005 39.039 62.8271 38.794C62.5536 38.5489 62.2858 38.3824 62.0237 38.2944C61.7672 38.2061 61.5243 38.1904 61.295 38.2472C61.0658 38.3041 60.8612 38.4329 60.6813 38.6336C60.4806 38.8576 60.3603 39.0855 60.3205 39.3173C60.2835 39.5517 60.3162 39.8196 60.4185 40.1211C60.5263 40.4222 60.6958 40.7891 60.927 41.2218C61.1797 41.6948 61.368 42.1257 61.4916 42.5145C61.6179 42.9004 61.6504 43.2652 61.589 43.6088C61.5302 43.9495 61.3496 44.2886 61.0472 44.6261ZM64.3831 50.6756L60.8309 47.4927L66.5476 41.1128L70.0998 44.2957L69.5132 44.9503L66.7029 42.4321L64.8534 44.4962L67.5023 46.8697L66.9236 47.5155L64.2747 45.1421L62.1593 47.5029L64.9696 50.021L64.3831 50.6756ZM65.797 51.9425L71.5136 45.5626L72.2555 46.2273L67.1332 51.9439L69.9653 54.4816L69.3709 55.1449L65.797 51.9425ZM70.4662 56.1264L76.1829 49.7465L76.9248 50.4112L71.8024 56.1278L74.6345 58.6655L74.0402 59.3288L70.4662 56.1264ZM78.6877 63.4931L75.1355 60.3103L80.8522 53.9304L84.4043 57.1133L83.8178 57.7678L81.0075 55.2497L79.158 57.3138L81.8068 59.6872L81.2281 60.3331L78.5793 57.9596L76.4639 60.3204L79.2742 62.8386L78.6877 63.4931ZM87.5419 59.9247C88.0656 60.3939 88.4389 60.8465 88.662 61.2824C88.8906 61.718 88.9706 62.1437 88.9022 62.5597C88.8337 62.9756 88.6157 63.3887 88.2481 63.7989C87.9457 64.1363 87.6318 64.3638 87.3062 64.4812C86.9833 64.5957 86.6604 64.6342 86.3375 64.5966C86.0145 64.5589 85.7071 64.4776 85.4153 64.3525L84.5962 68.7875L83.7322 68.0133L84.5552 63.9515L83.2286 62.7628L80.8434 65.4248L80.1015 64.76L85.8182 58.3801L87.5419 59.9247ZM86.9235 60.527L85.9853 59.6864L83.7916 62.1345L84.804 63.0416C85.3248 63.5082 85.8025 63.7448 86.2372 63.7514C86.6747 63.7606 87.0786 63.5587 87.4488 63.1456C87.8372 62.7121 87.9813 62.2879 87.8811 61.8729C87.7838 61.4605 87.4646 61.0119 86.9235 60.527ZM90.7386 71.2309C90.3997 71.6091 90.0158 71.8473 89.5869 71.9455C89.1635 72.0434 88.7205 72.011 88.2579 71.8482C87.7953 71.6855 87.3356 71.3995 86.8789 70.9902C86.6374 70.7738 86.4195 70.5576 86.225 70.3414C86.0306 70.1252 85.8628 69.9145 85.7215 69.7092C85.5802 69.504 85.4699 69.3081 85.3905 69.1216L86.0279 68.4103C86.1652 68.696 86.3558 69.0188 86.5997 69.3789C86.8461 69.7361 87.1409 70.0685 87.4842 70.3761C87.8042 70.6628 88.1126 70.8631 88.4093 70.9768C88.7086 71.0877 88.9866 71.1139 89.2435 71.0556C89.5058 70.9969 89.7387 70.8541 89.942 70.6272C90.1375 70.409 90.2524 70.1842 90.2868 69.9527C90.3237 69.7183 90.2836 69.4411 90.1665 69.1211C90.0549 68.8008 89.8683 68.4003 89.6068 67.9194C89.4223 67.581 89.2776 67.2625 89.1727 66.964C89.0704 66.6625 89.0146 66.3765 89.0053 66.1059C88.996 65.8353 89.041 65.5714 89.1403 65.3143C89.2425 65.0597 89.4044 64.8088 89.626 64.5615C89.931 64.2211 90.2775 64.0071 90.6655 63.9194C91.059 63.8315 91.4659 63.8603 91.8861 64.006C92.3117 64.1514 92.7239 64.4027 93.1224 64.7598C93.4628 65.0648 93.7483 65.3784 93.979 65.7004C94.2125 66.0251 94.4018 66.3495 94.5469 66.6735L93.7447 67.1033C93.6009 66.8014 93.4282 66.5024 93.2266 66.2064C93.028 65.913 92.7919 65.6438 92.5184 65.3988C92.245 65.1537 91.9772 64.9872 91.7151 64.8992C91.4585 64.811 91.2156 64.7952 90.9864 64.8521C90.7571 64.9089 90.5526 65.0377 90.3727 65.2384C90.172 65.4624 90.0517 65.6903 90.0118 65.9221C89.9749 66.1565 90.0076 66.4244 90.1098 66.7259C90.2176 67.027 90.3871 67.3939 90.6183 67.8266C90.8711 68.2996 91.0593 68.7305 91.183 69.1193C91.3093 69.5052 91.3417 69.87 91.2803 70.2136C91.2215 70.5543 91.041 70.8934 90.7386 71.2309Z" fill="white"/>
+            </svg>
+          </span>
+        {% elsif corner_treatment == 'New' %}
+          <span class="corner-treatment">
+            <svg width="113" height="103" viewBox="0 0 113 103" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M112 103C112 103 113 100.833 113 100L112 99V103Z" fill="black"/>
+              <path d="M0 1C0 1 2.16667 -1.01993e-07 3 -6.55671e-08L4.5 1L0 1Z" fill="black"/>
+              <path d="M113 100L3 0H27.0502L113 75.8893V100Z" fill="#3D3D3D"/>
+              <path d="M57.1624 44.2055L56.3071 43.4391L57.6308 34.964L57.5959 34.9327C57.4769 35.0831 57.3411 35.2551 57.1885 35.4488C57.0386 35.6396 56.8739 35.8409 56.6947 36.0527C56.5209 36.2641 56.3389 36.476 56.1486 36.6884L52.8641 40.354L52.1746 39.7362L57.8913 33.3563L58.7422 34.1188L57.421 42.5648L57.4516 42.5922C57.537 42.4851 57.6587 42.3346 57.8168 42.1406C57.9776 41.9437 58.15 41.7337 58.3342 41.5106C58.5239 41.2872 58.7021 41.0824 58.869 40.8962L62.1809 37.2L62.8791 37.8256L57.1624 44.2055ZM62.4557 48.9486L58.9036 45.7657L64.6202 39.3858L68.1724 42.5687L67.5859 43.2233L64.7756 40.7051L62.9261 42.7692L65.5749 45.1427L64.9962 45.7885L62.3473 43.415L60.2319 45.7759L63.0422 48.294L62.4557 48.9486ZM76.8345 50.3304L69.4116 55.1814L68.6654 54.5127L71.2475 49.0848C71.3192 48.9287 71.3923 48.774 71.4669 48.6205C71.547 48.4667 71.622 48.3215 71.692 48.1849C71.7645 48.0454 71.8284 47.9243 71.8837 47.8217C71.9444 47.7188 71.99 47.6416 72.0204 47.5901C71.9754 47.6286 71.9064 47.6821 71.8134 47.7509C71.7232 47.8222 71.6156 47.9014 71.4903 47.9885C71.368 48.0782 71.2333 48.1699 71.0863 48.2638C70.9422 48.3602 70.7939 48.4555 70.6414 48.5496L65.5671 51.7365L64.8209 51.0679L68.8444 43.1709L69.6168 43.863L67.0567 48.7835C66.9717 48.9486 66.8851 49.1096 66.7968 49.2666C66.7142 49.4233 66.6297 49.5731 66.5435 49.7162C66.4602 49.8618 66.3766 50.0019 66.2927 50.1366C66.2088 50.2712 66.126 50.4016 66.0444 50.5278C66.1606 50.4273 66.2851 50.3265 66.4179 50.2251C66.5532 50.1209 66.6914 50.0165 66.8322 49.912C66.976 49.81 67.1226 49.7079 67.2719 49.6057C67.4241 49.5061 67.5778 49.4077 67.7329 49.3107L72.4271 46.3811L73.1908 47.0654L70.8126 52.1253C70.7308 52.2985 70.6474 52.4677 70.5624 52.6328C70.4774 52.7979 70.3906 52.9562 70.3021 53.1076C70.2191 53.2588 70.1356 53.4017 70.0517 53.5363C69.9733 53.6706 69.8973 53.7965 69.8235 53.914C69.9716 53.7897 70.1305 53.662 70.3004 53.531C70.4703 53.4 70.651 53.2656 70.8426 53.1278C71.0371 52.9927 71.2398 52.8543 71.4506 52.7127L76.0578 49.6344L76.8345 50.3304Z" fill="white"/>
+            </svg>
+          </span>
+        {% endif %}
+      {% endunless %}
+
+      <div id="ProductGridSlider-{{ product.id }}"
+        class="slideshow-wrapper product--slider"
+        data-image-count="{{ product.media.size }}"
+        data-id="{{ product.id }}">
+        
+        {% if selected_variant_obj %}
+          <div id="ProductGridSliderVariant-{{ selected_variant_obj.id }}" class="product-slide">
+            <div class="image-wrap">
+                {%- if fixed_aspect_ratio -%}
+                  <div
+                    class="grid__image-ratio grid__image-ratio--{{ settings.product_grid_image_size }} lazyload"
+                    data-bgset="{% render 'bgset', image: preview_image %}"
+                    data-sizes="auto"></div>
+                {%- else -%}
+                  {%- assign slider_image_padding = 100 | divided_by: preview_image.aspect_ratio | append: '%' -%}
+                  <div class="image-wrap {% if second_image_variant != blank %}image-wrap__child{% endif %}"
+                    style="height: 0; padding-bottom: {{ slider_image_padding }};">
+                    <img
+                      class="grid-product__image grid-product__image-one lazyload"
+                      data-src="{{ img_url }}"
+                      data-widths="[750, 900, 1080]"
+                      data-aspectratio="{{ preview_image.aspect_ratio }}"
+                      data-sizes="auto"
+                      alt="{{ preview_image.alt | escape }}"
+                      loading="lazy" />
+                        
+                    {% unless second_image_variant == blank %}
+                      {% assign img_second_url = second_image_variant | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
+                      <img
+                        class="grid-product__image grid-product__image-two lazyload hide"
+                        data-src="{{ img_second_url }}"
+                        data-widths="[750, 900, 1080]"
+                        data-aspectratio="{{ preview_image.aspect_ratio }}"
+                        data-sizes="auto"
+                        alt="{{ preview_image.alt | escape }}"
+                        loading="lazy" />
+                    {% endunless %}
+
+                    <noscript>
+                      <img class="grid-product__image lazyloaded"
+                        src="{{ preview_image | img_url: '400x' }}"
+                        alt="{{ preview_image.alt | escape }}" loading="lazy">
+                    </noscript>
+                  </div>
+                {%- endif -%}
+            </div>
+          </div>
+        {% endif %}
+        
+        {%- for media in product.media limit: image_limit -%}
+          {% unless media == selected_media %}
+          {%- assign image_count = image_count | plus: 1 -%}
+          <div class="product-slide {{ selected_media }}">
+            <div class="image-wrap">
+              {%- if forloop.first and selected_variant_obj == nil -%}
+                {%- if fixed_aspect_ratio -%}
+                  <div
+                    class="grid__image-ratio grid__image-ratio--{{ settings.product_grid_image_size }} lazyload"
+                    data-bgset="{% render 'bgset', image: preview_image %}"
+                    data-sizes="auto">
+                  </div>
+                {%- else -%}
+                  {%- assign slider_image_padding = 100 | divided_by: preview_image.aspect_ratio | append: '%' -%}
+                  {% assign metaFieldSI = product.first_available_variant.metafields.custom.secondimage %}
+                  <div class="image-wrap {% if metaFieldSI != blank %}image-wrap__child{% endif %}"
+                    style="height: 0; padding-bottom: {{ slider_image_padding }};"
+                    >
+                    <img
+                      class="grid-product__image grid-product__image-one lazyload"
+                      data-src="{{ img_url }}"
+                      data-widths="[750, 900, 1080]"
+                      data-aspectratio="{{ preview_image.aspect_ratio }}"
+                      data-sizes="auto"
+                      alt="{{ preview_image.alt | escape }}" />
+
+                    {% unless metaFieldSI == blank %}
+                      {% assign img_second_url = metaFieldSI | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
+                      <img
+                        class="grid-product__image grid-product__image-two lazyload"
+                        data-src="{{ img_second_url }}"
+                        data-widths="[750, 900, 1080]"
+                        data-aspectratio="{{ preview_image.aspect_ratio }}"
+                        data-sizes="auto"
+                        alt="{{ preview_image.alt | escape }}"
+                        loading="lazy" />
+                    {% endunless %}
+
+                    <noscript>
+                      <img class="grid-product__image lazyloaded"
+                        src="{{ preview_image | img_url: '400x' }}"
+                        alt="{{ preview_image.alt | escape }}">
+                    </noscript>
+                  </div>
+                {%- endif -%}
+              {%- else -%}
+                  <div
+                    class="grid__image-ratio grid__image-ratio--{{ settings.product_grid_image_size }} lazyload"
+                    {% if settings.product_grid_image_size == 'natural' %}
+                      style="padding-bottom: {{ slider_image_padding }}"
+                    {% endif %}
+                    data-bgset="{% render 'bgset', image: media.preview_image %}"
+                    data-sizes="auto">
+                  </div>
+              {%- endif -%}
+            </div>
+          </div>
+          {% endunless %}
+        {%- endfor -%}
+
+      </div>
+
+      {%- if image_count > 1 -%}
+        {%- assign loader_duration = 1350 | times: image_count -%}
+        <style>
+          .product-slider.flickity-enabled[data-id="{{ product.id }}"]:after {
+            animation-duration: {{ loader_duration }}ms;
+          }
+        </style>
+      {%- endif -%}
+
+      <div class="grid-product__meta">
+        <div class="grid-product__title">{{ product.title }}{% if selected_variant_obj %} <span>{{ selected_variant_obj.title }}</span>{% endif %}</div>
+        {%- if settings.vendor_enable -%}
+          <div class="product-single__vendor">
+            {%- assign vendor_handle = product.vendor | handleize  -%}
+            {%- if collections[vendor_handle] != empty -%}
+              <a href="{{ routes.collections_url }}/{{ collections[vendor_handle].handle }}">
+                {{ collections[vendor_handle].title }}
+              </a>
+            {%- else -%}
+              {{ product.vendor | link_to_vendor }}
+            {%- endif -%}
+          </div>
+        {%- endif -%}
+        
+{% comment %}Start automatically added Judge.me widget{% endcomment %}
+  {% render 'judgeme_widgets', widget_type: 'judgeme_preview_badge', concierge_install: true, product: product %}
+{% comment %}End automatically added Judge.me widget{% endcomment %}
+<div class="grid-product__price">
+
+          {%- if product.price_varies -%}
+            {%- assign price = product.price_min | money -%}
+            
+            {% assign isHideFromPrice = false %}
+            
+            {% if product.tags contains 'hide-price-from' %}
+              {% assign isHideFromPrice = true %}
+            {% endif %}
+
+            {% unless isHideFromPrice == true %}
+            <span{% if on_sale %} class="sale-price"{% endif %}>
+              {{ 'products.general.from_text_html' | t: price: price }}
+            </span>
+            {% endunless %}
+          {%- else -%}
+            <span{% if on_sale %} class="sale-price"{% endif %}>
+              {{ product.price  | money }}
+            </span>
+          {%- endif -%}
+          {%- if on_sale -%}
+            <span class="visually-hidden">{{ 'products.general.regular_price' | t }}</span>
+            <del class="grid-product__price--original">{{ product.compare_at_price | money }}</del>
+            <span class="visually-hidden">{{ 'products.general.sale_price' | t }}</span>
+          {%- endif -%}
+        </div>
+
+        {%- assign product_variant = product.selected_or_first_available_variant -%}
+        {%- if product_variant.unit_price_measurement -%}
+          <div class="product__unit-price">
+            {%- capture unit_price_base_unit -%}
+              {%- if product_variant.unit_price_measurement -%}
+                {%- if product_variant.unit_price_measurement.reference_value != 1 -%}
+                  {{ product_variant.unit_price_measurement.reference_value }}
+                {%- endif -%}
+                {{ product_variant.unit_price_measurement.reference_unit }}
+              {%- endif -%}
+            {%- endcapture -%}
+
+            {{ product_variant.unit_price | money }}/{{ unit_price_base_unit }}
+          </div>
+        {%- endif -%}
+      </div>
+
+      {%- if settings.enable_swatches -%}
+        {%- assign swatch_trigger = 'products.general.color_swatch_trigger' | t | downcase-%}
+        {%- assign swatch_file_extension = 'png' -%}
+
+        {%- for option in product.options_with_values -%}
+          {%- liquid
+            assign option_name = option.name | downcase
+            assign is_color = false
+            if option_name contains swatch_trigger
+              assign is_color = true
+            elsif swatch_trigger == 'color' and option_name contains 'colour'
+              assign is_color = true
+            endif
+          -%}
+          {% comment %}{% endcomment %}
+            {%- if is_color -%}
+              {%- assign option_index = forloop.index0 -%}
+              {%- assign values = '' -%}
+              <div class="grid-product__colors">
+                {%- for variant in product.variants -%}
+                  {%- assign value = variant.options[option_index] %}
+                  {%- unless values contains value -%}
+                    {%- liquid
+                      assign values = values | join: ',' | append: ',' | append: value | split: ','
+
+                      assign color_file_name = value | handle | append: '.' | append: swatch_file_extension
+                      assign color_image = color_file_name | file_img_url: '50x50' | prepend: 'https:' | split: '?' | first
+                      assign color_swatch_fallback = value | split: ' ' | last | handle
+                      assign color_count = color_count | plus: 1
+                    -%}
+                    {%- assign product_available = true -%}
+                    {%- if product.options.size == 1 -%}
+                      {%- assign product_available = product.variants[forloop.index0].available -%}
+                    {%- endif -%}
+                    <span
+                      class="color-swatch color-swatch--small {% unless product_available %} disabled{% endunless %}"
+                      style="background-color: {{ color_swatch_fallback }};{% if images[color_file_name] != blank %}  background-image: url({{ color_image }});{% endif %}">
+                    </span>
+                  {%- endunless -%}
+                {%- endfor -%}
+              </div>
+            {%- endif -%}
+          
+        {%- endfor -%}
+      {%- endif -%}
+
+      {%- if settings.enable_product_reviews -%}
+        <span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
+      {%- endif -%}
+    </a>
+    <div class="plp-actions">
+      {%- if settings.enable_add_to_cart_plp -%}
+        {%-liquid
+          assign options = "Color,Denominations" | split: ","
+        -%}
+        
+        {% unless options contains product.options.first %}
+          {% if product.variants.size > 1 %}
+            <select class="variant-selector-atc">
+              <option disabled value="default">{{product.options.first}}</option>
+              {% for variant in product.variants %}
+                <option {% if product.first_available_variant.id == variant.id %}selected{% endif %} 
+                        {% unless variant.available %}disabled{% endunless %} 
+                        value="{{ variant.id }}">{{variant.title}}</option>
+              {% endfor %}
+            </select>
+          {% endif %}
+        {% endunless %}
+
+        {% assign variant_selected = selected_variant_obj.id | default: product.first_available_variant.id %}
+        <button class="ajax-addtocart" data-category="{{ product.tags }}" data-variant-id="{{ variant_selected }}" {% if sold_out %} disabled{% endif %}>{%- if sold_out -%}{{ 'products.product.sold_out' | t }}{%- else -%}Add To Cart{%- endif -%}</button>
+      {%- endif -%}
+
+      <div class="ABTEST-dual-cta">
+        {% form 'product', product %}
+          <input type="hidden" name="id" value="{{ product.id }}">
+          {{ form | payment_button }}
+        {% endform %}
+      </div>
+    </div>
+  </div>
+
+  {%- if enable_quick_shop -%}
+    {%- render 'quick-shop-modal', product: product -%}
+  {%- endif -%}
+
+</div>

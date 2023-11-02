@@ -1,0 +1,51 @@
+<div class="header_lp_main_new" id="shopify-section-header" style="background: {{ section.settings.main_back_color }};">
+  <div class="page-width">
+    <div class="header_lp_inner_new">
+      <div class="header_lp_left_new"></div>
+      {%- if section.settings.main_logo_image != blank -%}
+        <div class="header_lp_middle_new">
+          <a href="{{ routes.root_url }}">
+            {%- assign img_url = section.settings.main_logo_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+            <img class="header_logo_new lazyload"
+              data-src="{{ img_url }}"
+              data-widths="[180, 360, 540, 750, 900, 1080, 1296, 1512, 1728, 1944, 2048]"
+              data-aspectratio="{{ section.settings.main_logo_image.aspect_ratio }}"
+              data-sizes="auto"
+              alt="{{ section.settings.main_logo_image.alt }}">
+          </a>
+        </div>
+      {%- endif -%}
+      <div class="header_lp_right_new">
+        <button class="openCart openCart_new">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M16.3646 15.3242C16.6259 13.3101 16.8814 11.3401 17.1369 9.37016C17.0971 9.35786 17.058 9.34556 17.0182 9.33325C15.7972 11.7649 14.5761 14.1974 13.3334 16.6739H15.9231C15.575 18.6808 15.2341 20.6493 14.8924 22.6178C14.9351 22.6301 14.9771 22.6431 15.0198 22.6554C16.2329 20.2368 17.4467 17.8188 18.6982 15.3242H16.3639H16.3646Z" fill="#F0F0F0"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M26.6666 8.00008H5.33329C4.59691 8.00008 3.99996 8.59704 3.99996 9.33341V22.6667C3.99996 23.4031 4.59691 24.0001 5.33329 24.0001H26.6666C27.403 24.0001 28 23.4031 28 22.6667V9.33341C28 8.59704 27.403 8.00008 26.6666 8.00008ZM5.33329 6.66675C3.86053 6.66675 2.66663 7.86066 2.66663 9.33341V22.6667C2.66663 24.1395 3.86053 25.3334 5.33329 25.3334H26.6666C28.1394 25.3334 29.3333 24.1395 29.3333 22.6667V9.33341C29.3333 7.86066 28.1394 6.66675 26.6666 6.66675H5.33329Z" fill="#F0F0F0"/>
+          </svg>
+          <span class="cart-link__bubble-num cart_link_bubble_num_new">
+              {{ cart.item_count }}
+          </span> 
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+                  
+{% schema %}
+  {
+    "name": "Header LP New",
+    "class": "header_lp_new",
+    "settings": [
+      {
+        "type": "color",
+        "id": "main_back_color",
+        "label": "Add Main Background Color",
+        "default": "#141414"
+      },
+      {
+        "type": "image_picker",
+        "id": "main_logo_image",
+        "label": "Add Main Logo Image"
+      }
+    ]
+  }
+{% endschema %}

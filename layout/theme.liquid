@@ -1,0 +1,842 @@
+<!doctype html>
+<html
+  class="no-js"
+  lang="{{ request.locale.iso_code }}"
+  dir="{{ settings.text_direction }}">
+  <head>
+<script type="text/javascript" data-squaredance="Z73hY2g52RVKvEbYa3kZHe29AeCJWvFCueY6WKfJvV-Pimy9xFaGlGht2Xjho65Z" data-sqdv="1.0.1">
+try{squaredanceCart=JSON.parse(decodeURIComponent("{{cart.items|json|url_encode}}"))}catch(e){}
+;!function(j,u,m,b,l,e){var n="jumbleberry",i="3.2.2",o=function(){o.v==i&&o.e?o.e.apply(o,arguments):o.q.push(arguments)}
+,a=encodeURIComponent,t=decodeURIComponent,d=j.location;(o.push=o).l=!1,o.q=[],o.v=i,o.duid=function(n){return(
+n=n&&u.cookie.match(RegExp(t("%5Cs*")+n.substr(0,21)+"id=([^;]+)")))?t(n[1].split(".")[0]):""},o.g=function(n,i){return!!(
+i=RegExp("^[^#]*[?&]"+n+"=([^&#]+)").exec(i||d.href))&&t(i[1].replace(/\+/g," "))},o.s=function(n){for(var i=Math.round((
+new Date).getTime()/1e3),t=d.hostname.split("."),r=t.length-1;0<r--&&/^(([a-z0-9]{4}-?){8}|[0-9]+)$/i.test(n)&&n!=o.duid(
+o.p);)u.cookie=o.p.substr(0,21)+"id="+a(n)+"."+i+".0."+i+".; path=/; max-age=63072000; domain=."+t.slice(r,t.length
+).join(".")},o.i=function(n,i,t){if("init"==n)return[o.u=o.duid(o.p=i),o.s(o.h=t||o.u)];t=t||{},(n=u.createElement(
+"iframe")).src=o.d+o.p+"?hid="+a(o.h)+"&uid="+a(o.u)+"&event="+a(i||"")+"&transid="+a(t.transaction_id||"")+"&oi="+a(
+t.order_index||"")+"&ctx="+a(JSON.stringify(t)),n.height=n.width=0,n.style="display:none;visibility:hidden",
+n.sandbox="allow-forms allow-same-origin allow-scripts",n.referrerPolicy="unsafe-url",(u.body||u.head).appendChild(n)},
+o.m=o.e=function(){var n,i;!j._RNGSeed&&o.i.apply(o,arguments)&&(n=u.createElement(m),i=u.getElementsByTagName(m)[0],
+n.src=o.d+o.p+"?hid="+a(o.h)+"&uid="+a(o.u)+"&v="+o.v,n.async=!!o.h,o.e=!1,o.q.unshift(arguments),j.addEventListener(
+"beforeunload",n.onerror=function(){o.e=o.i;for(var n=0;n<o.q.length;++n)o.apply(o,o.q[n]);o.q=[]}),
+i.parentNode.insertBefore(n,i))},j[n]=j[n]||o,j[n].d=b}(window,document,"script","https://www.maxepv.com/");
+
+jumbleberry("init", "Z73hY2g52RVKvEbYa3kZHe29AeCJWvFCueY6WKfJvV9hqdBOjBTWRhvOoRtySkFNmvrUQq1P7buscLQufUHrQoYnw2RiqXRWar_7fuDefAg~", jumbleberry.g("sqdid") || jumbleberry.g("click_id"));
+</script>
+  {% render 'elevar-head' %}
+    
+
+    {%- comment -%} Tatari Snippet {%- endcomment -%}
+    <script>
+      !function(){try{!function(t,i){if(!i.version){window.tatari=i,i.init=function(t,n){var e=function(t,n){i[n]=function(){t.push([n].concat(Array.prototype.slice.call(arguments,0)))}};"track pageview identify".split(" ").forEach(function(t){e(i,t)}),i._i=t,i.config=n,i.pageview()},i.version="1.2.1";var n=t.createElement("script");n.type="text/javascript",n.async=!0,n.src="https://d2hrivdxn8ekm8.cloudfront.net/tag-manager/d1960efd-dc1d-4b92-8be3-c8e9c6bde164-latest.js";var e=t.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)}}(document,window.tatari||[])}catch(t){console.log(t)}}(); tatari.init('d1960efd-dc1d-4b92-8be3-c8e9c6bde164');
+    </script>
+    {%- comment -%} End Tatari Snippet {%- endcomment -%}
+
+
+<link rel='preconnect dns-prefetch' href='https://triplewhale-pixel.web.app/' crossorigin />
+<link rel='preconnect dns-prefetch' href='https://api.config-security.com/' crossorigin />
+
+
+
+<script>
+/* >> TriplePixel :: start*/
+~function(W,H,A,L,E,_,B,N){function O(U,T,H,R){void 0===R&&(R=!1),H=new XMLHttpRequest,H.open("GET",U,!0),H.send(null),H.onreadystatechange=function(){4===H.readyState&&200===H.status?(R=H.responseText,U.includes(".txt")?eval(R):N[B]=R):(299<H.status||H.status<200)&&T&&!R&&(R=!0,O(U,T-1))}}if(N=window,!N[H+"sn"]){N[H+"sn"]=1;try{A.setItem(H,1+(0|A.getItem(H)||0)),(E=JSON.parse(A.getItem(H+"U")||"[]")).push(location.href),A.setItem(H+"U",JSON.stringify(E))}catch(e){}A.getItem('"!nC`')||(A=N,A[H]||(L=function(){return Date.now().toString(36)+"_"+Math.random().toString(36)},E=A[H]=function(t,e){return W=L(),(E._q=E._q||[]).push([W,t,e]),W},E.ch=W,B="configSecurityConfModel",N[B]=1,O("//conf.config-security.com/model",0),O("//triplewhale-pixel.web.app/triplefw.txt?",5)))}}("","TriplePixel",localStorage);
+/* << TriplePixel :: end*/
+</script>
+  {% render 'elevar-head-listener' %}
+  <!-- Start VWO Async SmartCode -->
+<script type='text/javascript' id='vwoCode'>
+window._vwo_code=window._vwo_code || (function() {
+var account_id=715007,
+version = 1.5,
+settings_tolerance=2000,
+library_tolerance=2500,
+use_existing_jquery=false,
+is_spa=1,
+hide_element='body',
+hide_element_style = 'opacity:0 !important;filter:alpha(opacity=0) !important;background:none !important',
+/* DO NOT EDIT BELOW THIS LINE */
+f=false,d=document,vwoCodeEl=d.querySelector('#vwoCode'),code={use_existing_jquery:function(){return use_existing_jquery},library_tolerance:function(){return library_tolerance},hide_element_style:function(){return'{'+hide_element_style+'}'},finish:function(){if(!f){f=true;var e=d.getElementById('_vis_opt_path_hides');if(e)e.parentNode.removeChild(e)}},finished:function(){return f},load:function(e){var t=d.createElement('script');t.fetchPriority='high';t.src=e;t.type='text/javascript';t.onerror=function(){_vwo_code.finish()};d.getElementsByTagName('head')[0].appendChild(t)},getVersion:function(){return version},getMatchedCookies:function(e){var t=[];if(document.cookie){t=document.cookie.match(e)||[]}return t},getCombinationCookie:function(){var e=code.getMatchedCookies(/(?:^|;)\s?(_vis_opt_exp_\d+_combi=[^;$]*)/gi);e=e.map(function(e){try{var t=decodeURIComponent(e);if(!/_vis_opt_exp_\d+_combi=(?:\d+,?)+\s*$/.test(t)){return''}return t}catch(e){return''}});var i=[];e.forEach(function(e){var t=e.match(/([\d,]+)/g);t&&i.push(t.join('-'))});return i.join('|')},init:function(){if(d.URL.indexOf('__vwo_disable__')>-1)return;window.settings_timer=setTimeout(function(){_vwo_code.finish()},settings_tolerance);var e=d.createElement('style'),t=hide_element?hide_element+'{'+hide_element_style+'}':'',i=d.getElementsByTagName('head')[0];e.setAttribute('id','_vis_opt_path_hides');vwoCodeEl&&e.setAttribute('nonce',vwoCodeEl.nonce);e.setAttribute('type','text/css');if(e.styleSheet)e.styleSheet.cssText=t;else e.appendChild(d.createTextNode(t));i.appendChild(e);var n=this.getCombinationCookie();this.load('https://dev.visualwebsiteoptimizer.com/j.php?a='+account_id+'&u='+encodeURIComponent(d.URL)+'&f='+ +is_spa+'&vn='+version+(n?'&c='+n:''));return settings_timer}};window._vwo_settings_timer = code.init();return code;}());
+</script>
+<!-- End VWO Async SmartCode -->
+{% include 'replo-head.liquid' %}
+    {% if false %}
+      <!-- Google Tag Manager -->
+      <script>
+        (function(w, d, s, l, i) {
+          w[l] = w[l] || [];
+          w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+          var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s),
+            dl = l != 'dataLayer'
+              ? '&l=' + l
+              : '';
+          j.async = true;
+          j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+          f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-TGRK3NX');
+      </script>
+      <!-- End Google Tag Manager -->
+    {% endif %}
+
+    <!-- Begin BlackCrow Script Tag: DO NOT MODIFY! -->
+      <script type="text/javascript" async src="https://shopify-init.blackcrow.ai/js/core/clutchllc.js?shopify_app_version=1.0.107&shop=clutchllc.myshopify.com"></script>
+    <!-- End BlackCrow Script Tag -->
+
+    <!-- Begin: Northbeam pixel -->
+    <script async type="text/javascript" src="//j.northbeam.io/ota-sp/9197144d-6679-4edd-abf7-fcec5f59c967.js"></script>
+    <!-- End: Northbeam pixel -->
+
+    {% if false %}
+      
+    {% endif %}
+
+    {% if page.handle == "pricing-table" or page.handle == "gma-video-feature" %}
+      <meta name="robots" content="noindex,nofollow">
+    {% else %}
+      <meta name="robots" content="index,follow">
+    {% endif %}
+
+    <!-- Intelligems -->
+    <script src="https://cdn.intelligems.io/745935d47124.js"></script>
+    <!-- Intelligems End -->
+
+    {% if false %}
+      <script>
+        (function(d) {
+          var e = d.createElement('script');
+          e.src = 'https://td.yieldify.com/yieldify/code.js?w_uuid=dbe84b02-c100-448b-948b-9df05ca3944c&k=1&loca=' + window.location.href;
+          e.async = true;
+          d.getElementsByTagName('head')[0].appendChild(e);
+        }(document));
+      </script>
+    {% endif %}
+
+    <meta name="facebook-domain-verification" content="wruc9snfska2lqxjnvxs0hfh57swgx" />
+
+
+
+    {% if template == 'index' %}
+
+      <!-- JSON-LD markup generated by Google Structured Data Markup Helper. -->
+
+      <script type="application/ld+json">
+        {
+        "@context" : "http://schema.org",
+          "@type" : "Product",
+          "gtin" : "0812001629903" ,
+         "mpn" : "356070PH" ,
+         "sku" : "8120016299" ,
+          "url" : "https://clutchcharger.com",
+          "brand" : {
+            "@type" : "Brand",
+            "name" : "Clutch",
+        }
+        }
+      </script>
+
+    {% endif %}
+
+
+    {% if template == 'product' %}
+
+      <!-- JSON-LD markup generated by Google Structured Data Markup Helper. -->
+      <script type="application/ld+json">
+        {
+        "@context" : "http://schema.org",
+          "@type" : "Product",
+          "gtin" : "0812001629903" ,
+         "mpn" : "356070PH" ,
+         "sku" : "8120016299" ,
+          "url" : "{{ product.metafields.google-schema-url.google_schema_url }}",
+        "brand" : {
+            "@type" : "Brand",
+            "name" : "Clutch",
+        }
+        }
+      </script>
+
+    {% endif %}
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="{{ settings.color_button }}">
+    <link rel="canonical" href="{{ canonical_url }}">
+    <link rel="preconnect" href="https://cdn.shopify.com">
+    <link rel="preconnect" href="https://fonts.shopifycdn.com">
+    <link rel="dns-prefetch" href="https://productreviews.shopifycdn.com">
+    <link rel="dns-prefetch" href="https://ajax.googleapis.com">
+    <link rel="dns-prefetch" href="https://maps.googleapis.com">
+    <link rel="dns-prefetch" href="https://maps.gstatic.com">
+
+    {%- if settings.favicon != blank -%}
+      <link
+        rel="shortcut icon"
+        href="{{ settings.favicon | img_url: '32x32' }}"
+        type="image/png" />
+    {%- endif -%}
+
+    {%- render 'seo-title' -%}
+
+    {%- if page_description -%}
+      <meta name="description" content="{{ page_description | escape }}">
+    {%- endif -%}
+
+    {%- render 'social-meta-tags' -%}
+    <!--  content for header  ------------------------------------------------------------------->
+    {{ content_for_header }}
+    <!--  end of content for header  ------------------------------------------------------------------->
+    {%- render 'bold-common' -%}
+
+    <script>
+      var theme = {
+        stylesheet: "{{ 'theme.css' | asset_url }}",
+        template: {{ template | json }},
+        routes: {
+          home: "{{ routes.root_url }}",
+          cart: "{{ routes.cart_url | append: '.js' }}",
+          cartPage: "{{ routes.cart_url }}",
+          cartAdd: "{{ routes.cart_add_url | append: '.js'}}",
+          cartChange: "{{ routes.cart_change_url | append: '.js' }}"
+        },
+        strings: {
+          addToCart: {{ 'products.product.add_to_cart' | t | json }},
+          soldOut: {{ 'products.product.sold_out' | t | json }},
+          unavailable: {{ 'products.product.unavailable' | t | json }},
+          regularPrice: {{ 'products.general.regular_price' | t | json }},
+          salePrice: {{ 'products.general.sale_price' | t | json }},
+          inStockLabel: {{ 'products.product.in_stock_label' | t | json }},
+          stockLabel: {{ 'products.product.stock_label' | t: count: '[count]' | json }},
+          willNotShipUntil: {{ 'products.product.will_not_ship_until' | t: date: '[date]' | json }},
+          willBeInStockAfter: {{ 'products.product.will_be_in_stock_after' | t: date: '[date]' | json }},
+          waitingForStock: {{ 'products.product.waiting_for_stock' | t | json }},
+          cartItems: {{ 'cart.general.item_count' | t: count: '[count]' | json }},
+          cartConfirmDelete: {{ 'cart.general.delete_confirm' | t | json }},
+          cartTermsConfirmation: {{ 'cart.general.terms_confirm' | t | json }}
+        },
+        settings: {
+          dynamicVariantsEnable: true,
+          cartType: {{ settings.cart_type | json }},
+          isCustomerTemplate:{% if request.page_type contains 'customers/' %}
+            true
+          {% else %}
+            false{% endif %},
+          moneyFormat: {{ shop.money_format | json }},
+          quickView: {{ settings.quick_shop_enable }},
+          hoverProductGrid: {{ settings.product_hover_image }},
+          themeName: 'Streamline',
+          themeVersion: "4.1.2"
+        }
+      };
+
+      document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
+    </script>
+
+    {% comment %}
+    {{ 'swiper-bundle.min.css' | asset_url | stylesheet_tag: preload: true }}
+    {% endcomment %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+
+    {%- render 'css-variables' -%}
+    {%- render 'critical-css' -%}
+    {%- render 'load-css' -%}
+
+    {% style %}
+
+    {% for scheme in settings.color_schemes -%}
+        {% assign scheme_classes = scheme_classes | append: ', .color-' | append: scheme.id %}
+        {% if forloop.index == 1 -%}
+          .new-home,
+        {%- endif %}
+        .new-home .color-{{ scheme.id }} {
+          --color-background: {{ scheme.settings.background.red }},{{ scheme.settings.background.green }},{{ scheme.settings.background.blue }};
+        {% if scheme.settings.background_gradient != empty %}
+          --gradient-background: {{ scheme.settings.background_gradient }};
+        {% else %}
+          --gradient-background: {{ scheme.settings.background }};
+        {% endif %}
+        --color-foreground: {{ scheme.settings.text.red }},{{ scheme.settings.text.green }},{{ scheme.settings.text.blue }};
+        --color-shadow: {{ scheme.settings.shadow.red }},{{ scheme.settings.shadow.green }},{{ scheme.settings.shadow.blue }};
+        --color-button: {{ scheme.settings.button.red }},{{ scheme.settings.button.green }},{{ scheme.settings.button.blue }};
+        --color-button-text: {{ scheme.settings.button_label.red }},{{ scheme.settings.button_label.green }},{{ scheme.settings.button_label.blue }};
+        --color-secondary-button: {{ scheme.settings.background.red }},{{ scheme.settings.background.green }},{{ scheme.settings.background.blue }};
+        --color-secondary-button-text: {{ scheme.settings.secondary_button_label.red }},{{ scheme.settings.secondary_button_label.green }},{{ scheme.settings.secondary_button_label.blue }};
+        --color-link: {{ scheme.settings.secondary_button_label.red }},{{ scheme.settings.secondary_button_label.green }},{{ scheme.settings.secondary_button_label.blue }};
+        --color-badge-foreground: {{ scheme.settings.text.red }},{{ scheme.settings.text.green }},{{ scheme.settings.text.blue }};
+        --color-badge-background: {{ scheme.settings.background.red }},{{ scheme.settings.background.green }},{{ scheme.settings.background.blue }};
+        --color-badge-border: {{ scheme.settings.text.red }},{{ scheme.settings.text.green }},{{ scheme.settings.text.blue }};
+        --payment-terms-background-color: rgb({{ scheme.settings.background.rgb }});
+      }
+      {% endfor %}
+
+    .new-home {
+      --font-body-family: {{ settings.type_body_font.family }}, {{ settings.type_body_font.fallback_families }};
+      --font-body-style: {{ settings.type_body_font.style }};
+      --font-body-weight: {{ settings.type_body_font.weight }};
+      --font-body-weight-bold: {{ settings.type_body_font.weight | plus: 300 | at_most: 1000 }};
+
+      --font-heading-family: {{ settings.type_header_font.family }}, {{ settings.type_header_font.fallback_families }};
+      --font-heading-style: {{ settings.type_header_font.style }};
+      --font-heading-weight: {{ settings.type_header_font.weight }};
+
+      --font-body-scale: {{ settings.body_scale | divided_by: 100.0 }};
+      --font-heading-scale: {{ settings.heading_scale | times: 1.0 | divided_by: settings.body_scale }};
+
+      --media-padding: {{ settings.media_padding }}px;
+      --media-border-opacity: {{ settings.media_border_opacity | divided_by: 100.0 }};
+      --media-border-width: {{ settings.media_border_thickness }}px;
+      --media-radius: {{ settings.media_radius }}px;
+      --media-shadow-opacity: {{ settings.media_shadow_opacity | divided_by: 100.0 }};
+      --media-shadow-horizontal-offset: {{ settings.media_shadow_horizontal_offset }}px;
+      --media-shadow-vertical-offset: {{ settings.media_shadow_vertical_offset }}px;
+      --media-shadow-blur-radius: {{ settings.media_shadow_blur }}px;
+      --media-shadow-visible: {% if settings.media_shadow_opacity > 0 %}1{% else %}0{% endif %};
+
+      --page-width: {{ settings.page_width | divided_by: 10 }}rem;
+      --page-width-margin: {% if settings.page_width == '1600' %}2{% else %}0{% endif %}rem;
+
+      --product-card-image-padding: {{ settings.card_image_padding | divided_by: 10.0 }}rem;
+      --product-card-corner-radius: {{ settings.card_corner_radius | divided_by: 10.0 }}rem;
+      --product-card-text-alignment: {{ settings.card_text_alignment }};
+      --product-card-border-width: {{ settings.card_border_thickness | divided_by: 10.0 }}rem;
+      --product-card-border-opacity: {{ settings.card_border_opacity | divided_by: 100.0 }};
+      --product-card-shadow-opacity: {{ settings.card_shadow_opacity | divided_by: 100.0 }};
+      --product-card-shadow-visible: {% if settings.card_shadow_opacity > 0 %}1{% else %}0{% endif %};
+      --product-card-shadow-horizontal-offset: {{ settings.card_shadow_horizontal_offset | divided_by: 10.0 }}rem;
+      --product-card-shadow-vertical-offset: {{ settings.card_shadow_vertical_offset | divided_by: 10.0 }}rem;
+      --product-card-shadow-blur-radius: {{ settings.card_shadow_blur | divided_by: 10.0 }}rem;
+
+      --collection-card-image-padding: {{ settings.collection_card_image_padding | divided_by: 10.0 }}rem;
+      --collection-card-corner-radius: {{ settings.collection_card_corner_radius | divided_by: 10.0 }}rem;
+      --collection-card-text-alignment: {{ settings.collection_card_text_alignment }};
+      --collection-card-border-width: {{ settings.collection_card_border_thickness | divided_by: 10.0 }}rem;
+      --collection-card-border-opacity: {{ settings.collection_card_border_opacity | divided_by: 100.0 }};
+      --collection-card-shadow-opacity: {{ settings.collection_card_shadow_opacity | divided_by: 100.0 }};
+      --collection-card-shadow-visible: {% if settings.collection_card_shadow_opacity > 0 %}1{% else %}0{% endif %};
+      --collection-card-shadow-horizontal-offset: {{ settings.collection_card_shadow_horizontal_offset | divided_by: 10.0 }}rem;
+      --collection-card-shadow-vertical-offset: {{ settings.collection_card_shadow_vertical_offset | divided_by: 10.0 }}rem;
+      --collection-card-shadow-blur-radius: {{ settings.collection_card_shadow_blur | divided_by: 10.0 }}rem;
+
+      --blog-card-image-padding: {{ settings.blog_card_image_padding | divided_by: 10.0 }}rem;
+      --blog-card-corner-radius: {{ settings.blog_card_corner_radius | divided_by: 10.0 }}rem;
+      --blog-card-text-alignment: {{ settings.blog_card_text_alignment }};
+      --blog-card-border-width: {{ settings.blog_card_border_thickness | divided_by: 10.0 }}rem;
+      --blog-card-border-opacity: {{ settings.blog_card_border_opacity | divided_by: 100.0 }};
+      --blog-card-shadow-opacity: {{ settings.blog_card_shadow_opacity | divided_by: 100.0 }};
+      --blog-card-shadow-visible: {% if settings.blog_card_shadow_opacity > 0 %}1{% else %}0{% endif %};
+      --blog-card-shadow-horizontal-offset: {{ settings.blog_card_shadow_horizontal_offset | divided_by: 10.0 }}rem;
+      --blog-card-shadow-vertical-offset: {{ settings.blog_card_shadow_vertical_offset | divided_by: 10.0 }}rem;
+      --blog-card-shadow-blur-radius: {{ settings.blog_card_shadow_blur | divided_by: 10.0 }}rem;
+
+      --badge-corner-radius: {{ settings.badge_corner_radius | divided_by: 10.0 }}rem;
+
+      --popup-border-width: {{ settings.popup_border_thickness }}px;
+      --popup-border-opacity: {{ settings.popup_border_opacity | divided_by: 100.0 }};
+      --popup-corner-radius: {{ settings.popup_corner_radius }}px;
+      --popup-shadow-opacity: {{ settings.popup_shadow_opacity | divided_by: 100.0 }};
+      --popup-shadow-horizontal-offset: {{ settings.popup_shadow_horizontal_offset }}px;
+      --popup-shadow-vertical-offset: {{ settings.popup_shadow_vertical_offset }}px;
+      --popup-shadow-blur-radius: {{ settings.popup_shadow_blur }}px;
+
+      --drawer-border-width: {{ settings.drawer_border_thickness }}px;
+      --drawer-border-opacity: {{ settings.drawer_border_opacity | divided_by: 100.0 }};
+      --drawer-shadow-opacity: {{ settings.drawer_shadow_opacity | divided_by: 100.0 }};
+      --drawer-shadow-horizontal-offset: {{ settings.drawer_shadow_horizontal_offset }}px;
+      --drawer-shadow-vertical-offset: {{ settings.drawer_shadow_vertical_offset }}px;
+      --drawer-shadow-blur-radius: {{ settings.drawer_shadow_blur }}px;
+
+      --spacing-sections-desktop: {{ settings.spacing_sections }}px;
+      --spacing-sections-mobile: {% if settings.spacing_sections < 24 %}{{ settings.spacing_sections }}{% else %}{{ settings.spacing_sections | times: 0.7 | round | at_least: 20 }}{% endif %}px;
+
+      --grid-desktop-vertical-spacing: {{ settings.spacing_grid_vertical }}px;
+      --grid-desktop-horizontal-spacing: {{ settings.spacing_grid_horizontal }}px;
+      --grid-mobile-vertical-spacing: {{ settings.spacing_grid_vertical | divided_by: 2 }}px;
+      --grid-mobile-horizontal-spacing: {{ settings.spacing_grid_horizontal | divided_by: 2 }}px;
+
+      --text-boxes-border-opacity: {{ settings.text_boxes_border_opacity | divided_by: 100.0 }};
+      --text-boxes-border-width: {{ settings.text_boxes_border_thickness }}px;
+      --text-boxes-radius: {{ settings.text_boxes_radius }}px;
+      --text-boxes-shadow-opacity: {{ settings.text_boxes_shadow_opacity | divided_by: 100.0 }};
+      --text-boxes-shadow-visible: {% if settings.text_boxes_shadow_opacity > 0 %}1{% else %}0{% endif %};
+      --text-boxes-shadow-horizontal-offset: {{ settings.text_boxes_shadow_horizontal_offset }}px;
+      --text-boxes-shadow-vertical-offset: {{ settings.text_boxes_shadow_vertical_offset }}px;
+      --text-boxes-shadow-blur-radius: {{ settings.text_boxes_shadow_blur }}px;
+
+      --buttons-radius: {{ settings.buttons_radius }}px;
+      --buttons-radius-outset: {% if settings.buttons_radius > 0 %}{{ settings.buttons_radius | plus: settings.buttons_border_thickness }}{% else %}0{% endif %}px;
+      --buttons-border-width: {% if settings.buttons_border_opacity > 0 %}{{ settings.buttons_border_thickness }}{% else %}0{% endif %}px;
+      --buttons-border-opacity: {{ settings.buttons_border_opacity | divided_by: 100.0 }};
+      --buttons-shadow-opacity: {{ settings.buttons_shadow_opacity | divided_by: 100.0 }};
+      --buttons-shadow-visible: {% if settings.buttons_shadow_opacity > 0 %}1{% else %}0{% endif %};
+      --buttons-shadow-horizontal-offset: {{ settings.buttons_shadow_horizontal_offset }}px;
+      --buttons-shadow-vertical-offset: {{ settings.buttons_shadow_vertical_offset }}px;
+      --buttons-shadow-blur-radius: {{ settings.buttons_shadow_blur }}px;
+      --buttons-border-offset: {% if settings.buttons_radius > 0 or settings.buttons_shadow_opacity > 0 %}0.3{% else %}0{% endif %}px;
+
+      --inputs-radius: {{ settings.inputs_radius }}px;
+      --inputs-border-width: {{ settings.inputs_border_thickness }}px;
+      --inputs-border-opacity: {{ settings.inputs_border_opacity | divided_by: 100.0 }};
+      --inputs-shadow-opacity: {{ settings.inputs_shadow_opacity | divided_by: 100.0 }};
+      --inputs-shadow-horizontal-offset: {{ settings.inputs_shadow_horizontal_offset }}px;
+      --inputs-margin-offset: {% if settings.inputs_shadow_vertical_offset != 0 and settings.inputs_shadow_opacity > 0 %}{{ settings.inputs_shadow_vertical_offset | abs }}{% else %}0{% endif %}px;
+      --inputs-shadow-vertical-offset: {{ settings.inputs_shadow_vertical_offset }}px;
+      --inputs-shadow-blur-radius: {{ settings.inputs_shadow_blur }}px;
+      --inputs-radius-outset: {% if settings.inputs_radius > 0 %}{{ settings.inputs_radius | plus: settings.inputs_border_thickness }}{% else %}0{% endif %}px;
+
+      --variant-pills-radius: {{ settings.variant_pills_radius }}px;
+      --variant-pills-border-width: {{ settings.variant_pills_border_thickness }}px;
+      --variant-pills-border-opacity: {{ settings.variant_pills_border_opacity | divided_by: 100.0 }};
+      --variant-pills-shadow-opacity: {{ settings.variant_pills_shadow_opacity | divided_by: 100.0 }};
+      --variant-pills-shadow-horizontal-offset: {{ settings.variant_pills_shadow_horizontal_offset }}px;
+      --variant-pills-shadow-vertical-offset: {{ settings.variant_pills_shadow_vertical_offset }}px;
+      --variant-pills-shadow-blur-radius: {{ settings.variant_pills_shadow_blur }}px;
+    }
+    {% endstyle %}
+
+    {{ 'base.min.css' | asset_url | stylesheet_tag }}
+
+    {{ 'special-offers.css' | asset_url | stylesheet_tag }}
+
+    {{ 'custom.css' | asset_url | stylesheet_tag }}
+    
+    {{ 'sidecart.min.css' | asset_url | stylesheet_tag }}
+    
+    {{ 'product-cart.min.css' | asset_url | stylesheet_tag }}
+    
+    {{ 'image-text.min.css' | asset_url | stylesheet_tag }}
+    
+    {{ 'dual-content.min.css' | asset_url | stylesheet_tag }}
+
+    {{ 'home.min.css' | asset_url | stylesheet_tag }}
+
+    {{ 'cta.min.css' | asset_url | stylesheet_tag }}
+    
+    {{ 'comparation-table.min.css' | asset_url | stylesheet_tag }}
+
+    {{ 'side-cart.min.css' | asset_url | stylesheet_tag }}
+
+    {{ 'reviews-judgeme.min.css' | asset_url | stylesheet_tag }}
+
+    <!-- Custom Font Embed -->
+
+    <link rel="stylesheet" href="https://use.typekit.net/ybd1cis.css">
+
+    <script src="https://kit.fontawesome.com/6ae8b61188.js" defer crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js" defer></script>
+
+    <script src="{{ 'vendor-v5.js' | asset_url | split: '?' | first }}" defer="defer"></script>
+    {%- if shop.enabled_currencies.size > 1 -%}
+      <link
+        rel="preload"
+        as="style"
+        href="{{ 'currency-flags.css' | asset_url | split: '?' | first }}"
+        onload="this.onload=null;this.rel='stylesheet'">
+      <link rel="stylesheet" href="{{ 'currency-flags.css' | asset_url | split: '?' | first }}">
+    {%- endif -%}
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="{{ 'theme.min.js' | asset_url }}" defer="defer"></script>
+    {%- if request.page_type contains 'customers/' -%}
+      <script src="{{ 'shopify_common.js' | shopify_asset_url }}" defer="defer"></script>
+    {%- endif -%}
+
+    <meta name="google-site-verification" content="OoT-nAiIBV7p4HrOwF4nsXCnHqdwKuNBSl9PvoxavIQ" />
+
+    {{ 'hero.min.css' | asset_url | stylesheet_tag }}
+    {{ 'cta.min.css' | asset_url | stylesheet_tag }}
+    {{ 'filter.min.css' | asset_url | stylesheet_tag }}
+
+    
+    {% include "ot-cookies" %}
+
+
+
+    <!-- Extend - Add necessary SDK script tags and configure the store -->
+    <script src="https://sdk.helloextend.com/extend-sdk-client/v1/extend-sdk-client.min.js" defer="defer"></script>
+    <script src="https://sdk.helloextend.com/extend-sdk-client-shopify-addon/v1/extend-sdk-client-shopify-addon.min.js" defer="defer"></script>
+    <script defer="defer">
+      window.addEventListener('DOMContentLoaded', function(){
+      Extend.config({ storeId: 'a9023d4e-86e7-4555-9103-a4bcd3ea418e', environment: 'production' })
+            Extend.analytics = true;
+          })
+    </script>
+
+    <!-- Extend - Render polyfills to enable IE11 support -->
+    {% render 'extend-polyfills' %}
+
+    <!-- Extend - Render aftermarket integration snippet -->
+    {% render 'extend-aftermarket-integration' %}
+
+    <!-- Extend - Render analytics -->
+    {% render 'extend-analytics' %}
+    <!-- Extend - End Extend code -->
+
+    {% include 'smart-cart-template' %}
+
+
+    <!-- Clarity Tag -->
+    <script type="text/javascript">
+      (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+              t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+              y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+          })(window, document, "clarity", "script", "d6yqxg5fhm");
+    </script>
+
+    {% if false %}
+      <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+                t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+                y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+            })(window, document, "clarity", "script", "d71jv2oyk2");
+      </script>
+
+    {% endif %}
+
+    {% render 'GTM-product-datalayer' %}
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css" integrity="sha512-wR4oNhLBHf7smjy0K4oqzdWumd+r5/+6QO/vDda76MW5iug4PT7v86FoEkySIJft3XA0Ae6axhIvHrqwm793Nw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css" integrity="sha512-6lLUdeQ5uheMFbWm3CP271l14RsX1xtx+J5x2yeIDkkiBpeVTNhTqijME7GgRKKi6hCqovwCoBTlRBEC20M8Mg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <script src="{{ 'custom.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'product-card.min.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'product-hover.min.js' | asset_url }}" defer="defer"></script>
+
+    <script src="{{ 'filter.min.js' | asset_url }}" defer="defer"></script>
+    
+    {{ 'filter.min.js' | asset_url | script_tag }}
+
+    {% if template.name contains 'product' %}
+      
+    {% endif %}
+    
+    <!-- Start VWO Async SmartCode -->
+      <script type='text/javascript' id='vwoCode'>
+        window._vwo_code=window._vwo_code || (function() {
+        var account_id=715007,
+        version = 1.5,
+        settings_tolerance=2000,
+        library_tolerance=2500,
+        use_existing_jquery=false,
+        is_spa=1,
+        hide_element='body',
+        hide_element_style = 'opacity:0 !important;filter:alpha(opacity=0) !important;background:none !important',
+        /* DO NOT EDIT BELOW THIS LINE */
+        f=false,d=document,vwoCodeEl=d.querySelector('#vwoCode'),code={use_existing_jquery:function(){return use_existing_jquery},library_tolerance:function(){return library_tolerance},hide_element_style:function(){return'{'+hide_element_style+'}'},finish:function(){if(!f){f=true;var e=d.getElementById('_vis_opt_path_hides');if(e)e.parentNode.removeChild(e)}},finished:function(){return f},load:function(e){var t=d.createElement('script');t.fetchPriority='high';t.src=e;t.type='text/javascript';t.onerror=function(){_vwo_code.finish()};d.getElementsByTagName('head')[0].appendChild(t)},getVersion:function(){return version},getMatchedCookies:function(e){var t=[];if(document.cookie){t=document.cookie.match(e)||[]}return t},getCombinationCookie:function(){var e=code.getMatchedCookies(/(?:^|;)\s?(_vis_opt_exp_\d+_combi=[^;$]*)/gi);e=e.map(function(e){try{var t=decodeURIComponent(e);if(!/_vis_opt_exp_\d+_combi=(?:\d+,?)+\s*$/.test(t)){return''}return t}catch(e){return''}});var i=[];e.forEach(function(e){var t=e.match(/([\d,]+)/g);t&&i.push(t.join('-'))});return i.join('|')},init:function(){if(d.URL.indexOf('__vwo_disable__')>-1)return;window.settings_timer=setTimeout(function(){_vwo_code.finish()},settings_tolerance);var e=d.createElement('style'),t=hide_element?hide_element+'{'+hide_element_style+'}':'',i=d.getElementsByTagName('head')[0];e.setAttribute('id','_vis_opt_path_hides');vwoCodeEl&&e.setAttribute('nonce',vwoCodeEl.nonce);e.setAttribute('type','text/css');if(e.styleSheet)e.styleSheet.cssText=t;else e.appendChild(d.createTextNode(t));i.appendChild(e);var n=this.getCombinationCookie();this.load('https://dev.visualwebsiteoptimizer.com/j.php?a='+account_id+'&u='+encodeURIComponent(d.URL)+'&f='+ +is_spa+'&vn='+version+(n?'&c='+n:''));return settings_timer}};window._vwo_settings_timer = code.init();return code;}());
+      </script>
+  <!-- End VWO Async SmartCode -->
+
+
+    <script defer src="{{ 'gamification.min.js' | asset_url }}"></script>
+    <script defer src="{{ 'hero.min.js' | asset_url }}"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" defer></script>	
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js" defer></script> 	
+
+    <script>
+      var uniqueVisitorId = Date.now() + Math.random().toString(36).substring(7);
+      window.addEventListener("load", (event) => {
+        tatari.identify(uniqueVisitorId);
+        console.log('tatari')
+      });
+    </script>
+
+    {{ 'custom_new.css' | asset_url | stylesheet_tag }}
+    <script src="{{ 'custom_new.js' | asset_url }}" defer="defer"></script>
+    
+  </head>
+
+  <body
+    class="{{ page.metafields.custom.custom_class }} ab-test-more-cta t-{{ template.suffix }} abtest-change-color-cta__variant-a variant-a hero-loading template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}{% if request.path == '/challenge' %} template-challange{% endif %}{% if settings.cart_type == 'sticky' and cart.item_count > 0 and template != 'cart' %} body--sticky-cart-open{% endif %}{% if cart.item_count > 0 %} cart-has-items{% endif %}"
+    ontouchstart="return true;"
+    data-transitions="{{settings.animate_page_transitions}}"
+    data-animate_underlines="true"
+    data-animate_images="{{settings.animate_images}}"
+    data-button_style="{{settings.button_style}}"
+    data-type_product_capitalize="{{settings.type_product_capitalize}}"
+    data-type_header_capitalize="{{settings.type_header_capitalize}}"
+    data-product_image_scatter="{{settings.product_image_scatter}}"
+    data-button_type_style="{{settings.button_type_style}}"
+    data-template="{{ template.name }}"
+    >
+  {% render 'elevar-body-end' %}
+
+    {% section 'cart-drawer' %}
+
+    {% if false %}
+      <!-- Google Tag Manager (noscript) -->
+      <noscript>
+        <iframe
+          src="https://www.googletagmanager.com/ns.html?id=GTM-TGRK3NX"
+          height="0"
+          width="0"
+          style="display:none;visibility:hidden"></iframe>
+      </noscript>
+      <!-- End Google Tag Manager (noscript) -->
+    {% endif %}
+
+    <div
+      id="OverscrollLoader"
+      class="overscroll-loader"
+      aria-hidden="true">
+      <svg
+        aria-hidden="true"
+        focusable="false"
+        role="presentation"
+        class="icon icon--full-color icon-loader--full-color"><path class="icon-loader__close" d="M19 17.61l27.12 27.13m0-27.12L19 44.74" /><path class="icon-loader__path" d="M40 90a40 40 0 1 1 20 0" /></svg>
+    </div>
+
+    <div class="root">
+
+      {%- if settings.animate_page_transitions -%}
+        <script>
+          window.setTimeout(function() {
+            document.body.className += " loaded";
+          }, 25);
+        </script>
+      {%- endif -%}
+
+      {%- liquid
+      assign loader_size = settings.desktop_loader_width | append: 'x'
+      assign loader_size_mobile = settings.mobile_loader_width | append: 'x'
+    -%}
+
+      <div class="splash-screen">
+        {%- if settings.animate_page_transitions and settings.logo_loader_image != blank -%}
+          <div class="splash-screen__loader">
+            <img
+              class="loader-logo__img"
+              src="{{ settings.logo_loader_image | img_url: loader_size }}"
+              srcset="{{ settings.logo_loader_image | img_url: loader_size }} 1x, {{ settings.logo_loader_image | img_url: loader_size, scale: 2 }} 2x"
+              aria-hidden="true">
+          </div>
+        {%- else -%}
+          <span class="loader-text">{{ 'general.accessibility.loading' | t }}</span>
+        {%- endif -%}
+      </div>
+
+      <a class="in-page-link visually-hidden skip-link" href="#MainContent">{{ 'general.accessibility.skip_to_content' | t }}</a>
+
+      <div id="PageContainer" class="page-container">
+        <div class="transition-body">
+
+          {%- unless page.metafields.custom.hidden_header -%}
+            {%- section 'header' -%}
+            {%- section 'header-v2' -%}
+          {%- endunless -%}
+
+          {%- if template contains 'page.clutch-pro' -%}
+            {%- section 'header-clutch-pro' -%}
+          {%- endif -%}
+
+          {%- if page.metafields.custom.new_lp_header == true -%}
+            {% if template.suffix contains "safety-new" %}
+              {%- section 'Page-announcement-bar-new' -%}
+            {% elsif template.suffix contains "bfcm-new" %}
+              {%- section 'Page-announcement-bar-bfcm-new' -%}
+            {% elsif template.suffix contains "travel-new" %}
+              {%- section 'Page-announcement-bar-travel-new' -%}
+            {% elsif template.suffix contains "gifting-new" %}
+              {%- section 'Page-announcement-bar-gifting-new' -%}
+            {% endif %}
+            {%- section 'header-lp-new' -%}
+          {%- endif -%}
+
+          <main class="main-content" id="MainContent">
+            {{ content_for_layout }}
+          </main>
+
+          {%- unless page.metafields.custom.hidden_footer -%}
+            {%- section 'social' -%}
+            {%- section 'footer' -%}
+          {%- endunless -%}
+
+          {%- if page.metafields.custom.new_lp_footer == true -%}
+            {%- section 'footer-lp-new' -%}
+          {%- endif -%}
+
+        </div>
+      </div>
+
+      {%- section 'newsletter-popup' -%}
+
+      {%- render 'video-modal' -%}
+      {%- if settings.animate_page_transition_style == 'page-logo' -%}
+        <div class="loader-logo">
+          {%- if settings.logo_loader_image != blank -%}
+            <div class="splash-screen__loader">
+              <img
+                class="loader-logo__img"
+                src="{{ settings.logo_loader_image | img_url: loader_size }}"
+                srcset="{{ settings.logo_loader_image | img_url: loader_size }} 1x, {{ settings.logo_loader_image | img_url: loader_size, scale: 2 }} 2x"
+                aria-hidden="true">
+            </div>
+          {%- else -%}
+            <span class="loader-text">{{ 'general.accessibility.loading' | t }}</span>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+    </div>
+    <div id="ProductScreens"></div>
+
+    {% render 'special-offers' %}
+    {% render 'linkedin-pixel' %}
+
+
+    {% include 'wisepops-generated' %}
+
+    {%- liquid
+    render 'photoswipe-template'
+    if settings.cart_type == 'drawer'
+      render 'cart-drawer'
+    endif
+  -%}
+    
+<!--Gorgias Chat Widget Start-->
+<script id="gorgias-chat-widget-install-v3" 
+    src="https://config.gorgias.chat/bundle-loader/01GYCCB1EKQHE8S8YJSMJFGGA6?source=shopify1click">
+</script>
+<script id="gorgias-chat-shopify-install">!function(_){_.SHOPIFY_PERMANENT_DOMAIN="{{shop.permanent_domain}}",_.SHOPIFY_CUSTOMER_ID="{{customer.id}}",_.SHOPIFY_CUSTOMER_EMAIL="{{customer.email}}"}(window||{});
+</script>
+<!--Gorgias Chat Widget End-->
+
+    <!-- PF EDT START -->
+    <script type='text/javascript'>
+      {%- if content_for_header contains 'shopify-product-customizer' -%}
+        {%- if product -%}
+          {%- if product.first_available_variant -%}
+            var pfProductId = {{ product.metafields.printful.is_synced | json }};
+            var pfEdt = {{ shop.metafields.printful.is_edt_enabled | json }};
+            var pfEdtTextColor = {{ shop.metafields.printful.edt_text_color | json }};
+            var pfEdtBackgroundColor = {{ shop.metafields.printful.edt_background_color | json }};
+            var pfEdtBorderColor = {{ shop.metafields.printful.edt_border_color | json }};  
+            var pfEdtUseDefaultStyling = {{ shop.metafields.printful.edt_default_style | json }};
+            var pfEdtTextAlignment = {{ shop.metafields.printful.edt_text_alignment | json }};
+            var pfEdtFlags = {
+                            US: "{{ 'US.svg' | asset_url }}",CA: "{{ 'CA.svg' | asset_url }}",ES: "{{ 'ES.svg' | asset_url }}",LV: "{{ 'LV.svg' | asset_url }}",GB: "{{ 'GB.svg' | asset_url }}",DE: "{{ 'DE.svg' | asset_url }}",FR: "{{ 'FR.svg' | asset_url }}",AU: "{{ 'AU.svg' | asset_url }}",JP: "{{ 'JP.svg' | asset_url }}",NZ: "{{ 'NZ.svg' | asset_url }}",IT: "{{ 'IT.svg' | asset_url }}",BR: "{{ 'BR.svg' | asset_url }}",KR: "{{ 'KR.svg' | asset_url }}",NL: "{{ 'NL.svg' | asset_url }}",GB: "{{ 'GB.svg' | asset_url }}",
+            };
+          {%- else -%}
+            var pfEdt = 0;
+          {%- endif -%}
+        {%- endif -%}
+      {%- endif -%}
+    </script>
+    <!-- PF EDT END -->
+
+    <!--  Added to Cart Event      -->
+    {% if product %}
+      <script type="text/javascript">
+        var _learnq = _learnq || [];
+        function addedToCart() {
+          fetch(`${window.location.origin}/cart.js`)
+          .then(res => res.clone().json().then(data => {
+            var cart = {
+              total_price: data.total_price/100,
+              $value: data.total_price/100,
+              total_discount: data.total_discount,
+              original_total_price: data.original_total_price/100,
+              items: data.items
+            }
+            if (item !== 'undefined') {
+              cart = Object.assign(cart, item)
+            }
+            _learnq.push(['track', 'Added to Cart', cart])
+          }))
+        } 
+        (function (ns, fetch) {
+          ns.fetch = function() {
+            const response = fetch.apply(this, arguments);
+            response.then(res => {
+              if (`${window.location.origin}/cart/add.js`
+              	.includes(res.url)) {
+                	addedToCart()
+              }
+            });
+            return response
+          }
+        }(window, window.fetch))
+        $(document).ajaxComplete(function(event, request, settings){
+          if(settings.url == "/cart/add.js"){
+              addedToCart()
+          }
+        })</script>
+    {% endif %}
+    <!--    end    -->
+
+    <!-- Quantcast Tag -->
+    <script type="text/javascript">
+      window._qevents = window._qevents || [];
+      (function() {
+      var elem = document.createElement('script');
+      elem.src = (document.location.protocol == "https:" ? "https://secure" : "http://edge") + ".quantserve.com/quant.js";
+      elem.async = true;
+      elem.type = "text/javascript";
+      var scpt = document.getElementsByTagName('script')[0];
+      scpt.parentNode.insertBefore(elem, scpt);
+      })();
+      window._qevents.push({
+      qacct:"p-DCWwuWpU9raxd",
+      uid:"__INSERT_EMAIL_HERE__"
+      });
+    </script>
+    <noscript>
+      <div style="display:none;">
+        <img
+          src="//pixel.quantserve.com/pixel/p-DCWwuWpU9raxd.gif"
+          border="0"
+          height="1"
+          width="1"
+          alt="Quantcast" />
+      </div>
+    </noscript>
+    <!-- End Quantcast tag -->
+
+    {% if template == 'index' %}
+      {% include 'popup-abandon' %}
+    {% endif %}
+    
+    {% if template.suffix contains 'affiliate' %}
+      <script async src="{{ 'affiliate-page.min.js' | asset_url }}"></script>
+    {% endif %}
+
+    <!--MNTN Tracking Pixel-->
+    <script type="text/javascript">
+    	(function(){"use strict";var e=null,b="4.0.0",
+    	n="35035",
+    	additional="term=value",
+    	t,r,i;try{t=top.document.referer!==""?encodeURIComponent(top.document.referrer.substring(0,2048)):""}catch(o){t=document.referrer!==null?document.referrer.toString().substring(0,2048):""}try{r=window&&window.top&&document.location&&window.top.location===document.location?document.location:window&&window.top&&window.top.location&&""!==window.top.location?window.top.location:document.location}catch(u){r=document.location}try{i=parent.location.href!==""?encodeURIComponent(parent.location.href.toString().substring(0,2048)):""}catch(a){try{i=r!==null?encodeURIComponent(r.toString().substring(0,2048)):""}catch(f){i=""}}var l,c=document.createElement("script"),h=null,p=document.getElementsByTagName("script"),d=Number(p.length)-1,v=document.getElementsByTagName("script")[d];if(typeof l==="undefined"){l=Math.floor(Math.random()*1e17)}h="dx.mountain.com/spx?"+"dxver="+b+"&shaid="+n+"&tdr="+t+"&plh="+i+"&cb="+l+additional;c.type="text/javascript";c.src=("https:"===document.location.protocol?"https://":"http://")+h;v.parentNode.insertBefore(c,v)})()
+    </script>
+
+
+    {% if template.name contains 'product' %}
+      {{ 'social-count.min.js' | asset_url | script_tag }}
+    {% endif %}
+    
+
+    {% if template contains 'product' %}
+      <script>
+      var atcButtonID = ".add-to-cart";
+      var atcTagID = "tw-o6w4z-oezsy";
+      
+      var atcButton = document.querySelectorAll(atcButtonID);
+      if(atcButton){
+        atcButton.forEach(element => {
+          element.addEventListener("click", function(event) {
+            twttr.conversion.trackPid(atcTagID, { 
+              tw_sale_amount: '{{ product.selected_or_first_available_variant.price | money }}',
+              tw_order_quantity: 1,
+              content_name: '{{ product.title }} - {{ product.selected_or_first_available_variant.title }}'
+            });
+          });
+        });
+      }
+      </script>
+    {% endif %}
+
+    <script src="{{ 'side-cart.min.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'reviews-judgeme.min.js' | asset_url }}" defer="defer"></script>
+    
+    
+  </body>
+</body>
+</html>

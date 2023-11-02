@@ -1,0 +1,81 @@
+{{ 'component-banner-lp.css' | asset_url | stylesheet_tag: preload: true }}
+
+<section class="image_with_button__container">
+    <p>{{ section.settings.text_id }}</p>
+    <h2>{{ section.settings.title_id }}</h2>
+    <a href="{{ section.settings.url_id }}">{{ section.settings.btn_text_id }}</a>
+</section>
+
+<footer>
+  <a href="{{ routes.root_url }}">
+    <img src="https://cdn.shopify.com/s/files/1/0140/3774/5750/files/Logo_Type.png?v=1687411581" loading="lazy" width="118" height="auto" alt="Clutch logo">
+  </a>
+  <div class="terms_footer">
+    <a href="https://clutchcharger.com/pages/terms-of-use">Terms & Conditions</a>
+    <a href="https://clutchcharger.com/pages/privacy-policy">Privacy Policy</a>
+  </div>
+</footer>
+<style>
+ .image_with_button__container{
+    background-image: url("{{ section.settings.image_id | img_url: 'master' }}");
+ }
+</style>
+
+<script defer>
+
+  const scrollAnchor = () => {
+      
+    const element = document.querySelector('#product_buy'),
+        offset = element.getBoundingClientRect().top + window.pageYOffset;
+  
+    window.scrollTo({ top: offset - 10, behavior: 'smooth' });
+  
+  }
+
+  document.querySelectorAll('a[href="#product_buy"]').forEach(element => {
+    element.addEventListener('click', (e) => {
+      e.preventDefault()
+      scrollAnchor();
+    })
+  });
+
+</script>
+
+{% schema %}
+{
+  "name": "Image with button",
+  "class": "image_with_button",
+  "settings": [
+  {
+    "type": "image_picker",
+    "id": "image_id",
+    "label": "Background image"
+   },
+   {
+    "type": "text",
+    "id": "title_id",
+    "label": "Title"
+   },
+   {
+    "type": "text",
+    "id": "text_id",
+    "label": "Text"
+   },
+   {
+    "type": "text",
+    "id": "btn_text_id",
+    "label": "Button Text"
+   },
+   {
+    "type": "url",
+    "id": "url_id",
+    "label": "Button url"
+   }
+  ],
+  "presets": [
+    {
+      "name": "Image Background with buttton"
+    }
+  ]
+}
+{% endschema %}

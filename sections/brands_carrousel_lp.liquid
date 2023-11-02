@@ -1,0 +1,52 @@
+{{ 'component-brand-carrousel.css' | asset_url | stylesheet_tag: preload: true }}
+
+<section class="brands_carrousel__container">
+    <div class="carrousel_container">
+        {% for block in section.blocks %}
+        <div class="brand__item">
+            <img class="image_brand__item" src="{{ block.settings.brand_id | img_url: 'master' }}" alt="">
+            <div class="text_brand__item">
+                <img src="{{ 'icnon_background.svg' | asset_url }}" alt="">
+                <p>{{ block.settings.text_id }}</p>
+            </div>
+        </div>
+            
+        {% endfor %}
+    </div>
+</section>
+{% schema %}
+{
+  "name": "carrousel",
+  "class": "brand_carrousel_section",
+  "settings": [
+    {
+        "type": "text",
+        "id": "title_id",
+        "label": "Title"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Brand",
+      "type": "Brand",
+      "settings": [
+       {
+        "type": "image_picker",
+        "id": "brand_id",
+        "label": "Brand image"
+       },
+       {
+        "type": "text",
+        "id": "text_id",
+        "label": "Text"
+       }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Brand Carrousel"
+    }
+  ]
+}
+{% endschema %}
